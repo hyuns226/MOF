@@ -24,8 +24,22 @@ class AcademySignUpSelectGenreViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setButtonLayout()
     }
     
-    
+    //MARK:- FUNCTION
+    func setButtonLayout(){
+        kpopButton.layer.cornerRadius = 14
+        coreoButton.layer.cornerRadius = 14
+        hiphopButton.layer.cornerRadius = 14
+        rockingButton.layer.cornerRadius = 14
+        crumpButton.layer.cornerRadius = 14
+        voguingButton.layer.cornerRadius = 14
+        houseButton.layer.cornerRadius = 14
+        
+        nextButton.layer.cornerRadius = 17.5
+        
+    }
     
 }
