@@ -74,6 +74,9 @@
 		A7D44D752758ED3A0020CB8F /* MYRegularClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D44D742758ED3A0020CB8F /* MYRegularClassTableViewCell.swift */; };
 		A7D44D79277D39510020CB8F /* GeneralSelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D44D78277D39510020CB8F /* GeneralSelectRegionViewController.swift */; };
 		A7D44D7C277D4AD60020CB8F /* SIgnInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D44D7B277D4AD60020CB8F /* SIgnInViewController.swift */; };
+		A7DA21E02796E33B004EE1D1 /* AcademySignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */; };
+		A7DA21E32796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */; };
+		A7DA21E62796E4CE004EE1D1 /* AcademyWelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */; };
 		A7F5F75C27279BD400D17FA2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F75B27279BD400D17FA2 /* HomeViewController.swift */; };
 		A7F5F7742727B7C800D17FA2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7732727B7C800D17FA2 /* HomePageViewController.swift */; };
 		A7F5F7772727B7D800D17FA2 /* KpopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7762727B7D800D17FA2 /* KpopViewController.swift */; };
@@ -188,6 +191,9 @@
 		A7D44D742758ED3A0020CB8F /* MYRegularClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYRegularClassTableViewCell.swift; sourceTree = "<group>"; };
 		A7D44D78277D39510020CB8F /* GeneralSelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSelectRegionViewController.swift; sourceTree = "<group>"; };
 		A7D44D7B277D4AD60020CB8F /* SIgnInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIgnInViewController.swift; sourceTree = "<group>"; };
+		A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademySignUpViewController.swift; sourceTree = "<group>"; };
+		A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademySignUpSelectGenreViewController.swift; sourceTree = "<group>"; };
+		A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyWelcomViewController.swift; sourceTree = "<group>"; };
 		A7F5F75B27279BD400D17FA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A7F5F7732727B7C800D17FA2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		A7F5F7762727B7D800D17FA2 /* KpopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KpopViewController.swift; sourceTree = "<group>"; };
@@ -390,6 +396,9 @@
 				A7B8DE992786F448006DDED9 /* AcademyMyPageViewController.swift */,
 				A7B8DE9D27870E30006DDED9 /* AddClassViewController.swift */,
 				A7B8DEA027870EAB006DDED9 /* AddTeacherPopUpViewController.swift */,
+				A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */,
+				A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */,
+				A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */,
 			);
 			path = AcademyUser;
 			sourceTree = "<group>";
@@ -814,6 +823,7 @@
 				A7B8DEBE278F6A66006DDED9 /* loginRequest.swift in Sources */,
 				BD439434252E1FBD0055F2E6 /* Device.swift in Sources */,
 				A7B8DDB227855ABA006DDED9 /* RockingViewController.swift in Sources */,
+				A7DA21E02796E33B004EE1D1 /* AcademySignUpViewController.swift in Sources */,
 				BD439401252E13EF0055F2E6 /* AppDelegate.swift in Sources */,
 				A7D44D79277D39510020CB8F /* GeneralSelectRegionViewController.swift in Sources */,
 				A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */,
@@ -830,6 +840,7 @@
 				BD439403252E13EF0055F2E6 /* SceneDelegate.swift in Sources */,
 				BD439437252E1FE40055F2E6 /* BaseViewController.swift in Sources */,
 				A7F5F7B927291DB500D17FA2 /* RecommendCollectionViewCell.swift in Sources */,
+				A7DA21E62796E4CE004EE1D1 /* AcademyWelcomViewController.swift in Sources */,
 				BD439431252E1F870055F2E6 /* IndicatorView.swift in Sources */,
 				A79444AA274D026B0003C72E /* MyChatTableViewCell.swift in Sources */,
 				A7B8DED4279016B5006DDED9 /* userModifyResponse.swift in Sources */,
@@ -865,6 +876,7 @@
 				A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */,
 				A79444A4274CDFFF0003C72E /* ChattingTableViewCell.swift in Sources */,
 				A7F5F7C32729263D00D17FA2 /* ShoesSearchViewController.swift in Sources */,
+				A7DA21E32796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift in Sources */,
 				A7F5F7C62729264F00D17FA2 /* ClothesSearchViewController.swift in Sources */,
 				A7F5F7802727B80900D17FA2 /* GirsHiphopViewController.swift in Sources */,
 				A7F5F7832727B81900D17FA2 /* WaakingViewController.swift in Sources */,
