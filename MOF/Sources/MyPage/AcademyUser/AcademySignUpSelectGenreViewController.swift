@@ -8,6 +8,9 @@
 import UIKit
 class AcademySignUpSelectGenreViewController : UIViewController{
     
+    var signUpInput = AcademySignUpRequest(image: "", academyEmail: "", academyPWD: "", academyName: "", academyPhone: "", academyDetailAddress: "", academyAddress: "", academyGernre: "")
+    
+    
     @IBOutlet weak var AcademyImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     
@@ -21,6 +24,10 @@ class AcademySignUpSelectGenreViewController : UIViewController{
     
     @IBOutlet weak var nextButton: UIButton!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        print(self.signUpInput)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

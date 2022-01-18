@@ -77,6 +77,7 @@
 		A7DA21E02796E33B004EE1D1 /* AcademySignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */; };
 		A7DA21E32796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */; };
 		A7DA21E62796E4CE004EE1D1 /* AcademyWelcomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */; };
+		A7DA21EF2796EFA7004EE1D1 /* AcademySignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA21EE2796EFA7004EE1D1 /* AcademySignUpRequest.swift */; };
 		A7F5F75C27279BD400D17FA2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F75B27279BD400D17FA2 /* HomeViewController.swift */; };
 		A7F5F7742727B7C800D17FA2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7732727B7C800D17FA2 /* HomePageViewController.swift */; };
 		A7F5F7772727B7D800D17FA2 /* KpopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7762727B7D800D17FA2 /* KpopViewController.swift */; };
@@ -194,6 +195,7 @@
 		A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademySignUpViewController.swift; sourceTree = "<group>"; };
 		A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademySignUpSelectGenreViewController.swift; sourceTree = "<group>"; };
 		A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyWelcomViewController.swift; sourceTree = "<group>"; };
+		A7DA21EE2796EFA7004EE1D1 /* AcademySignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademySignUpRequest.swift; sourceTree = "<group>"; };
 		A7F5F75B27279BD400D17FA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A7F5F7732727B7C800D17FA2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		A7F5F7762727B7D800D17FA2 /* KpopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KpopViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 		A74A0AD727250C960013CB2F /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				A7DA21EC2796EF88004EE1D1 /* AcademyEntity */,
 				A74A0ADF272514670013CB2F /* MyPageStoryboard.storyboard */,
 				A7D44D7B277D4AD60020CB8F /* SIgnInViewController.swift */,
 				A7B8DEB327898ABB006DDED9 /* UserMyPageDataManager.swift */,
@@ -418,6 +421,14 @@
 				A7B8DEE527907F7C006DDED9 /* commonResponse.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		A7DA21EC2796EF88004EE1D1 /* AcademyEntity */ = {
+			isa = PBXGroup;
+			children = (
+				A7DA21EE2796EFA7004EE1D1 /* AcademySignUpRequest.swift */,
+			);
+			path = AcademyEntity;
 			sourceTree = "<group>";
 		};
 		A7F5F7622727AA5300D17FA2 /* HomeTab */ = {
@@ -898,6 +909,7 @@
 				A7F5F77A2727B7E700D17FA2 /* CoreoViewController.swift in Sources */,
 				A7F5F7E527292A1200D17FA2 /* UpcyclingsearchCollectionViewCell.swift in Sources */,
 				A7B8DEE627907F7C006DDED9 /* commonResponse.swift in Sources */,
+				A7DA21EF2796EFA7004EE1D1 /* AcademySignUpRequest.swift in Sources */,
 				A7F5F7B627290D6B00D17FA2 /* SearchViewController.swift in Sources */,
 				A7B8DECE27900C96006DDED9 /* GeneralMyProfileViewController.swift in Sources */,
 				A79444A1274CC66E0003C72E /* ChatViewController.swift in Sources */,
