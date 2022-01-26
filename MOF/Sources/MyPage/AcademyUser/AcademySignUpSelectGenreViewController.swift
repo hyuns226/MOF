@@ -63,7 +63,7 @@ class AcademySignUpSelectGenreViewController : UIViewController{
     }
     
     //강의 장르 버튼 선택 동작
-    @IBAction func regionButtonClicked(_ sender: UIButton) {
+    @IBAction func genreButtonAction(_ sender: UIButton) {
         switch sender.tag{
         case 1 :
            

@@ -10,6 +10,9 @@
 		31A74224F0555E2E3BB749E0 /* Pods_MOF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3D235A6AE08545FA61732A /* Pods_MOF.framework */; };
 		A74A0AE0272514670013CB2F /* MyPageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74A0ADF272514670013CB2F /* MyPageStoryboard.storyboard */; };
 		A74A0AE3272514E50013CB2F /* LikeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A74A0AE2272514E50013CB2F /* LikeStoryboard.storyboard */; };
+		A76DCEE727A13CCA00FB7A6D /* addClassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEE627A13CCA00FB7A6D /* addClassRequest.swift */; };
+		A76DCEEB27A14FB600FB7A6D /* datePickerPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */; };
+		A76DCEEE27A16BAE00FB7A6D /* dayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -128,6 +131,9 @@
 		A74A0AE2272514E50013CB2F /* LikeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LikeStoryboard.storyboard; sourceTree = "<group>"; };
 		A76B88B92796D266000667CC /* Pods-MOF.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-MOF.debug.xcconfig"; path = "Target Support Files/Pods-MOF/Pods-MOF.debug.xcconfig"; sourceTree = "<group>"; };
 		A76B88BA2796D26D000667CC /* Pods-MOF.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = "Pods-MOF.release.xcconfig"; path = "Target Support Files/Pods-MOF/Pods-MOF.release.xcconfig"; sourceTree = "<group>"; };
+		A76DCEE627A13CCA00FB7A6D /* addClassRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addClassRequest.swift; sourceTree = "<group>"; };
+		A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datePickerPopUpViewController.swift; sourceTree = "<group>"; };
+		A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayPicker.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -294,7 +300,7 @@
 				A74A0ADF272514670013CB2F /* MyPageStoryboard.storyboard */,
 				A7D44D7B277D4AD60020CB8F /* SIgnInViewController.swift */,
 				A7B8DEB327898ABB006DDED9 /* UserMyPageDataManager.swift */,
-				A7B8DEAC278988ED006DDED9 /* Entity */,
+				A7B8DEAC278988ED006DDED9 /* userEntity */,
 				A7B8DE972786F3E4006DDED9 /* GeneralUser */,
 				A7B8DE982786F415006DDED9 /* AcademyUser */,
 			);
@@ -402,11 +408,13 @@
 				A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */,
 				A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */,
 				A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */,
+				A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */,
+				A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */,
 			);
 			path = AcademyUser;
 			sourceTree = "<group>";
 		};
-		A7B8DEAC278988ED006DDED9 /* Entity */ = {
+		A7B8DEAC278988ED006DDED9 /* userEntity */ = {
 			isa = PBXGroup;
 			children = (
 				A7B8DEAD27898953006DDED9 /* usersRequest.swift */,
@@ -420,13 +428,14 @@
 				A7B8DEE227905E50006DDED9 /* userProfileImageRequest.swift */,
 				A7B8DEE527907F7C006DDED9 /* commonResponse.swift */,
 			);
-			path = Entity;
+			path = userEntity;
 			sourceTree = "<group>";
 		};
 		A7DA21EC2796EF88004EE1D1 /* AcademyEntity */ = {
 			isa = PBXGroup;
 			children = (
 				A7DA21EE2796EFA7004EE1D1 /* AcademySignUpRequest.swift */,
+				A76DCEE627A13CCA00FB7A6D /* addClassRequest.swift */,
 			);
 			path = AcademyEntity;
 			sourceTree = "<group>";
@@ -877,6 +886,7 @@
 				A7B8DEAE27898953006DDED9 /* usersRequest.swift in Sources */,
 				A7B8DEE327905E50006DDED9 /* userProfileImageRequest.swift in Sources */,
 				A7B8DEB427898ABB006DDED9 /* UserMyPageDataManager.swift in Sources */,
+				A76DCEEE27A16BAE00FB7A6D /* dayPicker.swift in Sources */,
 				A7D44D622758B5C20020CB8F /* ClassCollectionViewCell.swift in Sources */,
 				A7B8DEDE27903CCA006DDED9 /* HomeDataManager.swift in Sources */,
 				A7B8DEC7278F9061006DDED9 /* GeneralSettingViewController.swift in Sources */,
@@ -899,6 +909,7 @@
 				A7F5F7CF2729271C00D17FA2 /* DetailSearchPageViewController.swift in Sources */,
 				A7B8DED12790127D006DDED9 /* userModifyRequest.swift in Sources */,
 				A7B8DDBB27855AEA006DDED9 /* HouseViewController.swift in Sources */,
+				A76DCEEB27A14FB600FB7A6D /* datePickerPopUpViewController.swift in Sources */,
 				A7D44D542758A32B0020CB8F /* AcademyViewController.swift in Sources */,
 				A7B8DDD127857A1C006DDED9 /* RockingTableViewCell.swift in Sources */,
 				A7B8DEB8278EB3ED006DDED9 /* GeneralRegionTableViewCell.swift in Sources */,
@@ -911,6 +922,7 @@
 				A7B8DEE627907F7C006DDED9 /* commonResponse.swift in Sources */,
 				A7DA21EF2796EFA7004EE1D1 /* AcademySignUpRequest.swift in Sources */,
 				A7F5F7B627290D6B00D17FA2 /* SearchViewController.swift in Sources */,
+				A76DCEE727A13CCA00FB7A6D /* addClassRequest.swift in Sources */,
 				A7B8DECE27900C96006DDED9 /* GeneralMyProfileViewController.swift in Sources */,
 				A79444A1274CC66E0003C72E /* ChatViewController.swift in Sources */,
 				A7B8DDC5278579E0006DDED9 /* HiphopTableViewCell.swift in Sources */,
