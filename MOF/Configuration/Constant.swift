@@ -8,6 +8,6 @@
 import Alamofire
 
 struct Constant {
-    static let BASE_URL = "http://movementoverfeeling.com/"
+    static let BASE_URL = "https://movementoverfeeling.com/"
     
 }
