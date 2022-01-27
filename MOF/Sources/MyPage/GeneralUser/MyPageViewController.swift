@@ -76,11 +76,11 @@ class MyPageViewController : UIViewController{
         }
     }
     
-    @IBAction func DesignerTabAction(_ sender: UIButton) {
+    @IBAction func regularClassTabAction(_ sender: UIButton) {
         pageViewController.setViewcontrollersFromIndex(index: 0)
     }
     
-    @IBAction func CustomTabAction(_ sender: UIButton) {
+    @IBAction func onedayClassTabAction(_ sender: UIButton) {
         pageViewController.setViewcontrollersFromIndex(index: 1)
     }
     
