@@ -13,6 +13,8 @@
 		A76DCEE727A13CCA00FB7A6D /* addClassRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEE627A13CCA00FB7A6D /* addClassRequest.swift */; };
 		A76DCEEB27A14FB600FB7A6D /* datePickerPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */; };
 		A76DCEEE27A16BAE00FB7A6D /* dayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */; };
+		A76DCEF127A2679300FB7A6D /* passwordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF027A2679200FB7A6D /* passwordRequest.swift */; };
+		A76DCEF427A26E8A00FB7A6D /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF327A26E8A00FB7A6D /* changePasswordViewController.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -134,6 +136,8 @@
 		A76DCEE627A13CCA00FB7A6D /* addClassRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addClassRequest.swift; sourceTree = "<group>"; };
 		A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datePickerPopUpViewController.swift; sourceTree = "<group>"; };
 		A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayPicker.swift; sourceTree = "<group>"; };
+		A76DCEF027A2679200FB7A6D /* passwordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordRequest.swift; sourceTree = "<group>"; };
+		A76DCEF327A26E8A00FB7A6D /* changePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordViewController.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -395,6 +399,7 @@
 				A7B8DEB7278EB3ED006DDED9 /* GeneralRegionTableViewCell.swift */,
 				A7B8DEC6278F9061006DDED9 /* GeneralSettingViewController.swift */,
 				A7B8DECD27900C96006DDED9 /* GeneralMyProfileViewController.swift */,
+				A76DCEF327A26E8A00FB7A6D /* changePasswordViewController.swift */,
 			);
 			path = GeneralUser;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 				A7B8DEDA279020B9006DDED9 /* userProfileResponse.swift */,
 				A7B8DEE227905E50006DDED9 /* userProfileImageRequest.swift */,
 				A7B8DEE527907F7C006DDED9 /* commonResponse.swift */,
+				A76DCEF027A2679200FB7A6D /* passwordRequest.swift */,
 			);
 			path = userEntity;
 			sourceTree = "<group>";
@@ -850,6 +856,7 @@
 				A7B8DEB127898A42006DDED9 /* usersResponse.swift in Sources */,
 				A7F5F7742727B7C800D17FA2 /* HomePageViewController.swift in Sources */,
 				A7D44D7C277D4AD60020CB8F /* SIgnInViewController.swift in Sources */,
+				A76DCEF127A2679300FB7A6D /* passwordRequest.swift in Sources */,
 				BD439422252E17A60055F2E6 /* String.swift in Sources */,
 				A76EEE69274399F100CA653B /* OtherAcademyCollectionViewCell.swift in Sources */,
 				A7B8DE942786ECA7006DDED9 /* CustomTabBarController.swift in Sources */,
@@ -884,6 +891,7 @@
 				A7D44D6E2758E7CB0020CB8F /* MyOnedayViewController.swift in Sources */,
 				A7B8DDDD27858583006DDED9 /* HomeFilterViewController.swift in Sources */,
 				A7B8DEAE27898953006DDED9 /* usersRequest.swift in Sources */,
+				A76DCEF427A26E8A00FB7A6D /* changePasswordViewController.swift in Sources */,
 				A7B8DEE327905E50006DDED9 /* userProfileImageRequest.swift in Sources */,
 				A7B8DEB427898ABB006DDED9 /* UserMyPageDataManager.swift in Sources */,
 				A76DCEEE27A16BAE00FB7A6D /* dayPicker.swift in Sources */,

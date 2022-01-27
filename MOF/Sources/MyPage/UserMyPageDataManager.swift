@@ -23,6 +23,23 @@ class UserMyPageDataManager{
             }
     }
     
+    //일반 유저 비밀번호 변경
+    func password(_ parameters: passwordRequest, userIndex : Int, delegate: changePasswordViewController) {
+        AF.request("\(Constant.BASE_URL)users/passwords/\(userIndex)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: usersResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.password(result: response)
+                   
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest(message: "서버와의 연결이 원활하지 않습니다")
+                }
+            }
+    }
+    
+    
     //일반 유저 회원 탈퇴
     func status(userIndex : Int, delegate: GeneralSettingViewController) {
         AF.request("\(Constant.BASE_URL)users/status/\(userIndex)", method: .patch, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)

@@ -40,6 +40,11 @@ class GeneralSettingViewController : UIViewController{
     @IBAction func InqueryAction(_ sender: Any) {
         print("clicked")
     }
+    @IBAction func changePasswordAction(_ sender: Any) {
+        
+       
+        
+    }
     
     @IBAction func withdrawAction(_ sender: Any) {
         
@@ -65,6 +70,9 @@ extension GeneralSettingViewController{
         }
         
     }
+    
+    
+    
     
     func failedToRequest(message : String){
         
