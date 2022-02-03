@@ -7,7 +7,6 @@
 
 import Alamofire
 class UserMyPageDataManager{
-    
     //일반 유저 회원가입
     func users(_ parameters: usersRequest, delegate: SignUpViewController) {
         AF.request("\(Constant.BASE_URL)users", method: .post, parameters: parameters, encoder: JSONParameterEncoder())
@@ -22,6 +21,22 @@ class UserMyPageDataManager{
                 }
             }
     }
+    
+    //전체 유저 로그인
+    func login(_ parameters: loginRequest, delegate: SIgnInViewController) {
+        AF.request("\(Constant.BASE_URL)users/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder())
+            .validate()
+            .responseDecodable(of: loginResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.login(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
+    
     
     //일반 유저 비밀번호 변경
     func password(_ parameters: passwordRequest, userIndex : Int, delegate: changePasswordViewController) {
@@ -119,6 +134,21 @@ class UserMyPageDataManager{
                     }
                 }
         }
+    
+    //유저 정규 수업 조회
+    func regularClass(userIdx : Int, delegate: MyRegularClassViewontroller) {
+        AF.request("\(Constant.BASE_URL)users/regular-class-enrolls/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: userRegularClassResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.regularClass(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
     
 
     

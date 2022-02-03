@@ -8,6 +8,9 @@
 import UIKit
 class SIgnInViewController : UIViewController{
 
+    lazy var dataManager = UserMyPageDataManager()
+    var loginInput = loginRequest(userEmail: "", userPWD: "")
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var autoLoginButton: UIButton!
@@ -19,9 +22,36 @@ class SIgnInViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loginButton.isEnabled = false
+        loginButton.backgroundColor = #colorLiteral(red: 0.808078289, green: 0.8075512052, blue: 0.829269588, alpha: 1)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(checkTextField), name: UITextField.textDidChangeNotification, object: nil)
     }
     
 //MARK - FUNCTION
+    
+    @IBAction func tempLogin(_ sender: Any) {
+        tabBarController(tabBarController: self.tabBarController!)
+        
+    }
+    
+    
+    //MARK: - 텍스트 필드 채워지면 버튼 활성화
+    @objc func checkTextField(){
+        let filteredArray = [emailTextField,passwordTextField].filter { $0?.text == "" }
+        if (filteredArray.isEmpty){
+           
+            loginButton.isEnabled = true
+            loginButton.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.70392102, alpha: 1)
+            
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = #colorLiteral(red: 0.808078289, green: 0.8075512052, blue: 0.829269588, alpha: 1)
+            
+        }
+    }
+    
     
     @IBAction func autoLoginAction(_ sender: Any) {
         autoLoginButton.isSelected =  !autoLoginButton.isSelected
@@ -76,7 +106,14 @@ class SIgnInViewController : UIViewController{
 
 
     @IBAction func loginButtonAction(_ sender: Any) {
-        tabBarController(tabBarController: self.tabBarController!)
+        
+        loginInput.userEmail = emailTextField.text!
+        loginInput.userPWD = passwordTextField.text!
+        
+        
+        dataManager.login(loginInput, delegate: self)
+        
+       
         
     }
     
@@ -84,3 +121,33 @@ class SIgnInViewController : UIViewController{
     
     
 }
+
+//MARK: - API
+extension SIgnInViewController{
+    
+    
+    func login(result : loginResponse){
+        if result.isSuccess == true{
+            print(result)
+            
+            KeyCenter.userIndex = result.result!.userIdx
+            KeyCenter.LOGIN_TOKEN = result.result!.jwt
+            
+            tabBarController(tabBarController: self.tabBarController!)
+            
+        }else{
+            self.presentAlert(title: result.message)
+            
+        }
+    
+    }
+    
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
+    }
+    
+    
+}
+

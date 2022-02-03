@@ -10,7 +10,7 @@ struct loginResponse : Decodable{
     var isSuccess : Bool
     var code : Int
     var message : String
-    var result : results
+    var result : results?
 }
 
 struct results : Decodable{
@@ -18,5 +18,15 @@ struct results : Decodable{
     var userIdx : Int
     var jwt : String
     
+    enum CodingKeys : String, CodingKey{
+
+            case APIResult = "API Result"
+            case userIdx
+            case jwt
+
+        }
     
 }
+
+
+
