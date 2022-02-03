@@ -150,6 +150,21 @@ class UserMyPageDataManager{
             }
     }
     
+    //유저 정규 수업 조회
+    func onedayClass(userIdx : Int, delegate: MyOnedayViewController) {
+        AF.request("\(Constant.BASE_URL)users/oneday-class-enrolls/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: userOnedayClassResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.onedayClass(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
+    
 
     
 }

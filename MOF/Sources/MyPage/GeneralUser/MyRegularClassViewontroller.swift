@@ -34,6 +34,8 @@ class MyRegularClassViewontroller : UIViewController{
 }
 
 
+//MARK:-EXTENSION
+
 extension MyRegularClassViewontroller : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return regularClasses.count
