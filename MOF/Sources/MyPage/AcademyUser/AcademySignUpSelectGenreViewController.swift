@@ -8,14 +8,19 @@
 import UIKit
 class AcademySignUpSelectGenreViewController : UIViewController{
     
+    lazy var dataManager = AcademyMyPageDataManager()
+    
     var signUpInput = AcademySignUpRequest(image: "", academyEmail: "", academyPWD: "", academyName: "", academyPhone: "", academyDetailAddress: "", academyAddress: "", academyGernre: "")
     
     lazy var buttonList = [kpopButton,coreoButton,hiphopButton,girlsHiphopButton,waakingButton,popinButton,rockingButton,crumpButton,voguingButton,houseButton]
     
     var genreList = ["K-POP","코레오","힙합","걸스힙합","왁킹","팝핀","락킹","크럼프","보깅","하우스"]
     
+    
     var clickedAcademyList = [Int]()
     var academyInput = [String]()
+    
+    var academyString = ""
     
     @IBOutlet weak var AcademyImageView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
@@ -130,13 +135,66 @@ class AcademySignUpSelectGenreViewController : UIViewController{
                 academyInput.append(genreList[i])
             }
         
-            
         }
-        print(academyInput)
+        
+        for i in academyInput{
+            
+            if academyString == ""{
+                academyString = i
+            }else{
+                academyString = academyString + ", " + i
+            }
+            
+           
+        }
+        
+        
+        signUpInput.academyGernre = academyString
+        
+        print(signUpInput)
+        
+        dataManager.academy(signUpInput, delegate: self)
+        
         academyInput.removeAll()
+        
+        
     }
     
     
+    
+    
+}
+
+//MARK: - API
+extension AcademySignUpSelectGenreViewController{
+    
+    
+    func academy(result : academySignUpResponse){
+        if result.isSuccess == true{
+            print(result)
+            
+           //유저아이디
+            
+            
+            self.dismiss(animated: false, completion: nil)
+            
+            let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyWelcomViewController") as! AcademyWelcomViewController
+            
+            self.present(welcomeVC,animated: false)
+            
+            
+        }else{
+            self.presentAlert(title: result.message)
+            
+        }
+    
+    }
+    
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
+    }
     
     
 }

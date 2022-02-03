@@ -30,6 +30,10 @@ class HomeViewController : UIViewController{
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        self.navigationController?.navigationBar.isHidden = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonList()

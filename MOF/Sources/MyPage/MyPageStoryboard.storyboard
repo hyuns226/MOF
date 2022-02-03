@@ -2962,6 +2962,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button" image="xmark" catalog="system"/>
                                         <connections>
+                                            <action selector="closeButton:" destination="Jbc-Du-xdZ" eventType="touchUpInside" id="Kxn-3q-o0k"/>
                                             <action selector="closeButtonAction:" destination="jUe-iR-VmM" eventType="touchUpInside" id="V5D-BY-ruc"/>
                                         </connections>
                                     </button>

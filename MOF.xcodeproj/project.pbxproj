@@ -18,6 +18,8 @@
 		A76DCEF727ABA1A300FB7A6D /* userRegularClassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF627ABA1A300FB7A6D /* userRegularClassResponse.swift */; };
 		A76DCEFA27ABBF6D00FB7A6D /* MYOnedayClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF927ABBF6D00FB7A6D /* MYOnedayClassTableViewCell.swift */; };
 		A76DCEFE27ABC1C200FB7A6D /* userOnedayClassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEFD27ABC1C200FB7A6D /* userOnedayClassResponse.swift */; };
+		A76DCF0127ABD85C00FB7A6D /* AcademyMyPageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF0027ABD85C00FB7A6D /* AcademyMyPageDataManager.swift */; };
+		A76DCF0527ABD8F000FB7A6D /* academySignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF0427ABD8F000FB7A6D /* academySignUpResponse.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -144,6 +146,8 @@
 		A76DCEF627ABA1A300FB7A6D /* userRegularClassResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userRegularClassResponse.swift; sourceTree = "<group>"; };
 		A76DCEF927ABBF6D00FB7A6D /* MYOnedayClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYOnedayClassTableViewCell.swift; sourceTree = "<group>"; };
 		A76DCEFD27ABC1C200FB7A6D /* userOnedayClassResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userOnedayClassResponse.swift; sourceTree = "<group>"; };
+		A76DCF0027ABD85C00FB7A6D /* AcademyMyPageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyMyPageDataManager.swift; sourceTree = "<group>"; };
+		A76DCF0427ABD8F000FB7A6D /* academySignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = academySignUpResponse.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -306,10 +310,11 @@
 		A74A0AD727250C960013CB2F /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				A7DA21EC2796EF88004EE1D1 /* AcademyEntity */,
 				A74A0ADF272514670013CB2F /* MyPageStoryboard.storyboard */,
 				A7D44D7B277D4AD60020CB8F /* SIgnInViewController.swift */,
 				A7B8DEB327898ABB006DDED9 /* UserMyPageDataManager.swift */,
+				A76DCF0027ABD85C00FB7A6D /* AcademyMyPageDataManager.swift */,
+				A7DA21EC2796EF88004EE1D1 /* AcademyEntity */,
 				A7B8DEAC278988ED006DDED9 /* userEntity */,
 				A7B8DE972786F3E4006DDED9 /* GeneralUser */,
 				A7B8DE982786F415006DDED9 /* AcademyUser */,
@@ -451,6 +456,7 @@
 			children = (
 				A7DA21EE2796EFA7004EE1D1 /* AcademySignUpRequest.swift */,
 				A76DCEE627A13CCA00FB7A6D /* addClassRequest.swift */,
+				A76DCF0427ABD8F000FB7A6D /* academySignUpResponse.swift */,
 			);
 			path = AcademyEntity;
 			sourceTree = "<group>";
@@ -936,6 +942,7 @@
 				A7B8DDB527855ACA006DDED9 /* CrumpViewController.swift in Sources */,
 				A7F5F7DC272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift in Sources */,
 				A7B8DDD427857A2D006DDED9 /* CrumpTableViewCell.swift in Sources */,
+				A76DCF0527ABD8F000FB7A6D /* academySignUpResponse.swift in Sources */,
 				A7D44D752758ED3A0020CB8F /* MYRegularClassTableViewCell.swift in Sources */,
 				A7F5F77A2727B7E700D17FA2 /* CoreoViewController.swift in Sources */,
 				A7F5F7E527292A1200D17FA2 /* UpcyclingsearchCollectionViewCell.swift in Sources */,
@@ -956,6 +963,7 @@
 				A7B8DEDB279020B9006DDED9 /* userProfileResponse.swift in Sources */,
 				A79444AD274D027D0003C72E /* YourChatTableViewCell.swift in Sources */,
 				A76EEE6C27439A3500CA653B /* RegularClassTableViewCell.swift in Sources */,
+				A76DCF0127ABD85C00FB7A6D /* AcademyMyPageDataManager.swift in Sources */,
 				BD4394AC252E2AED0055F2E6 /* UIFont.swift in Sources */,
 				A7B8DEA627897E2A006DDED9 /* SignUpViewController.swift in Sources */,
 				A7B8DECA278F9919006DDED9 /* keyCenter.swift in Sources */,
