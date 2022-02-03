@@ -58,6 +58,11 @@ class datePickerPopUpViewController : UIViewController{
     }
     
     
+    @IBAction func closeButton(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    
 }
 
 //MARK:- EXTENSION
