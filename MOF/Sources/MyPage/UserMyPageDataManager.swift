@@ -43,7 +43,7 @@ class UserMyPageDataManager{
         AF.request("\(Constant.BASE_URL)users/passwords/\(userIndex)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: KeyCenter.header)
             .validate()
             .responseDecodable(of: usersResponse.self) { response in
-                switch response.result {
+                switch response.result { 
                 case .success(let response):
                     delegate.password(result: response)
                    

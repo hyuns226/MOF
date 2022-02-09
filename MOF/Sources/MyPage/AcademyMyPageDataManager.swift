@@ -22,6 +22,21 @@ class AcademyMyPageDataManager{
             }
     }
     
+    //학원 마이프로필 정보 조회
+    func academyProfile(academyIdx : Int, delegate: AcademyMyProfileViewController) {
+        AF.request("\(Constant.BASE_URL)academy/\(academyIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodable(of: academyProfileResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.academyProfile(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
+    
     
     
     
