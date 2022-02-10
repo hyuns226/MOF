@@ -37,6 +37,22 @@ class AcademyMyPageDataManager{
             }
     }
     
+    //학원 마이프로필 정보 수정
+    func academyProfileModify(_ parameters: academyProfileRequest, academyIdx : Int, delegate: AcademyMyProfileViewController) {
+        AF.request("\(Constant.BASE_URL)academy/\(academyIdx)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: regularResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.profileModify(result: response)
+                   
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
+    
     
     
     

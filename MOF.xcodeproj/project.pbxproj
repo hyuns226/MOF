@@ -22,6 +22,9 @@
 		A76DCF0527ABD8F000FB7A6D /* academySignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF0427ABD8F000FB7A6D /* academySignUpResponse.swift */; };
 		A76DCF0827B3824600FB7A6D /* AcademyMyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF0727B3824600FB7A6D /* AcademyMyProfileViewController.swift */; };
 		A76DCF0B27B3983D00FB7A6D /* academyProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF0A27B3983D00FB7A6D /* academyProfileResponse.swift */; };
+		A76DCF0F27B3D18F00FB7A6D /* academyProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF0E27B3D18F00FB7A6D /* academyProfileRequest.swift */; };
+		A76DCF1227B3D3A900FB7A6D /* regularResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1127B3D3A900FB7A6D /* regularResponse.swift */; };
+		A76DCF1527B4FBBC00FB7A6D /* AcademySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1427B4FBBC00FB7A6D /* AcademySettingViewController.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -152,6 +155,9 @@
 		A76DCF0427ABD8F000FB7A6D /* academySignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = academySignUpResponse.swift; sourceTree = "<group>"; };
 		A76DCF0727B3824600FB7A6D /* AcademyMyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyMyProfileViewController.swift; sourceTree = "<group>"; };
 		A76DCF0A27B3983D00FB7A6D /* academyProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = academyProfileResponse.swift; sourceTree = "<group>"; };
+		A76DCF0E27B3D18F00FB7A6D /* academyProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = academyProfileRequest.swift; sourceTree = "<group>"; };
+		A76DCF1127B3D3A900FB7A6D /* regularResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regularResponse.swift; sourceTree = "<group>"; };
+		A76DCF1427B4FBBC00FB7A6D /* AcademySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademySettingViewController.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -432,6 +438,7 @@
 				A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */,
 				A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */,
 				A76DCF0727B3824600FB7A6D /* AcademyMyProfileViewController.swift */,
+				A76DCF1427B4FBBC00FB7A6D /* AcademySettingViewController.swift */,
 			);
 			path = AcademyUser;
 			sourceTree = "<group>";
@@ -463,6 +470,8 @@
 				A76DCEE627A13CCA00FB7A6D /* addClassRequest.swift */,
 				A76DCF0427ABD8F000FB7A6D /* academySignUpResponse.swift */,
 				A76DCF0A27B3983D00FB7A6D /* academyProfileResponse.swift */,
+				A76DCF0E27B3D18F00FB7A6D /* academyProfileRequest.swift */,
+				A76DCF1127B3D3A900FB7A6D /* regularResponse.swift */,
 			);
 			path = AcademyEntity;
 			sourceTree = "<group>";
@@ -882,6 +891,7 @@
 				BD439422252E17A60055F2E6 /* String.swift in Sources */,
 				A76EEE69274399F100CA653B /* OtherAcademyCollectionViewCell.swift in Sources */,
 				A7B8DE942786ECA7006DDED9 /* CustomTabBarController.swift in Sources */,
+				A76DCF1227B3D3A900FB7A6D /* regularResponse.swift in Sources */,
 				A7B8DEA127870EAB006DDED9 /* AddTeacherPopUpViewController.swift in Sources */,
 				A7F5F7BD272925D500D17FA2 /* DetailSearchViewController.swift in Sources */,
 				A7F5F79C2727F71200D17FA2 /* KpopTableViewCell.swift in Sources */,
@@ -943,10 +953,12 @@
 				A7D44D542758A32B0020CB8F /* AcademyViewController.swift in Sources */,
 				A76DCEFE27ABC1C200FB7A6D /* userOnedayClassResponse.swift in Sources */,
 				A7B8DDD127857A1C006DDED9 /* RockingTableViewCell.swift in Sources */,
+				A76DCF0F27B3D18F00FB7A6D /* academyProfileRequest.swift in Sources */,
 				A76DCEF727ABA1A300FB7A6D /* userRegularClassResponse.swift in Sources */,
 				A7B8DEB8278EB3ED006DDED9 /* GeneralRegionTableViewCell.swift in Sources */,
 				A7B8DDB527855ACA006DDED9 /* CrumpViewController.swift in Sources */,
 				A7F5F7DC272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift in Sources */,
+				A76DCF1527B4FBBC00FB7A6D /* AcademySettingViewController.swift in Sources */,
 				A7B8DDD427857A2D006DDED9 /* CrumpTableViewCell.swift in Sources */,
 				A76DCF0527ABD8F000FB7A6D /* academySignUpResponse.swift in Sources */,
 				A7D44D752758ED3A0020CB8F /* MYRegularClassTableViewCell.swift in Sources */,

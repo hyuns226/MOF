@@ -9,7 +9,7 @@
 import Alamofire
 
 struct KeyCenter {
-    static var LOGIN_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWR4IjoxOCwiaWF0IjoxNjQyMDY3NzU1LCJleHAiOjE2NzM2MDM3NTUsInN1YiI6InVzZXJJbmZvIn0.zY88unwkwBXk8yDORbwBMuVacZdxXDuPq18It9MT2WA"
+    static var LOGIN_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2FkZW15SWR4IjoxMiwiaWF0IjoxNjQ0NDA0OTMzLCJleHAiOjE2NzU5NDA5MzMsInN1YiI6ImFjYWRlbXlJbmZvIn0.8biP8kXF--7e_zxhkKtUBFTFnrhnyszkeuHt853v3GY"
 
     static let header: HTTPHeaders = ["X-ACCESS-TOKEN": "\(KeyCenter.LOGIN_TOKEN)"]
     

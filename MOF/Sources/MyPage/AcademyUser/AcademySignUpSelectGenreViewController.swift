@@ -121,9 +121,6 @@ class AcademySignUpSelectGenreViewController : UIViewController{
             buttonList[index]!.layer.backgroundColor = #colorLiteral(red: 0.9436354041, green: 0.9436575174, blue: 0.9436456561, alpha: 1)
             clickedAcademyList.removeAll(where: { $0 == index })
         }
-         
-    
-        
         
     }
     
