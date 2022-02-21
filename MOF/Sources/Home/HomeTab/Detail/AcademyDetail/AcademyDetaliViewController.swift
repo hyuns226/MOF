@@ -40,6 +40,9 @@ class AcademyDetaliViewController : UIViewController {
         
         print(AcademyInfo)
         
+        settingCollectionView()
+        settingButton()
+        
         //setting Academy information
         if let url = URL(string: AcademyInfo.academyImage ?? "") {
             academyImageView.kf.setImage(with: url)
@@ -54,8 +57,7 @@ class AcademyDetaliViewController : UIViewController {
         dataManager.academyOnedayClass(academyIdx: AcademyInfo.academyIdx, delegate: self)
         
         
-        settingCollectionView()
-        settingButton()
+        
     }
     
     //MARK:- FUNCTION
@@ -151,6 +153,24 @@ extension AcademyDetaliViewController : UITableViewDelegate,UITableViewDataSourc
         cell.separatorInset = UIEdgeInsets.zero
         return  cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if tableView == regularClassTableView{
+            let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
+            classDetailVC.classIdx = regularClassResultList[indexPath.section].classIdx
+            self.navigationController?.pushViewController(classDetailVC, animated: true)
+            
+        }else{
+            let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
+            classDetailVC.classIdx = onedayClassResultList[indexPath.section].classIdx
+            self.navigationController?.pushViewController(classDetailVC, animated: true)
+            
+        }
+    
+        
+        
+    }
 
     // MARK: - Table View delegate methods
 
@@ -198,7 +218,7 @@ extension AcademyDetaliViewController{
     
     func getAcademyLikes(result : getAcademyLikesResponse){
         print(result.result.좋아요여부)
-        if result.result.좋아요여부 == "YES"{
+        if result.result.좋아요여부 == true{
             self.likeButton.isSelected = true
             self.likeButton.setImage(#imageLiteral(resourceName: "heart_fill"), for: .selected)
             print("yes")

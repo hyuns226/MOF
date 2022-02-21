@@ -14,5 +14,5 @@ struct getAcademyLikesResponse : Decodable{
 
 struct academyLikesResults : Decodable{
     var APIResult : String
-    var 좋아요여부 : String
+    var 좋아요여부 : Bool
 }

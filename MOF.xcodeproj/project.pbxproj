@@ -48,6 +48,8 @@
 		A76DCF8B27C2B95D00FB7A6D /* specificaAcademyLikesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF8A27C2B95D00FB7A6D /* specificaAcademyLikesResponse.swift */; };
 		A76DCF8F27C345BE00FB7A6D /* specificaClassLikesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF8E27C345BE00FB7A6D /* specificaClassLikesResponse.swift */; };
 		A76DCF9227C35B6500FB7A6D /* detailAcademyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF9127C35B6500FB7A6D /* detailAcademyInfo.swift */; };
+		A76DCF9527C37ABF00FB7A6D /* classLikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF9427C37ABF00FB7A6D /* classLikeResponse.swift */; };
+		A76DCF9827C37BEB00FB7A6D /* classDislikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF9727C37BEB00FB7A6D /* classDislikeResponse.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -204,6 +206,8 @@
 		A76DCF8A27C2B95D00FB7A6D /* specificaAcademyLikesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = specificaAcademyLikesResponse.swift; sourceTree = "<group>"; };
 		A76DCF8E27C345BE00FB7A6D /* specificaClassLikesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = specificaClassLikesResponse.swift; sourceTree = "<group>"; };
 		A76DCF9127C35B6500FB7A6D /* detailAcademyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailAcademyInfo.swift; sourceTree = "<group>"; };
+		A76DCF9427C37ABF00FB7A6D /* classLikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classLikeResponse.swift; sourceTree = "<group>"; };
+		A76DCF9727C37BEB00FB7A6D /* classDislikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classDislikeResponse.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				A76DCF7227B9F27C00FB7A6D /* dislikeResponse.swift */,
 				A76DCF7827C22DDD00FB7A6D /* getAcademyLikesResponse.swift */,
 				A76DCF9127C35B6500FB7A6D /* detailAcademyInfo.swift */,
+				A76DCF9427C37ABF00FB7A6D /* classLikeResponse.swift */,
+				A76DCF9727C37BEB00FB7A6D /* classDislikeResponse.swift */,
 			);
 			path = HomeEntity;
 			sourceTree = "<group>";
@@ -1041,6 +1047,7 @@
 				A7B8DDCE27857A10006DDED9 /* PopinTableViewCell.swift in Sources */,
 				A7B8DE9E27870E30006DDED9 /* AddClassViewController.swift in Sources */,
 				BD439428252E1C820055F2E6 /* UIButton.swift in Sources */,
+				A76DCF9527C37ABF00FB7A6D /* classLikeResponse.swift in Sources */,
 				A7B8DDC8278579F2006DDED9 /* GirlsHiphopTableViewCell.swift in Sources */,
 				A76EEE7027439A4A00CA653B /* OnedayClassTableViewCell.swift in Sources */,
 				A7D44D5B2758A4E00020CB8F /* ClassViewController.swift in Sources */,
@@ -1051,6 +1058,7 @@
 				A7D44D6E2758E7CB0020CB8F /* MyOnedayViewController.swift in Sources */,
 				A76DCF7927C22DDD00FB7A6D /* getAcademyLikesResponse.swift in Sources */,
 				A7B8DDDD27858583006DDED9 /* HomeFilterViewController.swift in Sources */,
+				A76DCF9827C37BEB00FB7A6D /* classDislikeResponse.swift in Sources */,
 				A76DCF7327B9F27C00FB7A6D /* dislikeResponse.swift in Sources */,
 				A7B8DEAE27898953006DDED9 /* usersRequest.swift in Sources */,
 				A76DCF8527C28FF700FB7A6D /* allClassLikesResponse.swift in Sources */,

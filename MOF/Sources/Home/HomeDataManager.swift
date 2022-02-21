@@ -128,9 +128,50 @@ class HomeDataManager{
             }
     }
 
+    //수업 좋아요
+    func likesForClass(userIdx : Int, classIdx : Int, delegate: ClassDetailViewController ) {
+        AF.request("\(Constant.BASE_URL)likes/classes/\(userIdx)/\(classIdx)", method: .post, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: classLikeResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.likesForClass(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
     
+    //수업 좋아요 취소
+    func dislikesForClass(userIdx : Int, classIdx : Int, delegate: ClassDetailViewController ) {
+        AF.request("\(Constant.BASE_URL)likes/classes/\(userIdx)/\(classIdx)", method: .patch, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: classDislikeResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.dislikesForClass(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
     
-    
+    //특정 유저의 특정수업 좋아요 여부
+    func getClassLikes(userIdx : Int, classIdx: Int, delegate : ClassDetailViewController ) {
+        AF.request("\(Constant.BASE_URL)users/classes/likes/\(userIdx)/\(classIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default,headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: getAcademyLikesResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.getClassLikes(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
     
     
     

@@ -657,7 +657,6 @@
                                                             <outlet property="classTimeOneLabel" destination="ibw-5B-X9w" id="Ybm-3r-Wj8"/>
                                                             <outlet property="classTimeTwoLabel" destination="jvv-wi-dSC" id="aQ7-50-y6I"/>
                                                             <outlet property="teacherNameLabel" destination="yBA-F1-QbH" id="alU-bY-vYZ"/>
-                                                            <segue destination="YqH-jC-RSD" kind="modal" id="f7y-Xk-PYR"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -928,7 +927,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zj6-J1-9ym">
-                                        <rect key="frame" x="20" y="1765" width="350" height="35"/>
+                                        <rect key="frame" x="20" y="775" width="350" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQ2-Pc-wWa">
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="35"/>
@@ -998,11 +997,11 @@
             <objects>
                 <viewController storyboardIdentifier="ClassDetailViewController" id="YqH-jC-RSD" customClass="ClassDetailViewController" customModule="MOF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l28-tk-tBZ">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrG-vD-vUV">
-                                <rect key="frame" x="0.0" y="-44" width="390" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="810"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vER-of-Z1l">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="900"/>
@@ -1017,23 +1016,25 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ACZ-jW-xnG">
                                                 <rect key="frame" x="20" y="426" width="350" height="93"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5S-fp-UMc">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="q5S-fp-UMc">
                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="44.666666666666664"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="K-Pop 신곡 클래스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ap-le-G9U">
-                                                                <rect key="frame" x="0.0" y="0.0" width="241" height="44.666666666666664"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="316.66666666666669" height="44.666666666666664"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="30"/>
                                                                 <color key="textColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TP6-hW-eaS">
-                                                                <rect key="frame" x="241" y="0.0" width="109" height="44.666666666666664"/>
+                                                                <rect key="frame" x="321.66666666666669" y="0.0" width="28.333333333333314" height="44.666666666666664"/>
                                                                 <state key="normal" image="coolicon295"/>
+                                                                <connections>
+                                                                    <action selector="likeButtonAction:" destination="YqH-jC-RSD" eventType="touchUpInside" id="xWD-Hw-hBR"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="4ap-le-G9U" firstAttribute="leading" secondItem="q5S-fp-UMc" secondAttribute="leading" id="0g1-hz-gaB"/>
-                                                            <constraint firstItem="TP6-hW-eaS" firstAttribute="leading" secondItem="4ap-le-G9U" secondAttribute="trailing" id="QVc-gH-Q89"/>
                                                             <constraint firstItem="4ap-le-G9U" firstAttribute="top" secondItem="q5S-fp-UMc" secondAttribute="top" id="qBc-fT-4xT"/>
                                                         </constraints>
                                                     </stackView>
@@ -1187,7 +1188,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zDm-P4-i8q">
-                                        <rect key="frame" x="20" y="765" width="350" height="35"/>
+                                        <rect key="frame" x="20" y="775" width="350" height="35"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTN-hB-4NX">
                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="35"/>
@@ -1241,6 +1242,7 @@
                     <connections>
                         <outlet property="AskButton" destination="YTN-hB-4NX" id="at2-NG-87y"/>
                         <outlet property="ClassTimeCollectionView" destination="20t-xs-zIV" id="UuX-k4-hWb"/>
+                        <outlet property="likeButton" destination="TP6-hW-eaS" id="8UU-zS-wJI"/>
                         <outlet property="registerButton" destination="R90-AB-PSY" id="G90-g5-ozX"/>
                     </connections>
                 </viewController>
@@ -1306,13 +1308,13 @@
                                                 <rect key="frame" x="0.0" y="29.666666666666664" width="247" height="39.999999999999993"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-G3-ull">
-                                                        <rect key="frame" x="0.0" y="12.000000000000005" width="148.66666666666666" height="16.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="9.6666666666666643" width="148.66666666666666" height="21"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                         <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vt2-iQ-iFI">
-                                                        <rect key="frame" x="98.666666666666643" y="12.000000000000005" width="148.33333333333337" height="16.333333333333329"/>
+                                                        <rect key="frame" x="98.666666666666643" y="9.6666666666666643" width="148.33333333333337" height="21"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1360,7 +1362,7 @@
                                                 <rect key="frame" x="0.0" y="117.66666666666664" width="247" height="42.333333333333329"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수강가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhg-6S-mrV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="48.666666666666664" height="42.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="51.666666666666664" height="42.333333333333336"/>
                                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                         <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
