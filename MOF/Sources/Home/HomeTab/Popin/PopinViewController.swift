@@ -7,6 +7,7 @@
 
 import UIKit
 class PopinViewController : UIViewController{
+    static var popinResultList : [specificResults] = []
     
     @IBOutlet weak var PopinTableView: UITableView!
     
@@ -27,13 +28,24 @@ extension PopinViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PopinTableViewCell")as!PopinTableViewCell
         cell.layer.cornerRadius = 12
+        
+        if let url = URL(string: PopinViewController.popinResultList[indexPath.section].academyBackImgUrl ?? "") {
+            cell.AcademyImageView.kf.setImage(with: url)
+        } else {
+            cell.AcademyImageView.image = UIImage(named: "defaultImage")
+        }
+        
+        cell.AcademyName.text = PopinViewController.popinResultList[indexPath.section].academyName
+        cell.addressLabel.text = PopinViewController.popinResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = PopinViewController.popinResultList[indexPath.section].academyPhone
+        
         return cell
     }
     
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 5
+            return PopinViewController.popinResultList.count
         }
 
         

@@ -8,6 +8,8 @@
 import UIKit
 class CoreoViewController : UIViewController{
     
+    static var choreoResultList : [specificResults] = []
+    
     @IBOutlet weak var CoreoTableViewController: UITableView!
     
     override func viewDidLoad() {
@@ -29,13 +31,24 @@ extension CoreoViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CoreoTableViewCell")as! CoreoTableViewCell
         cell.layer.cornerRadius = 12
+        
+        if let url = URL(string: CoreoViewController.choreoResultList[indexPath.section].academyBackImgUrl ?? "") {
+            cell.AcademyImageView.kf.setImage(with: url)
+        } else {
+            cell.AcademyImageView.image = UIImage(named: "defaultImage")
+        }
+        
+        cell.AcademyName.text = CoreoViewController.choreoResultList[indexPath.section].academyName
+        cell.addressLabel.text = CoreoViewController.choreoResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = CoreoViewController.choreoResultList[indexPath.section].academyPhone
+        
         return cell
     }
     
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 5
+            return CoreoViewController.choreoResultList.count
         }
 
         

@@ -6,7 +6,15 @@
 //
 
 import UIKit
+
+protocol likeFilterDelegate: class {
+    func sendregion(region : String)
+}
+
 class LikeViewController : UIViewController{
+    
+    static var isFitered = false
+    static var filterText = ""
     
     var pageViewController : LikePageViewController!
     
@@ -27,7 +35,7 @@ class LikeViewController : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
       
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        //navigationController?.setNavigationBarHidden(true, animated: animated)
       
     }
     
@@ -82,6 +90,32 @@ class LikeViewController : UIViewController{
         pageViewController.setViewcontrollersFromIndex(index: 1)
     }
     
+    
+    @IBAction func filterButtonAction(_ sender: Any) {
+        let filterVC = self.storyboard?.instantiateViewController(withIdentifier: "LikeFilterViewController") as! LikeFilterViewController
+        filterVC.delegate = self
+        filterVC.modalPresentationStyle = .fullScreen
+        self.present(filterVC, animated: true, completion: nil)
+        
+        
+    }
+    
+}
+
+extension LikeViewController : likeFilterDelegate{
+    func sendregion(region: String) {
+        
+        if region == ""{
+            LikeViewController.isFitered = false
+        }else{
+            LikeViewController.isFitered = true
+            LikeViewController.filterText = region
+        }
+        print("likeVC\(region)")
+        print("likeVC\(LikeViewController.filterText)")
+        
+        
+    }
 }
 
     

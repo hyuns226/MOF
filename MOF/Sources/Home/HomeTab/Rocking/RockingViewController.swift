@@ -7,6 +7,7 @@
 
 import UIKit
 class RockingViewController : UIViewController{
+    static var rockingResultList : [specificResults] = []
     
     @IBOutlet weak var RockingTableView: UITableView!
     
@@ -27,13 +28,24 @@ extension RockingViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RockingTableViewCell")as!RockingTableViewCell
         cell.layer.cornerRadius = 12
+        
+        if let url = URL(string: RockingViewController.rockingResultList[indexPath.section].academyBackImgUrl ?? "") {
+            cell.AcademyImageView.kf.setImage(with: url)
+        } else {
+            cell.AcademyImageView.image = UIImage(named: "defaultImage")
+        }
+        
+        cell.AcademyName.text = RockingViewController.rockingResultList[indexPath.section].academyName
+        cell.addressLabel.text = RockingViewController.rockingResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = RockingViewController.rockingResultList[indexPath.section].academyPhone
+        
         return cell
     }
     
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 5
+            return RockingViewController.rockingResultList.count
         }
 
         

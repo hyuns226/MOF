@@ -6,12 +6,32 @@
 //
 
 import UIKit
+
+
+
+
 class AcademyViewController : UIViewController {
     
+    lazy var dataManager = LikeDataManager()
+    
+    var academyLikeList : [allAcademyLikesResults?] = []
+    var filterdAcademyLikeList : [specificAcademyLikesResults?] = []
     
     @IBOutlet weak var AcademyCollectionView: UICollectionView!
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        print("academywill")
+        
+        if LikeViewController.isFitered == true{
+            dataManager.specificAcademyLikes(userIdx: 12, address: LikeViewController.filterText, delegate: self)
+        }else{
+            dataManager.allAcademyLikes(userIdx: 12, delegate: self)
+        }
+        
+    }
     override func viewDidLoad() {
+        print("academydid")
         super.viewDidLoad()
         self.AcademyCollectionView.dataSource = self
         self.AcademyCollectionView.delegate = self
@@ -22,12 +42,43 @@ class AcademyViewController : UIViewController {
 
 extension AcademyViewController : UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        if LikeViewController.isFitered == true{
+            return filterdAcademyLikeList.count
+        }else{
+            return academyLikeList.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AcademyCollectionViewCell", for: indexPath) as! AcademyCollectionViewCell
         cell.layer.cornerRadius = 6
+        
+        if LikeViewController.isFitered == true{
+            if let url = URL(string: filterdAcademyLikeList[indexPath.row]?.academyBackImgUrl ?? "") {
+                cell.academyImageView.kf.setImage(with: url)
+            } else {
+                cell.academyImageView.image = UIImage(named: "defaultImage")
+            }
+            
+            cell.academyNameLabel.text = filterdAcademyLikeList[indexPath.row]?.academyName
+            
+        }else{
+            if let url = URL(string: academyLikeList[indexPath.row]?.academyBackImgUrl ?? "") {
+                cell.academyImageView.kf.setImage(with: url)
+            } else {
+                cell.academyImageView.image = UIImage(named: "defaultImage")
+            }
+            
+            cell.academyNameLabel.text = academyLikeList[indexPath.row]?.academyName
+           
+        }
+        
+        cell.likeButton.isSelected = true
+        cell.likeButton.setImage(#imageLiteral(resourceName: "heart_fill"), for: .selected)
+        
+        
+        
         return cell
     }
 }
@@ -54,15 +105,37 @@ extension AcademyViewController : UICollectionViewDelegateFlowLayout{
         var width : CGFloat = 0
         var size : CGSize = CGSize(width: 0,height: 0)
         
-        width = (collectionView.frame.width - 10) / 2 ///  2등분하여 배치, 옆 간격이 10이므로 5을 빼줌
-//                    print("collectionView width=\(collectionView.frame.width)")
-//                    print("cell하나당 width=\(width)")
-//                    print("root view width = \(self.view.frame.width)")
+        width = (collectionView.frame.width - 10) / 2
         height = width
         size = CGSize(width: width, height: height)
                 
         
         return size
+    }
+    
+}
+
+
+//MARK:-API
+extension AcademyViewController{
+    func allAcademyLikes(result : allAcademyLikesResponse){
+        academyLikeList = result.result
+        print(academyLikeList)
+        AcademyCollectionView.reloadData()
+    }
+    
+    func specificAcademyLikes(result : specificaAcademyLikesResponse){
+        filterdAcademyLikeList = result.result
+        print(filterdAcademyLikeList)
+        AcademyCollectionView.reloadData()
+    }
+    
+    
+    
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
     }
     
 }

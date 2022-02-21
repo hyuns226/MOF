@@ -14,7 +14,7 @@
 		A76DCEEB27A14FB600FB7A6D /* datePickerPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */; };
 		A76DCEEE27A16BAE00FB7A6D /* dayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */; };
 		A76DCEF127A2679300FB7A6D /* passwordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF027A2679200FB7A6D /* passwordRequest.swift */; };
-		A76DCEF427A26E8A00FB7A6D /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF327A26E8A00FB7A6D /* changePasswordViewController.swift */; };
+		A76DCEF427A26E8A00FB7A6D /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF327A26E8A00FB7A6D /* ChangePasswordViewController.swift */; };
 		A76DCEF727ABA1A300FB7A6D /* userRegularClassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF627ABA1A300FB7A6D /* userRegularClassResponse.swift */; };
 		A76DCEFA27ABBF6D00FB7A6D /* MYOnedayClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEF927ABBF6D00FB7A6D /* MYOnedayClassTableViewCell.swift */; };
 		A76DCEFE27ABC1C200FB7A6D /* userOnedayClassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCEFD27ABC1C200FB7A6D /* userOnedayClassResponse.swift */; };
@@ -25,6 +25,29 @@
 		A76DCF0F27B3D18F00FB7A6D /* academyProfileRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF0E27B3D18F00FB7A6D /* academyProfileRequest.swift */; };
 		A76DCF1227B3D3A900FB7A6D /* regularResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1127B3D3A900FB7A6D /* regularResponse.swift */; };
 		A76DCF1527B4FBBC00FB7A6D /* AcademySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1427B4FBBC00FB7A6D /* AcademySettingViewController.swift */; };
+		A76DCF1927B50BE200FB7A6D /* AcademyChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1827B50BE200FB7A6D /* AcademyChangePasswordViewController.swift */; };
+		A76DCF1C27B50D6600FB7A6D /* passwordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1B27B50D6600FB7A6D /* passwordResponse.swift */; };
+		A76DCF2027B530A500FB7A6D /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1F27B530A500FB7A6D /* AllViewController.swift */; };
+		A76DCF2327B530B900FB7A6D /* AllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF2227B530B900FB7A6D /* AllTableViewCell.swift */; };
+		A76DCF2727B76E4A00FB7A6D /* allGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF2627B76E4A00FB7A6D /* allGenreResponse.swift */; };
+		A76DCF4D27B8F24000FB7A6D /* specificGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF4C27B8F23F00FB7A6D /* specificGenreResponse.swift */; };
+		A76DCF5027B908EF00FB7A6D /* AcademyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF4F27B908EF00FB7A6D /* AcademyPageViewController.swift */; };
+		A76DCF5327B9094000FB7A6D /* AcademyRegularClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF5227B9094000FB7A6D /* AcademyRegularClassViewController.swift */; };
+		A76DCF5627B9095800FB7A6D /* AcademyOnedayClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF5527B9095800FB7A6D /* AcademyOnedayClassViewController.swift */; };
+		A76DCF5D27B90EBA00FB7A6D /* AcademyRegularClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF5C27B90EBA00FB7A6D /* AcademyRegularClassTableViewCell.swift */; };
+		A76DCF6027B90ECE00FB7A6D /* AcademyOnedayClassTableViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF5F27B90ECE00FB7A6D /* AcademyOnedayClassTableViewTableViewCell.swift */; };
+		A76DCF6527B9169100FB7A6D /* academyOnedayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF6427B9169100FB7A6D /* academyOnedayResponse.swift */; };
+		A76DCF6827B9177C00FB7A6D /* academyRegularResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF6727B9177C00FB7A6D /* academyRegularResponse.swift */; };
+		A76DCF6F27B9EBCA00FB7A6D /* likeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF6E27B9EBCA00FB7A6D /* likeResponse.swift */; };
+		A76DCF7327B9F27C00FB7A6D /* dislikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF7227B9F27C00FB7A6D /* dislikeResponse.swift */; };
+		A76DCF7927C22DDD00FB7A6D /* getAcademyLikesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF7827C22DDD00FB7A6D /* getAcademyLikesResponse.swift */; };
+		A76DCF7E27C242D900FB7A6D /* LikeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF7D27C242D900FB7A6D /* LikeDataManager.swift */; };
+		A76DCF8127C2432500FB7A6D /* allAcademyLikesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF8027C2432500FB7A6D /* allAcademyLikesResponse.swift */; };
+		A76DCF8527C28FF700FB7A6D /* allClassLikesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF8427C28FF700FB7A6D /* allClassLikesResponse.swift */; };
+		A76DCF8827C296BE00FB7A6D /* LikeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF8727C296BE00FB7A6D /* LikeFilterViewController.swift */; };
+		A76DCF8B27C2B95D00FB7A6D /* specificaAcademyLikesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF8A27C2B95D00FB7A6D /* specificaAcademyLikesResponse.swift */; };
+		A76DCF8F27C345BE00FB7A6D /* specificaClassLikesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF8E27C345BE00FB7A6D /* specificaClassLikesResponse.swift */; };
+		A76DCF9227C35B6500FB7A6D /* detailAcademyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF9127C35B6500FB7A6D /* detailAcademyInfo.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -147,7 +170,7 @@
 		A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = datePickerPopUpViewController.swift; sourceTree = "<group>"; };
 		A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dayPicker.swift; sourceTree = "<group>"; };
 		A76DCEF027A2679200FB7A6D /* passwordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordRequest.swift; sourceTree = "<group>"; };
-		A76DCEF327A26E8A00FB7A6D /* changePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = changePasswordViewController.swift; sourceTree = "<group>"; };
+		A76DCEF327A26E8A00FB7A6D /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		A76DCEF627ABA1A300FB7A6D /* userRegularClassResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userRegularClassResponse.swift; sourceTree = "<group>"; };
 		A76DCEF927ABBF6D00FB7A6D /* MYOnedayClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYOnedayClassTableViewCell.swift; sourceTree = "<group>"; };
 		A76DCEFD27ABC1C200FB7A6D /* userOnedayClassResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userOnedayClassResponse.swift; sourceTree = "<group>"; };
@@ -158,6 +181,29 @@
 		A76DCF0E27B3D18F00FB7A6D /* academyProfileRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = academyProfileRequest.swift; sourceTree = "<group>"; };
 		A76DCF1127B3D3A900FB7A6D /* regularResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regularResponse.swift; sourceTree = "<group>"; };
 		A76DCF1427B4FBBC00FB7A6D /* AcademySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademySettingViewController.swift; sourceTree = "<group>"; };
+		A76DCF1827B50BE200FB7A6D /* AcademyChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyChangePasswordViewController.swift; sourceTree = "<group>"; };
+		A76DCF1B27B50D6600FB7A6D /* passwordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordResponse.swift; sourceTree = "<group>"; };
+		A76DCF1F27B530A500FB7A6D /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
+		A76DCF2227B530B900FB7A6D /* AllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTableViewCell.swift; sourceTree = "<group>"; };
+		A76DCF2627B76E4A00FB7A6D /* allGenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allGenreResponse.swift; sourceTree = "<group>"; };
+		A76DCF4C27B8F23F00FB7A6D /* specificGenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = specificGenreResponse.swift; sourceTree = "<group>"; };
+		A76DCF4F27B908EF00FB7A6D /* AcademyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyPageViewController.swift; sourceTree = "<group>"; };
+		A76DCF5227B9094000FB7A6D /* AcademyRegularClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyRegularClassViewController.swift; sourceTree = "<group>"; };
+		A76DCF5527B9095800FB7A6D /* AcademyOnedayClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyOnedayClassViewController.swift; sourceTree = "<group>"; };
+		A76DCF5C27B90EBA00FB7A6D /* AcademyRegularClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyRegularClassTableViewCell.swift; sourceTree = "<group>"; };
+		A76DCF5F27B90ECE00FB7A6D /* AcademyOnedayClassTableViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyOnedayClassTableViewTableViewCell.swift; sourceTree = "<group>"; };
+		A76DCF6427B9169100FB7A6D /* academyOnedayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = academyOnedayResponse.swift; sourceTree = "<group>"; };
+		A76DCF6727B9177C00FB7A6D /* academyRegularResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = academyRegularResponse.swift; sourceTree = "<group>"; };
+		A76DCF6E27B9EBCA00FB7A6D /* likeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = likeResponse.swift; sourceTree = "<group>"; };
+		A76DCF7227B9F27C00FB7A6D /* dislikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dislikeResponse.swift; sourceTree = "<group>"; };
+		A76DCF7827C22DDD00FB7A6D /* getAcademyLikesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getAcademyLikesResponse.swift; sourceTree = "<group>"; };
+		A76DCF7D27C242D900FB7A6D /* LikeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDataManager.swift; sourceTree = "<group>"; };
+		A76DCF8027C2432500FB7A6D /* allAcademyLikesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allAcademyLikesResponse.swift; sourceTree = "<group>"; };
+		A76DCF8427C28FF700FB7A6D /* allClassLikesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allClassLikesResponse.swift; sourceTree = "<group>"; };
+		A76DCF8727C296BE00FB7A6D /* LikeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeFilterViewController.swift; sourceTree = "<group>"; };
+		A76DCF8A27C2B95D00FB7A6D /* specificaAcademyLikesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = specificaAcademyLikesResponse.swift; sourceTree = "<group>"; };
+		A76DCF8E27C345BE00FB7A6D /* specificaClassLikesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = specificaClassLikesResponse.swift; sourceTree = "<group>"; };
+		A76DCF9127C35B6500FB7A6D /* detailAcademyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailAcademyInfo.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -307,12 +353,15 @@
 			isa = PBXGroup;
 			children = (
 				A74A0AE2272514E50013CB2F /* LikeStoryboard.storyboard */,
+				A76DCF7D27C242D900FB7A6D /* LikeDataManager.swift */,
+				A76DCF7C27C2426900FB7A6D /* LikeEntity */,
 				A7D44D562758A3550020CB8F /* LikePageViewController.swift */,
 				A7D44D532758A32B0020CB8F /* AcademyViewController.swift */,
 				A7D44D5A2758A4E00020CB8F /* ClassViewController.swift */,
 				A7D44D5E2758ACCE0020CB8F /* LikeViewController.swift */,
 				A7D44D612758B5C20020CB8F /* ClassCollectionViewCell.swift */,
 				A7D44D642758B5FF0020CB8F /* AcademyCollectionViewCell.swift */,
+				A76DCF8727C296BE00FB7A6D /* LikeFilterViewController.swift */,
 			);
 			path = Like;
 			sourceTree = "<group>";
@@ -330,6 +379,78 @@
 				A7B8DE982786F415006DDED9 /* AcademyUser */,
 			);
 			path = MyPage;
+			sourceTree = "<group>";
+		};
+		A76DCF1E27B5308D00FB7A6D /* All */ = {
+			isa = PBXGroup;
+			children = (
+				A76DCF1F27B530A500FB7A6D /* AllViewController.swift */,
+				A76DCF2227B530B900FB7A6D /* AllTableViewCell.swift */,
+			);
+			path = All;
+			sourceTree = "<group>";
+		};
+		A76DCF2527B76DF600FB7A6D /* HomeEntity */ = {
+			isa = PBXGroup;
+			children = (
+				A76DCF2627B76E4A00FB7A6D /* allGenreResponse.swift */,
+				A76DCF4C27B8F23F00FB7A6D /* specificGenreResponse.swift */,
+				A76DCF6E27B9EBCA00FB7A6D /* likeResponse.swift */,
+				A76DCF7227B9F27C00FB7A6D /* dislikeResponse.swift */,
+				A76DCF7827C22DDD00FB7A6D /* getAcademyLikesResponse.swift */,
+				A76DCF9127C35B6500FB7A6D /* detailAcademyInfo.swift */,
+			);
+			path = HomeEntity;
+			sourceTree = "<group>";
+		};
+		A76DCF5827B90E1000FB7A6D /* OnedayClass */ = {
+			isa = PBXGroup;
+			children = (
+				A76DCF5527B9095800FB7A6D /* AcademyOnedayClassViewController.swift */,
+				A76DCF5F27B90ECE00FB7A6D /* AcademyOnedayClassTableViewTableViewCell.swift */,
+			);
+			path = OnedayClass;
+			sourceTree = "<group>";
+		};
+		A76DCF5927B90E1F00FB7A6D /* RegularClass */ = {
+			isa = PBXGroup;
+			children = (
+				A76DCF5227B9094000FB7A6D /* AcademyRegularClassViewController.swift */,
+				A76DCF5C27B90EBA00FB7A6D /* AcademyRegularClassTableViewCell.swift */,
+			);
+			path = RegularClass;
+			sourceTree = "<group>";
+		};
+		A76DCF5A27B90E4D00FB7A6D /* AddClass */ = {
+			isa = PBXGroup;
+			children = (
+				A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */,
+				A7B8DE9D27870E30006DDED9 /* AddClassViewController.swift */,
+				A7B8DEA027870EAB006DDED9 /* AddTeacherPopUpViewController.swift */,
+				A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */,
+			);
+			path = AddClass;
+			sourceTree = "<group>";
+		};
+		A76DCF5B27B90E7600FB7A6D /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */,
+				A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */,
+				A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		A76DCF7C27C2426900FB7A6D /* LikeEntity */ = {
+			isa = PBXGroup;
+			children = (
+				A76DCF8027C2432500FB7A6D /* allAcademyLikesResponse.swift */,
+				A76DCF8427C28FF700FB7A6D /* allClassLikesResponse.swift */,
+				A76DCF8A27C2B95D00FB7A6D /* specificaAcademyLikesResponse.swift */,
+				A76DCF8E27C345BE00FB7A6D /* specificaClassLikesResponse.swift */,
+			);
+			path = LikeEntity;
 			sourceTree = "<group>";
 		};
 		A76EEE742743AE0C00CA653B /* Detail */ = {
@@ -421,7 +542,7 @@
 				A7B8DEB7278EB3ED006DDED9 /* GeneralRegionTableViewCell.swift */,
 				A7B8DEC6278F9061006DDED9 /* GeneralSettingViewController.swift */,
 				A7B8DECD27900C96006DDED9 /* GeneralMyProfileViewController.swift */,
-				A76DCEF327A26E8A00FB7A6D /* changePasswordViewController.swift */,
+				A76DCEF327A26E8A00FB7A6D /* ChangePasswordViewController.swift */,
 			);
 			path = GeneralUser;
 			sourceTree = "<group>";
@@ -429,16 +550,15 @@
 		A7B8DE982786F415006DDED9 /* AcademyUser */ = {
 			isa = PBXGroup;
 			children = (
-				A7B8DE992786F448006DDED9 /* AcademyMyPageViewController.swift */,
-				A7B8DE9D27870E30006DDED9 /* AddClassViewController.swift */,
-				A7B8DEA027870EAB006DDED9 /* AddTeacherPopUpViewController.swift */,
-				A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */,
-				A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */,
-				A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */,
-				A76DCEEA27A14FB600FB7A6D /* datePickerPopUpViewController.swift */,
-				A76DCEED27A16BAE00FB7A6D /* dayPicker.swift */,
 				A76DCF0727B3824600FB7A6D /* AcademyMyProfileViewController.swift */,
 				A76DCF1427B4FBBC00FB7A6D /* AcademySettingViewController.swift */,
+				A76DCF1827B50BE200FB7A6D /* AcademyChangePasswordViewController.swift */,
+				A76DCF5B27B90E7600FB7A6D /* SignUp */,
+				A76DCF5A27B90E4D00FB7A6D /* AddClass */,
+				A76DCF4F27B908EF00FB7A6D /* AcademyPageViewController.swift */,
+				A7B8DE992786F448006DDED9 /* AcademyMyPageViewController.swift */,
+				A76DCF5927B90E1F00FB7A6D /* RegularClass */,
+				A76DCF5827B90E1000FB7A6D /* OnedayClass */,
 			);
 			path = AcademyUser;
 			sourceTree = "<group>";
@@ -472,6 +592,9 @@
 				A76DCF0A27B3983D00FB7A6D /* academyProfileResponse.swift */,
 				A76DCF0E27B3D18F00FB7A6D /* academyProfileRequest.swift */,
 				A76DCF1127B3D3A900FB7A6D /* regularResponse.swift */,
+				A76DCF1B27B50D6600FB7A6D /* passwordResponse.swift */,
+				A76DCF6727B9177C00FB7A6D /* academyRegularResponse.swift */,
+				A76DCF6427B9169100FB7A6D /* academyOnedayResponse.swift */,
 			);
 			path = AcademyEntity;
 			sourceTree = "<group>";
@@ -480,6 +603,7 @@
 			isa = PBXGroup;
 			children = (
 				A76EEE742743AE0C00CA653B /* Detail */,
+				A76DCF1E27B5308D00FB7A6D /* All */,
 				A7F5F79E2727F76900D17FA2 /* KPOP */,
 				A7F5F79F2727F77400D17FA2 /* Coreo */,
 				A7F5F7A02727F77D00D17FA2 /* Hiphop */,
@@ -716,6 +840,7 @@
 				A7F5F75B27279BD400D17FA2 /* HomeViewController.swift */,
 				A7F5F7732727B7C800D17FA2 /* HomePageViewController.swift */,
 				A7B8DDDC27858583006DDED9 /* HomeFilterViewController.swift */,
+				A76DCF2527B76DF600FB7A6D /* HomeEntity */,
 				A7F5F7622727AA5300D17FA2 /* HomeTab */,
 				A7F5F7B327290D5700D17FA2 /* Search */,
 			);
@@ -880,6 +1005,7 @@
 				BD439434252E1FBD0055F2E6 /* Device.swift in Sources */,
 				A7B8DDB227855ABA006DDED9 /* RockingViewController.swift in Sources */,
 				A7DA21E02796E33B004EE1D1 /* AcademySignUpViewController.swift in Sources */,
+				A76DCF2027B530A500FB7A6D /* AllViewController.swift in Sources */,
 				BD439401252E13EF0055F2E6 /* AppDelegate.swift in Sources */,
 				A7D44D79277D39510020CB8F /* GeneralSelectRegionViewController.swift in Sources */,
 				A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */,
@@ -891,6 +1017,7 @@
 				BD439422252E17A60055F2E6 /* String.swift in Sources */,
 				A76EEE69274399F100CA653B /* OtherAcademyCollectionViewCell.swift in Sources */,
 				A7B8DE942786ECA7006DDED9 /* CustomTabBarController.swift in Sources */,
+				A76DCF7E27C242D900FB7A6D /* LikeDataManager.swift in Sources */,
 				A76DCF1227B3D3A900FB7A6D /* regularResponse.swift in Sources */,
 				A7B8DEA127870EAB006DDED9 /* AddTeacherPopUpViewController.swift in Sources */,
 				A7F5F7BD272925D500D17FA2 /* DetailSearchViewController.swift in Sources */,
@@ -919,16 +1046,24 @@
 				A7D44D5B2758A4E00020CB8F /* ClassViewController.swift in Sources */,
 				BD4394F8252E37580055F2E6 /* Constant.swift in Sources */,
 				A7D44D5F2758ACCE0020CB8F /* LikeViewController.swift in Sources */,
+				A76DCF5627B9095800FB7A6D /* AcademyOnedayClassViewController.swift in Sources */,
 				A7B8DDDA27857A4B006DDED9 /* HouseTableViewCell.swift in Sources */,
 				A7D44D6E2758E7CB0020CB8F /* MyOnedayViewController.swift in Sources */,
+				A76DCF7927C22DDD00FB7A6D /* getAcademyLikesResponse.swift in Sources */,
 				A7B8DDDD27858583006DDED9 /* HomeFilterViewController.swift in Sources */,
+				A76DCF7327B9F27C00FB7A6D /* dislikeResponse.swift in Sources */,
 				A7B8DEAE27898953006DDED9 /* usersRequest.swift in Sources */,
-				A76DCEF427A26E8A00FB7A6D /* changePasswordViewController.swift in Sources */,
+				A76DCF8527C28FF700FB7A6D /* allClassLikesResponse.swift in Sources */,
+				A76DCF6827B9177C00FB7A6D /* academyRegularResponse.swift in Sources */,
+				A76DCEF427A26E8A00FB7A6D /* ChangePasswordViewController.swift in Sources */,
 				A7B8DEE327905E50006DDED9 /* userProfileImageRequest.swift in Sources */,
 				A7B8DEB427898ABB006DDED9 /* UserMyPageDataManager.swift in Sources */,
 				A76DCEEE27A16BAE00FB7A6D /* dayPicker.swift in Sources */,
+				A76DCF4D27B8F24000FB7A6D /* specificGenreResponse.swift in Sources */,
+				A76DCF1C27B50D6600FB7A6D /* passwordResponse.swift in Sources */,
 				A7D44D622758B5C20020CB8F /* ClassCollectionViewCell.swift in Sources */,
 				A7B8DEDE27903CCA006DDED9 /* HomeDataManager.swift in Sources */,
+				A76DCF9227C35B6500FB7A6D /* detailAcademyInfo.swift in Sources */,
 				A7B8DEC7278F9061006DDED9 /* GeneralSettingViewController.swift in Sources */,
 				A7B8DE9A2786F448006DDED9 /* AcademyMyPageViewController.swift in Sources */,
 				A7D44D6B2758E73F0020CB8F /* MyRegularClassViewontroller.swift in Sources */,
@@ -936,12 +1071,17 @@
 				A7F5F7C92729266200D17FA2 /* LeatherSearchViewController.swift in Sources */,
 				A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */,
 				A79444A4274CDFFF0003C72E /* ChattingTableViewCell.swift in Sources */,
+				A76DCF8827C296BE00FB7A6D /* LikeFilterViewController.swift in Sources */,
+				A76DCF5327B9094000FB7A6D /* AcademyRegularClassViewController.swift in Sources */,
 				A7F5F7C32729263D00D17FA2 /* ShoesSearchViewController.swift in Sources */,
 				A7DA21E32796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift in Sources */,
 				A7F5F7C62729264F00D17FA2 /* ClothesSearchViewController.swift in Sources */,
 				A7F5F7802727B80900D17FA2 /* GirsHiphopViewController.swift in Sources */,
+				A76DCF6527B9169100FB7A6D /* academyOnedayResponse.swift in Sources */,
 				A7F5F7832727B81900D17FA2 /* WaakingViewController.swift in Sources */,
 				A7B8DEC1278F6AA7006DDED9 /* loginResponse.swift in Sources */,
+				A76DCF8B27C2B95D00FB7A6D /* specificaAcademyLikesResponse.swift in Sources */,
+				A76DCF6027B90ECE00FB7A6D /* AcademyOnedayClassTableViewTableViewCell.swift in Sources */,
 				A794449B2743C2490003C72E /* ClassDetailViewController.swift in Sources */,
 				A76EEE64274397C400CA653B /* AcademyDetaliViewController.swift in Sources */,
 				A7F5F7772727B7D800D17FA2 /* KpopViewController.swift in Sources */,
@@ -949,6 +1089,7 @@
 				A7F5F7CF2729271C00D17FA2 /* DetailSearchPageViewController.swift in Sources */,
 				A7B8DED12790127D006DDED9 /* userModifyRequest.swift in Sources */,
 				A7B8DDBB27855AEA006DDED9 /* HouseViewController.swift in Sources */,
+				A76DCF2327B530B900FB7A6D /* AllTableViewCell.swift in Sources */,
 				A76DCEEB27A14FB600FB7A6D /* datePickerPopUpViewController.swift in Sources */,
 				A7D44D542758A32B0020CB8F /* AcademyViewController.swift in Sources */,
 				A76DCEFE27ABC1C200FB7A6D /* userOnedayClassResponse.swift in Sources */,
@@ -959,6 +1100,8 @@
 				A7B8DDB527855ACA006DDED9 /* CrumpViewController.swift in Sources */,
 				A7F5F7DC272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift in Sources */,
 				A76DCF1527B4FBBC00FB7A6D /* AcademySettingViewController.swift in Sources */,
+				A76DCF6F27B9EBCA00FB7A6D /* likeResponse.swift in Sources */,
+				A76DCF2727B76E4A00FB7A6D /* allGenreResponse.swift in Sources */,
 				A7B8DDD427857A2D006DDED9 /* CrumpTableViewCell.swift in Sources */,
 				A76DCF0527ABD8F000FB7A6D /* academySignUpResponse.swift in Sources */,
 				A7D44D752758ED3A0020CB8F /* MYRegularClassTableViewCell.swift in Sources */,
@@ -970,6 +1113,9 @@
 				A76DCEE727A13CCA00FB7A6D /* addClassRequest.swift in Sources */,
 				A7B8DECE27900C96006DDED9 /* GeneralMyProfileViewController.swift in Sources */,
 				A79444A1274CC66E0003C72E /* ChatViewController.swift in Sources */,
+				A76DCF5D27B90EBA00FB7A6D /* AcademyRegularClassTableViewCell.swift in Sources */,
+				A76DCF8F27C345BE00FB7A6D /* specificaClassLikesResponse.swift in Sources */,
+				A76DCF8127C2432500FB7A6D /* allAcademyLikesResponse.swift in Sources */,
 				A7B8DDC5278579E0006DDED9 /* HiphopTableViewCell.swift in Sources */,
 				A7F5F77D2727B7F600D17FA2 /* HiphopViewController.swift in Sources */,
 				A7F5F7C02729262A00D17FA2 /* AllSearchViewController.swift in Sources */,
@@ -983,6 +1129,7 @@
 				A76EEE6C27439A3500CA653B /* RegularClassTableViewCell.swift in Sources */,
 				A76DCF0127ABD85C00FB7A6D /* AcademyMyPageDataManager.swift in Sources */,
 				A76DCF0827B3824600FB7A6D /* AcademyMyProfileViewController.swift in Sources */,
+				A76DCF5027B908EF00FB7A6D /* AcademyPageViewController.swift in Sources */,
 				BD4394AC252E2AED0055F2E6 /* UIFont.swift in Sources */,
 				A7B8DEA627897E2A006DDED9 /* SignUpViewController.swift in Sources */,
 				A7B8DECA278F9919006DDED9 /* keyCenter.swift in Sources */,
@@ -992,6 +1139,7 @@
 				BD439425252E1BEE0055F2E6 /* Color.swift in Sources */,
 				A7F5F7DF272929F300D17FA2 /* ClothesSearchCollectionViewCell.swift in Sources */,
 				A7D44D682758E6AA0020CB8F /* MyPagePageViewController.swift in Sources */,
+				A76DCF1927B50BE200FB7A6D /* AcademyChangePasswordViewController.swift in Sources */,
 				A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */,
 				A7B8DEA927897E71006DDED9 /* WelcomViewController.swift in Sources */,
 			);

@@ -39,7 +39,7 @@ class UserMyPageDataManager{
     
     
     //일반 유저 비밀번호 변경
-    func password(_ parameters: passwordRequest, userIndex : Int, delegate: changePasswordViewController) {
+    func password(_ parameters: passwordRequest, userIndex : Int, delegate: ChangePasswordViewController) {
         AF.request("\(Constant.BASE_URL)users/passwords/\(userIndex)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: KeyCenter.header)
             .validate()
             .responseDecodable(of: usersResponse.self) { response in

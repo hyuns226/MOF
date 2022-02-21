@@ -7,6 +7,7 @@
 
 import UIKit
 class GirsHiphopViewController : UIViewController{
+    static var girlsHiphopResultList : [specificResults] = []
     
     @IBOutlet weak var GirlsHiphopTableView: UITableView!
     
@@ -28,13 +29,24 @@ extension GirsHiphopViewController : UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "GirlsHiphopTableViewCell") as! GirlsHiphopTableViewCell
         
         cell.layer.cornerRadius = 12
+        
+        if let url = URL(string: GirsHiphopViewController.girlsHiphopResultList[indexPath.section].academyBackImgUrl ?? "") {
+            cell.AcademyImageView.kf.setImage(with: url)
+        } else {
+            cell.AcademyImageView.image = UIImage(named: "defaultImage")
+        }
+        
+        cell.AcademyName.text = GirsHiphopViewController.girlsHiphopResultList[indexPath.section].academyName
+        cell.addressLabel.text = GirsHiphopViewController.girlsHiphopResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = GirsHiphopViewController.girlsHiphopResultList[indexPath.section].academyPhone
+        
         return cell
     }
     
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 5
+            return GirsHiphopViewController.girlsHiphopResultList.count
         }
 
         

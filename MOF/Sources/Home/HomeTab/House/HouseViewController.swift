@@ -7,6 +7,7 @@
 
 import UIKit
 class HouseViewController : UIViewController{
+    static var houseResultList : [specificResults] = []
     
     @IBOutlet weak var HouseTableView: UITableView!
     
@@ -26,13 +27,25 @@ extension HouseViewController : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell")as!HouseTableViewCell
+        cell.layer.cornerRadius = 12
+        
+        if let url = URL(string: HouseViewController.houseResultList[indexPath.section].academyBackImgUrl ?? "") {
+            cell.AcademyImageView.kf.setImage(with: url)
+        } else {
+            cell.AcademyImageView.image = UIImage(named: "defaultImage")
+        }
+        
+        cell.AcademyName.text = HouseViewController.houseResultList[indexPath.section].academyName
+        cell.addressLabel.text = HouseViewController.houseResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = HouseViewController.houseResultList[indexPath.section].academyPhone
+        
         return cell
     }
     
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 5
+            return HouseViewController.houseResultList.count
         }
 
         

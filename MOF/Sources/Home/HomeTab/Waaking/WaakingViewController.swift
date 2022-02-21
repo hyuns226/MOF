@@ -7,6 +7,7 @@
 
 import UIKit
 class WaakingViewController : UIViewController{
+    static var waakingResultList : [specificResults] = []
     
     @IBOutlet weak var WaakingTableView: UITableView!
     
@@ -27,6 +28,17 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WaakingTableViewCell")as!WaakingTableViewCell
         cell.layer.cornerRadius = 12
+        
+        if let url = URL(string: WaakingViewController.waakingResultList[indexPath.section].academyBackImgUrl ?? "") {
+            cell.AcademyImageView.kf.setImage(with: url)
+        } else {
+            cell.AcademyImageView.image = UIImage(named: "defaultImage")
+        }
+        
+        cell.AcademyName.text = WaakingViewController.waakingResultList[indexPath.section].academyName
+        cell.addressLabel.text = WaakingViewController.waakingResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = WaakingViewController.waakingResultList[indexPath.section].academyPhone
+        
         return cell
     }
     
@@ -34,7 +46,7 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 5
+            return WaakingViewController.waakingResultList.count
         }
 
         

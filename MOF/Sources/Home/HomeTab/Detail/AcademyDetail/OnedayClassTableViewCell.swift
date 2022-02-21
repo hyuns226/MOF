@@ -9,6 +9,11 @@ import UIKit
 
 class OnedayClassTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var classNameLabel: UILabel!
+    @IBOutlet weak var teacherNameLabel: UILabel!
+    @IBOutlet weak var classTimeOneLabel: UILabel!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

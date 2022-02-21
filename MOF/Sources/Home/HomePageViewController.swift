@@ -14,20 +14,20 @@ class HomePageViewController: UIPageViewController {
         let viewList : [UIViewController] = {
             
             let storyBoard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
-            
-            let vc0 = storyBoard.instantiateViewController(identifier: "KpopViewController")
-            let vc1 = storyBoard.instantiateViewController(identifier: "CoreoViewController")
-            let vc2 = storyBoard.instantiateViewController(identifier: "HiphopViewController")
-            let vc3 = storyBoard.instantiateViewController(identifier: "GirsHiphopViewController")
-            let vc4 = storyBoard.instantiateViewController(identifier: "WaakingViewController")
-            let vc5 = storyBoard.instantiateViewController(identifier: "PopinViewController")
-            let vc6 = storyBoard.instantiateViewController(identifier: "RockingViewController")
-            let vc7 = storyBoard.instantiateViewController(identifier: "CrumpViewController")
-            let vc8 = storyBoard.instantiateViewController(identifier: "VoguingViewController")
-            let vc9 = storyBoard.instantiateViewController(identifier: "HouseViewController")
+            let vc0 = storyBoard.instantiateViewController(identifier: "AllViewController")
+            let vc1 = storyBoard.instantiateViewController(identifier: "KpopViewController")
+            let vc2 = storyBoard.instantiateViewController(identifier: "CoreoViewController")
+            let vc3 = storyBoard.instantiateViewController(identifier: "HiphopViewController")
+            let vc4 = storyBoard.instantiateViewController(identifier: "GirsHiphopViewController")
+            let vc5 = storyBoard.instantiateViewController(identifier: "WaakingViewController")
+            let vc6 = storyBoard.instantiateViewController(identifier: "PopinViewController")
+            let vc7 = storyBoard.instantiateViewController(identifier: "RockingViewController")
+            let vc8 = storyBoard.instantiateViewController(identifier: "CrumpViewController")
+            let vc9 = storyBoard.instantiateViewController(identifier: "VoguingViewController")
+            let vc10 = storyBoard.instantiateViewController(identifier: "HouseViewController")
           
             
-            return [vc0, vc1, vc2, vc3, vc4, vc5, vc6, vc7, vc8, vc9]
+            return [vc0, vc1, vc2, vc3, vc4, vc5, vc6, vc7, vc8, vc9, vc10]
             
         } ()
         

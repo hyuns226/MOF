@@ -9,10 +9,11 @@ import UIKit
 
 class HiphopTableViewCell: UITableViewCell {
 
+    
     @IBOutlet weak var AcademyImageView: UIImageView!
     @IBOutlet weak var AcademyName: UILabel!
     @IBOutlet weak var PhoneNumLabel: UILabel!
-    @IBOutlet weak var AddLabel: NSLayoutConstraint!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var heartButton: UIButton!
     
     override func awakeFromNib() {

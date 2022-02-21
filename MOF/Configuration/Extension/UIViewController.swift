@@ -112,4 +112,18 @@ extension UIViewController {
     @objc func dismissIndicator() {
         IndicatorView.shared.dismiss()
     }
+    
+    func stringToDate(dateString : String) -> Date{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE yy-MM-dd HH:mm"
+        let date = formatter.date(from: dateString)!
+        print(type(of: date))
+        return date
+    }
+
+    func dateToString(date : Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE HH:mm"
+        return formatter.string(from: date)
+    }
 }

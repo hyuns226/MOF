@@ -26,10 +26,16 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    
+  
+    
     // MARK: 이미지 파일이름을 현재 일시로 저장
     var fileName: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMddhhmmssSSS"
         return dateFormatter.string(from: self)
     }
+    
+    
+    
 }

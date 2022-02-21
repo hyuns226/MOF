@@ -59,6 +59,8 @@ class LikePageViewController: UIPageViewController {
         required init?(coder aDecoder: NSCoder) {
             super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         }
+    
+    
         
 
     }

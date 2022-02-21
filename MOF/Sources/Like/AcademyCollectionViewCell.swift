@@ -9,4 +9,14 @@ import UIKit
 
 class AcademyCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var academyImageView: UIImageView!
+    @IBOutlet weak var academyNameLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    
+    
+    @IBAction func likeButtonAction(_ sender: Any) {
+        
+    }
+    
 }

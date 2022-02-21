@@ -6,7 +6,7 @@
 //
 
 import UIKit
-class changePasswordViewController : UIViewController{
+class ChangePasswordViewController : UIViewController{
     
     let dataManager = UserMyPageDataManager()
     var passwordInput = passwordRequest(pastPWD: "", newPWD: "")
@@ -62,7 +62,7 @@ class changePasswordViewController : UIViewController{
 
 
 //MARK:- API
-extension changePasswordViewController {
+extension ChangePasswordViewController {
     func password(result : usersResponse){
         if result.isSuccess{
             presentAlert(title: "비밀번호 변경이 완료 되었습니다.")

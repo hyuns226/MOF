@@ -9,5 +9,13 @@ import UIKit
 
 class ClassCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var classImageView: UIImageView!
+    @IBOutlet weak var classNameLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
+    
+    
+    @IBAction func likeButtonAction(_ sender: Any) {
+        
+    }
     
 }

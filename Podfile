@@ -9,5 +9,5 @@ target 'MOF' do
   pod 'Alamofire'
   pod 'AlamofireNetworkActivityIndicator'
   pod 'SnapKit'
-
+  pod 'Kingfisher', '~> 6.0'
 end

@@ -7,6 +7,7 @@
 
 import UIKit
 class VoguingViewController : UIViewController{
+    static var voguingResultList : [specificResults] = []
     
     @IBOutlet weak var VoguingTableView: UITableView!
     
@@ -26,13 +27,24 @@ extension VoguingViewController : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VoguingTableViewCell")as!VoguingTableViewCell
         cell.layer.cornerRadius = 12
+        
+        if let url = URL(string: VoguingViewController.voguingResultList[indexPath.section].academyBackImgUrl ?? "") {
+            cell.AcademyImageView.kf.setImage(with: url)
+        } else {
+            cell.AcademyImageView.image = UIImage(named: "defaultImage")
+        }
+        
+        cell.AcademyName.text = VoguingViewController.voguingResultList[indexPath.section].academyName
+        cell.addressLabel.text = VoguingViewController.voguingResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = VoguingViewController.voguingResultList[indexPath.section].academyPhone
+        
         return cell
     }
     
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return 5
+            return VoguingViewController.voguingResultList.count
         }
 
         
