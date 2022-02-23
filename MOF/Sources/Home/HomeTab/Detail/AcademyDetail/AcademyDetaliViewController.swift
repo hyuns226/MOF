@@ -31,11 +31,16 @@ class AcademyDetaliViewController : UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     
     
-        
-        
-   
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var stackViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var regularClassTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var onedayClassTableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
     
-    override func viewDidLoad() {
+    
+        
+       override func viewDidLoad() {
         super.viewDidLoad()
         
         print(AcademyInfo)
@@ -58,6 +63,9 @@ class AcademyDetaliViewController : UIViewController {
         
         
         
+        
+       
+       
     }
     
     //MARK:- FUNCTION
@@ -112,7 +120,7 @@ extension AcademyDetaliViewController : UITableViewDelegate,UITableViewDataSourc
             
 
             regularCell.classNameLabel.text =  regularClassResultList[indexPath.section].className
-            print(regularClassResultList[indexPath.section].className)
+           
             regularCell.teacherNameLabel.text = regularClassResultList[indexPath.section].classTeacherName+" 선생님"
            
             //Set class time
@@ -159,11 +167,13 @@ extension AcademyDetaliViewController : UITableViewDelegate,UITableViewDataSourc
         if tableView == regularClassTableView{
             let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
             classDetailVC.classIdx = regularClassResultList[indexPath.section].classIdx
+            classDetailVC.classType = "regular"
             self.navigationController?.pushViewController(classDetailVC, animated: true)
             
         }else{
             let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
             classDetailVC.classIdx = onedayClassResultList[indexPath.section].classIdx
+            classDetailVC.classType = "oneday"
             self.navigationController?.pushViewController(classDetailVC, animated: true)
             
         }
@@ -176,7 +186,7 @@ extension AcademyDetaliViewController : UITableViewDelegate,UITableViewDataSourc
 
         func numberOfSections(in tableView: UITableView) -> Int {
             if tableView == regularClassTableView{
-                print("count : \(regularClassResultList.count)")
+                
                 return regularClassResultList.count
             }else{
                 return onedayClassResultList.count
@@ -259,6 +269,7 @@ extension AcademyDetaliViewController{
             print(result)
             regularClassResultList = result.result ?? []
             regularClassTableView.reloadData()
+            regularClassTableViewHeight.constant = regularClassTableView.contentSize.height
             
         }else{
             presentAlert(title:  result.message)
@@ -270,6 +281,17 @@ extension AcademyDetaliViewController{
             print(result)
             onedayClassResultList = result.result ?? []
             OnedayClassTableView.reloadData()
+            onedayClassTableViewHeight.constant = OnedayClassTableView.contentSize.height
+            regularClassTableViewHeight.constant = regularClassTableView.contentSize.height
+            
+            viewHeight.constant = imageViewHeight.constant + stackViewHeight.constant + regularClassTableViewHeight.constant + onedayClassTableViewHeight.constant + collectionViewHeight.constant + 280
+            
+            print(imageViewHeight.constant)
+            print(stackViewHeight.constant)
+            print(regularClassTableViewHeight.constant)
+            print(onedayClassTableViewHeight.constant)
+            print(collectionViewHeight.constant)
+           
             
         }else{
             presentAlert(title:  result.message)

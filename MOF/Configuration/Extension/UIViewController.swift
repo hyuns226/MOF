@@ -120,10 +120,31 @@ extension UIViewController {
         print(type(of: date))
         return date
     }
+    
+    func stringToDateForDayandDate(dateString : String) -> Date{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE HH:mm"
+        let date = formatter.date(from: dateString)!
+        print(type(of: date))
+        return date
+    }
 
     func dateToString(date : Date) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE HH:mm"
         return formatter.string(from: date)
     }
+    
+    func dateToStringOnlyTime(date : Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: date)
+    }
+    
+    func dateToStringOnlyDay(date : Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        return formatter.string(from: date)
+    }
 }
+

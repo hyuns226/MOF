@@ -9,4 +9,7 @@ import UIKit
 
 class ClassTimeCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    
 }

@@ -173,6 +173,19 @@ class HomeDataManager{
             }
     }
     
-    
+    //정규 수업 상세 조회
+    func getDetailRegularClasses(classIdx: Int, delegate : ClassDetailViewController ) {
+        AF.request("\(Constant.BASE_URL)classes/regulars/\(classIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodable(of: detailRegularClassResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.getDetailRegularClass(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
     
 }
