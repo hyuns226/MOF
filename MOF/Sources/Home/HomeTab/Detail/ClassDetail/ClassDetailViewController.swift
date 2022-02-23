@@ -35,7 +35,12 @@ class ClassDetailViewController : UIViewController{
         
         print("classIdx :\(classIdx)")
         
-        dataManager.getDetailRegularClasses(classIdx: classIdx, delegate: self)
+        if classType == "regular"{
+            dataManager.getDetailRegularClasses(classIdx: classIdx, delegate: self)
+        }else if classType == "oneday"{
+            dataManager.getDetailOnedayClasses(classIdx: classIdx, delegate: self)
+        }
+        
         
         AskButton.layer.cornerRadius = 18
         registerButton.layer.cornerRadius = 18
@@ -177,6 +182,51 @@ extension ClassDetailViewController{
         
     }
     
+    func getDetailOnedayClass(result : detailOnedayClassResponse){
+        
+        print(result)
+        
+        if let url = URL(string: result.result?.classImageUrl ?? "") {
+            classImageView.kf.setImage(with: url)
+        } else {
+            classImageView.image = UIImage(named: "defaultImage")
+        }
+        
+        classNameLabel.text = result.result?.className
+        
+        //Set class time
+        let date1 = dateToStringOnlyDate(date: stringToDateForOneday(dateString: result.result?.classStartTime1 ?? ""))
+        let startTime1 = dateToStringOnlyTime(date: stringToDateForOneday(dateString: result.result?.classStartTime1 ?? ""))
+        let endTime1 = dateToStringOnlyTime(date: stringToDateForOneday(dateString: result.result?.classEndTime1 ?? ""))
+        classTimeList.append(classTime(day: date1, time: startTime1 + "~" + endTime1))
+        
+        
+        classTimeCollectionView.reloadData()
+            
+        if let price = result.result?.classPrice{
+            classPriceLabel.text =  String(result.result?.classPrice ?? -1).insertComma+"원"
+        }else{
+            classPriceLabel.text = ""
+        }
+
+        
+        classPersonnelLabel.text = result.result?.classPersonnel
+        classIntroLabel.text = result.result?.classIntro
+        
+        
+       
+        
+        
+        if let url = URL(string: result.result?.teacherImgUrl ?? "") {
+            teacherImageView.kf.setImage(with: url)
+        } else {
+            teacherImageView.image = UIImage(named: "defaultImage")
+        }
+       
+        teacherNameLabel.text = result.result?.classTeacherName
+        teacherIntroLabel.text = result.result?.classTeacherIntro
+        
+    }
     
     func failedToRequest(){
         
