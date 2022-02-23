@@ -124,14 +124,24 @@ extension UIViewController {
     func stringToDateForDayandDate(dateString : String) -> Date{
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE HH:mm"
-        let date = formatter.date(from: dateString)!
+        let date = formatter.date(from: dateString)
         print(type(of: date))
-        return date
+        return date ?? Date()
     }
+    
+    func stringToDateForOneday(dateString : String) -> Date{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd HH:mm"
+        let date = formatter.date(from: dateString)
+        print(type(of: date))
+        return date ?? Date()
+    }
+
 
     func dateToString(date : Date) -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE HH:mm"
+        formatter.locale = Locale(identifier: "ko")
         return formatter.string(from: date)
     }
     
@@ -143,8 +153,17 @@ extension UIViewController {
     
     func dateToStringOnlyDay(date : Date) -> String{
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEE"
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "EEE요일"
         return formatter.string(from: date)
     }
+    
+    func dateToStringOnlyDate(date : Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월 dd일"
+        return formatter.string(from: date)
+    }
+    
+
 }
 
