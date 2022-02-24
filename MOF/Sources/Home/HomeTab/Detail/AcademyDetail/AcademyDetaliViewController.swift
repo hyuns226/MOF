@@ -227,16 +227,21 @@ extension AcademyDetaliViewController : UICollectionViewDelegate,UICollectionVie
 extension AcademyDetaliViewController{
     
     func getAcademyLikes(result : getAcademyLikesResponse){
-        print(result.result.좋아요여부)
-        if result.result.좋아요여부 == true{
-            self.likeButton.isSelected = true
-            self.likeButton.setImage(#imageLiteral(resourceName: "heart_fill"), for: .selected)
-            print("yes")
+        if result.isSuccess{
+            print(result.result.좋아요여부)
+            if result.result.좋아요여부 == true{
+                self.likeButton.isSelected = true
+                self.likeButton.setImage(#imageLiteral(resourceName: "heart_fill"), for: .selected)
+                print("yes")
+            }else{
+                self.likeButton.isSelected = false
+                self.likeButton.setImage(#imageLiteral(resourceName: "coolicon295"), for: .normal)
+                print("no")
+            }
         }else{
-            self.likeButton.isSelected = false
-            self.likeButton.setImage(#imageLiteral(resourceName: "coolicon295"), for: .normal)
-            print("no")
+            presentAlert(title: result.message)
         }
+        
     }
     
     

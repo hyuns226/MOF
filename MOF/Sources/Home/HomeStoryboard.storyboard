@@ -1206,7 +1206,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="enrollButtonAction:" destination="YqH-jC-RSD" eventType="touchUpInside" id="vjU-OS-hfi"/>
-                                                    <segue destination="7Lj-He-8kU" kind="modal" id="PYf-mr-vGS"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1265,11 +1264,11 @@
             <objects>
                 <viewController storyboardIdentifier="ClassEnrollmentViewController" id="7Lj-He-8kU" customClass="ClassEnrollmentViewController" customModule="MOF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I0w-lx-G4c">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihG-7A-utY">
-                                <rect key="frame" x="18" y="50" width="354" height="160"/>
+                                <rect key="frame" x="18" y="94" width="354" height="160"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eEz-ot-tIk">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -1321,13 +1320,13 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="247" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="강사" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-G3-ull">
-                                                                <rect key="frame" x="0.0" y="9.6666666666666572" width="148.66666666666666" height="21"/>
+                                                                <rect key="frame" x="0.0" y="9.6666666666666714" width="148.66666666666666" height="21"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                                 <color key="textColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vt2-iQ-iFI">
-                                                                <rect key="frame" x="98.666666666666643" y="9.6666666666666572" width="148.33333333333337" height="21"/>
+                                                                <rect key="frame" x="98.666666666666643" y="9.6666666666666714" width="148.33333333333337" height="21"/>
                                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1338,14 +1337,14 @@
                                                         </constraints>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeT-CB-Mth">
-                                                        <rect key="frame" x="0.0" y="40" width="247" height="1"/>
+                                                        <rect key="frame" x="0.0" y="39.999999999999986" width="247" height="1"/>
                                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="OFI-ta-UrE"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="59V-Dz-1BV">
-                                                        <rect key="frame" x="0.0" y="41" width="247" height="40"/>
+                                                        <rect key="frame" x="0.0" y="40.999999999999986" width="247" height="40"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-50" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cfq-L6-sTv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="247" height="20"/>
@@ -1368,7 +1367,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-50" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hU7-Zn-QKG">
-                                                                <rect key="frame" x="0.0" y="19.999999999999986" width="247" height="20"/>
+                                                                <rect key="frame" x="0.0" y="20" width="247" height="20"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수업시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zj-RX-In9">
                                                                         <rect key="frame" x="0.0" y="0.0" width="148.66666666666666" height="20"/>
@@ -1436,7 +1435,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yat-bo-Phu">
-                                <rect key="frame" x="18" y="262" width="354" height="224"/>
+                                <rect key="frame" x="18" y="306" width="354" height="224"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수강정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMG-u9-hJV">
                                         <rect key="frame" x="18" y="18" width="318" height="28"/>
@@ -1575,7 +1574,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps5-Es-Ncc">
-                                <rect key="frame" x="18" y="721" width="354" height="35"/>
+                                <rect key="frame" x="18" y="775" width="354" height="35"/>
                                 <color key="backgroundColor" red="0.94509803921568625" green="0.086274509803921567" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="87C-rE-kwc"/>
@@ -1588,7 +1587,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Fw-fV-0sO">
-                                <rect key="frame" x="20" y="20" width="20" height="20"/>
+                                <rect key="frame" x="20" y="54" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="VVB-Ei-AJb"/>
                                     <constraint firstAttribute="width" constant="20" id="ofp-Mx-GSb"/>
@@ -1609,7 +1608,7 @@
                             <constraint firstItem="ihG-7A-utY" firstAttribute="top" secondItem="LiY-7d-qrq" secondAttribute="top" constant="50" id="StT-OQ-qgE"/>
                             <constraint firstItem="ps5-Es-Ncc" firstAttribute="leading" secondItem="LiY-7d-qrq" secondAttribute="leading" constant="18" id="fsF-0p-34G"/>
                             <constraint firstItem="ihG-7A-utY" firstAttribute="leading" secondItem="LiY-7d-qrq" secondAttribute="leading" constant="18" id="fsW-LJ-kB4"/>
-                            <constraint firstItem="2Fw-fV-0sO" firstAttribute="top" secondItem="LiY-7d-qrq" secondAttribute="top" constant="20" id="i4k-FG-jPb"/>
+                            <constraint firstItem="2Fw-fV-0sO" firstAttribute="top" secondItem="LiY-7d-qrq" secondAttribute="top" constant="10" id="i4k-FG-jPb"/>
                             <constraint firstItem="LiY-7d-qrq" firstAttribute="trailing" secondItem="ihG-7A-utY" secondAttribute="trailing" constant="18" id="jBw-xG-lkS"/>
                             <constraint firstItem="yat-bo-Phu" firstAttribute="top" secondItem="ihG-7A-utY" secondAttribute="bottom" constant="52" id="o0H-fn-hvr"/>
                             <constraint firstItem="LiY-7d-qrq" firstAttribute="trailing" secondItem="ps5-Es-Ncc" secondAttribute="trailing" constant="18" id="pq7-si-mfN"/>
@@ -1636,16 +1635,86 @@
             </objects>
             <point key="canvasLocation" x="6261.538461538461" y="2068.7203791469192"/>
         </scene>
-        <!--View Controller-->
+        <!--Complete Enrollment View Controller-->
         <scene sceneID="kgA-kd-3bE">
             <objects>
-                <viewController id="Jsc-cU-rGS" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompleteEnrollmentViewController" id="Jsc-cU-rGS" customClass="CompleteEnrollmentViewController" customModule="MOF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="27L-uT-V6z">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E9Z-NZ-PTn">
+                                <rect key="frame" x="42.666666666666657" y="94" width="305" height="305"/>
+                                <color key="backgroundColor" red="0.90984791519999997" green="0.90973037479999996" blue="0.91372668739999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="305" id="Sg3-rB-WjD"/>
+                                    <constraint firstAttribute="width" constant="305" id="jz6-UG-JXu"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdf-Y0-m0y">
+                                <rect key="frame" x="42.666666666666657" y="409" width="305" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록이 완료되었습니다!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxh-fg-39o">
+                                        <rect key="frame" x="20" y="0.0" width="265" height="26.666666666666668"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24s-3P-H6e">
+                                        <rect key="frame" x="80" y="41.666666666666686" width="145" height="35"/>
+                                        <color key="backgroundColor" red="0.92941802740000001" green="0.92940050360000004" blue="0.92941242459999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="Vh1-b7-KEp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="등록 내역 바로가기">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Bxh-fg-39o" secondAttribute="trailing" constant="20" id="4iL-If-i3B"/>
+                                    <constraint firstItem="24s-3P-H6e" firstAttribute="top" secondItem="Bxh-fg-39o" secondAttribute="bottom" constant="15" id="QkD-cR-jqa"/>
+                                    <constraint firstItem="Bxh-fg-39o" firstAttribute="leading" secondItem="Cdf-Y0-m0y" secondAttribute="leading" constant="20" id="bd0-Id-Eye"/>
+                                    <constraint firstItem="24s-3P-H6e" firstAttribute="leading" secondItem="Bxh-fg-39o" secondAttribute="leading" constant="60" id="dlH-9T-zvd"/>
+                                    <constraint firstItem="Bxh-fg-39o" firstAttribute="top" secondItem="Cdf-Y0-m0y" secondAttribute="top" id="jKu-63-wZk"/>
+                                    <constraint firstItem="24s-3P-H6e" firstAttribute="trailing" secondItem="Bxh-fg-39o" secondAttribute="trailing" constant="-60" id="mpR-5n-pE5"/>
+                                    <constraint firstAttribute="height" constant="80" id="sgh-7J-eAg"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P32-O9-NAt">
+                                <rect key="frame" x="30" y="775" width="330" height="35"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.086274509799999996" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="GHG-bB-Raq"/>
+                                </constraints>
+                                <state key="normal" title="수업 정보로 돌아가기">
+                                    <color key="titleColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="enrollButtonAction:" destination="7Lj-He-8kU" eventType="touchUpInside" id="Np4-Dc-pUt"/>
+                                    <action selector="goToClassInfoButtonAction:" destination="Jsc-cU-rGS" eventType="touchUpInside" id="SEn-kf-HCX"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="KNf-Xf-Mtt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KNf-Xf-Mtt" firstAttribute="trailing" secondItem="P32-O9-NAt" secondAttribute="trailing" constant="30" id="42T-8i-LEw"/>
+                            <constraint firstItem="E9Z-NZ-PTn" firstAttribute="top" secondItem="KNf-Xf-Mtt" secondAttribute="top" constant="50" id="GuW-IN-2re"/>
+                            <constraint firstItem="E9Z-NZ-PTn" firstAttribute="centerX" secondItem="KNf-Xf-Mtt" secondAttribute="centerX" id="PRK-9l-DJo"/>
+                            <constraint firstItem="Cdf-Y0-m0y" firstAttribute="leading" secondItem="E9Z-NZ-PTn" secondAttribute="leading" id="Rzy-Dl-3qp"/>
+                            <constraint firstItem="KNf-Xf-Mtt" firstAttribute="bottom" secondItem="P32-O9-NAt" secondAttribute="bottom" id="Vum-bd-HTm"/>
+                            <constraint firstItem="Cdf-Y0-m0y" firstAttribute="trailing" secondItem="E9Z-NZ-PTn" secondAttribute="trailing" id="YWS-62-X7q"/>
+                            <constraint firstItem="Cdf-Y0-m0y" firstAttribute="top" secondItem="E9Z-NZ-PTn" secondAttribute="bottom" constant="10" id="c9p-0b-dWx"/>
+                            <constraint firstItem="P32-O9-NAt" firstAttribute="leading" secondItem="27L-uT-V6z" secondAttribute="leading" constant="30" id="khw-vZ-QGb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="classImageView" destination="E9Z-NZ-PTn" id="UtJ-iu-NtZ"/>
+                        <outlet property="goToRegistrationButtonAction" destination="24s-3P-H6e" id="IgC-T2-WW1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="myd-XV-ra1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

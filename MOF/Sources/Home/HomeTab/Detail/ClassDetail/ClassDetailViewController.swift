@@ -106,16 +106,21 @@ extension ClassDetailViewController : UICollectionViewDelegate, UICollectionView
 extension ClassDetailViewController{
     
     func getClassLikes(result : getAcademyLikesResponse){
-        print(result.result.좋아요여부)
-        if result.result.좋아요여부 == true{
-            self.likeButton.isSelected = true
-            self.likeButton.setImage(#imageLiteral(resourceName: "heart_fill"), for: .selected)
-            print("yes")
+        if result.isSuccess{
+            print(result.result.좋아요여부)
+            if result.result.좋아요여부 == true{
+                self.likeButton.isSelected = true
+                self.likeButton.setImage(#imageLiteral(resourceName: "heart_fill"), for: .selected)
+                print("yes")
+            }else{
+                self.likeButton.isSelected = false
+                self.likeButton.setImage(#imageLiteral(resourceName: "coolicon295"), for: .normal)
+                print("no")
+            }
         }else{
-            self.likeButton.isSelected = false
-            self.likeButton.setImage(#imageLiteral(resourceName: "coolicon295"), for: .normal)
-            print("no")
+            presentAlert(title: result.message)
         }
+        
     }
     
     func likesForClass(result: classLikeResponse){
@@ -143,124 +148,134 @@ extension ClassDetailViewController{
     }
     
     func getDetailRegularClass(result : detailRegularClassResponse){
-        print(result)
-        
-        if let url = URL(string: result.result?.classImageUrl ?? "") {
-            classImageView.kf.setImage(with: url)
-        } else {
-            classImageView.image = UIImage(named: "defaultImage")
-        }
-        
-        classNameLabel.text = result.result?.className
-        
-        //Set class time
-        let day1 = dateToStringOnlyDay(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
-        let startTime1 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
-        let endTime1 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classEndTime1 ?? ""))
-        classTimeList.append(classTime(day: day1, time: startTime1 + "~" + endTime1))
-        
-        if result.result?.classStartTime2 != nil{
-            let day2 = dateToStringOnlyDay(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
-            let startTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classStartTime2 ?? ""))
-            let endTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classEndTime2 ?? ""))
-            classTimeList.append(classTime(day: day2, time: startTime2 + "~" + endTime2))
+        if result.isSuccess{
+            print(result)
             
-        }
-        
-        classTimeCollectionView.reloadData()
+            if let url = URL(string: result.result?.classImageUrl ?? "") {
+                classImageView.kf.setImage(with: url)
+            } else {
+                classImageView.image = UIImage(named: "defaultImage")
+            }
             
-        if let price = result.result?.classPrice{
-            classPriceLabel.text =  String(result.result?.classPrice ?? -1).insertComma+"원"
-        }else{
-            classPriceLabel.text = ""
-        }
+            classNameLabel.text = result.result?.className
+            
+            //Set class time
+            let day1 = dateToStringOnlyDay(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
+            let startTime1 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
+            let endTime1 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classEndTime1 ?? ""))
+            classTimeList.append(classTime(day: day1, time: startTime1 + "~" + endTime1))
+            
+            if result.result?.classStartTime2 != nil{
+                let day2 = dateToStringOnlyDay(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
+                let startTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classStartTime2 ?? ""))
+                let endTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classEndTime2 ?? ""))
+                classTimeList.append(classTime(day: day2, time: startTime2 + "~" + endTime2))
+                
+            }
+            
+            classTimeCollectionView.reloadData()
+                
+            if let price = result.result?.classPrice{
+                classPriceLabel.text =  String(result.result?.classPrice ?? -1).insertComma+"원"
+            }else{
+                classPriceLabel.text = ""
+            }
 
-        
-        classPersonnelLabel.text = result.result?.classPersonnel
-        classIntroLabel.text = result.result?.classIntro
-        
-        
-        if let url = URL(string: result.result?.teacherImgUrl ?? "") {
-            teacherImageView.kf.setImage(with: url)
-        } else {
-            teacherImageView.image = UIImage(named: "defaultImage")
+            
+            classPersonnelLabel.text = result.result?.classPersonnel
+            classIntroLabel.text = result.result?.classIntro
+            
+            
+            if let url = URL(string: result.result?.teacherImgUrl ?? "") {
+                teacherImageView.kf.setImage(with: url)
+            } else {
+                teacherImageView.image = UIImage(named: "defaultImage")
+            }
+           
+            teacherNameLabel.text = result.result?.classTeacherName
+            teacherIntroLabel.text = result.result?.classTeacherIntro
+             
+            //setting classinfo for classEnrollmentVC
+            classInfoForEnrollVC.classImageUrl = result.result?.classImageUrl ?? ""
+            classInfoForEnrollVC.className = result.result?.className ?? ""
+            classInfoForEnrollVC.teacherName = result.result?.classTeacherName ?? ""
+            classInfoForEnrollVC.classTimeList.append(day1 + " / " + startTime1 + " ~ " + endTime1)
+            if result.result?.classStartTime2 != nil{
+                let day2 = dateToStringOnlyDay(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
+                let startTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classStartTime2 ?? ""))
+                let endTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classEndTime2 ?? ""))
+                classInfoForEnrollVC.classTimeList.append(day2 + " / " + startTime2 + " ~ " + endTime2)
+            }
+            classInfoForEnrollVC.classPrice = String(result.result?.classPrice ?? -1).insertComma+"원"
+            classInfoForEnrollVC.priceOnlyNum = result.result?.classPrice ?? -1
+        }else{
+            presentAlert(title: result.message)
         }
+        
        
-        teacherNameLabel.text = result.result?.classTeacherName
-        teacherIntroLabel.text = result.result?.classTeacherIntro
-         
-        //setting classinfo for classEnrollmentVC
-        classInfoForEnrollVC.classImageUrl = result.result?.classImageUrl ?? ""
-        classInfoForEnrollVC.className = result.result?.className ?? ""
-        classInfoForEnrollVC.teacherName = result.result?.classTeacherName ?? ""
-        classInfoForEnrollVC.classTimeList.append(day1 + " / " + startTime1 + " ~ " + endTime1)
-        if result.result?.classStartTime2 != nil{
-            let day2 = dateToStringOnlyDay(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
-            let startTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classStartTime2 ?? ""))
-            let endTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classEndTime2 ?? ""))
-            classInfoForEnrollVC.classTimeList.append(day2 + " / " + startTime2 + " ~ " + endTime2)
-        }
-        classInfoForEnrollVC.classPrice = String(result.result?.classPrice ?? -1).insertComma+"원"
-        classInfoForEnrollVC.priceOnlyNum = result.result?.classPrice ?? -1
         
     }
     
     func getDetailOnedayClass(result : detailOnedayClassResponse){
-        
-        print(result)
-        
-        if let url = URL(string: result.result?.classImageUrl ?? "") {
-            classImageView.kf.setImage(with: url)
+        if result.isSuccess{
+            print(result)
             
-        } else {
-            classImageView.image = UIImage(named: "defaultImage")
-        }
-        
-        classNameLabel.text = result.result?.className
-       
-        
-        //Set class time
-        let date1 = dateToStringOnlyDate(date: stringToDateForOneday(dateString: result.result?.classStartTime1 ?? ""))
-        let startTime1 = dateToStringOnlyTime(date: stringToDateForOneday(dateString: result.result?.classStartTime1 ?? ""))
-        let endTime1 = dateToStringOnlyTime(date: stringToDateForOneday(dateString: result.result?.classEndTime1 ?? ""))
-        classTimeList.append(classTime(day: date1, time: startTime1 + "~" + endTime1))
-        
-        
-        
-        classTimeCollectionView.reloadData()
+            if let url = URL(string: result.result?.classImageUrl ?? "") {
+                classImageView.kf.setImage(with: url)
+                
+            } else {
+                classImageView.image = UIImage(named: "defaultImage")
+            }
             
-        if let price = result.result?.classPrice{
-            classPriceLabel.text =  String(result.result?.classPrice ?? -1).insertComma+"원"
+            classNameLabel.text = result.result?.className
+           
             
-        }else{
-            classPriceLabel.text = ""
-        }
+            //Set class time
+            let date1 = dateToStringOnlyDate(date: stringToDateForOneday(dateString: result.result?.classStartTime1 ?? ""))
+            let startTime1 = dateToStringOnlyTime(date: stringToDateForOneday(dateString: result.result?.classStartTime1 ?? ""))
+            let endTime1 = dateToStringOnlyTime(date: stringToDateForOneday(dateString: result.result?.classEndTime1 ?? ""))
+            classTimeList.append(classTime(day: date1, time: startTime1 + "~" + endTime1))
+            
+            
+            
+            classTimeCollectionView.reloadData()
+                
+            if let price = result.result?.classPrice{
+                classPriceLabel.text =  String(result.result?.classPrice ?? -1).insertComma+"원"
+                
+            }else{
+                classPriceLabel.text = ""
+            }
 
-        
-        classPersonnelLabel.text = result.result?.classPersonnel
-        classIntroLabel.text = result.result?.classIntro
-        
-        
-       
-        
-        
-        if let url = URL(string: result.result?.teacherImgUrl ?? "") {
-            teacherImageView.kf.setImage(with: url)
-        } else {
-            teacherImageView.image = UIImage(named: "defaultImage")
+            
+            classPersonnelLabel.text = result.result?.classPersonnel
+            classIntroLabel.text = result.result?.classIntro
+            
+            
+           
+            
+            
+            if let url = URL(string: result.result?.teacherImgUrl ?? "") {
+                teacherImageView.kf.setImage(with: url)
+            } else {
+                teacherImageView.image = UIImage(named: "defaultImage")
+            }
+           
+            teacherNameLabel.text = result.result?.classTeacherName
+            teacherIntroLabel.text = result.result?.classTeacherIntro
+            
+            
+            //setting classinfo for classEnrollmentVC
+            classInfoForEnrollVC.classImageUrl = result.result?.classImageUrl ?? ""
+            classInfoForEnrollVC.className = result.result?.className ?? ""
+            classInfoForEnrollVC.teacherName = result.result?.classTeacherName ?? ""
+            classInfoForEnrollVC.classTimeList.append(date1 + " / " + startTime1 + " ~ " + endTime1)
+            classInfoForEnrollVC.classPrice = String(result.result?.classPrice ?? -1).insertComma+"원"
+            classInfoForEnrollVC.priceOnlyNum = result.result?.classPrice ?? -1
+        }else{
+            presentAlert(title: result.message)
         }
-       
-        teacherNameLabel.text = result.result?.classTeacherName
-        teacherIntroLabel.text = result.result?.classTeacherIntro
         
-        
-        //setting classinfo for classEnrollmentVC
-        classInfoForEnrollVC.classImageUrl = result.result?.classImageUrl ?? ""
-        classInfoForEnrollVC.className = result.result?.className ?? ""
-        classInfoForEnrollVC.teacherName = result.result?.classTeacherName ?? ""
-        classInfoForEnrollVC.classTimeList.append(date1 + " / " + startTime1 + " ~ " + endTime1)
-        classInfoForEnrollVC.classPrice = String(result.result?.classPrice ?? -1).insertComma+"원"
-        classInfoForEnrollVC.priceOnlyNum = result.result?.classPrice ?? -1
         
     }
     

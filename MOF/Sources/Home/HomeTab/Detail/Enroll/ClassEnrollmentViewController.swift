@@ -97,21 +97,37 @@ class ClassEnrollmentViewController : UIViewController{
 extension ClassEnrollmentViewController{
     
     func userProfile(result : userProfileResponse){
-        studentNameLabel.text = result.result?.userName
-        studentPhoneNumLabel.text = result.result?.userPhone
-        if result.result?.userGender == "Female"{
-            studentGenderLabel.text = "여성"
+        if result.isSuccess{
+            studentNameLabel.text = result.result?.userName
+            studentPhoneNumLabel.text = result.result?.userPhone
+            if result.result?.userGender == "Female"{
+                studentGenderLabel.text = "여성"
+            }else{
+                studentGenderLabel.text = "남성"
+            }
+           
+            studentAgeLabel.text = result.result?.userAge
         }else{
-            studentGenderLabel.text = "남성"
+            presentAlert(title: result.message)
         }
-       
-        studentAgeLabel.text = result.result?.userAge
+        
     }
     
     func enrollClass(result : classEnrollResponse){
-        print(result)
-        print("신청성공함")
-        // 신청성공 뷰로 전환
+        
+        if result.isSuccess{
+            print(result)
+            print("신청성공함")
+            // 신청성공 뷰로 전환
+            let completeVC = self.storyboard?.instantiateViewController(withIdentifier: "CompleteEnrollmentViewController") as! CompleteEnrollmentViewController
+            
+            completeVC.modalPresentationStyle = .fullScreen
+            self.present(completeVC, animated: false, completion: nil)
+        }else{
+            presentAlert(title: result.message)
+        }
+        
+        
     }
     
     func failedToRequest(){

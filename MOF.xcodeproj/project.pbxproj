@@ -56,6 +56,7 @@
 		A76DCFA627C61D3100FB7A6D /* ClassEnrollmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFA527C61D3100FB7A6D /* ClassEnrollmentViewController.swift */; };
 		A76DCFAA27C62F2500FB7A6D /* classEnrollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFA927C62F2500FB7A6D /* classEnrollRequest.swift */; };
 		A76DCFAD27C6305700FB7A6D /* classEnrollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFAC27C6305700FB7A6D /* classEnrollResponse.swift */; };
+		A76DCFB027C7506000FB7A6D /* CompleteEnrollmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFAF27C7505F00FB7A6D /* CompleteEnrollmentViewController.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -220,6 +221,7 @@
 		A76DCFA527C61D3100FB7A6D /* ClassEnrollmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassEnrollmentViewController.swift; sourceTree = "<group>"; };
 		A76DCFA927C62F2500FB7A6D /* classEnrollRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classEnrollRequest.swift; sourceTree = "<group>"; };
 		A76DCFAC27C6305700FB7A6D /* classEnrollResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classEnrollResponse.swift; sourceTree = "<group>"; };
+		A76DCFAF27C7505F00FB7A6D /* CompleteEnrollmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteEnrollmentViewController.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				A76DCFA527C61D3100FB7A6D /* ClassEnrollmentViewController.swift */,
+				A76DCFAF27C7505F00FB7A6D /* CompleteEnrollmentViewController.swift */,
 			);
 			path = Enroll;
 			sourceTree = "<group>";
@@ -1090,6 +1093,7 @@
 				A76DCF7327B9F27C00FB7A6D /* dislikeResponse.swift in Sources */,
 				A7B8DEAE27898953006DDED9 /* usersRequest.swift in Sources */,
 				A76DCF8527C28FF700FB7A6D /* allClassLikesResponse.swift in Sources */,
+				A76DCFB027C7506000FB7A6D /* CompleteEnrollmentViewController.swift in Sources */,
 				A76DCF6827B9177C00FB7A6D /* academyRegularResponse.swift in Sources */,
 				A76DCEF427A26E8A00FB7A6D /* ChangePasswordViewController.swift in Sources */,
 				A7B8DEE327905E50006DDED9 /* userProfileImageRequest.swift in Sources */,
