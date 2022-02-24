@@ -29,7 +29,6 @@
 		A76DCF1C27B50D6600FB7A6D /* passwordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1B27B50D6600FB7A6D /* passwordResponse.swift */; };
 		A76DCF2027B530A500FB7A6D /* AllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF1F27B530A500FB7A6D /* AllViewController.swift */; };
 		A76DCF2327B530B900FB7A6D /* AllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF2227B530B900FB7A6D /* AllTableViewCell.swift */; };
-		A76DCF2727B76E4A00FB7A6D /* allGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF2627B76E4A00FB7A6D /* allGenreResponse.swift */; };
 		A76DCF4D27B8F24000FB7A6D /* specificGenreResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF4C27B8F23F00FB7A6D /* specificGenreResponse.swift */; };
 		A76DCF5027B908EF00FB7A6D /* AcademyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF4F27B908EF00FB7A6D /* AcademyPageViewController.swift */; };
 		A76DCF5327B9094000FB7A6D /* AcademyRegularClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF5227B9094000FB7A6D /* AcademyRegularClassViewController.swift */; };
@@ -195,7 +194,6 @@
 		A76DCF1B27B50D6600FB7A6D /* passwordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordResponse.swift; sourceTree = "<group>"; };
 		A76DCF1F27B530A500FB7A6D /* AllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllViewController.swift; sourceTree = "<group>"; };
 		A76DCF2227B530B900FB7A6D /* AllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTableViewCell.swift; sourceTree = "<group>"; };
-		A76DCF2627B76E4A00FB7A6D /* allGenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allGenreResponse.swift; sourceTree = "<group>"; };
 		A76DCF4C27B8F23F00FB7A6D /* specificGenreResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = specificGenreResponse.swift; sourceTree = "<group>"; };
 		A76DCF4F27B908EF00FB7A6D /* AcademyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyPageViewController.swift; sourceTree = "<group>"; };
 		A76DCF5227B9094000FB7A6D /* AcademyRegularClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyRegularClassViewController.swift; sourceTree = "<group>"; };
@@ -413,7 +411,6 @@
 		A76DCF2527B76DF600FB7A6D /* HomeEntity */ = {
 			isa = PBXGroup;
 			children = (
-				A76DCF2627B76E4A00FB7A6D /* allGenreResponse.swift */,
 				A76DCF4C27B8F23F00FB7A6D /* specificGenreResponse.swift */,
 				A76DCF6E27B9EBCA00FB7A6D /* likeResponse.swift */,
 				A76DCF7227B9F27C00FB7A6D /* dislikeResponse.swift */,
@@ -1146,7 +1143,6 @@
 				A7F5F7DC272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift in Sources */,
 				A76DCF1527B4FBBC00FB7A6D /* AcademySettingViewController.swift in Sources */,
 				A76DCF6F27B9EBCA00FB7A6D /* likeResponse.swift in Sources */,
-				A76DCF2727B76E4A00FB7A6D /* allGenreResponse.swift in Sources */,
 				A76DCFAA27C62F2500FB7A6D /* classEnrollRequest.swift in Sources */,
 				A7B8DDD427857A2D006DDED9 /* CrumpTableViewCell.swift in Sources */,
 				A76DCF0527ABD8F000FB7A6D /* academySignUpResponse.swift in Sources */,

@@ -8,6 +8,7 @@
 import UIKit
 class HomeViewController : UIViewController{
     
+    static var isFiltered = false
     lazy var dataManager = HomeDataManager()
     
     

@@ -8,38 +8,8 @@
 import Alamofire
 class HomeDataManager{
     
-    //전체 학원 조회
-    func allGenre(delegate: AllViewController) {
-        AF.request("\(Constant.BASE_URL)academy", method: .get, parameters: nil, encoding: JSONEncoding.default)
-            .validate()
-            .responseDecodable(of: allGenreResponse.self) { response in
-                switch response.result {
-                case .success(let response):
-                    delegate.allGenre(result: response)
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    delegate.failedToRequest()
-                }
-            }
-    }
     
-
     
-//    //전체 학원 특정 위치 학원 조회
-//    func allGenreSpecificLocation(address : String, delegate: HomeViewController) {
-//        AF.request("\(Constant.BASE_URL)acd/locations?address=\(address)", method: .get, parameters: nil, encoding: JSONEncoding.default)
-//            .validate()
-//            .responseDecodable(of: specificGenreResponse.self) { response in
-//                switch response.result {
-//                case .success(let response):
-//                    delegate.allGenreSpecificLocation(result: response)
-//                case .failure(let error):
-//                    print(error.localizedDescription)
-//                    delegate.failedToRequest()
-//                }
-//            }
-//    }
-//
     //특정장르, 특정위치, 특정 검색어 조회
     func getSpecificAcademy( address : String, genre : String, name : String, delegate: specificAcademyProtocol) {
         AF.request("\(Constant.BASE_URL)acd/sorts?address=\(address)&gernre=\(genre)&name=\(name)", method: .get, parameters: nil, encoding: JSONEncoding.default)

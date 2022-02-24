@@ -13,7 +13,7 @@ class AllViewController : UIViewController{
     
     lazy var dataManager = HomeDataManager()
     
-    var allResultList : [allResults] = []
+    var allResultList : [specificResults] = []
     
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var AllTableView: UITableView!
@@ -22,7 +22,13 @@ class AllViewController : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
-        dataManager.allGenre(delegate: self)
+        if HomeViewController.isFiltered{
+            
+            
+        }else{
+            dataManager.getSpecificAcademy(address: "", genre: "", name: "", delegate: self)
+        }
+        
         
         
     }
@@ -100,21 +106,6 @@ extension AllViewController : UITableViewDelegate, UITableViewDataSource{
 
 //MARK:- API
 extension AllViewController{
-    func allGenre(result : allGenreResponse){
-        if result.isSuccess{
-            allResultList = result.result ?? []
-            print(allResultList)
-            
-            AllTableView.reloadData()
-            mainViewHeight.constant = AllTableView.contentSize.height
-            
-        }else{
-            presentAlert(title: result.message)
-        }
-       
-        
-        
-    }
     
     
     func failedToRequest(){
@@ -123,8 +114,20 @@ extension AllViewController{
     
     }
     
-    
-    
+}
+
+
+extension AllViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            allResultList = result.result ?? []
+            AllTableView.reloadData()
+            mainViewHeight.constant = AllTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
     
     
 }

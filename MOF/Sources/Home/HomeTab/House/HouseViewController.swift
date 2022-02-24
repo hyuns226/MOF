@@ -8,7 +8,8 @@
 import UIKit
 class HouseViewController : UIViewController{
     
-     var houseResultList : [specificResults] = []
+    
+    var houseResultList : [specificResults] = []
     lazy var dataManager = HomeDataManager()
     
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
