@@ -9,10 +9,17 @@ import Foundation
 import UIKit
 class CompleteEnrollmentViewController : UIViewController{
     
+    var classImage  = UIImage(named: "defaultImage")
+    
     @IBOutlet weak var classImageView: UIImageView!
-    
-    
     @IBOutlet weak var goToRegistrationButtonAction: UIButton!
+    
+    override func viewDidLoad() {
+        classImageView.image = classImage
+    }
+    
+    //MARK:- FUNCTION
+    
     
     @IBAction func goToClassInfoButtonAction(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)

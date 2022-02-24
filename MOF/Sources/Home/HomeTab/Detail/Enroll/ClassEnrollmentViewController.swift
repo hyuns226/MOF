@@ -118,9 +118,10 @@ extension ClassEnrollmentViewController{
         if result.isSuccess{
             print(result)
             print("신청성공함")
+            
             // 신청성공 뷰로 전환
             let completeVC = self.storyboard?.instantiateViewController(withIdentifier: "CompleteEnrollmentViewController") as! CompleteEnrollmentViewController
-            
+            completeVC.classImage = self.classImageView.image
             completeVC.modalPresentationStyle = .fullScreen
             self.present(completeVC, animated: false, completion: nil)
         }else{
