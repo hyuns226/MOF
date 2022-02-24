@@ -57,6 +57,7 @@
 		A76DCFAA27C62F2500FB7A6D /* classEnrollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFA927C62F2500FB7A6D /* classEnrollRequest.swift */; };
 		A76DCFAD27C6305700FB7A6D /* classEnrollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFAC27C6305700FB7A6D /* classEnrollResponse.swift */; };
 		A76DCFB027C7506000FB7A6D /* CompleteEnrollmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFAF27C7505F00FB7A6D /* CompleteEnrollmentViewController.swift */; };
+		A76DCFB327C76A6600FB7A6D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFB227C76A6600FB7A6D /* Protocols.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -222,6 +223,7 @@
 		A76DCFA927C62F2500FB7A6D /* classEnrollRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classEnrollRequest.swift; sourceTree = "<group>"; };
 		A76DCFAC27C6305700FB7A6D /* classEnrollResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classEnrollResponse.swift; sourceTree = "<group>"; };
 		A76DCFAF27C7505F00FB7A6D /* CompleteEnrollmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteEnrollmentViewController.swift; sourceTree = "<group>"; };
+		A76DCFB227C76A6600FB7A6D /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -863,6 +865,7 @@
 			isa = PBXGroup;
 			children = (
 				BD439436252E1FE40055F2E6 /* BaseViewController.swift */,
+				A76DCFB227C76A6600FB7A6D /* Protocols.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1051,6 +1054,7 @@
 				A76DCEF127A2679300FB7A6D /* passwordRequest.swift in Sources */,
 				BD439422252E17A60055F2E6 /* String.swift in Sources */,
 				A76EEE69274399F100CA653B /* OtherAcademyCollectionViewCell.swift in Sources */,
+				A76DCFB327C76A6600FB7A6D /* Protocols.swift in Sources */,
 				A7B8DE942786ECA7006DDED9 /* CustomTabBarController.swift in Sources */,
 				A76DCF7E27C242D900FB7A6D /* LikeDataManager.swift in Sources */,
 				A76DCF1227B3D3A900FB7A6D /* regularResponse.swift in Sources */,

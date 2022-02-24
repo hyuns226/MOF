@@ -7,14 +7,22 @@
 
 import UIKit
 class RockingViewController : UIViewController{
-    static var rockingResultList : [specificResults] = []
     
+    var rockingResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
+    
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var RockingTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         RockingTableView.dataSource = self
         RockingTableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[6], name: "", delegate: self)
     }
     
 }
@@ -25,19 +33,19 @@ extension RockingViewController : UITableViewDataSource, UITableViewDelegate{
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RockingTableViewCell")as!RockingTableViewCell
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: RockingViewController.rockingResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string: rockingResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = RockingViewController.rockingResultList[indexPath.section].academyName
-        cell.addressLabel.text = RockingViewController.rockingResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = RockingViewController.rockingResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = rockingResultList[indexPath.section].academyName
+        cell.addressLabel.text = rockingResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = rockingResultList[indexPath.section].academyPhone
         
         return cell
     }
@@ -45,7 +53,7 @@ extension RockingViewController : UITableViewDataSource, UITableViewDelegate{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return RockingViewController.rockingResultList.count
+            return rockingResultList.count
         }
 
         
@@ -63,3 +71,19 @@ extension RockingViewController : UITableViewDataSource, UITableViewDelegate{
 
     
 }
+
+extension RockingViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            rockingResultList = result.result ?? []
+            RockingTableView.reloadData()
+            mainViewHeight.constant = RockingTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
+    
+    
+}
+

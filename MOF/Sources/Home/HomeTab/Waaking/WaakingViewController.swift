@@ -7,14 +7,22 @@
 
 import UIKit
 class WaakingViewController : UIViewController{
-    static var waakingResultList : [specificResults] = []
     
+    var waakingResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
+    
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var WaakingTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         WaakingTableView.dataSource = self
         WaakingTableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[4], name: "", delegate: self)
     }
     
 }
@@ -29,15 +37,15 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "WaakingTableViewCell")as!WaakingTableViewCell
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: WaakingViewController.waakingResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string: waakingResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = WaakingViewController.waakingResultList[indexPath.section].academyName
-        cell.addressLabel.text = WaakingViewController.waakingResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = WaakingViewController.waakingResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = waakingResultList[indexPath.section].academyName
+        cell.addressLabel.text = waakingResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = waakingResultList[indexPath.section].academyPhone
         
         return cell
     }
@@ -46,7 +54,7 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return WaakingViewController.waakingResultList.count
+            return waakingResultList.count
         }
 
         
@@ -64,4 +72,20 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
     
     
 }
+
+extension WaakingViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            waakingResultList = result.result ?? []
+            WaakingTableView.reloadData()
+            mainViewHeight.constant = WaakingTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
+    
+    
+}
+
 

@@ -7,14 +7,22 @@
 
 import UIKit
 class PopinViewController : UIViewController{
-    static var popinResultList : [specificResults] = []
     
+var popinResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
+    
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var PopinTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         PopinTableView.delegate = self
         PopinTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[5], name: "", delegate: self)
     }
 
 }
@@ -29,15 +37,15 @@ extension PopinViewController : UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "PopinTableViewCell")as!PopinTableViewCell
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: PopinViewController.popinResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string: popinResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = PopinViewController.popinResultList[indexPath.section].academyName
-        cell.addressLabel.text = PopinViewController.popinResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = PopinViewController.popinResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = popinResultList[indexPath.section].academyName
+        cell.addressLabel.text = popinResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = popinResultList[indexPath.section].academyPhone
         
         return cell
     }
@@ -45,7 +53,7 @@ extension PopinViewController : UITableViewDelegate,UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return PopinViewController.popinResultList.count
+            return popinResultList.count
         }
 
         
@@ -65,3 +73,19 @@ extension PopinViewController : UITableViewDelegate,UITableViewDataSource{
     
 
 }
+
+extension PopinViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            popinResultList = result.result ?? []
+            PopinTableView.reloadData()
+            mainViewHeight.constant = PopinTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
+    
+    
+}
+

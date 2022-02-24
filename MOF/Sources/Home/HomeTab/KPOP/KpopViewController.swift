@@ -8,22 +8,30 @@
 import UIKit
 class KpopViewController : UIViewController{
     
-    static var kpopResultList : [specificResults] = []
+    var kpopResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
     
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var KpopTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(KpopViewController.kpopResultList)
+       
         KpopTableView.dataSource = self
         KpopTableView.delegate = self
         
     }
     
     
-//MARK:- FUNCTION
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[0], name: "", delegate: self)
+    }
     
+
+     
 
 }
 
@@ -39,15 +47,15 @@ extension KpopViewController : UITableViewDelegate, UITableViewDataSource{
         cell.separatorInset = UIEdgeInsets.zero
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: KpopViewController.kpopResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string: kpopResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = KpopViewController.kpopResultList[indexPath.section].academyName
-        cell.addressLabel.text = KpopViewController.kpopResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = KpopViewController.kpopResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = kpopResultList[indexPath.section].academyName
+        cell.addressLabel.text = kpopResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = kpopResultList[indexPath.section].academyPhone
         
         
         return cell
@@ -56,7 +64,7 @@ extension KpopViewController : UITableViewDelegate, UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return KpopViewController.kpopResultList.count
+            return kpopResultList.count
         }
 
         
@@ -74,3 +82,20 @@ extension KpopViewController : UITableViewDelegate, UITableViewDataSource{
 
     
 }
+
+extension KpopViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            kpopResultList = result.result ?? []
+            KpopTableView.reloadData()
+            mainViewHeight.constant = KpopTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
+    
+    
+}
+
+

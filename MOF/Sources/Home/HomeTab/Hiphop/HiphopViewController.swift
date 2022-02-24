@@ -7,14 +7,22 @@
 
 import UIKit
 class HiphopViewController : UIViewController{
-    static var hiphopResultList : [specificResults] = []
     
+   var hiphopResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
+    
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var HiphopTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         HiphopTableView.dataSource = self
         HiphopTableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[2], name: "", delegate: self)
     }
     
 }
@@ -28,15 +36,15 @@ extension HiphopViewController : UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "HiphopTableViewCell") as! HiphopTableViewCell
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: HiphopViewController.hiphopResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string: hiphopResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = HiphopViewController.hiphopResultList[indexPath.section].academyName
-        cell.addressLabel.text = HiphopViewController.hiphopResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = HiphopViewController.hiphopResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = hiphopResultList[indexPath.section].academyName
+        cell.addressLabel.text = hiphopResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = hiphopResultList[indexPath.section].academyPhone
         
         return cell
     }
@@ -44,7 +52,7 @@ extension HiphopViewController : UITableViewDelegate, UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return HiphopViewController.hiphopResultList.count
+            return hiphopResultList.count
         }
 
         
@@ -63,6 +71,20 @@ extension HiphopViewController : UITableViewDelegate, UITableViewDataSource{
     
     
     
+    
+}
+
+extension HiphopViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            hiphopResultList = result.result ?? []
+            HiphopTableView.reloadData()
+            mainViewHeight.constant = HiphopTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
     
 }
 

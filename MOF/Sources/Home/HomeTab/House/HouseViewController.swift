@@ -7,14 +7,22 @@
 
 import UIKit
 class HouseViewController : UIViewController{
-    static var houseResultList : [specificResults] = []
     
+     var houseResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
+    
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var HouseTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         HouseTableView.dataSource = self
         HouseTableView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[9], name: "", delegate: self)
     }
     
 }
@@ -29,15 +37,15 @@ extension HouseViewController : UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "HouseTableViewCell")as!HouseTableViewCell
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: HouseViewController.houseResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string: houseResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = HouseViewController.houseResultList[indexPath.section].academyName
-        cell.addressLabel.text = HouseViewController.houseResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = HouseViewController.houseResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = houseResultList[indexPath.section].academyName
+        cell.addressLabel.text = houseResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = houseResultList[indexPath.section].academyPhone
         
         return cell
     }
@@ -45,7 +53,7 @@ extension HouseViewController : UITableViewDelegate,UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return HouseViewController.houseResultList.count
+            return houseResultList.count
         }
 
         
@@ -64,3 +72,19 @@ extension HouseViewController : UITableViewDelegate,UITableViewDataSource{
     
     
 }
+
+extension HouseViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            houseResultList = result.result ?? []
+            HouseTableView.reloadData()
+            mainViewHeight.constant = HouseTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
+    
+    
+}
+

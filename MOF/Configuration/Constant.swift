@@ -9,5 +9,6 @@ import Alamofire
 
 struct Constant {
     static let BASE_URL = "https://movementoverfeeling.com/"
+    static let genreList = ["K-POP" ,"Choreo" ,"HipHop", "GirlsHipHop" ,"Waacking" ,"Popping", "Locking", "Krump" ,"Voguing", "House"]
     
 }

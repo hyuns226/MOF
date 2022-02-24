@@ -7,14 +7,22 @@
 
 import UIKit
 class GirsHiphopViewController : UIViewController{
-    static var girlsHiphopResultList : [specificResults] = []
     
+    var girlsHiphopResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
+    
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var GirlsHiphopTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GirlsHiphopTableView.delegate = self
         GirlsHiphopTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[3], name: "", delegate: self)
     }
     
 }
@@ -30,15 +38,15 @@ extension GirsHiphopViewController : UITableViewDelegate, UITableViewDataSource{
         
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: GirsHiphopViewController.girlsHiphopResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string: girlsHiphopResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = GirsHiphopViewController.girlsHiphopResultList[indexPath.section].academyName
-        cell.addressLabel.text = GirsHiphopViewController.girlsHiphopResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = GirsHiphopViewController.girlsHiphopResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = girlsHiphopResultList[indexPath.section].academyName
+        cell.addressLabel.text = girlsHiphopResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = girlsHiphopResultList[indexPath.section].academyPhone
         
         return cell
     }
@@ -46,7 +54,7 @@ extension GirsHiphopViewController : UITableViewDelegate, UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return GirsHiphopViewController.girlsHiphopResultList.count
+            return girlsHiphopResultList.count
         }
 
         
@@ -64,4 +72,20 @@ extension GirsHiphopViewController : UITableViewDelegate, UITableViewDataSource{
     
 
 }
+
+extension GirsHiphopViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            girlsHiphopResultList = result.result ?? []
+            GirlsHiphopTableView.reloadData()
+            mainViewHeight.constant = GirlsHiphopTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
+    
+    
+}
+
 

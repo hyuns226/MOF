@@ -15,6 +15,7 @@ class AllViewController : UIViewController{
     
     var allResultList : [allResults] = []
     
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var AllTableView: UITableView!
     
     
@@ -22,6 +23,8 @@ class AllViewController : UIViewController{
         super.viewWillAppear(false)
         
         dataManager.allGenre(delegate: self)
+        
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,9 +101,17 @@ extension AllViewController : UITableViewDelegate, UITableViewDataSource{
 //MARK:- API
 extension AllViewController{
     func allGenre(result : allGenreResponse){
-        allResultList = result.result ?? []
-        print(allResultList)
-        AllTableView.reloadData()
+        if result.isSuccess{
+            allResultList = result.result ?? []
+            print(allResultList)
+            
+            AllTableView.reloadData()
+            mainViewHeight.constant = AllTableView.contentSize.height
+            
+        }else{
+            presentAlert(title: result.message)
+        }
+       
         
         
     }

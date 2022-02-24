@@ -7,14 +7,22 @@
 
 import UIKit
 class CrumpViewController : UIViewController {
-    static var crumpResultList : [specificResults] = []
     
+     var crumpResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
+    
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var CrumpTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         CrumpTableView.delegate = self
         CrumpTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[7], name: "", delegate: self)
     }
     
 }
@@ -29,15 +37,15 @@ extension CrumpViewController : UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CrumpTableViewCell")as!CrumpTableViewCell
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: CrumpViewController.crumpResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string: crumpResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = CrumpViewController.crumpResultList[indexPath.section].academyName
-        cell.addressLabel.text = CrumpViewController.crumpResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = CrumpViewController.crumpResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = crumpResultList[indexPath.section].academyName
+        cell.addressLabel.text = crumpResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = crumpResultList[indexPath.section].academyPhone
         
         return cell
     }
@@ -45,7 +53,7 @@ extension CrumpViewController : UITableViewDelegate,UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return CrumpViewController.crumpResultList.count
+            return crumpResultList.count
         }
 
         
@@ -65,3 +73,19 @@ extension CrumpViewController : UITableViewDelegate,UITableViewDataSource{
     
     
 }
+
+extension CrumpViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            crumpResultList = result.result ?? []
+            CrumpTableView.reloadData()
+            mainViewHeight.constant = CrumpTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
+    
+    
+}
+

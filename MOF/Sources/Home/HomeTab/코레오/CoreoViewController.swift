@@ -8,15 +8,22 @@
 import UIKit
 class CoreoViewController : UIViewController{
     
-    static var choreoResultList : [specificResults] = []
+    var choreoResultList : [specificResults] = []
+    lazy var dataManager = HomeDataManager()
     
-    @IBOutlet weak var CoreoTableViewController: UITableView!
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var CoreoTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        CoreoTableViewController.delegate = self
-        CoreoTableViewController.dataSource = self
+        CoreoTableView.delegate = self
+        CoreoTableView.dataSource = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[1], name: "", delegate: self)
     }
     
 }
@@ -32,15 +39,15 @@ extension CoreoViewController : UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "CoreoTableViewCell")as! CoreoTableViewCell
         cell.layer.cornerRadius = 12
         
-        if let url = URL(string: CoreoViewController.choreoResultList[indexPath.section].academyBackImgUrl ?? "") {
+        if let url = URL(string:choreoResultList[indexPath.section].academyBackImgUrl ?? "") {
             cell.AcademyImageView.kf.setImage(with: url)
         } else {
             cell.AcademyImageView.image = UIImage(named: "defaultImage")
         }
         
-        cell.AcademyName.text = CoreoViewController.choreoResultList[indexPath.section].academyName
-        cell.addressLabel.text = CoreoViewController.choreoResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = CoreoViewController.choreoResultList[indexPath.section].academyPhone
+        cell.AcademyName.text = choreoResultList[indexPath.section].academyName
+        cell.addressLabel.text = choreoResultList[indexPath.section].academyDetailAddress
+        cell.PhoneNumLabel.text = choreoResultList[indexPath.section].academyPhone
         
         return cell
     }
@@ -48,7 +55,7 @@ extension CoreoViewController : UITableViewDelegate, UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
-            return CoreoViewController.choreoResultList.count
+            return choreoResultList.count
         }
 
         
@@ -66,4 +73,20 @@ extension CoreoViewController : UITableViewDelegate, UITableViewDataSource{
     
     
 }
+
+extension CoreoViewController : specificAcademyProtocol{
+    func specificAcademy(result: specificGenreResponse) {
+        if result.isSuccess{
+            print(result)
+            choreoResultList = result.result ?? []
+            CoreoTableView.reloadData()
+            mainViewHeight.constant = CoreoTableView.contentSize.height
+        }else{
+            presentAlert(title: result.message)
+        }
+    }
+    
+    
+}
+
 

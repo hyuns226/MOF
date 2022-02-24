@@ -492,6 +492,7 @@
                     </view>
                     <connections>
                         <outlet property="KpopTableView" destination="oq2-fD-SC2" id="Q9Y-f3-G4Y"/>
+                        <outlet property="mainViewHeight" destination="w3U-kX-hfA" id="erf-yN-n9w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="47F-gK-dpJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1853,7 +1854,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="CoreoTableViewController" destination="0e8-Cr-KMF" id="Prr-0b-ads"/>
+                        <outlet property="CoreoTableView" destination="0e8-Cr-KMF" id="Prr-0b-ads"/>
+                        <outlet property="mainViewHeight" destination="Fa5-HS-YG7" id="CQs-ji-af2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18U-9H-VAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1994,6 +1996,7 @@
                     </view>
                     <connections>
                         <outlet property="HiphopTableView" destination="pE8-D0-IyD" id="5j1-LA-1sS"/>
+                        <outlet property="mainViewHeight" destination="nap-7q-QPE" id="oTv-HB-Jn6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SfN-I5-Nmx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2134,6 +2137,7 @@
                     </view>
                     <connections>
                         <outlet property="GirlsHiphopTableView" destination="2o5-12-mFo" id="9hu-wb-wKJ"/>
+                        <outlet property="mainViewHeight" destination="QT9-Hx-4KR" id="XS9-EI-HVF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWj-nh-fd2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2274,6 +2278,7 @@
                     </view>
                     <connections>
                         <outlet property="PopinTableView" destination="CMn-9v-wwn" id="jlu-dr-uDT"/>
+                        <outlet property="mainViewHeight" destination="0Hq-gn-aXf" id="gdW-uk-f7e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEU-N1-psd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3512,6 +3517,7 @@
                     </view>
                     <connections>
                         <outlet property="VoguingTableView" destination="WJf-os-HYg" id="u3G-g1-Ca3"/>
+                        <outlet property="mainViewHeight" destination="2Ok-i1-AkT" id="8aS-M8-DMs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ih-Sg-vGN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3652,6 +3658,7 @@
                     </view>
                     <connections>
                         <outlet property="RockingTableView" destination="pqk-cf-3z9" id="Obv-UD-opF"/>
+                        <outlet property="mainViewHeight" destination="PWa-Kw-GA8" id="a2W-Gj-UBu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcQ-gv-vmH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3792,6 +3799,7 @@
                     </view>
                     <connections>
                         <outlet property="WaakingTableView" destination="6gc-uV-DrH" id="HHo-Or-3bt"/>
+                        <outlet property="mainViewHeight" destination="fQW-eF-h99" id="RrB-pq-rdG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRY-p3-csW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3932,6 +3940,7 @@
                     </view>
                     <connections>
                         <outlet property="CrumpTableView" destination="Ebe-1n-Wii" id="4X7-Xs-mvT"/>
+                        <outlet property="mainViewHeight" destination="8Kt-Br-nI2" id="AFv-Pv-12d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVO-v1-LIg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4072,6 +4081,7 @@
                     </view>
                     <connections>
                         <outlet property="HouseTableView" destination="hF8-Pt-BXh" id="H1g-aN-X4O"/>
+                        <outlet property="mainViewHeight" destination="GGA-4e-O5b" id="KUu-bG-WWC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfk-r3-qbm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4581,6 +4591,7 @@
                     </view>
                     <connections>
                         <outlet property="AllTableView" destination="8HT-mO-31u" id="vWn-Fv-YcV"/>
+                        <outlet property="mainViewHeight" destination="rd3-QC-DE4" id="yyP-n3-n1T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HhI-9s-jXV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
