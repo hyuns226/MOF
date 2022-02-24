@@ -203,4 +203,35 @@ class HomeDataManager{
             }
     }
     
+    //일반 유저 정보 조회
+     func userProfile(userIdx : Int, delegate: ClassEnrollmentViewController) {
+         AF.request("\(Constant.BASE_URL)users/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+             .validate()
+             .responseDecodable(of: userProfileResponse.self) { response in
+                 switch response.result {
+                 case .success(let response):
+                     delegate.userProfile(result: response)
+                 case .failure(let error):
+                     print(error.localizedDescription)
+                     delegate.failedToRequest()
+                 }
+             }
+     }
+    
+    //수업 신청
+    func enrollClass(parameters: classEnrollRequest , userIdx : Int, classIdx : Int,  delegate: ClassEnrollmentViewController ) {
+        AF.request("\(Constant.BASE_URL)enrolls/users/\(userIdx)/\(classIdx)", method: .post, parameters: parameters, encoder: JSONParameterEncoder(), headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: classEnrollResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.enrollClass(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
+  
+    
 }

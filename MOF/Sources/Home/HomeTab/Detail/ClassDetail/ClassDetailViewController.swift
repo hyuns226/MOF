@@ -13,6 +13,8 @@ class ClassDetailViewController : UIViewController{
     var classType = ""
     
     var classTimeList : [classTime] = []
+    
+    var classInfoForEnrollVC =  classInfoForEnrollment(classIdx: -1, classImageUrl: "", className: "", teacherName: "", classTimeList: [] , classPrice: "", priceOnlyNum : -1)
         
     lazy var dataManager = HomeDataManager()
     
@@ -34,6 +36,8 @@ class ClassDetailViewController : UIViewController{
         super.viewDidLoad()
         
         print("classIdx :\(classIdx)")
+        
+        classInfoForEnrollVC.classIdx = self.classIdx
         
         if classType == "regular"{
             dataManager.getDetailRegularClasses(classIdx: classIdx, delegate: self)
@@ -68,6 +72,14 @@ class ClassDetailViewController : UIViewController{
             dataManager.dislikesForClass(userIdx: KeyCenter.userIndex, classIdx: classIdx, delegate: self)
             
         }
+    }
+    @IBAction func enrollButtonAction(_ sender: Any) {
+        let enrollVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassEnrollmentViewController") as! ClassEnrollmentViewController
+        
+        enrollVC.classInfo = self.classInfoForEnrollVC
+        
+        enrollVC.modalPresentationStyle = .fullScreen
+        self.present(enrollVC, animated: true, completion: nil)
     }
 }
 
@@ -168,9 +180,6 @@ extension ClassDetailViewController{
         classIntroLabel.text = result.result?.classIntro
         
         
-       
-        
-        
         if let url = URL(string: result.result?.teacherImgUrl ?? "") {
             teacherImageView.kf.setImage(with: url)
         } else {
@@ -179,6 +188,20 @@ extension ClassDetailViewController{
        
         teacherNameLabel.text = result.result?.classTeacherName
         teacherIntroLabel.text = result.result?.classTeacherIntro
+         
+        //setting classinfo for classEnrollmentVC
+        classInfoForEnrollVC.classImageUrl = result.result?.classImageUrl ?? ""
+        classInfoForEnrollVC.className = result.result?.className ?? ""
+        classInfoForEnrollVC.teacherName = result.result?.classTeacherName ?? ""
+        classInfoForEnrollVC.classTimeList.append(day1 + " / " + startTime1 + " ~ " + endTime1)
+        if result.result?.classStartTime2 != nil{
+            let day2 = dateToStringOnlyDay(date: stringToDateForDayandDate(dateString: result.result?.classStartTime1 ?? ""))
+            let startTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classStartTime2 ?? ""))
+            let endTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: result.result?.classEndTime2 ?? ""))
+            classInfoForEnrollVC.classTimeList.append(day2 + " / " + startTime2 + " ~ " + endTime2)
+        }
+        classInfoForEnrollVC.classPrice = String(result.result?.classPrice ?? -1).insertComma+"원"
+        classInfoForEnrollVC.priceOnlyNum = result.result?.classPrice ?? -1
         
     }
     
@@ -188,11 +211,13 @@ extension ClassDetailViewController{
         
         if let url = URL(string: result.result?.classImageUrl ?? "") {
             classImageView.kf.setImage(with: url)
+            
         } else {
             classImageView.image = UIImage(named: "defaultImage")
         }
         
         classNameLabel.text = result.result?.className
+       
         
         //Set class time
         let date1 = dateToStringOnlyDate(date: stringToDateForOneday(dateString: result.result?.classStartTime1 ?? ""))
@@ -201,10 +226,12 @@ extension ClassDetailViewController{
         classTimeList.append(classTime(day: date1, time: startTime1 + "~" + endTime1))
         
         
+        
         classTimeCollectionView.reloadData()
             
         if let price = result.result?.classPrice{
             classPriceLabel.text =  String(result.result?.classPrice ?? -1).insertComma+"원"
+            
         }else{
             classPriceLabel.text = ""
         }
@@ -225,6 +252,15 @@ extension ClassDetailViewController{
        
         teacherNameLabel.text = result.result?.classTeacherName
         teacherIntroLabel.text = result.result?.classTeacherIntro
+        
+        
+        //setting classinfo for classEnrollmentVC
+        classInfoForEnrollVC.classImageUrl = result.result?.classImageUrl ?? ""
+        classInfoForEnrollVC.className = result.result?.className ?? ""
+        classInfoForEnrollVC.teacherName = result.result?.classTeacherName ?? ""
+        classInfoForEnrollVC.classTimeList.append(date1 + " / " + startTime1 + " ~ " + endTime1)
+        classInfoForEnrollVC.classPrice = String(result.result?.classPrice ?? -1).insertComma+"원"
+        classInfoForEnrollVC.priceOnlyNum = result.result?.classPrice ?? -1
         
     }
     

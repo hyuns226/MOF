@@ -27,7 +27,7 @@ class AcademyDetaliViewController : UIViewController {
     
     @IBOutlet weak var OtherClassCollectionView: UICollectionView!
     @IBOutlet weak var AskButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
+  
     @IBOutlet weak var likeButton: UIButton!
     
     
@@ -83,7 +83,7 @@ class AcademyDetaliViewController : UIViewController {
     func settingButton(){
         //setting button layout
         AskButton.layer.cornerRadius = 18
-        registerButton.layer.cornerRadius = 18
+       
         
         //setting Likes Button
         dataManager.getAcademyLikes(userIdx: KeyCenter.userIndex, academyIdx: AcademyInfo.academyIdx, delegate: self)

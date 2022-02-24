@@ -53,6 +53,9 @@
 		A76DCF9B27C3845E00FB7A6D /* detailRegularClassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF9A27C3845E00FB7A6D /* detailRegularClassResponse.swift */; };
 		A76DCF9F27C51CDB00FB7A6D /* classTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCF9E27C51CDA00FB7A6D /* classTime.swift */; };
 		A76DCFA227C5FF9600FB7A6D /* detailOnedayClassResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFA127C5FF9500FB7A6D /* detailOnedayClassResponse.swift */; };
+		A76DCFA627C61D3100FB7A6D /* ClassEnrollmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFA527C61D3100FB7A6D /* ClassEnrollmentViewController.swift */; };
+		A76DCFAA27C62F2500FB7A6D /* classEnrollRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFA927C62F2500FB7A6D /* classEnrollRequest.swift */; };
+		A76DCFAD27C6305700FB7A6D /* classEnrollResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76DCFAC27C6305700FB7A6D /* classEnrollResponse.swift */; };
 		A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */; };
 		A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */; };
 		A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE5E273D0BBD00CA653B /* regionData.swift */; };
@@ -214,6 +217,9 @@
 		A76DCF9A27C3845E00FB7A6D /* detailRegularClassResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailRegularClassResponse.swift; sourceTree = "<group>"; };
 		A76DCF9E27C51CDA00FB7A6D /* classTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classTime.swift; sourceTree = "<group>"; };
 		A76DCFA127C5FF9500FB7A6D /* detailOnedayClassResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailOnedayClassResponse.swift; sourceTree = "<group>"; };
+		A76DCFA527C61D3100FB7A6D /* ClassEnrollmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassEnrollmentViewController.swift; sourceTree = "<group>"; };
+		A76DCFA927C62F2500FB7A6D /* classEnrollRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classEnrollRequest.swift; sourceTree = "<group>"; };
+		A76DCFAC27C6305700FB7A6D /* classEnrollResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = classEnrollResponse.swift; sourceTree = "<group>"; };
 		A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRegionViewController.swift; sourceTree = "<group>"; };
 		A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE5E273D0BBD00CA653B /* regionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = regionData.swift; sourceTree = "<group>"; };
@@ -414,6 +420,8 @@
 				A76DCF9A27C3845E00FB7A6D /* detailRegularClassResponse.swift */,
 				A76DCF9E27C51CDA00FB7A6D /* classTime.swift */,
 				A76DCFA127C5FF9500FB7A6D /* detailOnedayClassResponse.swift */,
+				A76DCFA927C62F2500FB7A6D /* classEnrollRequest.swift */,
+				A76DCFAC27C6305700FB7A6D /* classEnrollResponse.swift */,
 			);
 			path = HomeEntity;
 			sourceTree = "<group>";
@@ -468,11 +476,20 @@
 			path = LikeEntity;
 			sourceTree = "<group>";
 		};
+		A76DCFA427C61C4400FB7A6D /* Enroll */ = {
+			isa = PBXGroup;
+			children = (
+				A76DCFA527C61D3100FB7A6D /* ClassEnrollmentViewController.swift */,
+			);
+			path = Enroll;
+			sourceTree = "<group>";
+		};
 		A76EEE742743AE0C00CA653B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
 				A79444982743C2010003C72E /* AcademyDetail */,
 				A79444992743C20E0003C72E /* ClassDetail */,
+				A76DCFA427C61C4400FB7A6D /* Enroll */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -1044,6 +1061,7 @@
 				A7DA21E62796E4CE004EE1D1 /* AcademyWelcomViewController.swift in Sources */,
 				BD439431252E1F870055F2E6 /* IndicatorView.swift in Sources */,
 				A79444AA274D026B0003C72E /* MyChatTableViewCell.swift in Sources */,
+				A76DCFA627C61D3100FB7A6D /* ClassEnrollmentViewController.swift in Sources */,
 				A7B8DED4279016B5006DDED9 /* userModifyResponse.swift in Sources */,
 				A7B8DDCB27857A02006DDED9 /* WaakingTableViewCell.swift in Sources */,
 				A7B8DDD727857A3A006DDED9 /* VoguingTableViewCell.swift in Sources */,
@@ -1121,6 +1139,7 @@
 				A76DCF1527B4FBBC00FB7A6D /* AcademySettingViewController.swift in Sources */,
 				A76DCF6F27B9EBCA00FB7A6D /* likeResponse.swift in Sources */,
 				A76DCF2727B76E4A00FB7A6D /* allGenreResponse.swift in Sources */,
+				A76DCFAA27C62F2500FB7A6D /* classEnrollRequest.swift in Sources */,
 				A7B8DDD427857A2D006DDED9 /* CrumpTableViewCell.swift in Sources */,
 				A76DCF0527ABD8F000FB7A6D /* academySignUpResponse.swift in Sources */,
 				A7D44D752758ED3A0020CB8F /* MYRegularClassTableViewCell.swift in Sources */,
@@ -1148,6 +1167,7 @@
 				A76EEE6C27439A3500CA653B /* RegularClassTableViewCell.swift in Sources */,
 				A76DCF0127ABD85C00FB7A6D /* AcademyMyPageDataManager.swift in Sources */,
 				A76DCF0827B3824600FB7A6D /* AcademyMyProfileViewController.swift in Sources */,
+				A76DCFAD27C6305700FB7A6D /* classEnrollResponse.swift in Sources */,
 				A76DCF5027B908EF00FB7A6D /* AcademyPageViewController.swift in Sources */,
 				BD4394AC252E2AED0055F2E6 /* UIFont.swift in Sources */,
 				A7B8DEA627897E2A006DDED9 /* SignUpViewController.swift in Sources */,
