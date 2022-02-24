@@ -9,6 +9,7 @@ import UIKit
 class HomeViewController : UIViewController{
     
     static var isFiltered = false
+    static var filterRegion = ""
     lazy var dataManager = HomeDataManager()
     
     

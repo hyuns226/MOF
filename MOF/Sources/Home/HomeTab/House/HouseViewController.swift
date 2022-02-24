@@ -23,7 +23,13 @@ class HouseViewController : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
-        dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[9], name: "", delegate: self)
+        if HomeViewController.isFiltered{
+            
+            dataManager.getSpecificAcademy(address: HomeViewController.filterRegion, genre: Constant.genreList[9], name: "", delegate: self)
+            
+        }else{
+            dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[9], name: "", delegate: self)
+        }
     }
     
 }

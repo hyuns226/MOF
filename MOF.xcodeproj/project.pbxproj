@@ -715,7 +715,6 @@
 				A7F5F7CE2729271C00D17FA2 /* DetailSearchPageViewController.swift */,
 				A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */,
 				A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */,
-				A76EEE5E273D0BBD00CA653B /* regionData.swift */,
 				A7F5F7D22729295900D17FA2 /* All */,
 				A7F5F7D32729296800D17FA2 /* Shoes */,
 				A7F5F7D42729297900D17FA2 /* Clothes */,
@@ -806,6 +805,7 @@
 		BD439417252E16A50055F2E6 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				A76EEE5E273D0BBD00CA653B /* regionData.swift */,
 				BD4394F7252E37580055F2E6 /* Constant.swift */,
 				BD7066002545F039005FCCFE /* Certificate */,
 				BD439418252E16B40055F2E6 /* Secret */,

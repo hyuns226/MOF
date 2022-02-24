@@ -12,7 +12,10 @@ class HomeDataManager{
     
     //특정장르, 특정위치, 특정 검색어 조회
     func getSpecificAcademy( address : String, genre : String, name : String, delegate: specificAcademyProtocol) {
-        AF.request("\(Constant.BASE_URL)acd/sorts?address=\(address)&gernre=\(genre)&name=\(name)", method: .get, parameters: nil, encoding: JSONEncoding.default)
+        let url = "\(Constant.BASE_URL)acd/sorts?address=\(address)&gernre=\(genre)&name=\(name)"
+        let encodedString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let urlResult = URL(string: encodedString)!
+        AF.request(urlResult, method: .get, parameters: nil, encoding: JSONEncoding.default)
             .validate()
             .responseDecodable(of: specificGenreResponse.self) { response in
                 switch response.result {

@@ -22,8 +22,12 @@ class AllViewController : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
+        print("home 필터 여부 : \(HomeViewController.isFiltered)")
+        print("home 필터 지역 : \(HomeViewController.filterRegion)")
+        
         if HomeViewController.isFiltered{
             
+            dataManager.getSpecificAcademy(address: HomeViewController.filterRegion, genre: "", name: "", delegate: self)
             
         }else{
             dataManager.getSpecificAcademy(address: "", genre: "", name: "", delegate: self)

@@ -23,10 +23,9 @@ class LikeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
     var nowTag : Int = 1
     var nowText : String = ""
     var nowID : Int = 0
-    var region : regionData?
     var regionList : Array<String> = []
     var tagList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
-    let cityList = ["서울", "부산", "대구", "인천","광주","대전","울산","세종","경기","경남", "경북","충남","충북","전남","전북","강원","제주"]
+    let cityList = regionData.cityList
     
     
     var seoulClickedList = Array<Int>(repeating: 0, count: regionData.seoulList.count)

@@ -6,9 +6,8 @@
 //
 
 import UIKit
-class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
+class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate, RegionCellDelegate {
     
-    //weak var delegate: regionDelegate?
     
     var clickList : [Int] = []
     @IBOutlet weak var regionTableView: UITableView!
@@ -17,31 +16,38 @@ class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
 
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var regionSelectItem: UIBarButtonItem!
+   
     
-    var nowTag : Int = 0
+    var nowTag : Int = 1
     var nowText : String = ""
     var nowID : Int = 0
-    var region : regionData?
     var regionList : Array<String> = []
     var tagList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
-   
+    let cityList = regionData.cityList
+    
+    
     var seoulClickedList = Array<Int>(repeating: 0, count: regionData.seoulList.count)
     var busanClickedList = Array<Int>(repeating: 0, count: regionData.busanList.count)
-    var jejuClickedList = Array<Int>(repeating: 0, count: regionData.jejuList.count)
-    var gangwonClickedList = Array<Int>(repeating: 0, count: regionData.gangwonList.count)
-    var gyeongiClickedList = Array<Int>(repeating: 0, count: regionData.gyeonggiList.count)
-    var incheonClickedList = Array<Int>(repeating: 0, count: regionData.incheonList.count)
     var deaguClickedList = Array<Int>(repeating: 0, count: regionData.deaguList.count)
+    var incheonClickedList = Array<Int>(repeating: 0, count: regionData.incheonList.count)
+    var gwangjuClickedList = Array<Int>(repeating: 0, count: regionData.gwangjuList.count)
+    var daejeonClickedList = Array<Int>(repeating: 0, count: regionData.daejeonList.count)
     var ulsanClickedList = Array<Int>(repeating: 0, count: regionData.ulsanList.count)
+    var sejongClickedList = Array<Int>(repeating: 0, count: regionData.sejongList.count)
+    var gyeongiClickedList = Array<Int>(repeating: 0, count: regionData.gyeonggiList.count)
     var gyeongnamClickedList = Array<Int>(repeating: 0, count: regionData.gyeongnamList.count)
     var gyeongbukClickedList = Array<Int>(repeating: 0, count: regionData.gyeonbukList.count)
-    var gwangjuClickedList = Array<Int>(repeating: 0, count: regionData.gwangjuList.count)
-    var jeonnamClickedList = Array<Int>(repeating: 0, count: regionData.jeonnamList.count)
-    var jeonbukClickedList = Array<Int>(repeating: 0, count: regionData.jeonbukList.count)
-    var daejeonClickedList = Array<Int>(repeating: 0, count: regionData.daejeonList.count)
     var chungnamClickedList = Array<Int>(repeating: 0, count: regionData.chungnamList.count)
     var chungbukClickedList = Array<Int>(repeating: 0, count: regionData.chungbukList.count)
+    var jeonnamClickedList = Array<Int>(repeating: 0, count: regionData.jeonnamList.count)
+    var jeonbukClickedList = Array<Int>(repeating: 0, count: regionData.jeonbukList.count)
+    var gangwonClickedList = Array<Int>(repeating: 0, count: regionData.gangwonList.count)
+    var jejuClickedList = Array<Int>(repeating: 0, count: regionData.jejuList.count)
+    
+    
+    
+    lazy var ClickedList = [seoulClickedList,busanClickedList,deaguClickedList,incheonClickedList,gwangjuClickedList,daejeonClickedList,ulsanClickedList,sejongClickedList,gyeongiClickedList,gyeongnamClickedList,gyeongbukClickedList,chungnamClickedList,chungbukClickedList,jeonnamClickedList,jeonbukClickedList,gangwonClickedList,jejuClickedList]
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,107 +93,68 @@ class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
         //UploadAirbnbSecondStepViewController.airbnbInput.locationId = 0
     }
     
+    func setRegionList(nowTag : Int, sender : UIButton){
+        self.nowTag = nowTag
+        regionList = regionData.allRegionData[nowTag - 1]
+        setFontnBackground(sender: sender)
+        clickList = ClickedList[nowTag - 1]
+    }
     
     
     @IBAction func regionButtonClicked(_ sender: UIButton) {
         switch sender.tag{
         case 1 :
-            nowTag = sender.tag
-            regionList = regionData.seoulList
-            setFontnBackground(sender: sender)
-            clickList = seoulClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
+            
             break
         case 2 :
-            nowTag = sender.tag
-            regionList = regionData.busanList
-            setFontnBackground(sender: sender)
-            clickList = busanClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
          
         case 3 :
-            nowTag = sender.tag
-            regionList = regionData.jejuList
-            setFontnBackground(sender: sender)
-            clickList = gangwonClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 4 :
-            nowTag = sender.tag
-            regionList = regionData.gangwonList
-            setFontnBackground(sender: sender)
-            clickList = gyeongiClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 5 :
-            nowTag = sender.tag
-            regionList = regionData.gyeonggiList
-            setFontnBackground(sender: sender)
-            clickList = incheonClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 6 :
-            nowTag = sender.tag
-            regionList = regionData.incheonList
-            setFontnBackground(sender: sender)
-            clickList = deaguClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 7 :
-            nowTag = sender.tag
-            regionList = regionData.deaguList
-            setFontnBackground(sender: sender)
-            clickList = incheonClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 8 :
-            nowTag = sender.tag
-            regionList = regionData.ulsanList
-            setFontnBackground(sender: sender)
-            clickList = ulsanClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 9 :
-            nowTag = sender.tag
-            regionList = regionData.gyeongnamList
-            setFontnBackground(sender: sender)
-            clickList = gyeongnamClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 10:
-            nowTag = sender.tag
-            regionList = regionData.gyeonbukList
-            setFontnBackground(sender: sender)
-            clickList = gyeongbukClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 11:
-            nowTag = sender.tag
-            regionList = regionData.gwangjuList
-            setFontnBackground(sender: sender)
-            clickList = gwangjuClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 12:
-            nowTag = sender.tag
-            regionList = regionData.jeonnamList
-            setFontnBackground(sender: sender)
-            clickList = jeonnamClickedList
-            
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 13:
-            nowTag = sender.tag
-            regionList = regionData.jeonbukList
-            setFontnBackground(sender: sender)
-            clickList = jeonbukClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 14:
-            nowTag = sender.tag
-            regionList = regionData.daejeonList
-            setFontnBackground(sender: sender)
-            clickList = daejeonClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 15:
-            nowTag = sender.tag
-            regionList = regionData.chungnamList
-            setFontnBackground(sender: sender)
-            clickList = chungnamClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
         case 16:
-            nowTag = sender.tag
-            regionList = regionData.chungbukList
-            setFontnBackground(sender: sender)
-            clickList = chungbukClickedList
+            setRegionList(nowTag: sender.tag, sender : sender)
+            break
+        case 17:
+            setRegionList(nowTag: sender.tag, sender : sender)
             break
     
         default:
@@ -200,16 +167,20 @@ class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
         //눌러진 버튼 세팅
         let sender = sender
         self.regionTableView.reloadData()
-        sender.titleLabel?.font = UIFont(name: "NotoSansCJKKR-Bold", size: 14)
+        sender.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
         sender.setTitleColor(#colorLiteral(red: 0.1333333333, green: 0.1333333333, blue: 0.1333333333, alpha: 1), for: .normal)
         sender.backgroundColor = .white
         
         //눌러진 버튼 이외 버튼 세팅
-        tagList.remove(at: sender.tag - 1)
+        print(sender.tag)
+        tagList.remove(at: sender.tag-1)
+        print(tagList)
         for i in tagList{
+            print(i)
             let tmpButton = self.view.viewWithTag(i) as? UIButton
-            tmpButton?.titleLabel?.font = UIFont(name: "Noto Sans CJK KR", size: 14)
-            tmpButton!.setTitleColor(#colorLiteral(red: 0.6509803922, green: 0.6901960784, blue: 0.7294117647, alpha: 1), for: .normal)
+            print(tmpButton)
+            tmpButton?.titleLabel?.font = UIFont(name: "NotoSansCJKkr-Bold", size: 14)
+            tmpButton!.setTitleColor(#colorLiteral(red: 0.6980392157, green: 0.6980392157, blue: 0.6980392157, alpha: 1), for: .normal)
             tmpButton?.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9725490196, blue: 0.9725490196, alpha: 1)
             
         }
@@ -221,42 +192,37 @@ class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
     }
     
     func reset(){
-        seoulClickedList = Array<Int>(repeating: 0, count: regionData.seoulList.count)
-         busanClickedList = Array<Int>(repeating: 0, count: regionData.busanList.count)
-         jejuClickedList = Array<Int>(repeating: 0, count: regionData.jejuList.count)
-         gangwonClickedList = Array<Int>(repeating: 0, count: regionData.gangwonList.count)
-         gyeongiClickedList = Array<Int>(repeating: 0, count: regionData.gyeonggiList.count)
-         incheonClickedList = Array<Int>(repeating: 0, count: regionData.incheonList.count)
-         deaguClickedList = Array<Int>(repeating: 0, count: regionData.deaguList.count)
-         ulsanClickedList = Array<Int>(repeating: 0, count: regionData.ulsanList.count)
-         gyeongnamClickedList = Array<Int>(repeating: 0, count: regionData.gyeongnamList.count)
-         gyeongbukClickedList = Array<Int>(repeating: 0, count: regionData.gyeonbukList.count)
-         gwangjuClickedList = Array<Int>(repeating: 0, count: regionData.gwangjuList.count)
-         jeonnamClickedList = Array<Int>(repeating: 0, count: regionData.jeonnamList.count)
-         jeonbukClickedList = Array<Int>(repeating: 0, count: regionData.jeonbukList.count)
-         daejeonClickedList = Array<Int>(repeating: 0, count: regionData.daejeonList.count)
-         chungnamClickedList = Array<Int>(repeating: 0, count: regionData.chungnamList.count)
-         chungbukClickedList = Array<Int>(repeating: 0, count: regionData.chungbukList.count)
+        
+        for i in 0...ClickedList.count-1{
+            ClickedList[i] = Array<Int>(repeating: 0, count: regionData.allRegionData[i].count)
+        }
+       
         
     }
     
     
     @IBAction func selectButtonAction(_ sender: Any) {
         
-       // delegate?.sendregionName(forShow: nowText)
-       // UploadAirbnbSecondStepViewController.airbnbInput.locationId = nowID
         print(nowText)
-        self.dismiss(animated: true, completion: nil)
+        if nowText == ""{
+            HomeViewController.isFiltered = false
+        }else{
+            HomeViewController.isFiltered = true
+            HomeViewController.filterRegion = nowText
+        }
         
+        self.dismiss(animated: true, completion: nil)
         
     }
     
 }
 
-extension HomeFilterViewController : UITableViewDataSource,RegionCellDelegate{
+extension HomeFilterViewController : UITableViewDataSource,GeneralRegionCellDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return regionList.count
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RegionTableViewCell") as! RegionTableViewCell
@@ -272,221 +238,136 @@ extension HomeFilterViewController : UITableViewDataSource,RegionCellDelegate{
         
         cell.regionButton.setTitle(regionList[indexPath.row], for: .normal)
         
+        print("nowTag \(nowTag)")
+
+        
+        func setIsTouched(tag : Int, index : Int){
+                if ClickedList[tag-1][index] == 1 {
+                    cell.isTouched = true
+                }else{
+                    cell.isTouched = false
+                }
+        }
+
         switch nowTag{
         case 1 :
-            if seoulClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false
-                    }
+            setIsTouched(tag : nowTag, index : indexPath.row)
            break
         case 2:
-            if busanClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 3:
-            if jejuClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 4:
-            if gangwonClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 5:
-            if gyeongiClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 6:
-            if incheonClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 7:
-            if deaguClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 8:
-            if ulsanClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 9:
-            if gyeongnamClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 10:
-            if gyeongbukClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 11:
-            if gwangjuClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 12:
-            if jeonnamClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 13:
-            if jeonbukClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 14:
-            if daejeonClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 15:
-            if chungnamClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         case 16:
-            if chungbukClickedList[indexPath.row] == 1 {
-                        cell.isTouched = true
-                    }else{
-                        cell.isTouched = false}
+            setIsTouched(tag : nowTag, index : indexPath.row)
+            break
+        case 17:
+            setIsTouched(tag : nowTag, index : indexPath.row)
             break
         default:
             print("")
         }
         
+        
               
         return cell
     }
+
     
+    
+    func setButtonAndData(tag : Int, index : Int ){
+            reset()
+            
+            ClickedList[nowTag-1][index] = 1
+            print("클림됨? \(ClickedList[nowTag-1])")
+            //nowID = index+1
+            nowText = cityList[nowTag-1]+regionData.allRegionData[nowTag-1][index]
+            regionTableView.reloadData()
+            
+        }
+        
+        
     func didPressButton(for index: Int, clicked: Bool) {
             if clicked == true{
-                if nowTag == 1{
-                    reset()
-                    seoulClickedList[index] = 1
-                    nowID = index+1
-                    nowText = regionData.seoulList[index]
-                    regionTableView.reloadData()
-                    
-                }else if nowTag == 2{
-                    reset()
-                    busanClickedList[index] = 1
-                    regionTableView.reloadData()
-                    nowText = regionData.busanList[index]
-                    nowID = index+1+22
-                    
-                }else if nowTag == 3{
-                    reset()
-                   jejuClickedList[index] = 1
-                    nowText = regionData.jejuList[index]
-                    nowID = index+1+37
-                    regionTableView.reloadData()
-                    
-                }else if nowTag == 4{
-                    reset()
-                    gangwonClickedList[index] = 1
-                    nowText = regionData.gangwonList[index]
-                    nowID = index+1+44
-                    regionTableView.reloadData()
-                }else if nowTag == 5{
-                    reset()
-                    gyeongiClickedList[index] = 1
-                    nowText = regionData.gyeonggiList[index]
-                    nowID = index+1+55
-                    regionTableView.reloadData()
-                }else if nowTag == 6{
-                    reset()
-                    incheonClickedList[index] = 1
-                    nowText = regionData.incheonList[index]
-                    nowID = index+1+77
-                    regionTableView.reloadData()
-                }else if nowTag == 7{
-                    reset()
-                    deaguClickedList[index] = 1
-                    nowText = regionData.deaguList[index]
-                    nowID = index+1+88
-                    regionTableView.reloadData()
-                }else if nowTag == 8{
-                    reset()
-                    ulsanClickedList[index] = 1
-                    nowText = regionData.ulsanList[index]
-                    nowID = index+1+96
-                    regionTableView.reloadData()
-                }else if nowTag == 9{
-                    reset()
-                    gyeongnamClickedList[index] = 1
-                    nowText = regionData.gyeongnamList[index]
-                    nowID = index+1+98
-                    regionTableView.reloadData()
-                  
-                }else if nowTag == 10{
-                    reset()
-                    gyeongbukClickedList[index] = 1
-                    nowText = regionData.gyeonbukList[index]
-                    nowID = index+1+110
-                    regionTableView.reloadData()
-                    
-                }else if nowTag == 11{
-                    reset()
-                    gwangjuClickedList[index] = 1
-                    nowText = regionData.gwangjuList[index]
-                    nowID = index+1+123
-                    regionTableView.reloadData()
-                   
-                }else if nowTag == 12{
-                    reset()
-                    jeonnamClickedList[index] = 1
-                    nowText = regionData.jeonnamList[index]
-                    nowID = index+1+127
-                    regionTableView.reloadData()
-                    
-                }else if nowTag == 13{
-                    reset()
-                    jeonbukClickedList[index] = 1
-                    nowText = regionData.jeonbukList[index]
-                    nowID = index+1+140
-                    regionTableView.reloadData()
-                    
-                }else if nowTag == 14{
-                    reset()
-                    daejeonClickedList[index] = 1
-                    nowText = regionData.daejeonList[index]
-                    nowID = index+1+148
-                    regionTableView.reloadData()
-        
-                }else if nowTag == 15{
-                    reset()
-                  chungnamClickedList[index] = 1
-                    nowText = regionData.chungnamList[index]
-                    nowID = index+1+152
-                    regionTableView.reloadData()
-                }else if nowTag == 16{
-                    reset()
-                    chungbukClickedList[index] = 1
-                    nowText = regionData.seoulList[index]
-                    nowID = index+1+165
-                    regionTableView.reloadData()
+                switch nowTag{
+                case 1 :
+                    print("작동함?")
+                    setButtonAndData(tag : nowTag, index : index)
+                case 2 :
+                    print("작동함?")
+                    setButtonAndData(tag : nowTag, index : index)
+                case 3 :
+                    setButtonAndData(tag : nowTag, index : index)
+                case 4 :
+                    setButtonAndData(tag : nowTag, index : index)
+                case 5 :
+                    setButtonAndData(tag : nowTag, index : index)
+                case 6 :
+                    setButtonAndData(tag : nowTag, index : index)
+                case 7 :
+                    setButtonAndData(tag : nowTag, index : index)
+                case 8 :
+                    setButtonAndData(tag : nowTag, index : index)
+                case 9 :
+                    setButtonAndData(tag : nowTag, index : index)
+                case 10 :
+                    setButtonAndData(tag : nowTag, index : index)
+                case 11:
+                    setButtonAndData(tag : nowTag, index : index)
+                case 12:
+                    setButtonAndData(tag : nowTag, index : index)
+                case 13:
+                    setButtonAndData(tag : nowTag, index : index)
+                case 14:
+                    setButtonAndData(tag : nowTag, index : index)
+                case 15:
+                    setButtonAndData(tag : nowTag, index : index)
+                case 16:
+                    setButtonAndData(tag : nowTag, index : index)
+                case 17:
+                    setButtonAndData(tag : nowTag, index : index)
+                default :
+                    print("default")
+                
                 }
-                //print(UploadAirbnbSecondStepViewController.airbnbInput.locationId)
+            
                 
                 selectButton.isEnabled = true
                 selectButton.backgroundColor = #colorLiteral(red: 0.9671199918, green: 0.2031135857, blue: 0.7404999137, alpha: 1)
