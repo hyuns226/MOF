@@ -8,7 +8,7 @@
 import UIKit
 class PopinViewController : UIViewController{
     
-var popinResultList : [specificResults] = []
+    var popinResultList : [specificResults] = []
     lazy var dataManager = HomeDataManager()
     
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
@@ -54,6 +54,13 @@ extension PopinViewController : UITableViewDelegate,UITableViewDataSource{
         cell.PhoneNumLabel.text = popinResultList[indexPath.section].academyPhone
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: popinResultList[indexPath.section].academyIdx, academyImage: popinResultList[indexPath.section].academyBackImgUrl, academyName: popinResultList[indexPath.section].academyName, academyPhoneNum: popinResultList[indexPath.section].academyPhone, academyAddress: popinResultList[indexPath.section].academyDetailAddress)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     // MARK: - Table View delegate methods

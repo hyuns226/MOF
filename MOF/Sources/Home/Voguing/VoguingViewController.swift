@@ -54,6 +54,13 @@ extension VoguingViewController : UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: voguingResultList[indexPath.section].academyIdx, academyImage: voguingResultList[indexPath.section].academyBackImgUrl, academyName: voguingResultList[indexPath.section].academyName, academyPhoneNum: voguingResultList[indexPath.section].academyPhone, academyAddress: voguingResultList[indexPath.section].academyDetailAddress)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {

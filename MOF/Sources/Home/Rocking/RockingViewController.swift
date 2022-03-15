@@ -56,6 +56,13 @@ extension RockingViewController : UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: rockingResultList[indexPath.section].academyIdx, academyImage: rockingResultList[indexPath.section].academyBackImgUrl, academyName: rockingResultList[indexPath.section].academyName, academyPhoneNum: rockingResultList[indexPath.section].academyPhone, academyAddress: rockingResultList[indexPath.section].academyDetailAddress)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {

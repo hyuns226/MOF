@@ -57,6 +57,13 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: waakingResultList[indexPath.section].academyIdx, academyImage: waakingResultList[indexPath.section].academyBackImgUrl, academyName: waakingResultList[indexPath.section].academyName, academyPhoneNum: waakingResultList[indexPath.section].academyPhone, academyAddress: waakingResultList[indexPath.section].academyDetailAddress)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     
     // MARK: - Table View delegate methods
 

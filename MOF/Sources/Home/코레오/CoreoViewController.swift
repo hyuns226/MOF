@@ -59,6 +59,13 @@ extension CoreoViewController : UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: choreoResultList[indexPath.section].academyIdx, academyImage: choreoResultList[indexPath.section].academyBackImgUrl, academyName: choreoResultList[indexPath.section].academyName, academyPhoneNum: choreoResultList[indexPath.section].academyPhone, academyAddress: choreoResultList[indexPath.section].academyDetailAddress)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {

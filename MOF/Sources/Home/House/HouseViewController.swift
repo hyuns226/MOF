@@ -57,6 +57,13 @@ extension HouseViewController : UITableViewDelegate,UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: houseResultList[indexPath.section].academyIdx, academyImage: houseResultList[indexPath.section].academyBackImgUrl, academyName: houseResultList[indexPath.section].academyName, academyPhoneNum: houseResultList[indexPath.section].academyPhone, academyAddress: houseResultList[indexPath.section].academyDetailAddress)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {

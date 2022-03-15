@@ -70,6 +70,13 @@ extension KpopViewController : UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: kpopResultList[indexPath.section].academyIdx, academyImage: kpopResultList[indexPath.section].academyBackImgUrl, academyName: kpopResultList[indexPath.section].academyName, academyPhoneNum: kpopResultList[indexPath.section].academyPhone, academyAddress: kpopResultList[indexPath.section].academyDetailAddress)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {

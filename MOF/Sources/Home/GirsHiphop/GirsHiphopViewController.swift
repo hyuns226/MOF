@@ -58,6 +58,13 @@ extension GirsHiphopViewController : UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: girlsHiphopResultList[indexPath.section].academyIdx, academyImage: girlsHiphopResultList[indexPath.section].academyBackImgUrl, academyName: girlsHiphopResultList[indexPath.section].academyName, academyPhoneNum: girlsHiphopResultList[indexPath.section].academyPhone, academyAddress: girlsHiphopResultList[indexPath.section].academyDetailAddress)
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
