@@ -38,12 +38,18 @@ class LikeViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        settingTabBar()
         setButtonList()
     
     }
     
     //MARK: - Function
     
+    func settingTabBar(){
+        self.tabBarController?.tabBar.items?[2].selectedImage = #imageLiteral(resourceName: "coolicon_288").withRenderingMode(.alwaysOriginal)
+        self.tabBarController?.tabBar.items?[2].image = #imageLiteral(resourceName: "coolicon300").withRenderingMode(.alwaysOriginal).withTintColor(UIColor(hex: 0xB2B2B2))
+        self.tabBarController?.tabBar.items?[2].title = "Like"
+    }
     
     
     func setButtonList() {
@@ -98,7 +104,9 @@ class LikeViewController : UIViewController{
         var allviews = self.tabBarController!.viewControllers
                         allviews?.remove(at: 2)
                         allviews?.insert(MyPageNV, at: 2)
+        
         self.tabBarController!.setViewControllers(allviews, animated: true)
+        
                       
         }
     

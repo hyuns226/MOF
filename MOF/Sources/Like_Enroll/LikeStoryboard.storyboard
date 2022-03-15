@@ -23,7 +23,7 @@
         <scene sceneID="VfC-T9-WJG">
             <objects>
                 <navigationController storyboardIdentifier="LikeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gyl-lK-74x" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Like" image="coolicon300" selectedImage="coolicon288" id="QVA-WC-9Xa"/>
+                    <tabBarItem key="tabBarItem" title="Like" image="coolicon300" selectedImage="coolicon_288" id="QVA-WC-9Xa"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xYR-FE-1nq">
@@ -551,14 +551,14 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GeneralRegionTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GeneralRegionTableViewCell" id="jvP-sE-Jrh" customClass="GeneralRegionTableViewCell" customModule="MOF" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="298" height="43"/>
+                                                        <rect key="frame" x="0.0" y="28" width="298" height="38"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jvP-sE-Jrh" id="b28-s7-s0Z">
-                                                            <rect key="frame" x="0.0" y="0.0" width="298" height="43"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="298" height="38"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-Fe-8NG">
-                                                                    <rect key="frame" x="10" y="10" width="278" height="23"/>
+                                                                    <rect key="frame" x="10" y="10" width="278" height="18"/>
                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1755,9 +1755,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="coolicon288" width="20.5" height="18"/>
         <image name="coolicon295" width="20.5" height="18.5"/>
         <image name="coolicon300" width="20.5" height="18.5"/>
+        <image name="coolicon_288" width="20.5" height="18"/>
         <image name="filter" width="30" height="30"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plane" width="24" height="24"/>
