@@ -2505,7 +2505,7 @@
             </objects>
             <point key="canvasLocation" x="7265" y="1361"/>
         </scene>
-        <!--DANCE-->
+        <!--MOF-->
         <scene sceneID="EyF-JB-nhX">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="GQl-sf-Rft" customClass="HomeViewController" customModule="MOF" customModuleProvider="target" sceneMemberID="viewController">
@@ -2653,7 +2653,7 @@
                             <constraint firstItem="C7r-uk-jC8" firstAttribute="leading" secondItem="P2I-Du-fiY" secondAttribute="leading" id="xDM-QL-Apl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="DANCE" id="nYr-mV-FwS">
+                    <navigationItem key="navigationItem" title="MOF" id="nYr-mV-FwS">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="vector23" id="CuC-Sn-VVA">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>

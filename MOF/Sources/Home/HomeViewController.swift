@@ -39,10 +39,20 @@ class HomeViewController : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         
+        //하단 탭바 라인 투명하게
         self.tabBarController?.tabBar.clipsToBounds = true
        
+        //네비게이션바 타이틀 로고 삽입
+       
+       
+        let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
 
-
+         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
+         imageView.contentMode = .scaleAspectFit
+         let image = #imageLiteral(resourceName: "MOF spray 1")
+         imageView.image = image
+         logoContainer.addSubview(imageView)
+         navigationItem.titleView = logoContainer
         }
         
     override func viewDidLoad() {
