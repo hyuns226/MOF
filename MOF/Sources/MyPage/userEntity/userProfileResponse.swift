@@ -18,7 +18,6 @@ struct profileResults : Decodable {
         var userEmail : String
         var userProfileImgUrl : String?
         var userAge : String
-        var userAddress : String
         var userGender : String
         var userPhone : String
     }

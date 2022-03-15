@@ -8,15 +8,21 @@
 import UIKit
 class AddClassViewController : UIViewController{
     
+    var delegate : addClassAlertProtocol?
+    
     var startTime = ""
     var endTime = ""
     
     var clickedGenre = ""
-    var genreList = ["K-POP","코레오","힙합","걸스힙합","왁킹","팝핀","락킹","크럼프","보깅","하우스"]
     
-    var classInput = addClassRequest(classPicture: "", teacher: "", className: "", classType: "", classPrice: 0, classGernre: "", classPersonnel: 0, classIntro: "", classTeacherName: "", classTeacherIntro: "", classStartTime1: "", classEndTime1: "", classStartTime2: "", classEndTime2: "")
-  
+    var classInput = addClassRequest(className: "", classType: "", classPrice: 0, classGernre: "", classPersonnel: 0, classIntro: "", classTeacherName: "", classTeacherIntro: "", classStartTime1: "", classEndTime1: "", classStartTime2: "", classEndTime2: "")
+    
+    var teacherImageInput = UIImage()
+    var classImageInput = UIImage()
+    
+    let picker = UIImagePickerController()
    
+    var dataManager = AcademyMyPageDataManager()
     
     lazy var buttonList = [kpopButton,coreoButton,hiphopButton,girlsHiphopButton,waakingButton,popinButton,rockingButton,crumpButton,voguingButton,houseButton]
     
@@ -32,7 +38,11 @@ class AddClassViewController : UIViewController{
     @IBOutlet weak var classStartTimeTwoButton: UIButton!
     @IBOutlet weak var classEndTimeTwoButton: UIButton!
     @IBOutlet weak var waveLabel: UILabel!
-    @IBOutlet weak var teacherCollectionView: UICollectionView!
+   
+    @IBOutlet weak var teacherImageView: UIImageView!
+    @IBOutlet weak var addTeacherButton: UIButton!
+    @IBOutlet weak var deleteTeacherButton:
+        UIButton!
     @IBOutlet weak var classPictureImageView: UIImageView!
     @IBOutlet weak var classPictureDeleteButton: UIButton!
     @IBOutlet weak var classPictureAddButton: UIButton!
@@ -52,6 +62,7 @@ class AddClassViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonLayout()
+        picker.delegate = self
     }
     
     //MARK:- FUNCTION
@@ -91,6 +102,11 @@ class AddClassViewController : UIViewController{
         
     }
     
+    @IBAction func closeButtonAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func regularClassButtonAction(_ sender: Any) {
         
         
@@ -105,6 +121,16 @@ class AddClassViewController : UIViewController{
         ondayClassButton.setTitleColor(#colorLiteral(red: 0.3646711111, green: 0.3647280335, blue: 0.3646586537, alpha: 1), for: .normal)
         
         classInput.classType = "Regular"
+        classInput.classStartTime1  = ""
+        classInput.classEndTime1 = ""
+        classInput.classStartTime2 = ""
+        classInput.classEndTime2 = ""
+        
+        classStartTimeOneButton.setTitle("시작시간", for: .normal)
+        classEndTimeOneButton.setTitle("종료시간", for: .normal)
+        classStartTimeTwoButton.setTitle("시작시간", for: .normal)
+        classEndTimeTwoButton.setTitle("종료시간", for: .normal)
+        
     }
     
     @IBAction func onedayClassButtonAction(_ sender: Any) {
@@ -119,37 +145,67 @@ class AddClassViewController : UIViewController{
         regularClassButton.setTitleColor(#colorLiteral(red: 0.3646711111, green: 0.3647280335, blue: 0.3646586537, alpha: 1), for: .normal)
         
         classInput.classType = "OneDay"
+        classInput.classStartTime1  = ""
+        classInput.classEndTime1 = ""
+        classInput.classStartTime2 = ""
+        classInput.classEndTime2 = ""
+        
+        classStartTimeOneButton.setTitle("시작시간", for: .normal)
+        classEndTimeOneButton.setTitle("종료시간", for: .normal)
+        classStartTimeTwoButton.setTitle("시작시간", for: .normal)
+        classEndTimeTwoButton.setTitle("종료시간", for: .normal)
+        
+        
     }
     
     @IBAction func startTimeOneAction(_ sender: Any) {
         
-        let datePickerVC = self.storyboard?.instantiateViewController(identifier: "datePickerPopUpViewController") as! datePickerPopUpViewController
+        if classInput.classType == "OneDay"{
+            let datePickerVC = self.storyboard?.instantiateViewController(identifier: "datePickerForOnedayPopupViewController") as! datePickerForOnedayPopupViewController
+            datePickerVC.delegate = self
+          
+           
+            self.present(datePickerVC, animated: false, completion: nil)
+        }else{
+            let datePickerVC = self.storyboard?.instantiateViewController(identifier: "datePickerPopUpViewController") as! datePickerPopUpViewController
+            datePickerVC.delegate = self
+            datePickerVC.dateLabel = "one"
+           
+            self.present(datePickerVC, animated: false, completion: nil)
+        }
         
-       
-        self.present(datePickerVC, animated: false, completion: nil)
         
-    }
-    @IBAction func endTimeTwoAction(_ sender: Any) {
-    }
-    @IBAction func EndTimeOneAction(_ sender: Any) {
     }
     @IBAction func startTimeTwoAction(_ sender: Any) {
+        let datePickerVC = self.storyboard?.instantiateViewController(identifier: "datePickerPopUpViewController") as! datePickerPopUpViewController
+        datePickerVC.delegate2 = self
+        datePickerVC.dateLabel = "two"
+       
+        self.present(datePickerVC, animated: false, completion: nil)
     }
+   
     
     @IBAction func addTeacherButtonAction(_ sender: Any) {
-        
         let addTeacherPopUp = self.storyboard?.instantiateViewController(identifier: "AddTeacherPopUpViewController") as! AddTeacherPopUpViewController
-        
+        addTeacherPopUp.delegate = self
         self.present(addTeacherPopUp, animated: false, completion: nil)
-        
-        
-        
+    }
+    @IBAction func deleteTeacherButtonAction(_ sender: Any) {
     }
     
     @IBAction func deleteClassPicture(_ sender: Any) {
     }
     
     @IBAction func addClassPicture(_ sender: Any) {
+        openlibrary()
+        
+    }
+    
+    func openlibrary(){
+        picker.sourceType = .photoLibrary
+        picker.modalPresentationStyle = .fullScreen
+        present(picker, animated: true)
+        
     }
     
     //강의 장르 버튼 선택 동작
@@ -209,28 +265,112 @@ class AddClassViewController : UIViewController{
             buttonList[index]!.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0.7033678889, alpha: 1)
             buttonList[index]!.setTitleColor(#colorLiteral(red: 1, green: 0, blue: 0.7033678889, alpha: 1), for: .normal)
             
-            clickedGenre = genreList[index]
+            clickedGenre = Constant.GenreList[index]
             print(clickedGenre)
             
         }
             
            
     @IBAction func addClassButtonAction(_ sender: Any) {
-        
-        classInput.classPicture = ""
-        classInput.teacher = ""
+     
         classInput.className = classNameTextField.text!
         classInput.classPrice = Int(TuitionTextView.text!) ?? 0
         classInput.classGernre = clickedGenre
         classInput.classPersonnel = Int(classMemberNumTextField.text!) ?? 0
         classInput.classIntro = classExplainTextView.text!
-        classInput.classTeacherName = ""
-        classInput.classTeacherIntro = ""
-        classInput.classStartTime1 = ""
-        classInput.classEndTime1 = ""
-        classInput.classStartTime2 = ""
-        classInput.classEndTime2 = ""
+      
+        print(teacherImageInput,
+              classImageInput)
+        print(teacherImageInput.size.width)
+        print(classImageInput.size.width)
+        print(classInput)
        
+        dataManager.addClass(parameters: classInput, classImage: classImageInput, teacherImage: teacherImageInput,academyIdx : KeyCenter.userIndex, delegate: self)
         
     }
+    
+}
+
+extension AddClassViewController : UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+    func imagePickerController(_ picker : UIImagePickerController, didFinishPickingMediaWithInfo info : [UIImagePickerController.InfoKey : Any]){
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+        
+            classPictureImageView.image = image
+            classImageInput = image
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+    
+    }
+}
+
+//MARK:- Protocol
+
+extension AddClassViewController : selectedDateProtocol, selectedDateProtocol2,selectedOnedayDateProtocol,teacherInfoProtocol{
+    
+    func sendDate(startDateForShow : String, startDateForSend : String,  endDateForShow : String, endDateForSend : String){
+        
+        classStartTimeOneButton.setTitle(startDateForShow, for: .normal)
+        classEndTimeOneButton.setTitle(endDateForShow, for: .normal)
+        
+        classInput.classStartTime1 = startDateForSend
+        classInput.classEndTime1 = endDateForSend
+        print(startDateForSend,endDateForSend)
+       
+    }
+    
+    func sendDate2(startDateForShow: String, startDateForSend: String, endDateForShow: String, endDateForSend: String) {
+        classStartTimeTwoButton.setTitle(startDateForShow, for: .normal)
+        classEndTimeTwoButton.setTitle(endDateForShow, for: .normal)
+        
+        classInput.classStartTime2 = startDateForSend
+        classInput.classEndTime2 = endDateForSend
+        print(startDateForSend,endDateForSend)
+    }
+    
+    func sendonedayDate(startDateForShow: String, startDateForSend: String, endDateForShow: String, endDateForSend: String) {
+        classStartTimeOneButton.setTitle(startDateForShow, for: .normal)
+        classEndTimeOneButton.setTitle(endDateForShow, for: .normal)
+        
+        classInput.classStartTime1 = startDateForSend
+        classInput.classEndTime1 = endDateForSend
+        print(startDateForSend,endDateForSend)
+        
+    }
+    
+    func sendTeacherInfo(teacherImage: UIImage, teacherName: String, teacherIntro: String) {
+        teacherImageInput = teacherImage
+        teacherImageView.image = teacherImage
+        classInput.classTeacherName = teacherName
+        classInput.classTeacherIntro = teacherIntro
+         
+
+    }
+    
+    
+}
+
+//MARK:- API
+extension AddClassViewController{
+    
+    func addClass(result : addClassResponse){
+        print(result)
+        if result.isSuccess{
+            delegate?.showAlert()
+            self.dismiss(animated: true, completion: nil)
+            
+            
+        }else{
+            presentAlert(title: result.message)
+          
+        }
+    }
+    
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
+    }
+    
+    
 }

@@ -30,10 +30,10 @@ class KpopViewController : UIViewController{
         
         if HomeViewController.isFiltered{
             
-            dataManager.getSpecificAcademy(address: HomeViewController.filterRegion, genre: Constant.genreList[0], name: "", delegate: self)
+            dataManager.getSpecificAcademy(address: HomeViewController.filterRegion, genre: Constant.GenreList[0], name: "", delegate: self)
             
         }else{
-            dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[0], name: "", delegate: self)
+            dataManager.getSpecificAcademy(address: "", genre: Constant.GenreList[0], name: "", delegate: self)
         }
         
         

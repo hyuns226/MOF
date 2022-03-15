@@ -1258,7 +1258,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQc-m7-Mqn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5584.6153846153848" y="2068.7203791469192"/>
+            <point key="canvasLocation" x="5575" y="2069"/>
         </scene>
         <!--Class Enrollment View Controller-->
         <scene sceneID="5RA-wC-s8B">
@@ -4475,34 +4475,34 @@
                                                 <rect key="frame" x="23" y="0.0" width="344" height="1000"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AllTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AllTableViewCell" rowHeight="267" id="GiN-Ix-p41" customClass="AllTableViewCell" customModule="MOF" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AllTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AllTableViewCell" rowHeight="267" id="GiN-Ix-p41" customClass="AllTableViewCell" customModule="MOF" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="344" height="267"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GiN-Ix-p41" id="5hl-Sd-N1f">
-                                                            <rect key="frame" x="0.0" y="0.0" width="312.66666666666669" height="267"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="344" height="267"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eQe-wl-CTI">
-                                                                    <rect key="frame" x="9" y="9" width="294.66666666666669" height="176"/>
+                                                                    <rect key="frame" x="9" y="9" width="326" height="176"/>
                                                                     <color key="backgroundColor" red="0.87450980389999999" green="0.87450980389999999" blue="0.87450980389999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="176" id="r2o-lW-sSo"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Lgp-kd-lvt">
-                                                                    <rect key="frame" x="9" y="185" width="294.66666666666669" height="76"/>
+                                                                    <rect key="frame" x="9" y="185" width="326" height="76"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zrr-Qe-AAS">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="294.66666666666669" height="32.666666666666664"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igP-UM-fK5">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294.66666666666669" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bA8-H0-Doc">
-                                                                                    <rect key="frame" x="294.66666666666669" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="brG-j4-ysR"/>
                                                                                     </constraints>
@@ -4516,13 +4516,13 @@
                                                                             </constraints>
                                                                         </stackView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="010-1234-5678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAM-mU-8WB">
-                                                                            <rect key="frame" x="0.0" y="32.666666666666657" width="294.66666666666669" height="31.333333333333329"/>
+                                                                            <rect key="frame" x="0.0" y="32.666666666666657" width="326" height="31.333333333333329"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서울특별시 마포구 잔다리로 123-1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCV-I8-pIg">
-                                                                            <rect key="frame" x="0.0" y="64" width="294.66666666666669" height="12"/>
+                                                                            <rect key="frame" x="0.0" y="64" width="326" height="12"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>

@@ -182,7 +182,9 @@ extension ClassDetailViewController{
             }
 
             
-            classPersonnelLabel.text = result.result?.classPersonnel
+            if result.result?.classPersonnel != nil{
+                classPersonnelLabel.text =  String((result.result?.classPersonnel)!) + "명"
+            }
             classIntroLabel.text = result.result?.classIntro
             
             
@@ -248,7 +250,10 @@ extension ClassDetailViewController{
             }
 
             
-            classPersonnelLabel.text = result.result?.classPersonnel
+            if result.result?.classPersonnel != nil{
+                classPersonnelLabel.text =  String((result.result?.classPersonnel)!) + "명"
+            }
+            
             classIntroLabel.text = result.result?.classIntro
             
             

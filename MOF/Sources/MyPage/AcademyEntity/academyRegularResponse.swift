@@ -21,7 +21,7 @@ struct academyRegularResult : Decodable{
     var className : String
     var classPrice : Int
     var classGernre : String
-    var classPersonnel : String?
+    var classPersonnel : Int?
     var classIntro : String
     var classTeacherName : String
     var classStartTime1 : String

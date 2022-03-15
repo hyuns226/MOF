@@ -16,9 +16,13 @@ struct userOnedayClassResponse : Decodable{
 
 struct onedayResults : Decodable{
     
-    var enrollIdx : Int
-    var enrollClassIdx : Int
+    
     var className : String
-    var classType : String
     var classTeacherName : String
+    var classStartTime1 : String
+    var classEndTime1 : String
+    var enrollSubmit : String
+    var enrollIdx : Int
+    var classIdx : Int
+    
 }

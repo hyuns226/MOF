@@ -10,15 +10,20 @@ struct userRegularClassResponse : Decodable{
     var isSuccess : Bool
     var code : Int
     var message : String
-    var result : [regularResults?]?
+    var result : [regularResults]?
     
 }
 
 struct regularResults : Decodable{
     
-    var enrollIdx : Int
-    var enrollClassIdx : Int
+    
     var className : String
-    var classType : String
     var classTeacherName : String
+    var classStartTime1 : String
+    var classEndTime1 : String
+    var classStartTime2 : String?
+    var classEndTime2 : String?
+    var enrollSubmit : String
+    var enrollIdx : Int
+    var classIdx : Int
 }

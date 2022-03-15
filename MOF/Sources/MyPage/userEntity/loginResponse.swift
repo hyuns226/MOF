@@ -15,16 +15,9 @@ struct loginResponse : Decodable{
 
 struct results : Decodable{
     var APIResult : String
+    var 유저타입 : String
     var userIdx : Int
     var jwt : String
-    
-    enum CodingKeys : String, CodingKey{
-
-            case APIResult = "API Result"
-            case userIdx
-            case jwt
-
-        }
     
 }
 

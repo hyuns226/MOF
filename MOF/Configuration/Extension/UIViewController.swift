@@ -121,6 +121,14 @@ extension UIViewController {
         return date
     }
     
+    func stringToDateAll(dateString : String) -> Date{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yy-MM-dd HH:mm"
+        let date = formatter.date(from: dateString)!
+        print(type(of: date))
+        return date
+    }
+    
     func stringToDateForDayandDate(dateString : String) -> Date{
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE HH:mm"

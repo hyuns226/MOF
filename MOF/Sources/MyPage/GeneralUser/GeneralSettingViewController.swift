@@ -18,9 +18,7 @@ class GeneralSettingViewController : UIViewController{
     @IBOutlet weak var WithdrawButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+   
     
     
     //MARK:- FUNCTION

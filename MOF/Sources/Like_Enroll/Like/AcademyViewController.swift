@@ -14,8 +14,8 @@ class AcademyViewController : UIViewController {
     
     lazy var dataManager = LikeDataManager()
     
-    var academyLikeList : [allAcademyLikesResults?] = []
-    var filterdAcademyLikeList : [specificAcademyLikesResults?] = []
+    var academyLikeList : [allAcademyLikesResults] = []
+    var filterdAcademyLikeList : [specificAcademyLikesResults] = []
     
     @IBOutlet weak var AcademyCollectionView: UICollectionView!
     
@@ -55,22 +55,22 @@ extension AcademyViewController : UICollectionViewDelegate,UICollectionViewDataS
         cell.layer.cornerRadius = 6
         
         if LikeViewController.isFitered == true{
-            if let url = URL(string: filterdAcademyLikeList[indexPath.row]?.academyBackImgUrl ?? "") {
+            if let url = URL(string: filterdAcademyLikeList[indexPath.row].academyBackImgUrl ?? "") {
                 cell.academyImageView.kf.setImage(with: url)
             } else {
                 cell.academyImageView.image = UIImage(named: "defaultImage")
             }
             
-            cell.academyNameLabel.text = filterdAcademyLikeList[indexPath.row]?.academyName
+            cell.academyNameLabel.text = filterdAcademyLikeList[indexPath.row].academyName
             
         }else{
-            if let url = URL(string: academyLikeList[indexPath.row]?.academyBackImgUrl ?? "") {
+            if let url = URL(string: academyLikeList[indexPath.row].academyBackImgUrl ?? "") {
                 cell.academyImageView.kf.setImage(with: url)
             } else {
                 cell.academyImageView.image = UIImage(named: "defaultImage")
             }
             
-            cell.academyNameLabel.text = academyLikeList[indexPath.row]?.academyName
+            cell.academyNameLabel.text = academyLikeList[indexPath.row].academyName
            
         }
         
@@ -80,6 +80,20 @@ extension AcademyViewController : UICollectionViewDelegate,UICollectionViewDataS
         
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        
+        if LikeViewController.isFitered == true{
+            
+            return
+        }else{
+            
+        }
+        
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
     
@@ -119,15 +133,38 @@ extension AcademyViewController : UICollectionViewDelegateFlowLayout{
 //MARK:-API
 extension AcademyViewController{
     func allAcademyLikes(result : allAcademyLikesResponse){
-        academyLikeList = result.result
-        print(academyLikeList)
-        AcademyCollectionView.reloadData()
+        if result.isSuccess{
+            academyLikeList = result.result ?? []
+            print(academyLikeList)
+            AcademyCollectionView.reloadData()
+        }else{
+            presentAlert(title: result.message)
+        }
+        
     }
     
     func specificAcademyLikes(result : specificaAcademyLikesResponse){
-        filterdAcademyLikeList = result.result
-        print(filterdAcademyLikeList)
-        AcademyCollectionView.reloadData()
+        if result.isSuccess{
+            filterdAcademyLikeList = result.result ?? []
+            print(filterdAcademyLikeList)
+            AcademyCollectionView.reloadData()
+        }else{
+            presentAlert(title: result.message)
+        }
+        
+    }
+    
+    func dislikesForAcademy(result :dislikeResponse){
+        if result.isSuccess{
+            if LikeViewController.isFitered == true{
+                
+            }else{
+               
+            }
+        }else{
+            presentAlert(title: result.message)
+        }
+        
     }
     
     

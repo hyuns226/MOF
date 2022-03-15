@@ -10,13 +10,19 @@ import UIKit
 
 class datePickerPopUpViewController : UIViewController{
     
+    var dateLabel = ""
+    
+    var delegate : selectedDateProtocol?
+    var delegate2 : selectedDateProtocol2?
+    
     let addClassVC = AddClassViewController()
     
-    var dayText = ""
-    var startHourText = ""
-    var startMinuteText = ""
-    var endHourText = ""
-    var endMinuteText = ""
+    var dayText = "월요일"
+    var dayTextForSend = Constant.DateforDays[0]
+    var startHourText = "00"
+    var startMinuteText = "00"
+    var endHourText = "00"
+    var endMinuteText = "00"
     
     
     
@@ -32,9 +38,9 @@ class datePickerPopUpViewController : UIViewController{
     
     let day = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
     
-    let Hour = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+    let Hour = ["00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
     
-    let Time = [10,20,30,40,50,60]
+    let Time = ["00", "10","20","30","40","50"]
     
     override func viewDidLoad() {
         dayPIckerView.delegate = self
@@ -48,13 +54,14 @@ class datePickerPopUpViewController : UIViewController{
     //MARK:- FUNCTION
     @IBAction func addTimeButtonAction(_ sender: Any) {
         
-        addClassVC.startTime = dayText+startHourText+startMinuteText
-        addClassVC.endTime = endHourText+endMinuteText
-        
-        print(addClassVC.startTime,addClassVC.endTime)
-        
-        self.dismiss(animated: false, completion: nil)
-        
+        if dateLabel == "one"{
+            self.delegate?.sendDate(startDateForShow: dayText + " \(startHourText):\(startMinuteText)" , startDateForSend: dayTextForSend+startHourText+startMinuteText+"00", endDateForShow: "\(endHourText):\(endMinuteText)" , endDateForSend:dayTextForSend+endHourText+endMinuteText+"00")
+            self.dismiss(animated: false, completion: nil)
+        }else{
+            self.delegate2?.sendDate2(startDateForShow: dayText + " \(startHourText):\(startMinuteText)" , startDateForSend: dayTextForSend+startHourText+startMinuteText+"00", endDateForShow: "\(endHourText):\(endMinuteText)" , endDateForSend:dayTextForSend+endHourText+endMinuteText+"00")
+            self.dismiss(animated: false, completion: nil)
+        }
+    
     }
     
     
@@ -114,16 +121,16 @@ extension datePickerPopUpViewController : UIPickerViewDelegate, UIPickerViewData
             componet = day[row]
             break
         case startHourPickerView :
-            componet = String(Hour[row])
+            componet = Hour[row]
             break
         case startMinutePickerView :
-            componet = String(Time[row])
+            componet = Time[row]
             break
         case endHourPickerView :
-            componet =  String(Hour[row])
+            componet =  Hour[row]
             break
         case endMinutePickerView :
-            componet = String(Time[row])
+            componet = Time[row]
             break
         default:
             print("")
@@ -139,21 +146,22 @@ extension datePickerPopUpViewController : UIPickerViewDelegate, UIPickerViewData
         switch pickerView{
         case dayPIckerView :
             dayText = day[row]
-            print(day[row])
+            dayTextForSend = Constant.DateforDays[row]
+            print(Constant.DateforDays[row])
             break
         case startHourPickerView :
-            startHourText = String(Hour[row])
+            startHourText = Hour[row]
             print(Hour[row])
             break
         case startMinutePickerView :
-            startMinuteText = String(Time[row])
+            startMinuteText = Time[row]
             print(Time[row])
         case endHourPickerView :
-            endHourText = String(Hour[row])
+            endHourText = Hour[row]
             print(Hour[row])
             break
         case endMinutePickerView :
-            endMinuteText = String(Time[row])
+            endMinuteText = Time[row]
             print(Time[row])
             break
         default:

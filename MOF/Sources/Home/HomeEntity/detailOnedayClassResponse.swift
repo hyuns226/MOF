@@ -18,8 +18,8 @@ struct detailOnedayClassResults : Decodable{
     var classIdx : Int
     var classImageUrl : String?
     var className : String
-    var classPrice : Int
-    var classPersonnel : String?
+    var classPrice : Int?
+    var classPersonnel : Int?
     var classType : String
     var classStartTime1 : String
     var classEndTime1 : String

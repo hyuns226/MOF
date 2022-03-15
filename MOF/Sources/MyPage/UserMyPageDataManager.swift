@@ -101,6 +101,21 @@ class UserMyPageDataManager{
             }
     }
     
+    //일반 유저 정보 조회 - 마이페이지 메인
+     func userProfileForMain(userIdx : Int, delegate: MyPageViewController) {
+         AF.request("\(Constant.BASE_URL)users/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+             .validate()
+             .responseDecodable(of: userProfileResponse.self) { response in
+                 switch response.result {
+                 case .success(let response):
+                     delegate.userProfile(result: response)
+                 case .failure(let error):
+                     print(error.localizedDescription)
+                     delegate.failedToRequest()
+                 }
+             }
+     }
+    
     
 
     
@@ -135,9 +150,9 @@ class UserMyPageDataManager{
                 }
         }
     
-    //유저 정규 수업 조회
+    //유저 정규 수업 리스트 조회 52번
     func regularClass(userIdx : Int, delegate: MyRegularClassViewontroller) {
-        AF.request("\(Constant.BASE_URL)users/regular-class-enrolls/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+        AF.request("\(Constant.BASE_URL)enrolls/users/regulars/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
             .validate()
             .responseDecodable(of: userRegularClassResponse.self) { response in
                 switch response.result {
@@ -150,14 +165,29 @@ class UserMyPageDataManager{
             }
     }
     
-    //유저 정규 수업 조회
+    //유저 원데이 수업 조회 53번
     func onedayClass(userIdx : Int, delegate: MyOnedayViewController) {
-        AF.request("\(Constant.BASE_URL)users/oneday-class-enrolls/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+        AF.request("\(Constant.BASE_URL)enrolls/users/one-days/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
             .validate()
             .responseDecodable(of: userOnedayClassResponse.self) { response in
                 switch response.result {
                 case .success(let response):
                     delegate.onedayClass(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
+    
+    //유저 특정 유저 특정 수업 등록 정보 조회
+    func enrolledInfo(userIdx : Int, enrollIdx : Int, delegate: DetailEnrolledClassViewController) {
+        AF.request("\(Constant.BASE_URL)users/enrolls/\(userIdx)/\(enrollIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: userEnrolledInfoResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.enrolledInfo(result: response)
                 case .failure(let error):
                     print(error.localizedDescription)
                     delegate.failedToRequest()

@@ -32,7 +32,7 @@ class SIgnInViewController : UIViewController{
 //MARK - FUNCTION
     
     @IBAction func tempLogin(_ sender: Any) {
-        tabBarController(tabBarController: self.tabBarController!)
+        changeToGeneralUser(tabBarController: self.tabBarController!)
         
     }
     
@@ -91,7 +91,7 @@ class SIgnInViewController : UIViewController{
     
     
     //로그인 버튼 -> 마이페이지 이동
-    func tabBarController(tabBarController: UITabBarController){
+    func changeToGeneralUser(tabBarController: UITabBarController){
         
                     let storyboard = UIStoryboard(name: "MyPageStoryboard", bundle: nil)
                     let MyPageVC = storyboard.instantiateViewController(withIdentifier: "MyPageViewController") as! MyPageViewController
@@ -102,6 +102,32 @@ class SIgnInViewController : UIViewController{
                     tabBarController.setViewControllers(allviews, animated: true)
                   
                
+            }
+    
+    //로그인 버튼 -> 학원 마이페이지 이동
+    func changeToAcademyUser(tabBarController: UITabBarController){
+        
+                    let storyboard = UIStoryboard(name: "MyPageStoryboard", bundle: nil)
+                    let MyPageVC = storyboard.instantiateViewController(withIdentifier: "AcademyMyPageViewController") as! AcademyMyPageViewController
+                    let MyPageNV = UINavigationController.init(rootViewController: MyPageVC)
+                    var allviews = tabBarController.viewControllers
+                    allviews?.remove(at: 3)
+                    allviews?.insert(MyPageNV, at: 3)
+                    tabBarController.setViewControllers(allviews, animated: true)
+                  
+               
+            }
+    
+    //학원 유저 로그인 - 라이크 탭에서 등록 탭으로 변경
+    func changeToEnrollTab(tabBarController: UITabBarController){
+        
+                    let storyboard = UIStoryboard(name: "LikeStoryboard", bundle: nil)
+                    let EnrollVC = storyboard.instantiateViewController(withIdentifier: "EnrollViewController") as! EnrollViewController
+                    let EnrollNV = UINavigationController.init(rootViewController: EnrollVC)
+                    var allviews = tabBarController.viewControllers
+                    allviews?.remove(at: 2)
+                    allviews?.insert(EnrollNV, at: 2)
+                    tabBarController.setViewControllers(allviews, animated: true)
             }
 
 
@@ -133,7 +159,14 @@ extension SIgnInViewController{
             KeyCenter.userIndex = result.result!.userIdx
             KeyCenter.LOGIN_TOKEN = result.result!.jwt
             
-            tabBarController(tabBarController: self.tabBarController!)
+            if result.result?.유저타입 == "일반 유저"{
+                changeToGeneralUser(tabBarController: self.tabBarController!)
+            }else if result.result?.유저타입 == "학원유저"{
+                changeToEnrollTab(tabBarController: self.tabBarController!)
+                changeToAcademyUser(tabBarController: self.tabBarController!)
+                
+            }
+            
             
         }else{
             self.presentAlert(title: result.message)

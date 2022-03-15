@@ -164,7 +164,7 @@ class HomeDataManager{
             }
     }
     
-    //정규 수업 상세 조회
+    //원데이 수업 상세 조회
     func getDetailOnedayClasses(classIdx: Int, delegate : ClassDetailViewController ) {
         AF.request("\(Constant.BASE_URL)classes/one-days/\(classIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default)
             .validate()

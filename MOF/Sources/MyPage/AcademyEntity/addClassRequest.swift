@@ -9,8 +9,7 @@ import Foundation
 
 struct addClassRequest : Encodable{
     
-    var classPicture : String
-    var teacher : String
+    
     var className : String
     var classType : String
     var classPrice : Int
@@ -24,8 +23,5 @@ struct addClassRequest : Encodable{
     var classStartTime2 : String
     var classEndTime2 : String
     
-    enum CodingKeys : String, CodingKey{
-
-            case classPicture = "class"
-        }
+  
 }

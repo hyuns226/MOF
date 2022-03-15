@@ -10,6 +10,9 @@ class AcademyMyPageViewController : UIViewController{
     
     var pageViewController : AcademyPageViewController!
     
+    static var deleteAlertFlag = 0
+    var alertFlag = 0
+    
     @IBOutlet weak var regularClassTab: UIButton!
     @IBOutlet weak var onedayClassTab: UIButton!
     @IBOutlet weak var addClassButton: UIButton!
@@ -25,10 +28,23 @@ class AcademyMyPageViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addClassButton.layer.cornerRadius = 40
+       
         setButtonList()
-        
+        addClassButton.layer.cornerRadius = 40
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if alertFlag == 1{
+            self.presentAlert(title: "수업이 정상적으로 등록되었습니다.")
+            alertFlag = 0
+        }
+        
+        if AcademyMyPageViewController.deleteAlertFlag == 1{
+            self.presentAlert(title: "수업이 정상적으로 삭제되었습니다.")
+            AcademyMyPageViewController.deleteAlertFlag = 0
+        }
+    }
+    
     
     //MARK:- FUNCTION
     
@@ -76,5 +92,20 @@ class AcademyMyPageViewController : UIViewController{
     }
     
     
+    @IBAction func addClassButtonAction(_ sender: Any) {
+        let addClassVC = self.storyboard?.instantiateViewController(withIdentifier: "AddClassViewController")as!AddClassViewController
+        addClassVC.delegate = self
+        addClassVC.modalPresentationStyle = .fullScreen
+        present(addClassVC, animated: true, completion: nil)
+    }
     
+    
+}
+
+extension AcademyMyPageViewController : addClassAlertProtocol{
+    func showAlert() {
+        alertFlag = 1
+        
+    }
+
 }

@@ -1,22 +1,21 @@
 //
-//  LikePageViewController.swift
+//  EnrollPageViewController.swift
 //  MOF
 //
-//  Created by 이현서 on 2021/12/02.
+//  Created by 이현서 on 2022/03/12.
 //
 
+import Foundation
 import UIKit
-
-class LikePageViewController: UIPageViewController {
-
+class EnrollPageViewController : UIPageViewController{
     var completeHandler : ((Int)->())?
         
         let viewList : [UIViewController] = {
             
             let storyBoard = UIStoryboard(name: "LikeStoryboard", bundle: nil)
             
-            let vc0 = storyBoard.instantiateViewController(identifier: "AcademyViewController")
-            let vc1 = storyBoard.instantiateViewController(identifier: "ClassViewController")
+            let vc0 = storyBoard.instantiateViewController(identifier: "EnrollRegularClassViewController")
+            let vc1 = storyBoard.instantiateViewController(identifier: "EnrollOnedayClassViewController")
           
             
             return [vc0, vc1]
@@ -65,7 +64,7 @@ class LikePageViewController: UIPageViewController {
 
     }
 
-    extension LikePageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+    extension EnrollPageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
         
         func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
             
@@ -82,6 +81,11 @@ class LikePageViewController: UIPageViewController {
              if nextIndex == viewList.count { return nil}
              return viewList[nextIndex]
         }
-        
-    }
-
+    
+    
+    
+    
+    
+    
+    
+}

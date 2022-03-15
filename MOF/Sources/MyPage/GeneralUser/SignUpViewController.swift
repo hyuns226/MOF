@@ -36,6 +36,7 @@ class SignUpViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(checkTextField), name: UITextField.textDidChangeNotification, object: nil)
         
         SignUpButton.isEnabled = false

@@ -17,7 +17,7 @@ class AcademyOnedayClassViewController : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
-        dataManager.academyOnedayClass(academyIdx: 1, delegate: self)
+        dataManager.academyOnedayClass(academyIdx: KeyCenter.userIndex, delegate: self)
     }
     
     override func viewDidLoad() {
@@ -72,6 +72,13 @@ extension AcademyOnedayClassViewController : UITableViewDelegate, UITableViewDat
         let headerView = UIView()
         headerView.backgroundColor = UIColor.clear
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailClassViewController")as!DetailClassViewController
+        classDetailVC.classIdx = onedayClassResultList[indexPath.section].classIdx
+        classDetailVC.classType = "oneday"
+        self.navigationController?.pushViewController(classDetailVC, animated: true)
     }
 
     

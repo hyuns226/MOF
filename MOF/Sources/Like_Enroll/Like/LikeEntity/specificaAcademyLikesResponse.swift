@@ -10,7 +10,7 @@ struct specificaAcademyLikesResponse : Decodable{
     var isSuccess :Bool
     var code : Int
     var message : String
-    var result : [specificAcademyLikesResults?]
+    var result : [specificAcademyLikesResults]?
 }
 
 struct specificAcademyLikesResults : Decodable{

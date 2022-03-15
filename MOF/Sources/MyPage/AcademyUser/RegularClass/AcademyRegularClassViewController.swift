@@ -18,7 +18,7 @@ class AcademyRegularClassViewController : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
-        dataManager.academyRegularClass(academyIdx: 1, delegate: self)
+        dataManager.academyRegularClass(academyIdx: KeyCenter.userIndex, delegate: self)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +81,13 @@ extension AcademyRegularClassViewController : UITableViewDelegate, UITableViewDa
         headerView.backgroundColor = UIColor.clear
         return headerView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailClassViewController")as!DetailClassViewController
+        detailVC.classIdx = regularClassResultList[indexPath.section].classIdx
+        detailVC.classType = "regular"
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 
     
 }
@@ -91,6 +98,7 @@ extension AcademyRegularClassViewController{
     func academyRegularClass(result : academyRegularResponse){
         if result.isSuccess{
             
+            print(result)
             regularClassResultList = result.result ?? []
             regularClassTableView.reloadData()
             

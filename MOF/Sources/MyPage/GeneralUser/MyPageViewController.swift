@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import Foundation
 class MyPageViewController : UIViewController{
     
     var pageViewController : MyPagePageViewController!
     
-   
+   var dataManager = UserMyPageDataManager()
     
     @IBOutlet weak var RegularClassTabButton: UIButton!
     @IBOutlet weak var OnedayTabButton: UIButton!
     
+    @IBOutlet weak var nameLabel: UILabel!
+   
+    @IBOutlet weak var profileImageView: UIImageView!
     
     var buttonLists : [UIButton] = []
     
@@ -28,18 +32,41 @@ class MyPageViewController : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+    
+        self.navigationController?.navigationBar.isHidden = true
+        
+        //change status bar color to light
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        dataManager.userProfileForMain(userIdx: KeyCenter.userIndex, delegate: self)
+       
       
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        self.navigationController?.navigationBar.isHidden = false
+        //change status bar color to original
+        UIApplication.shared.statusBarStyle = .darkContent
+    }
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = .white
+        
+        profileImageView.layer.cornerRadius
+         = 75
         
         setButtonList()
     
     }
     
+   
+    
+
     //MARK: - Function
     
     
@@ -75,6 +102,16 @@ class MyPageViewController : UIViewController{
             }
         }
     }
+    @IBAction func showMyProfileButtonAction(_ sender: Any) {
+        let myprofileVC = self.storyboard?.instantiateViewController(withIdentifier: "GeneralMyProfileViewController")as!GeneralMyProfileViewController
+        self.navigationController?.pushViewController(myprofileVC, animated: true)
+    }
+    
+    @IBAction func settingButtonAction(_ sender: Any) {
+        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "GeneralSettingViewController")as!GeneralSettingViewController
+        self.navigationController?.pushViewController(settingVC, animated: true)
+    }
+    
     
     @IBAction func regularClassTabAction(_ sender: UIButton) {
         pageViewController.setViewcontrollersFromIndex(index: 0)
@@ -86,3 +123,41 @@ class MyPageViewController : UIViewController{
     
 }
 
+//MARK:-API
+extension MyPageViewController{
+    func userProfile(result : userProfileResponse){
+        
+        
+        print(result)
+        
+        if result.isSuccess{
+            print(result)
+       
+           nameLabel.text = result.result!.userName + "님"
+            
+            if let url = URL(string: result.result?.userProfileImgUrl ?? "") {
+                profileImageView.kf.setImage(with: url)
+            } else {
+                profileImageView.image = UIImage(named: "defaultImage")
+            }
+            
+            
+        }else{
+            presentAlert(title:  result.message)
+            
+            
+        }
+        
+        
+        
+        
+        
+    }
+
+
+    func failedToRequest(){
+        
+        presentAlert(title:  "서버와의 연결이 원활하지 않습니다")
+    }
+
+}

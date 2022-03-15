@@ -74,6 +74,21 @@ class LikeDataManager : UIViewController{
             }
     }
     
+    //학원 좋아요 취소
+//    func dislikesForAcademy(userIdx : Int, academyIdx : Int, delegate: AcademyViewController ) {
+//        AF.request("\(Constant.BASE_URL)likes/academy/\(userIdx)/\(academyIdx)", method: .patch, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
+//            .validate()
+//            .responseDecodable(of: dislikeResponse.self) { response in
+//                switch response.result {
+//                case .success(let response):
+//                    delegate.dislikesForAcademy(result: response)
+//                case .failure(let error):
+//                    print(error.localizedDescription)
+//                    delegate.failedToRequest()
+//                }
+//            }
+//    }
+    
     
     
     

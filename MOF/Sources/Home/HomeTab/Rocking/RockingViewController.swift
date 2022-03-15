@@ -24,10 +24,10 @@ class RockingViewController : UIViewController{
         super.viewWillAppear(false)
         if HomeViewController.isFiltered{
             
-            dataManager.getSpecificAcademy(address: HomeViewController.filterRegion, genre: Constant.genreList[6], name: "", delegate: self)
+            dataManager.getSpecificAcademy(address: HomeViewController.filterRegion, genre: Constant.GenreList[6], name: "", delegate: self)
             
         }else{
-            dataManager.getSpecificAcademy(address: "", genre: Constant.genreList[6], name: "", delegate: self)
+            dataManager.getSpecificAcademy(address: "", genre: Constant.GenreList[6], name: "", delegate: self)
         }
     }
     
