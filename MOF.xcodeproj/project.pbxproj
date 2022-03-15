@@ -689,7 +689,6 @@
 		A7BD6BBB27DB641B00A03E18 /* Enroll */ = {
 			isa = PBXGroup;
 			children = (
-				A7BD6BFD27DD9DCE00A03E18 /* EnrollEntity */,
 				A7BD6BBC27DB643000A03E18 /* EnrollViewController.swift */,
 				A7BD6BC127DC66A100A03E18 /* EnrollPageViewController.swift */,
 				A7BD6BC527DC66DC00A03E18 /* EnrollRegularClassViewController.swift */,
@@ -698,6 +697,7 @@
 				A7BD6BE927DC6EE300A03E18 /* EnrollOnedayClassTableViewCell.swift */,
 				A7BD6BED27DC7A7600A03E18 /* DetailEnrollListViewController.swift */,
 				A7BD6BF027DC7BAE00A03E18 /* EnrollListTableViewCell.swift */,
+				A7BD6BFD27DD9DCE00A03E18 /* EnrollEntity */,
 			);
 			path = Enroll;
 			sourceTree = "<group>";
@@ -746,25 +746,6 @@
 				A75A1A0327CE19A100F22B32 /* modifyClassResponse.swift */,
 			);
 			path = AcademyEntity;
-			sourceTree = "<group>";
-		};
-		A7F5F7622727AA5300D17FA2 /* HomeTab */ = {
-			isa = PBXGroup;
-			children = (
-				A76EEE742743AE0C00CA653B /* Detail */,
-				A76DCF1E27B5308D00FB7A6D /* All */,
-				A7F5F79E2727F76900D17FA2 /* KPOP */,
-				A7F5F79F2727F77400D17FA2 /* Coreo */,
-				A7F5F7A02727F77D00D17FA2 /* Hiphop */,
-				A7F5F7A12727F78900D17FA2 /* GirsHiphop */,
-				A7F5F7A22727F78F00D17FA2 /* Waaking */,
-				A7B8DDA82785599B006DDED9 /* Popin */,
-				A7B8DDA9278559B4006DDED9 /* Rocking */,
-				A7B8DDAA278559C1006DDED9 /* Crump */,
-				A7B8DDAB27855A0E006DDED9 /* Voguing */,
-				A7B8DDAC27855A4F006DDED9 /* House */,
-			);
-			path = HomeTab;
 			sourceTree = "<group>";
 		};
 		A7F5F79E2727F76900D17FA2 /* KPOP */ = {
@@ -991,7 +972,18 @@
 				A7F5F7732727B7C800D17FA2 /* HomePageViewController.swift */,
 				A7B8DDDC27858583006DDED9 /* HomeFilterViewController.swift */,
 				A76DCF2527B76DF600FB7A6D /* HomeEntity */,
-				A7F5F7622727AA5300D17FA2 /* HomeTab */,
+				A76DCF1E27B5308D00FB7A6D /* All */,
+				A7F5F79E2727F76900D17FA2 /* KPOP */,
+				A7F5F79F2727F77400D17FA2 /* Coreo */,
+				A7F5F7A02727F77D00D17FA2 /* Hiphop */,
+				A7F5F7A12727F78900D17FA2 /* GirsHiphop */,
+				A7F5F7A22727F78F00D17FA2 /* Waaking */,
+				A7B8DDA82785599B006DDED9 /* Popin */,
+				A7B8DDA9278559B4006DDED9 /* Rocking */,
+				A7B8DDAA278559C1006DDED9 /* Crump */,
+				A7B8DDAB27855A0E006DDED9 /* Voguing */,
+				A7B8DDAC27855A4F006DDED9 /* House */,
+				A76EEE742743AE0C00CA653B /* Detail */,
 				A7F5F7B327290D5700D17FA2 /* Search */,
 			);
 			path = Home;
