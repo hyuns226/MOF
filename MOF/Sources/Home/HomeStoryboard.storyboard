@@ -397,13 +397,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBX-pt-awD">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ws-Ar-gBb">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ws-Ar-gBb">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="YQB-4m-vPr"/>
                                                                                     </constraints>
@@ -1760,13 +1760,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFW-3Z-Zdz">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtk-xz-9Ko">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtk-xz-9Ko">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="ew8-Tt-sMQ"/>
                                                                                     </constraints>
@@ -1901,13 +1901,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdd-At-Wg6">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEh-hw-tMY">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEh-hw-tMY">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="Xf2-gU-Gfu"/>
                                                                                     </constraints>
@@ -2042,13 +2042,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsh-C2-Z7t">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMx-Yw-SBK">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMx-Yw-SBK">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="4BA-NG-qqh"/>
                                                                                     </constraints>
@@ -2183,13 +2183,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yah-fL-nD9">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJP-cj-gWV">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJP-cj-gWV">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="TeZ-ME-4ca"/>
                                                                                     </constraints>
@@ -3418,13 +3418,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8X-lu-gCF">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1C-Ik-eS4">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1C-Ik-eS4">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="cMQ-PU-jqF"/>
                                                                                     </constraints>
@@ -3563,13 +3563,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pnb-K3-gHM">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJw-o3-rU2">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJw-o3-rU2">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="Vx0-cf-qvq"/>
                                                                                     </constraints>
@@ -3704,13 +3704,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpi-0d-HKK">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWs-jd-h5g">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWs-jd-h5g">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="Vaj-pO-05T"/>
                                                                                     </constraints>
@@ -3845,13 +3845,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUy-Ag-Rfa">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02i-0n-IUw">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02i-0n-IUw">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="Eqo-yH-mp0"/>
                                                                                     </constraints>
@@ -3986,13 +3986,13 @@
                                                                             <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디투댄스학원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1D7-CA-apB">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="294" height="32.666666666666664"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="326" height="32.666666666666664"/>
                                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="22"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd3-Dg-Rfv">
-                                                                                    <rect key="frame" x="294" y="0.0" width="32" height="32.666666666666664"/>
+                                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wd3-Dg-Rfv">
+                                                                                    <rect key="frame" x="326" y="0.0" width="32" height="32.666666666666664"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="32" id="sZF-FR-gHk"/>
                                                                                     </constraints>
