@@ -14,6 +14,8 @@ class RockingViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var RockingTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         RockingTableView.dataSource = self
@@ -90,8 +92,13 @@ extension RockingViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             rockingResultList = result.result ?? []
-            RockingTableView.reloadData()
-            mainViewHeight.constant = RockingTableView.contentSize.height
+            if rockingResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                RockingTableView.reloadData()
+                mainViewHeight.constant = RockingTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

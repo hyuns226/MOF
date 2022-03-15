@@ -14,6 +14,7 @@ class KpopViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var KpopTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,8 +105,13 @@ extension KpopViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             kpopResultList = result.result ?? []
-            KpopTableView.reloadData()
-            mainViewHeight.constant = KpopTableView.contentSize.height
+            if kpopResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                KpopTableView.reloadData()
+                mainViewHeight.constant = KpopTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

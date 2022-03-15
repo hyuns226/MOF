@@ -14,6 +14,8 @@ class GirsHiphopViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var GirlsHiphopTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GirlsHiphopTableView.delegate = self
@@ -92,8 +94,13 @@ extension GirsHiphopViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             girlsHiphopResultList = result.result ?? []
-            GirlsHiphopTableView.reloadData()
-            mainViewHeight.constant = GirlsHiphopTableView.contentSize.height
+            if girlsHiphopResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                GirlsHiphopTableView.reloadData()
+                mainViewHeight.constant = GirlsHiphopTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

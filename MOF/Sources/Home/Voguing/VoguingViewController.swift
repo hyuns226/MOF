@@ -14,6 +14,8 @@ class VoguingViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var VoguingTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         VoguingTableView.dataSource = self
@@ -91,8 +93,13 @@ extension VoguingViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             voguingResultList = result.result ?? []
-            VoguingTableView.reloadData()
-            mainViewHeight.constant = VoguingTableView.contentSize.height
+            if voguingResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                VoguingTableView.reloadData()
+                mainViewHeight.constant = VoguingTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

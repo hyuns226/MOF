@@ -14,6 +14,8 @@ class WaakingViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var WaakingTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         WaakingTableView.dataSource = self
@@ -92,8 +94,13 @@ extension WaakingViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             waakingResultList = result.result ?? []
-            WaakingTableView.reloadData()
-            mainViewHeight.constant = WaakingTableView.contentSize.height
+            if waakingResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                WaakingTableView.reloadData()
+                mainViewHeight.constant = WaakingTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

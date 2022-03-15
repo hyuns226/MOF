@@ -14,6 +14,8 @@ class PopinViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var PopinTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         PopinTableView.delegate = self
@@ -92,8 +94,13 @@ extension PopinViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             popinResultList = result.result ?? []
-            PopinTableView.reloadData()
-            mainViewHeight.constant = PopinTableView.contentSize.height
+            if popinResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                PopinTableView.reloadData()
+                mainViewHeight.constant = PopinTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

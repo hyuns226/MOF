@@ -15,6 +15,8 @@ class HouseViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var HouseTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         HouseTableView.dataSource = self
@@ -92,8 +94,13 @@ extension HouseViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             houseResultList = result.result ?? []
-            HouseTableView.reloadData()
-            mainViewHeight.constant = HouseTableView.contentSize.height
+            if houseResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                HouseTableView.reloadData()
+                mainViewHeight.constant = HouseTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

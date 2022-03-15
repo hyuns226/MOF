@@ -18,6 +18,7 @@ class AllViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var AllTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
@@ -52,8 +53,14 @@ class AllViewController : UIViewController{
 extension AllViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if allResultList.count == 0{
+            emptyView.isHidden = false
+            return 0
+        }else{
+            emptyView.isHidden = true
+            return 1
+        }
        
-        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,6 +88,7 @@ extension AllViewController : UITableViewDelegate, UITableViewDataSource{
     // MARK: - Table View delegate methods
 
         func numberOfSections(in tableView: UITableView) -> Int {
+            
             return allResultList.count
         }
 
@@ -126,8 +134,13 @@ extension AllViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             allResultList = result.result ?? []
-            AllTableView.reloadData()
-            mainViewHeight.constant = AllTableView.contentSize.height
+            if allResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                AllTableView.reloadData()
+                mainViewHeight.constant = AllTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

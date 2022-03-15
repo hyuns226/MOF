@@ -14,6 +14,8 @@ class HiphopViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var HiphopTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         HiphopTableView.dataSource = self
@@ -93,8 +95,13 @@ extension HiphopViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             hiphopResultList = result.result ?? []
-            HiphopTableView.reloadData()
-            mainViewHeight.constant = HiphopTableView.contentSize.height
+            if hiphopResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                HiphopTableView.reloadData()
+                mainViewHeight.constant = HiphopTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }

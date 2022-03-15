@@ -14,6 +14,8 @@ class CoreoViewController : UIViewController{
     @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var CoreoTableView: UITableView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         CoreoTableView.delegate = self
@@ -93,8 +95,13 @@ extension CoreoViewController : specificAcademyProtocol{
         if result.isSuccess{
             print(result)
             choreoResultList = result.result ?? []
-            CoreoTableView.reloadData()
-            mainViewHeight.constant = CoreoTableView.contentSize.height
+            if choreoResultList.count == 0{
+                emptyView.isHidden = false
+            }else{
+                CoreoTableView.reloadData()
+                mainViewHeight.constant = CoreoTableView.contentSize.height
+            }
+            
         }else{
             presentAlert(title: result.message)
         }
