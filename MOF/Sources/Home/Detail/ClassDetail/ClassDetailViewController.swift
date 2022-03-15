@@ -50,7 +50,12 @@ class ClassDetailViewController : UIViewController{
         registerButton.layer.cornerRadius = 18
             
         //setting Likes Button
-        dataManager.getClassLikes(userIdx: KeyCenter.userIndex, classIdx: classIdx, delegate: self)
+        if KeyCenter.userType == "general"{
+            dataManager.getClassLikes(userIdx: KeyCenter.userIndex, classIdx: classIdx, delegate: self)
+        }else{
+            likeButton.isHidden = true
+        }
+        
         
         classTimeCollectionView.delegate = self
         classTimeCollectionView.dataSource = self

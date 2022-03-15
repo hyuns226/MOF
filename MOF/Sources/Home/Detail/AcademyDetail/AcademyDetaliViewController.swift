@@ -86,7 +86,12 @@ class AcademyDetaliViewController : UIViewController {
        
         
         //setting Likes Button
-        dataManager.getAcademyLikes(userIdx: KeyCenter.userIndex, academyIdx: AcademyInfo.academyIdx, delegate: self)
+        if KeyCenter.userType == "general"{
+            dataManager.getAcademyLikes(userIdx: KeyCenter.userIndex, academyIdx: AcademyInfo.academyIdx, delegate: self)
+        }else{
+            likeButton.isHidden = true
+        }
+        
     
     }
     

@@ -14,5 +14,6 @@ struct KeyCenter {
     static let header: HTTPHeaders = ["X-ACCESS-TOKEN": "\(KeyCenter.LOGIN_TOKEN)"]
     
     static var userIndex = 10
+    static var userType = "academy" //1.general, 2.academy
     
 }

@@ -23,11 +23,16 @@ class AcademyViewController : UIViewController {
         super.viewWillAppear(false)
         print("academywill")
         
-        if LikeViewController.isFitered == true{
-            dataManager.specificAcademyLikes(userIdx: 12, address: LikeViewController.filterText, delegate: self)
+        if KeyCenter.userType == "general"{
+            if LikeViewController.isFitered == true{
+                dataManager.specificAcademyLikes(userIdx: 12, address: LikeViewController.filterText, delegate: self)
+            }else{
+                dataManager.allAcademyLikes(userIdx: 12, delegate: self)
+            }
         }else{
-            dataManager.allAcademyLikes(userIdx: 12, delegate: self)
+            //검색 결과 없음 이미지
         }
+        
         
     }
     override func viewDidLoad() {
@@ -83,7 +88,7 @@ extension AcademyViewController : UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
+        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController") as! AcademyDetaliViewController
         
         if LikeViewController.isFitered == true{
             
