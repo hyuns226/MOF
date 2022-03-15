@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //하단 탭바 선택 되기 전 색 지정
         UITabBar.appearance().unselectedItemTintColor = UIColor { _ in UIColor(hex: 0xB2B2B2) }
         
-
         
     
         // StatusBar에 Alamofire 시도 중 Indicator 띄워주기 위한 옵션 설정

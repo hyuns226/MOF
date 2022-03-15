@@ -98,7 +98,7 @@
 		A7B8DDD727857A3A006DDED9 /* VoguingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8DDD627857A3A006DDED9 /* VoguingTableViewCell.swift */; };
 		A7B8DDDA27857A4B006DDED9 /* HouseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8DDD927857A4B006DDED9 /* HouseTableViewCell.swift */; };
 		A7B8DDDD27858583006DDED9 /* HomeFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8DDDC27858583006DDED9 /* HomeFilterViewController.swift */; };
-		A7B8DE942786ECA7006DDED9 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8DE932786ECA7006DDED9 /* CustomTabBarController.swift */; };
+		A7B8DE942786ECA7006DDED9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8DE932786ECA7006DDED9 /* MainTabBarController.swift */; };
 		A7B8DE9A2786F448006DDED9 /* AcademyMyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8DE992786F448006DDED9 /* AcademyMyPageViewController.swift */; };
 		A7B8DE9E27870E30006DDED9 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8DE9D27870E30006DDED9 /* AddClassViewController.swift */; };
 		A7B8DEA127870EAB006DDED9 /* AddTeacherPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8DEA027870EAB006DDED9 /* AddTeacherPopUpViewController.swift */; };
@@ -288,7 +288,7 @@
 		A7B8DDD627857A3A006DDED9 /* VoguingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoguingTableViewCell.swift; sourceTree = "<group>"; };
 		A7B8DDD927857A4B006DDED9 /* HouseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewCell.swift; sourceTree = "<group>"; };
 		A7B8DDDC27858583006DDED9 /* HomeFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFilterViewController.swift; sourceTree = "<group>"; };
-		A7B8DE932786ECA7006DDED9 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		A7B8DE932786ECA7006DDED9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A7B8DE992786F448006DDED9 /* AcademyMyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyMyPageViewController.swift; sourceTree = "<group>"; };
 		A7B8DE9D27870E30006DDED9 /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		A7B8DEA027870EAB006DDED9 /* AddTeacherPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTeacherPopUpViewController.swift; sourceTree = "<group>"; };
@@ -1013,7 +1013,7 @@
 			isa = PBXGroup;
 			children = (
 				BD8BD75525E497EB00346266 /* MainStoryboard.storyboard */,
-				A7B8DE932786ECA7006DDED9 /* CustomTabBarController.swift */,
+				A7B8DE932786ECA7006DDED9 /* MainTabBarController.swift */,
 				BD43944D252E257D0055F2E6 /* Home */,
 				BD43948C252E28650055F2E6 /* Chat */,
 				A74A0AD627250C690013CB2F /* Like_Enroll */,
@@ -1161,7 +1161,7 @@
 				BD439422252E17A60055F2E6 /* String.swift in Sources */,
 				A76EEE69274399F100CA653B /* OtherAcademyCollectionViewCell.swift in Sources */,
 				A76DCFB327C76A6600FB7A6D /* Protocols.swift in Sources */,
-				A7B8DE942786ECA7006DDED9 /* CustomTabBarController.swift in Sources */,
+				A7B8DE942786ECA7006DDED9 /* MainTabBarController.swift in Sources */,
 				A75A19F427CDB40200F22B32 /* ModifyClassViewController.swift in Sources */,
 				A76DCF7E27C242D900FB7A6D /* LikeDataManager.swift in Sources */,
 				A76DCF1227B3D3A900FB7A6D /* regularResponse.swift in Sources */,
