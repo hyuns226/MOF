@@ -54,6 +54,7 @@ class AcademyMyPageDataManager{
             }
     }
     
+    
     //학원 회원탈퇴
     func academyWithdraw(academyIdx : Int, delegate: AcademySettingViewController) {
         AF.request("\(Constant.BASE_URL)academy/status/\(academyIdx)", method: .patch, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
@@ -267,6 +268,21 @@ class AcademyMyPageDataManager{
                     }
             }
         }
+    
+    //학원 마이프로필 정보 조회 - 마이페이지 메인
+    func academyProfileForMain(academyIdx : Int, delegate: AcademyMyPageViewController) {
+        AF.request("\(Constant.BASE_URL)academy/\(academyIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default)
+            .validate()
+            .responseDecodable(of: academyProfileResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    delegate.academyProfileForMain(result: response)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                }
+            }
+    }
 }
 
 

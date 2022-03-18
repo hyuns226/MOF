@@ -10,21 +10,29 @@ import UIKit
 
 class AcademyRegularClassViewController : UIViewController{
     
+    @IBOutlet var mainView: UIView!
     lazy var dataManager = AcademyMyPageDataManager()
     
     var regularClassResultList : [academyRegularResult] = []
+    
+    var tablevieHeight : CGFloat = 0.0
+    
     
     @IBOutlet weak var regularClassTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
-        dataManager.academyRegularClass(academyIdx: KeyCenter.userIndex, delegate: self)
+        
+      
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         regularClassTableView.dataSource = self
         regularClassTableView.delegate = self
+        
+        dataManager.academyRegularClass(academyIdx: KeyCenter.userIndex, delegate: self)
     }
     
     
@@ -38,26 +46,28 @@ extension AcademyRegularClassViewController : UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "AcademyRegularClassTableViewCell", for: indexPath) as! AcademyRegularClassTableViewCell
         cell.layer.cornerRadius = 19
-        
-        
+
+
         cell.academyNameLabel.text = regularClassResultList[indexPath.section].className
         cell.teacherNameLabel.text = regularClassResultList[indexPath.section].classTeacherName+" 선생님"
-       
+
         //Set class time
         let startTime1 = dateToString(date: stringToDate(dateString: regularClassResultList[indexPath.section].classStartTime1))
         let endTime1 = dateToString(date: stringToDate(dateString: regularClassResultList[indexPath.section].classEndTime1))
-        
+
         cell.timeOneLabel.text = startTime1 + " ~ " + endTime1
-        
+
         if regularClassResultList[indexPath.section].classStartTime2 != nil{
             let startTime2 = dateToString(date: stringToDate(dateString: regularClassResultList[indexPath.section].classStartTime2 ?? ""))
             let endTime2 = dateToString(date: stringToDate(dateString: regularClassResultList[indexPath.section].classEndTime2 ?? ""))
-            
+
             cell.timeTwoLabel.text = startTime2 + " ~ " + endTime2
         }else{
-            
+
             cell.timeTwoLabel.isHidden = true
         }
         
@@ -66,7 +76,8 @@ extension AcademyRegularClassViewController : UITableViewDelegate, UITableViewDa
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return regularClassResultList.count
+       return regularClassResultList.count
+      
     }
 
     
@@ -101,6 +112,8 @@ extension AcademyRegularClassViewController{
             print(result)
             regularClassResultList = result.result ?? []
             regularClassTableView.reloadData()
+           
+            
             
         }else{
             presentAlert(title:  result.message)

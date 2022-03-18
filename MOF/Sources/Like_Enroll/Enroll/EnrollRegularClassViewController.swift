@@ -43,21 +43,21 @@ extension EnrollRegularClassViewController : UITableViewDelegate,UITableViewData
         
         cell.academyNameLabel.text = regularClassResultList[indexPath.section].className
         cell.teacherNameLabel.text = regularClassResultList[indexPath.section].classTeacherName+" 선생님"
-       
+
         //Set class time
         let startTime1 = dateToString(date: stringToDate(dateString: regularClassResultList[indexPath.section].classStartTime1))
         let endTime1 = dateToString(date: stringToDate(dateString: regularClassResultList[indexPath.section].classEndTime1))
-        
+
         cell.timeOneLabel.text = startTime1 + " ~ " + endTime1
-        
+
         if regularClassResultList[indexPath.section].classStartTime2 != nil{
-            
+
             let startTime2 = dateToString(date: stringToDate(dateString: regularClassResultList[indexPath.section].classStartTime2 ?? ""))
             let endTime2 = dateToString(date: stringToDate(dateString: regularClassResultList[indexPath.section].classEndTime2 ?? ""))
-            
+
             cell.timeTwoLabel.text = startTime2 + " ~ " + endTime2
         }else{
-            
+
             cell.timeTwoLabel.isHidden = true
         }
 
@@ -67,6 +67,7 @@ extension EnrollRegularClassViewController : UITableViewDelegate,UITableViewData
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return regularClassResultList.count
     }
 

@@ -23,7 +23,7 @@
         <scene sceneID="VfC-T9-WJG">
             <objects>
                 <navigationController storyboardIdentifier="LikeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="gyl-lK-74x" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Like" image="coolicon300" selectedImage="coolicon_288" id="QVA-WC-9Xa"/>
+                    <tabBarItem key="tabBarItem" title="Like" image="coolicon300" selectedImage="coolicon295" id="QVA-WC-9Xa"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="xYR-FE-1nq">
@@ -39,16 +39,16 @@
             </objects>
             <point key="canvasLocation" x="171.01449275362319" y="105.80357142857143"/>
         </scene>
-        <!--Like View Controller-->
+        <!--좋아요-->
         <scene sceneID="Ll1-Dd-z97">
             <objects>
                 <viewController storyboardIdentifier="LikeViewController" id="cHn-Eh-6DY" customClass="LikeViewController" customModule="MOF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IGh-HS-JmC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="J9C-CL-kA2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTd-H4-ac9">
                                         <rect key="frame" x="0.0" y="1" width="127.5" height="48"/>
@@ -79,7 +79,7 @@
                                 </constraints>
                             </stackView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vou-ce-XBE">
-                                <rect key="frame" x="0.0" y="102" width="414" height="711"/>
+                                <rect key="frame" x="0.0" y="58" width="414" height="667"/>
                                 <connections>
                                     <segue destination="LsQ-T1-E1w" kind="embed" identifier="LikePageViewController" id="YSB-ho-w8E"/>
                                 </connections>
@@ -97,14 +97,14 @@
                             <constraint firstItem="J9C-CL-kA2" firstAttribute="leading" secondItem="7od-9M-Vtk" secondAttribute="leading" id="tow-hC-P3J"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hPa-KA-9VA">
+                    <navigationItem key="navigationItem" title="좋아요" id="hPa-KA-9VA">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="filter" id="RLT-Bu-Oem">
+                            <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <action selector="filterButtonAction:" destination="cHn-Eh-6DY" id="Ist-PB-RKc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="AcademyTabButton" destination="sTd-H4-ac9" id="blI-yB-NT7"/>
                         <outlet property="ClassTabButton" destination="7DI-x1-Cb2" id="p6X-9b-P0z"/>
@@ -1757,11 +1757,13 @@
     <resources>
         <image name="coolicon295" width="20.5" height="18.5"/>
         <image name="coolicon300" width="20.5" height="18.5"/>
-        <image name="coolicon_288" width="20.5" height="18"/>
         <image name="filter" width="30" height="30"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plane" width="24" height="24"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

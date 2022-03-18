@@ -13,17 +13,23 @@ class AcademyOnedayClassViewController : UIViewController{
     
     var onedayClassResultList : [academyOnedayResult] = []
     
+    
+    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var onedayClassTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
-        dataManager.academyOnedayClass(academyIdx: KeyCenter.userIndex, delegate: self)
+        print("didappear")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("didload")
         onedayClassTableView.dataSource = self
         onedayClassTableView.delegate = self
+        
+        dataManager.academyOnedayClass(academyIdx: KeyCenter.userIndex, delegate: self)
         
     }
     
@@ -53,7 +59,8 @@ extension AcademyOnedayClassViewController : UITableViewDelegate, UITableViewDat
         
         cell.timeOneLabel.text = startTime1 + " ~ " + endTime1
         
-            
+       
+    
         return cell
     }
     

@@ -9,9 +9,15 @@ import UIKit
 class AcademyMyPageViewController : UIViewController{
     
     var pageViewController : AcademyPageViewController!
+    var dataManager = AcademyMyPageDataManager()
     
     static var deleteAlertFlag = 0
     var alertFlag = 0
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var showProfileButton: UIButton!
+  
     
     @IBOutlet weak var regularClassTab: UIButton!
     @IBOutlet weak var onedayClassTab: UIButton!
@@ -31,6 +37,26 @@ class AcademyMyPageViewController : UIViewController{
        
         setButtonList()
         addClassButton.layer.cornerRadius = 40
+        showProfileButton.layer.cornerRadius = 14
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        
+        self.navigationController?.navigationBar.isHidden = true
+        
+        //change status bar color to light
+        UIApplication.shared.statusBarStyle = .lightContent
+        dataManager.academyProfileForMain(academyIdx: KeyCenter.userIndex, delegate: self)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        self.navigationController?.navigationBar.isHidden = false
+        //change status bar color to original
+        UIApplication.shared.statusBarStyle = .darkContent
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +70,7 @@ class AcademyMyPageViewController : UIViewController{
             AcademyMyPageViewController.deleteAlertFlag = 0
         }
     }
+    
     
     
     //MARK:- FUNCTION
@@ -81,6 +108,20 @@ class AcademyMyPageViewController : UIViewController{
         }
     }
     
+    @IBAction func setProfileButtonAction(_ sender: Any) {
+        let profileVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyMyProfileViewController")as!AcademyMyProfileViewController
+        
+        self.navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
+    @IBAction func settingButtonAction(_ sender: Any) {
+        let settingVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademySettingViewController")as!AcademySettingViewController
+        
+        self.navigationController?.pushViewController(settingVC, animated: true)
+    }
+    
+    @IBAction func changeProfileImgButtonAction(_ sender: Any) {
+    }
     
     @IBAction func regularClassTabAction(_ sender: Any) {
         pageViewController.setViewcontrollersFromIndex(index: 0)
@@ -101,6 +142,46 @@ class AcademyMyPageViewController : UIViewController{
     
     
 }
+
+//MARK:- API
+extension AcademyMyPageViewController{
+    func academyProfileForMain(result : academyProfileResponse){
+        
+        
+        print(result)
+        
+        if result.isSuccess{
+            print(result)
+       
+            nameLabel.text = result.result.academyName + "학원"
+            
+            if let url = URL(string: result.result.academyBackImgUrl ?? "") {
+            profileImageView.kf.setImage(with: url)
+            } else {
+            profileImageView.image = UIImage(named: "defaultImage")
+            }
+            
+            
+        }else{
+            presentAlert(title:  result.message)
+            
+            
+        }
+}
+
+
+    func failedToRequest(){
+        
+        presentAlert(title:  "서버와의 연결이 원활하지 않습니다")
+    }
+
+    
+    
+    
+    
+    
+}
+
 
 extension AcademyMyPageViewController : addClassAlertProtocol{
     func showAlert() {
