@@ -92,25 +92,6 @@ class LikeViewController : UIViewController{
         pageViewController.setViewcontrollersFromIndex(index: 1)
     }
     
-    
-    
-    
-    @IBAction func tempButton(_ sender: Any) {
-        
-            
-                        let storyboard = UIStoryboard(name: "LikeStoryboard", bundle: nil)
-                        let MyPageVC = storyboard.instantiateViewController(withIdentifier: "EnrollViewController") as! EnrollViewController
-                        let MyPageNV = UINavigationController.init(rootViewController: MyPageVC)
-        var allviews = self.tabBarController!.viewControllers
-                        allviews?.remove(at: 2)
-                        allviews?.insert(MyPageNV, at: 2)
-        
-        self.tabBarController!.setViewControllers(allviews, animated: true)
-        
-                      
-        }
-    
-    
 }
 
 
