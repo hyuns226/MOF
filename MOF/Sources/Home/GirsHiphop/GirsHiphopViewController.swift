@@ -55,7 +55,7 @@ extension GirsHiphopViewController : UITableViewDelegate, UITableViewDataSource{
         
         cell.AcademyName.text = girlsHiphopResultList[indexPath.section].academyName
         cell.addressLabel.text = girlsHiphopResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = girlsHiphopResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = girlsHiphopResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }

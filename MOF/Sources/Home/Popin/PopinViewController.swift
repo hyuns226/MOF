@@ -53,7 +53,7 @@ extension PopinViewController : UITableViewDelegate,UITableViewDataSource{
         
         cell.AcademyName.text = popinResultList[indexPath.section].academyName
         cell.addressLabel.text = popinResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = popinResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = popinResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }

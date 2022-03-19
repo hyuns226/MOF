@@ -56,7 +56,7 @@ extension CoreoViewController : UITableViewDelegate, UITableViewDataSource{
         
         cell.AcademyName.text = choreoResultList[indexPath.section].academyName
         cell.addressLabel.text = choreoResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = choreoResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = choreoResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }

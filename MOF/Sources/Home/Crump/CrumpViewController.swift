@@ -53,7 +53,7 @@ extension CrumpViewController : UITableViewDelegate,UITableViewDataSource{
         
         cell.AcademyName.text = crumpResultList[indexPath.section].academyName
         cell.addressLabel.text = crumpResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = crumpResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = crumpResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }

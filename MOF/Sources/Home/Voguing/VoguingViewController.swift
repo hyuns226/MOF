@@ -51,7 +51,7 @@ extension VoguingViewController : UITableViewDelegate,UITableViewDataSource{
         
         cell.AcademyName.text = voguingResultList[indexPath.section].academyName
         cell.addressLabel.text = voguingResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = voguingResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = voguingResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }

@@ -54,7 +54,7 @@ extension HouseViewController : UITableViewDelegate,UITableViewDataSource{
         
         cell.AcademyName.text = houseResultList[indexPath.section].academyName
         cell.addressLabel.text = houseResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = houseResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = houseResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }

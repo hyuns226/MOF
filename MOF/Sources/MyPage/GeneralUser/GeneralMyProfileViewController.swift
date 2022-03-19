@@ -162,7 +162,7 @@ extension GeneralMyProfileViewController{
           
             emailTextfField.text = result.result?.userEmail
             nameTextField.text = result.result?.userName
-            phoneNumTextField.text = result.result?.userPhone
+            phoneNumTextField.text = result.result?.userPhone.hyphen()
             ageTextField.text = result.result?.userAge
           
             if result.result?.userGender == "Male"{

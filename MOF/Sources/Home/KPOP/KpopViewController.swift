@@ -65,7 +65,7 @@ extension KpopViewController : UITableViewDelegate, UITableViewDataSource{
         
         cell.AcademyName.text = kpopResultList[indexPath.section].academyName
         cell.addressLabel.text = kpopResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = kpopResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = kpopResultList[indexPath.section].academyPhone.hyphen()
         
         
         return cell

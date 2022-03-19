@@ -53,7 +53,7 @@ extension HiphopViewController : UITableViewDelegate, UITableViewDataSource{
         
         cell.AcademyName.text = hiphopResultList[indexPath.section].academyName
         cell.addressLabel.text = hiphopResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = hiphopResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = hiphopResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }

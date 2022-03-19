@@ -54,7 +54,7 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
         
         cell.AcademyName.text = waakingResultList[indexPath.section].academyName
         cell.addressLabel.text = waakingResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = waakingResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = waakingResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }

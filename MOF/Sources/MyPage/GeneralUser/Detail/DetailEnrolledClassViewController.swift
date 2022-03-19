@@ -65,7 +65,7 @@ extension  DetailEnrolledClassViewController{
             }
            
             userNameLabel.text = result.result?[0].userName
-            userPhoneNumLabel.text = result.result?[0].userPhone
+            userPhoneNumLabel.text = result.result?[0].userPhone.hyphen()
             
             if result.result?[0].userGender == "Male"{
                 userGenderLabel.text = "남성"

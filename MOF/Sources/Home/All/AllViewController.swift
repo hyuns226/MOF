@@ -77,7 +77,7 @@ extension AllViewController : UITableViewDelegate, UITableViewDataSource{
         
         cell.AcademyName.text = allResultList[indexPath.section].academyName
         cell.addressLabel.text = allResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = allResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = allResultList[indexPath.section].academyPhone.hyphen()
         
         
        

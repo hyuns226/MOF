@@ -58,7 +58,7 @@ class AcademyDetaliViewController : UIViewController {
             academyImageView.image = UIImage(named: "defaultImage")
         }
         academyNameLabel.text = AcademyInfo.academyName
-        academyPhoneLabel.text = AcademyInfo.academyPhoneNum
+        academyPhoneLabel.text = AcademyInfo.academyPhoneNum.hyphen()
         academyAddressLabel.text = AcademyInfo.academyAddress
     
         dataManager.academyRegularClass(academyIdx: AcademyInfo.academyIdx, delegate: self)

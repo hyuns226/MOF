@@ -53,7 +53,7 @@ extension RockingViewController : UITableViewDataSource, UITableViewDelegate{
         
         cell.AcademyName.text = rockingResultList[indexPath.section].academyName
         cell.addressLabel.text = rockingResultList[indexPath.section].academyDetailAddress
-        cell.PhoneNumLabel.text = rockingResultList[indexPath.section].academyPhone
+        cell.PhoneNumLabel.text = rockingResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
     }
