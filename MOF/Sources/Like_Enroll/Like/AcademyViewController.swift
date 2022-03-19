@@ -25,9 +25,9 @@ class AcademyViewController : UIViewController {
         
         if KeyCenter.userType == "general"{
             if LikeViewController.isFitered == true{
-                dataManager.specificAcademyLikes(userIdx: 12, address: LikeViewController.filterText, delegate: self)
+                dataManager.specificAcademyLikes(userIdx: KeyCenter.userIndex, address: LikeViewController.filterText, delegate: self)
             }else{
-                dataManager.allAcademyLikes(userIdx: 12, delegate: self)
+                dataManager.allAcademyLikes(userIdx: KeyCenter.userIndex, delegate: self)
             }
         }else{
             //검색 결과 없음 이미지
@@ -80,8 +80,13 @@ extension AcademyViewController : UICollectionViewDelegate,UICollectionViewDataS
         }
         
         cell.likeButton.isSelected = true
-        cell.likeButton.setImage(#imageLiteral(resourceName: "heart_fill"), for: .selected)
-        
+       
+        let image = UIImage(#imageLiteral(resourceName: "heart_fill")).withRenderingMode(.alwaysTemplate)
+        cell.likeButton.setImage(image, for: .selected)
+        cell.likeButton.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+
+
+      
         
         
         return cell

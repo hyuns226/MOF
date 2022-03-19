@@ -178,20 +178,20 @@ extension SIgnInViewController{
             KeyCenter.LOGIN_TOKEN = result.result!.jwt
             
             if result.result?.유저타입 == "일반 유저"{
-                KeyCenter.userType == "genreal"
+                KeyCenter.userType = "general"
                 changeToGeneralUser(tabBarController: self.tabBarController!)
             }else if result.result?.유저타입 == "학원유저"{
-                KeyCenter.userType == "academy"
+                KeyCenter.userType = "academy"
                 
                
                 changeToEnrollTab(tabBarController: self.tabBarController!)
                 changeToAcademyUser(tabBarController: self.tabBarController!)
                 
             
-                
+               
                 
             }
-            
+            print(KeyCenter.userType)
             
         }else{
             self.presentAlert(title: result.message)
