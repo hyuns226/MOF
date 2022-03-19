@@ -24,6 +24,8 @@ class SIgnInViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
         loginButton.isEnabled = false
         loginButton.backgroundColor = #colorLiteral(red: 0.808078289, green: 0.8075512052, blue: 0.829269588, alpha: 1)
         
