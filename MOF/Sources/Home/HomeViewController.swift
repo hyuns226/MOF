@@ -35,9 +35,14 @@ class HomeViewController : UIViewController{
             
         }
     }
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+        
+        //change status bar color to light
+        UIApplication.shared.statusBarStyle = .darkContent
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         
         //하단 탭바 라인 투명하게
         self.tabBarController?.tabBar.clipsToBounds = true

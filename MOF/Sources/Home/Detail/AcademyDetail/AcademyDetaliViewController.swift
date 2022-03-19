@@ -74,14 +74,7 @@ class AcademyDetaliViewController : UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(false)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-        //change status bar color to original
-        UIApplication.shared.statusBarStyle = .darkContent
-    }
-    
+ 
     
     //MARK:- FUNCTION
     func settingCollectionView(){

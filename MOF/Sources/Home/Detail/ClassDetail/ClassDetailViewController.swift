@@ -65,6 +65,16 @@ class ClassDetailViewController : UIViewController{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+       
+        //change status bar color to light
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+
+    
     //MARK:- FUNCTION
    
     @IBAction func likeButtonAction(_ sender: Any) {
