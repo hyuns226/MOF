@@ -139,7 +139,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yrV-ZU-VLB">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yrV-ZU-VLB">
                                                     <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
                                                     <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
@@ -241,7 +241,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UkP-D2-tgM">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UkP-D2-tgM">
                                                     <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
                                                     <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
@@ -703,7 +703,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zu2-5X-c1h">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="Zu2-5X-c1h">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxJ-DE-B6r">
@@ -716,6 +716,10 @@
                                                     <constraint firstAttribute="height" constant="414" id="Sem-dq-Rvk"/>
                                                 </constraints>
                                             </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aL1-QH-NO5">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                                <color key="backgroundColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="zt3-Tb-69G">
                                                 <rect key="frame" x="20" y="426" width="374" height="93"/>
                                                 <subviews>
@@ -1097,9 +1101,11 @@
                                             <constraint firstItem="sdM-e2-p7t" firstAttribute="top" secondItem="1gM-N1-Wnn" secondAttribute="bottom" constant="20" id="Haq-Lv-yZH"/>
                                             <constraint firstItem="1gM-N1-Wnn" firstAttribute="leading" secondItem="tqG-KV-d6C" secondAttribute="leading" id="I7M-Qy-Zak"/>
                                             <constraint firstAttribute="trailing" secondItem="M7z-Mx-Pec" secondAttribute="trailing" id="JdQ-Sl-HQZ"/>
+                                            <constraint firstItem="aL1-QH-NO5" firstAttribute="bottom" secondItem="mQA-be-exK" secondAttribute="bottom" id="JxV-O6-zwV"/>
                                             <constraint firstItem="kNb-Ci-rcb" firstAttribute="trailing" secondItem="2HH-gR-6vX" secondAttribute="trailing" constant="-10" id="KW6-Oe-ZSV"/>
                                             <constraint firstItem="1gM-N1-Wnn" firstAttribute="trailing" secondItem="tqG-KV-d6C" secondAttribute="trailing" id="Kaj-3L-KSe"/>
                                             <constraint firstAttribute="trailing" secondItem="zt3-Tb-69G" secondAttribute="trailing" constant="20" id="NO0-eo-sUX"/>
+                                            <constraint firstItem="aL1-QH-NO5" firstAttribute="trailing" secondItem="mQA-be-exK" secondAttribute="trailing" id="OmS-Kb-rFg"/>
                                             <constraint firstItem="M7z-Mx-Pec" firstAttribute="leading" secondItem="FxJ-DE-B6r" secondAttribute="leading" id="PGv-zd-F3E"/>
                                             <constraint firstItem="sdM-e2-p7t" firstAttribute="leading" secondItem="1gM-N1-Wnn" secondAttribute="leading" id="ViJ-8G-Cw6"/>
                                             <constraint firstItem="tqG-KV-d6C" firstAttribute="leading" secondItem="FxJ-DE-B6r" secondAttribute="leading" constant="22" id="W63-8G-1Q0"/>
@@ -1108,6 +1114,8 @@
                                             <constraint firstAttribute="height" constant="200" id="XoC-EV-ehl"/>
                                             <constraint firstItem="mQA-be-exK" firstAttribute="leading" secondItem="FxJ-DE-B6r" secondAttribute="leading" id="ZNs-0W-kAm"/>
                                             <constraint firstAttribute="trailing" secondItem="mQA-be-exK" secondAttribute="trailing" id="ZPS-GN-dER"/>
+                                            <constraint firstItem="aL1-QH-NO5" firstAttribute="top" secondItem="mQA-be-exK" secondAttribute="top" id="ZSO-Rw-yCB"/>
+                                            <constraint firstItem="aL1-QH-NO5" firstAttribute="leading" secondItem="mQA-be-exK" secondAttribute="leading" id="aqa-9c-5Xq"/>
                                             <constraint firstItem="ZGU-s9-jQP" firstAttribute="leading" secondItem="PjP-9l-Ljd" secondAttribute="leading" id="bG7-r8-PdS"/>
                                             <constraint firstItem="PjP-9l-Ljd" firstAttribute="top" secondItem="9cB-Db-vsh" secondAttribute="bottom" constant="20" id="cBw-4a-wxp"/>
                                             <constraint firstItem="9cB-Db-vsh" firstAttribute="top" secondItem="sdM-e2-p7t" secondAttribute="bottom" id="egc-Yp-v5l"/>

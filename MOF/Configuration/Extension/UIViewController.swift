@@ -148,7 +148,7 @@ extension UIViewController {
 
     func dateToString(date : Date) -> String{
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEE HH:mm"
+        formatter.dateFormat = "EEE요일 HH:mm"
         formatter.locale = Locale(identifier: "ko")
         return formatter.string(from: date)
     }
