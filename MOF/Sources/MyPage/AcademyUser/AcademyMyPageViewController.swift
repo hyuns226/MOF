@@ -52,6 +52,7 @@ class AcademyMyPageViewController : UIViewController{
         
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(false)
         self.navigationController?.navigationBar.isHidden = false
@@ -74,7 +75,6 @@ class AcademyMyPageViewController : UIViewController{
     
     
     //MARK:- FUNCTION
-    
     func setButtonList() {
         buttonLists.append(regularClassTab)
         buttonLists.append(onedayClassTab)
@@ -183,10 +183,14 @@ extension AcademyMyPageViewController{
 }
 
 
+//MARK:-Protocol
 extension AcademyMyPageViewController : addClassAlertProtocol{
+    
     func showAlert() {
         alertFlag = 1
         
     }
-
+    
 }
+
+

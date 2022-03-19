@@ -30,7 +30,6 @@ class EnrollViewController : UIViewController{
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.topItem?.title = "수강 신청 내역"
         
-        settingTabBar()
         setButtonList()
     
     }
@@ -42,11 +41,6 @@ class EnrollViewController : UIViewController{
     
     //MARK: - Function
     
-    func settingTabBar(){
-        self.tabBarController?.tabBar.items?[2].selectedImage = #imageLiteral(resourceName: "enroll").withRenderingMode(.alwaysOriginal)
-        self.tabBarController?.tabBar.items?[2].image = #imageLiteral(resourceName: "enroll").withRenderingMode(.alwaysOriginal).withTintColor(UIColor(hex: 0xB2B2B2))
-        self.tabBarController?.tabBar.items?[2].title = "Enroll"
-    }
     
     func setButtonList() {
         buttonLists.append(RegularTabButton)

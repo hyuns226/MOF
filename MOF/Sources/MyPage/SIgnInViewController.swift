@@ -8,6 +8,7 @@
 import UIKit
 class SIgnInViewController : UIViewController{
 
+    
     lazy var dataManager = UserMyPageDataManager()
     var loginInput = loginRequest(userEmail: "", userPWD: "")
     
@@ -100,7 +101,11 @@ class SIgnInViewController : UIViewController{
                     allviews?.remove(at: 3)
                     allviews?.insert(MyPageNV, at: 3)
                     tabBarController.setViewControllers(allviews, animated: true)
-                  
+        
+                    tabBarController.tabBar.items?[3].selectedImage = #imageLiteral(resourceName: "coolicon301").withRenderingMode(.alwaysOriginal).withTintColor(.mainPink)
+                    tabBarController.tabBar.items?[3].image = #imageLiteral(resourceName: "coolicon301").withRenderingMode(.alwaysOriginal).withTintColor(UIColor(hex: 0xB2B2B2))
+                    tabBarController.tabBar.items?[3].title = "MyPage"
+                    
                
             }
     
@@ -114,7 +119,10 @@ class SIgnInViewController : UIViewController{
                     allviews?.remove(at: 3)
                     allviews?.insert(MyPageNV, at: 3)
                     tabBarController.setViewControllers(allviews, animated: true)
-                  
+        
+        tabBarController.tabBar.items?[3].selectedImage = #imageLiteral(resourceName: "coolicon301").withRenderingMode(.alwaysOriginal).withTintColor(.mainPink)
+        tabBarController.tabBar.items?[3].image = #imageLiteral(resourceName: "coolicon301").withRenderingMode(.alwaysOriginal).withTintColor(UIColor(hex: 0xB2B2B2))
+        tabBarController.tabBar.items?[3].title = "MyPage"
                
             }
     
@@ -125,9 +133,19 @@ class SIgnInViewController : UIViewController{
                     let EnrollVC = storyboard.instantiateViewController(withIdentifier: "EnrollViewController") as! EnrollViewController
                     let EnrollNV = UINavigationController.init(rootViewController: EnrollVC)
                     var allviews = tabBarController.viewControllers
+        
+        
                     allviews?.remove(at: 2)
                     allviews?.insert(EnrollNV, at: 2)
+       
+        
                     tabBarController.setViewControllers(allviews, animated: true)
+                    
+                   
+        tabBarController.tabBar.items?[2].selectedImage = #imageLiteral(resourceName: "enroll").withRenderingMode(.alwaysOriginal)
+        tabBarController.tabBar.items?[2].image = #imageLiteral(resourceName: "enroll").withRenderingMode(.alwaysOriginal).withTintColor(UIColor(hex: 0xB2B2B2))
+        tabBarController.tabBar.items?[2].title = "Enroll"
+        
             }
 
 
@@ -142,9 +160,7 @@ class SIgnInViewController : UIViewController{
        
         
     }
-    
-   
-    
+
     
 }
 
@@ -164,8 +180,13 @@ extension SIgnInViewController{
                 changeToGeneralUser(tabBarController: self.tabBarController!)
             }else if result.result?.유저타입 == "학원유저"{
                 KeyCenter.userType == "academy"
+                
+               
                 changeToEnrollTab(tabBarController: self.tabBarController!)
                 changeToAcademyUser(tabBarController: self.tabBarController!)
+                
+            
+                
                 
             }
             

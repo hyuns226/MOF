@@ -43,6 +43,9 @@ class AcademyDetaliViewController : UIViewController {
        override func viewDidLoad() {
         super.viewDidLoad()
         
+        //네비게이션 hidden상태에서 뒤로가기 제스쳐
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
         print(AcademyInfo)
         
         settingCollectionView()
@@ -59,14 +62,26 @@ class AcademyDetaliViewController : UIViewController {
         academyAddressLabel.text = AcademyInfo.academyAddress
     
         dataManager.academyRegularClass(academyIdx: AcademyInfo.academyIdx, delegate: self)
-        dataManager.academyOnedayClass(academyIdx: AcademyInfo.academyIdx, delegate: self)
-        
-        
-        
-        
        
-       
+    
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+       
+        //change status bar color to light
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        //change status bar color to original
+        UIApplication.shared.statusBarStyle = .darkContent
+    }
+    
     
     //MARK:- FUNCTION
     func settingCollectionView(){
@@ -107,6 +122,9 @@ class AcademyDetaliViewController : UIViewController {
             
         }
     }
+    
+   
+
     
 }
 
@@ -280,6 +298,8 @@ extension AcademyDetaliViewController{
             regularClassResultList = result.result ?? []
             regularClassTableView.reloadData()
             regularClassTableViewHeight.constant = regularClassTableView.contentSize.height
+            
+            dataManager.academyOnedayClass(academyIdx: AcademyInfo.academyIdx, delegate: self)
             
         }else{
             presentAlert(title:  result.message)
