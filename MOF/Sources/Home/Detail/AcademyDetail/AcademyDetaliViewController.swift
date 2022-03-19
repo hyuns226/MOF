@@ -124,7 +124,24 @@ class AcademyDetaliViewController : UIViewController {
     }
     
    
-
+    @IBAction func askButtonAction(_ sender: Any) {
+        print(Int(AcademyInfo.academyPhoneNum))
+        print(AcademyInfo.academyPhoneNum)
+        let number : Int = Int(AcademyInfo.academyPhoneNum) ?? 0
+                print("tel://0" + "\(number)")
+                // URLScheme 문자열을 통해 URL 인스턴스를 만든다
+                if let url = NSURL(string: "tel://0" + "\(number)"),
+                   
+                
+                   //canOpenURL(_:) 메소드를 통해서 URL 체계를 처리하는 데 앱을 사용할 수 있는지 여부를 확인
+                   UIApplication.shared.canOpenURL(url as URL) {
+                   
+                   //사용가능한 URLScheme이라면 open(_:options:completionHandler:) 메소드를 호출해서
+                   //만들어둔 URL 인스턴스를 열어줍니다.
+                    UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+                }
+    }
+    
     
 }
 
@@ -191,12 +208,14 @@ extension AcademyDetaliViewController : UITableViewDelegate,UITableViewDataSourc
             let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
             classDetailVC.classIdx = regularClassResultList[indexPath.section].classIdx
             classDetailVC.classType = "regular"
+            classDetailVC.academyPhoneNum = AcademyInfo.academyPhoneNum
             self.navigationController?.pushViewController(classDetailVC, animated: true)
             
         }else{
             let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
             classDetailVC.classIdx = onedayClassResultList[indexPath.section].classIdx
             classDetailVC.classType = "oneday"
+            classDetailVC.academyPhoneNum = AcademyInfo.academyPhoneNum
             self.navigationController?.pushViewController(classDetailVC, animated: true)
             
         }
@@ -314,7 +333,7 @@ extension AcademyDetaliViewController{
             onedayClassTableViewHeight.constant = OnedayClassTableView.contentSize.height
             regularClassTableViewHeight.constant = regularClassTableView.contentSize.height
             
-            viewHeight.constant = imageViewHeight.constant + stackViewHeight.constant + regularClassTableViewHeight.constant + onedayClassTableViewHeight.constant + collectionViewHeight.constant + 280
+            viewHeight.constant = imageViewHeight.constant + stackViewHeight.constant + regularClassTableViewHeight.constant + onedayClassTableViewHeight.constant + collectionViewHeight.constant + 290
             
             print(imageViewHeight.constant)
             print(stackViewHeight.constant)

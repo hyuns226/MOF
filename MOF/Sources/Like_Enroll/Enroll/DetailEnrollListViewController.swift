@@ -48,7 +48,7 @@ extension DetailEnrollListViewController : UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "EnrollListTableViewCell") as! EnrollListTableViewCell
         
         cell.nameLabel.text = enrollsList[indexPath.row].userName
-        cell.phoneNumLabel.text = enrollsList[indexPath.row].userPhone
+        cell.phoneNumLabel.text = enrollsList[indexPath.row].userPhone.hyphen()
        
        
         
@@ -78,6 +78,9 @@ extension DetailEnrollListViewController : UITableViewDelegate, UITableViewDataS
         }else{ //"no"
             
         }
+        
+        cell.callButton.tag = indexPath.row
+        cell.callButton.addTarget(self, action: #selector(call(sender:)), for: .touchUpInside)
         
         cell.approveButton.tag =  enrollsList[indexPath.row].enrollIdx
         cell.approveButton.addTarget(self, action: #selector(approve(sender:)), for: .touchUpInside)
@@ -134,7 +137,24 @@ extension DetailEnrollListViewController : UITableViewDelegate, UITableViewDataS
         
     }
     
+    @objc func call(sender : UIButton){
+        print(Int(sender.tag))
+        print(enrollsList[sender.tag].userPhone)
+        let number : Int = Int(enrollsList[sender.tag].userPhone) ?? 0
+            print("tel://0" + "\(number)")
+            // URLScheme 문자열을 통해 URL 인스턴스를 만든다
+            if let url = NSURL(string: "tel://0" + "\(number)"),
+               
+            
+               //canOpenURL(_:) 메소드를 통해서 URL 체계를 처리하는 데 앱을 사용할 수 있는지 여부를 확인
+               UIApplication.shared.canOpenURL(url as URL) {
+               
+               //사용가능한 URLScheme이라면 open(_:options:completionHandler:) 메소드를 호출해서
+               //만들어둔 URL 인스턴스를 열어줍니다.
+                UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)
+            }
     
+    }
     
 
     

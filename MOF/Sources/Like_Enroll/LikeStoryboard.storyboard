@@ -551,14 +551,14 @@
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="GeneralRegionTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GeneralRegionTableViewCell" id="jvP-sE-Jrh" customClass="GeneralRegionTableViewCell" customModule="MOF" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="298" height="38"/>
+                                                        <rect key="frame" x="0.0" y="28" width="298" height="43"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jvP-sE-Jrh" id="b28-s7-s0Z">
-                                                            <rect key="frame" x="0.0" y="0.0" width="298" height="38"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="298" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVe-Fe-8NG">
-                                                                    <rect key="frame" x="10" y="10" width="278" height="18"/>
+                                                                    <rect key="frame" x="10" y="10" width="278" height="23"/>
                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="15"/>
                                                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1607,6 +1607,7 @@
                                         <connections>
                                             <outlet property="ageLabel" destination="vzG-VF-TZZ" id="Z6F-WF-u8i"/>
                                             <outlet property="approveButton" destination="rF9-UX-JYF" id="zhA-rm-pIc"/>
+                                            <outlet property="callButton" destination="DJJ-Rd-VUD" id="yeD-lh-wJu"/>
                                             <outlet property="enrolledTimeLabel" destination="qVl-Xc-Nw6" id="ApE-xi-dQo"/>
                                             <outlet property="genderLabel" destination="BUv-dC-zLm" id="6Tb-4o-38n"/>
                                             <outlet property="nameLabel" destination="S3A-Tp-DBN" id="XRN-OO-7Hk"/>

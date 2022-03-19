@@ -16,6 +16,7 @@ class EnrollListTableViewCell: UITableViewCell {
     @IBOutlet weak var enrolledTimeLabel: UILabel!
     @IBOutlet weak var approveButton: UIButton!
     @IBOutlet weak var refuseButton: UIButton!
+    @IBOutlet weak var callButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
