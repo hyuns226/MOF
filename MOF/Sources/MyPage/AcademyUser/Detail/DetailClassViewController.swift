@@ -35,6 +35,9 @@ class DetailClassViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //네비게이션 hidden상태에서 뒤로가기 제스쳐
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
         print("classIdx :\(classIdx)")
         
         classInfoForEnrollVC.classIdx = self.classIdx
@@ -56,6 +59,16 @@ class DetailClassViewController : UIViewController{
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+       
+        //change status bar color to light
+        UIApplication.shared.statusBarStyle = .lightContent
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    
     
     //MARK:- FUNCTION
    
