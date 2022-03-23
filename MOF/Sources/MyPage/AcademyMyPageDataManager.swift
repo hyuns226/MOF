@@ -72,13 +72,13 @@ class AcademyMyPageDataManager{
     }
     
     //학원 비밀번호 변경
-    func password(_ parameters: passwordRequest, academyIdx : Int, delegate: AcademyChangePasswordViewController) {
+    func password(_ parameters: passwordRequest, academyIdx : Int, delegate: ChangePasswordViewController) {
         AF.request("\(Constant.BASE_URL)academy/passwords/\(academyIdx)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: KeyCenter.header)
             .validate()
             .responseDecodable(of: passwordResponse.self) { response in
                 switch response.result {
                 case .success(let response):
-                    delegate.password(result: response)
+                    delegate.academyPassword(result: response)
                    
                 case .failure(let error):
                     print(error.localizedDescription)

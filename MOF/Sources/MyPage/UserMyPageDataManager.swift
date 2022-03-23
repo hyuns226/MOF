@@ -59,14 +59,14 @@ class UserMyPageDataManager{
     func password(_ parameters: passwordRequest, userIndex : Int, delegate: ChangePasswordViewController) {
         AF.request("\(Constant.BASE_URL)users/passwords/\(userIndex)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: KeyCenter.header)
             .validate()
-            .responseDecodable(of: usersResponse.self) { response in
+            .responseDecodable(of: userPasswordResponse.self) { response in
                 switch response.result { 
                 case .success(let response):
                     delegate.password(result: response)
                    
                 case .failure(let error):
                     print(error.localizedDescription)
-                    delegate.failedToRequest(message: "서버와의 연결이 원활하지 않습니다")
+                    delegate.failedToRequest()
                 }
             }
     }

@@ -9,6 +9,7 @@ import UIKit
 class ChangePasswordViewController : UIViewController{
     
     let dataManager = UserMyPageDataManager()
+    let dataManager2 = AcademyMyPageDataManager()
     var passwordInput = passwordRequest(pastPWD: "", newPWD: "")
     
     @IBOutlet weak var nowPasswordTextField: UITextField!
@@ -51,30 +52,52 @@ class ChangePasswordViewController : UIViewController{
         
         passwordInput.newPWD = newPasswordTextField.text!
         
-        dataManager.password(passwordInput, userIndex: KeyCenter.userIndex, delegate: self)
+        print("userID :\(KeyCenter.userIndex)")
+        
+        if KeyCenter.userType == "general"{
+            dataManager.password(passwordInput, userIndex: KeyCenter.userIndex, delegate: self)
+        }else{
+            dataManager2.password(passwordInput, academyIdx: KeyCenter.userIndex, delegate: self)
+        }
+        
         
         
     }
-    
-    
     
 }
 
 
 //MARK:- API
 extension ChangePasswordViewController {
-    func password(result : usersResponse){
+    func password(result : userPasswordResponse){
+        print(result)
         if result.isSuccess{
-            presentAlert(title: "비밀번호 변경이 완료 되었습니다.")
+            
+            let alert = UIAlertController (title: nil, message: "비밀번호 변경이 완료 되었습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler:{ (alertOKAction) in
+                self.dismiss(animated: false, completion: nil)
+                self.navigationController!.popViewController(animated: true)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+           
         }else{
             presentAlert(title: "\(result.message)")
         }
         
     }
     
-    func failedToRequest(message : String){
+    func academyPassword(result : passwordResponse){
+        if result.isSuccess{
+            presentAlert(title: "비밀번호 변경이 완료 되었습니다.")
+        }else{
+            presentAlert(title: "\(result.message)")
+        }
+    }
+    func failedToRequest(){
         
-        presentAlert(title: message)
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
         
         
     }

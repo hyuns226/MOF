@@ -24,7 +24,11 @@ class SIgnInViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dismissKeyboardWhenTappedAround()
+        
         navigationController?.navigationBar.shadowImage = UIImage()
+        
+        settingSavedID()
         
         loginButton.isEnabled = false
         loginButton.backgroundColor = #colorLiteral(red: 0.808078289, green: 0.8075512052, blue: 0.829269588, alpha: 1)
@@ -33,6 +37,17 @@ class SIgnInViewController : UIViewController{
     }
     
 //MARK - FUNCTION
+    
+    func settingSavedID(){
+        let userDefaults = UserDefaults.standard
+        if userDefaults.value(forKey: "savedID") != nil{
+            emailTextField.text = userDefaults.value(forKey: "savedID") as! String
+            saveIDButton.isSelected = true
+            saveIDButton.setImage(UIImage(named: "autoLogin_pink"), for: .normal)
+            
+        }
+    
+    }
     
     @IBAction func tempLogin(_ sender: Any) {
         changeToGeneralUser(tabBarController: self.tabBarController!)
@@ -60,7 +75,7 @@ class SIgnInViewController : UIViewController{
         autoLoginButton.isSelected =  !autoLoginButton.isSelected
       
         if autoLoginButton.isSelected == true{
-            autoLoginButton.setImage(UIImage(named: "autoLogin_pink"), for: .normal)
+            autoLoginButton.setImage(UIImage(named: "autoLogin_pink"), for: .selected)
             print(autoLoginButton.isSelected)
             print("클릭")
             
@@ -79,9 +94,10 @@ class SIgnInViewController : UIViewController{
         
         saveIDButton.isSelected = !saveIDButton.isSelected
         if saveIDButton.isSelected == true{
-            saveIDButton.setImage(UIImage(named: "autoLogin_pink"), for: .normal)
+            saveIDButton.setImage(UIImage(named: "autoLogin_pink"), for: .selected)
             print("클릭")
         }else{
+          
             saveIDButton.setImage(UIImage(named: "autoLogin_gray"), for: .normal)
             print("안클릭")
         }
@@ -175,13 +191,13 @@ class SIgnInViewController : UIViewController{
         
         if saveIDButton.isSelected{
             let userDefaults = UserDefaults.standard
-            userDefaults.setValue(loginInput.userEmail, forKey: "ID")
+            userDefaults.setValue(loginInput.userEmail, forKey: "savedID")
              
             UserDefaults.standard.synchronize() // setValue 실행
             
         } else {
             let userDefaults = UserDefaults.standard
-            userDefaults.removeObject(forKey: "ID")
+            userDefaults.removeObject(forKey: "savedID")
 
             UserDefaults.standard.synchronize()
         }

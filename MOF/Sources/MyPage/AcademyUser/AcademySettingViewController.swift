@@ -47,7 +47,7 @@ class AcademySettingViewController : UIViewController{
      @IBAction func changePasswordAction(_ sender: Any) {
          
         
-        let passVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyChangePasswordViewController") as! AcademyChangePasswordViewController
+        let passVC = self.storyboard?.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
             
         self.present(passVC, animated: false)
         print("clicked")

@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = UIColor.white
             appearance.titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white
+                NSAttributedString.Key.foregroundColor: UIColor.black
             ]
 
             let buttonAppearance = UIBarButtonItemAppearance()
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             UINavigationBar.appearance().barTintColor = UIColor.white
             UINavigationBar.appearance().titleTextAttributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.white
+                NSAttributedString.Key.foregroundColor: UIColor.black
             ]
             UINavigationBar.appearance().tintColor = UIColor.white
 

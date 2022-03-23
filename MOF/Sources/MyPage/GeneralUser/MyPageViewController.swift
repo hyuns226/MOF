@@ -33,7 +33,7 @@ class MyPageViewController : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: animated)
         
         //change status bar color to light
         UIApplication.shared.statusBarStyle = .lightContent
