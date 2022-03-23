@@ -20,6 +20,9 @@ class PopinViewController : UIViewController{
         super.viewDidLoad()
         PopinTableView.delegate = self
         PopinTableView.dataSource = self
+        if #available(iOS 15.0, *) {
+            PopinTableView.sectionHeaderTopPadding = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

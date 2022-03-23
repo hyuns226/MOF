@@ -85,6 +85,10 @@ class AcademyDetaliViewController : UIViewController {
         OnedayClassTableView.dataSource = self
         OtherClassCollectionView.dataSource = self
         OtherClassCollectionView.delegate = self
+        if #available(iOS 15.0, *) {
+            regularClassTableView.sectionHeaderTopPadding = 0
+            OnedayClassTableView.sectionHeaderTopPadding = 0
+        }
         
     }
     

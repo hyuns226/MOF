@@ -20,6 +20,9 @@ class MyOnedayViewController : UIViewController{
         
         ondayClassTableView.dataSource = self
         ondayClassTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            ondayClassTableView.sectionHeaderTopPadding = 0
+        }
         
         dataManager.onedayClass(userIdx: KeyCenter.userIndex, delegate: self)
     }

@@ -22,6 +22,9 @@ class KpopViewController : UIViewController{
        
         KpopTableView.dataSource = self
         KpopTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            KpopTableView.sectionHeaderTopPadding = 0
+        }
         
     }
     

@@ -20,6 +20,10 @@ class GirsHiphopViewController : UIViewController{
         super.viewDidLoad()
         GirlsHiphopTableView.delegate = self
         GirlsHiphopTableView.dataSource = self
+        
+        if #available(iOS 15.0, *) {
+            GirlsHiphopTableView.sectionHeaderTopPadding = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

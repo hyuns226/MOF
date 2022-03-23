@@ -28,6 +28,9 @@ class AcademyOnedayClassViewController : UIViewController{
         print("didload")
         onedayClassTableView.dataSource = self
         onedayClassTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            onedayClassTableView.sectionHeaderTopPadding = 0
+        }
         
         dataManager.academyOnedayClass(academyIdx: KeyCenter.userIndex, delegate: self)
         

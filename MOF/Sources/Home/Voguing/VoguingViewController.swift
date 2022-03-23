@@ -20,6 +20,9 @@ class VoguingViewController : UIViewController{
         super.viewDidLoad()
         VoguingTableView.dataSource = self
         VoguingTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            VoguingTableView.sectionHeaderTopPadding = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

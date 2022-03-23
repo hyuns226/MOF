@@ -21,6 +21,10 @@ class CoreoViewController : UIViewController{
         CoreoTableView.delegate = self
         CoreoTableView.dataSource = self
         
+        if #available(iOS 15.0, *) {
+            CoreoTableView.sectionHeaderTopPadding = 0
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

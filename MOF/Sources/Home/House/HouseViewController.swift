@@ -21,6 +21,9 @@ class HouseViewController : UIViewController{
         super.viewDidLoad()
         HouseTableView.dataSource = self
         HouseTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            HouseTableView.sectionHeaderTopPadding = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

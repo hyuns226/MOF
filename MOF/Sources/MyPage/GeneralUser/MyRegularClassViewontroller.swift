@@ -22,6 +22,10 @@ class MyRegularClassViewontroller : UIViewController{
         regularClassTableView.dataSource = self
         regularClassTableView.delegate = self
         
+        if #available(iOS 15.0, *) {
+            regularClassTableView.sectionHeaderTopPadding = 0
+                }
+        
         dataManager.regularClass(userIdx: KeyCenter.userIndex, delegate: self)
     }
         

@@ -20,6 +20,9 @@ class WaakingViewController : UIViewController{
         super.viewDidLoad()
         WaakingTableView.dataSource = self
         WaakingTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            WaakingTableView.sectionHeaderTopPadding = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

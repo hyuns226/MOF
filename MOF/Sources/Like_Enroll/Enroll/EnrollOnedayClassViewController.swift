@@ -21,6 +21,9 @@ class EnrollOnedayClassViewController : UIViewController{
         ondayClassTableView.dataSource = self
         ondayClassTableView.delegate = self
         
+        if #available(iOS 15.0, *) {
+            ondayClassTableView.sectionHeaderTopPadding = 0
+        }
         
     }
     

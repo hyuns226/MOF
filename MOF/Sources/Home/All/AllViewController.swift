@@ -41,6 +41,9 @@ class AllViewController : UIViewController{
         super.viewDidLoad()
         AllTableView.dataSource = self
         AllTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            AllTableView.sectionHeaderTopPadding = 0
+        }
         
     }
     

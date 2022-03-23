@@ -20,6 +20,9 @@ class CrumpViewController : UIViewController {
         super.viewDidLoad()
         CrumpTableView.delegate = self
         CrumpTableView.dataSource = self
+        if #available(iOS 15.0, *) {
+            CrumpTableView.sectionHeaderTopPadding = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -20,6 +20,10 @@ class HiphopViewController : UIViewController{
         super.viewDidLoad()
         HiphopTableView.dataSource = self
         HiphopTableView.delegate = self
+        
+        if #available(iOS 15.0, *) {
+            HiphopTableView.sectionHeaderTopPadding = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

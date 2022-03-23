@@ -30,6 +30,9 @@ class  DetailEnrollListViewController : UIViewController{
         
         enrollListTableView.dataSource = self
         enrollListTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            enrollListTableView.sectionHeaderTopPadding = 0
+        }
         
     }
     

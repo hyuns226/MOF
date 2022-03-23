@@ -20,6 +20,9 @@ class RockingViewController : UIViewController{
         super.viewDidLoad()
         RockingTableView.dataSource = self
         RockingTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            RockingTableView.sectionHeaderTopPadding = 0
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

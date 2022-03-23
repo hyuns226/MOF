@@ -31,6 +31,9 @@ class AcademyRegularClassViewController : UIViewController{
         
         regularClassTableView.dataSource = self
         regularClassTableView.delegate = self
+        if #available(iOS 15.0, *) {
+            regularClassTableView.sectionHeaderTopPadding = 0
+        }
         
         dataManager.academyRegularClass(academyIdx: KeyCenter.userIndex, delegate: self)
     }

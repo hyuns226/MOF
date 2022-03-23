@@ -753,62 +753,61 @@
         <!--My Regular Class Viewontroller-->
         <scene sceneID="3mv-LM-FXv">
             <objects>
-                <viewController storyboardIdentifier="MyRegularClassViewontroller" id="ctn-LQ-gb4" customClass="MyRegularClassViewontroller" customModule="MOF" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyRegularClassViewontroller" automaticallyAdjustsScrollViewInsets="NO" id="ctn-LQ-gb4" customClass="MyRegularClassViewontroller" customModule="MOF" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PlC-e2-vjy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pd8-zd-ySO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="105" sectionHeaderHeight="1" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd8-zd-ySO">
                                 <rect key="frame" x="23" y="44" width="368" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MYRegularClassTableViewCell" rowHeight="95" id="2R8-v5-ZFv" customClass="MYRegularClassTableViewCell" customModule="MOF" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MYRegularClassTableViewCell" rowHeight="95" id="xwu-T6-OUT" customClass="MYRegularClassTableViewCell" customModule="MOF" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="368" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2R8-v5-ZFv" id="DOz-t8-LWY">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xwu-T6-OUT" id="ezG-ZN-Rxu">
                                             <rect key="frame" x="0.0" y="0.0" width="339.5" height="95"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Q2U-Ki-gIV">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Itb-3q-Ksc">
                                                     <rect key="frame" x="10" y="10" width="319.5" height="75"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Rrt-cR-bg6">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="hRo-lV-xyL">
                                                             <rect key="frame" x="0.0" y="0.0" width="319.5" height="25.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="걸리쉬 안무반" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3G-GT-nSv">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="걸리쉬 안무반" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3E-kM-uUn">
                                                                     <rect key="frame" x="0.0" y="0.0" width="319.5" height="25.5"/>
                                                                     <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="17"/>
                                                                     <color key="textColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="0.99981878219999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UX6-ke-kp2">
+                                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Xb-b2-4qz">
                                                                     <rect key="frame" x="0.0" y="0.0" width="15" height="25.5"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="15" id="mzL-Nc-pTm"/>
+                                                                        <constraint firstAttribute="width" constant="15" id="WTd-9C-S1a"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="pencil" catalog="system"/>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김길동 선생님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqT-1e-JYe">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="김길동 선생님" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBh-Yv-Cwg">
                                                             <rect key="frame" x="0.0" y="26.5" width="319.5" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                             <color key="textColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.098039215690000001" alpha="0.7840373021" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월요일 19:00 ~ 20:00 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Q2-en-dyC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="월요일 19:00 ~ 20:00 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gy6-Vu-ub9">
                                                             <rect key="frame" x="0.0" y="51" width="319.5" height="24"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="23.999999999999993" id="va5-IW-4jv"/>
+                                                                <constraint firstAttribute="height" constant="23.999999999999993" id="FB0-4f-i1Z"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수요일 19:00 ~ 20:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYv-uQ-Vh9">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="수요일 19:00 ~ 20:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWV-FX-kMB">
                                                             <rect key="frame" x="0.0" y="75" width="319.5" height="24"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="24" id="wvw-72-fxu"/>
+                                                                <constraint firstAttribute="height" constant="24" id="dtP-VL-x87"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -816,26 +815,27 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="7Q2-en-dyC" firstAttribute="top" secondItem="BqT-1e-JYe" secondAttribute="bottom" constant="0.99999999999998579" id="V04-Bm-xNO"/>
+                                                        <constraint firstItem="gy6-Vu-ub9" firstAttribute="top" secondItem="IBh-Yv-Cwg" secondAttribute="bottom" constant="0.99999999999998579" id="3Tc-HP-oez"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Q2U-Ki-gIV" secondAttribute="trailing" constant="10" id="6UP-MC-V21"/>
-                                                <constraint firstItem="Q2U-Ki-gIV" firstAttribute="top" secondItem="DOz-t8-LWY" secondAttribute="top" constant="10" id="9C3-qQ-btC"/>
-                                                <constraint firstItem="Q2U-Ki-gIV" firstAttribute="leading" secondItem="DOz-t8-LWY" secondAttribute="leading" constant="10" id="gYi-Ew-dfr"/>
-                                                <constraint firstAttribute="bottom" secondItem="Q2U-Ki-gIV" secondAttribute="bottom" constant="10" id="ogO-4p-g61"/>
+                                                <constraint firstItem="Itb-3q-Ksc" firstAttribute="top" secondItem="ezG-ZN-Rxu" secondAttribute="top" constant="10" id="AuS-0O-BC6"/>
+                                                <constraint firstItem="Itb-3q-Ksc" firstAttribute="leading" secondItem="ezG-ZN-Rxu" secondAttribute="leading" constant="10" id="GeB-ym-6NO"/>
+                                                <constraint firstAttribute="trailing" secondItem="Itb-3q-Ksc" secondAttribute="trailing" constant="10" id="Usy-Jf-U8w"/>
+                                                <constraint firstAttribute="bottom" secondItem="Itb-3q-Ksc" secondAttribute="bottom" constant="10" id="zvV-f6-FtV"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="academyNameLabel" destination="t3G-GT-nSv" id="GYp-po-VIY"/>
-                                            <outlet property="teacherNameLabel" destination="BqT-1e-JYe" id="7dV-tx-dxh"/>
-                                            <outlet property="timeOneLabel" destination="7Q2-en-dyC" id="dIP-ha-jZZ"/>
-                                            <outlet property="timeTwoLabel" destination="sYv-uQ-Vh9" id="0H2-eg-gbY"/>
+                                            <outlet property="academyNameLabel" destination="B3E-kM-uUn" id="q7h-Vn-qK3"/>
+                                            <outlet property="teacherNameLabel" destination="IBh-Yv-Cwg" id="6bo-f2-X1M"/>
+                                            <outlet property="timeOneLabel" destination="gy6-Vu-ub9" id="QVO-cc-2cU"/>
+                                            <outlet property="timeTwoLabel" destination="fWV-FX-kMB" id="2jg-lB-w6c"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pEv-54-4vQ"/>
