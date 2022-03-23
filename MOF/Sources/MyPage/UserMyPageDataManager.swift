@@ -37,6 +37,23 @@ class UserMyPageDataManager{
             }
     }
     
+    func autoLogin(_ parameters: loginRequest, delegate: MainTabBarController) {
+        AF.request("\(Constant.BASE_URL)users/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder())
+            .validate()
+            .responseDecodable(of: loginResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    print(response.message)
+                    delegate.login(result: response)
+                    print("자동로그인 성공")
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                   
+                }
+            }
+    }
+    
     
     //일반 유저 비밀번호 변경
     func password(_ parameters: passwordRequest, userIndex : Int, delegate: ChangePasswordViewController) {

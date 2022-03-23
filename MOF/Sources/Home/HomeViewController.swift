@@ -62,12 +62,13 @@ class HomeViewController : UIViewController{
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("homeviewdidload")
         setButtonList()
         
     }
     
-    //MARK:- Function
     
+    //MARK:- Function
     func setButtonList() {
         buttonLists.append(AllTabButton)
         buttonLists.append(KpopTabButton)
@@ -180,4 +181,7 @@ class HomeViewController : UIViewController{
     }
     
 }
+
+
+
 

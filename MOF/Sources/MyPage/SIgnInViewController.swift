@@ -156,10 +156,38 @@ class SIgnInViewController : UIViewController{
         loginInput.userEmail = emailTextField.text!
         loginInput.userPWD = passwordTextField.text!
         
+        if autoLoginButton.isSelected{
+            let userDefaults = UserDefaults.standard
+            userDefaults.setValue(loginInput.userEmail, forKey: "ID")
+            userDefaults.setValue(loginInput.userPWD, forKey: "PW")
+             
+            print(userDefaults.value(forKey: "ID"))
+            print("autologin~")
+            UserDefaults.standard.synchronize() // setValue 실행
+            
+        } else {
+            let userDefaults = UserDefaults.standard
+            userDefaults.removeObject(forKey: "ID")
+            userDefaults.removeObject(forKey: "PW")
+             
+            UserDefaults.standard.synchronize()
+        }
+        
+        if saveIDButton.isSelected{
+            let userDefaults = UserDefaults.standard
+            userDefaults.setValue(loginInput.userEmail, forKey: "ID")
+             
+            UserDefaults.standard.synchronize() // setValue 실행
+            
+        } else {
+            let userDefaults = UserDefaults.standard
+            userDefaults.removeObject(forKey: "ID")
+
+            UserDefaults.standard.synchronize()
+        }
+        
         
         dataManager.login(loginInput, delegate: self)
-        
-       
         
     }
 
