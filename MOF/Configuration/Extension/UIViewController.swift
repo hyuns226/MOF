@@ -115,9 +115,9 @@ extension UIViewController {
     
     func stringToDate(dateString : String) -> Date{
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
         formatter.dateFormat = "EEE yy-MM-dd HH:mm"
         let date = formatter.date(from: dateString)!
-        print(type(of: date))
         return date
     }
     
@@ -125,7 +125,6 @@ extension UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yy-MM-dd HH:mm"
         let date = formatter.date(from: dateString)!
-        print(type(of: date))
         return date
     }
     
@@ -133,7 +132,6 @@ extension UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE HH:mm"
         let date = formatter.date(from: dateString)
-        print(type(of: date))
         return date ?? Date()
     }
     
@@ -141,7 +139,6 @@ extension UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM-dd HH:mm"
         let date = formatter.date(from: dateString)
-        print(type(of: date))
         return date ?? Date()
     }
 
