@@ -23,6 +23,9 @@ class AcademySignUpViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailAddressTextField.delegate = self
+        detailAddressTextField.addTarget(self, action: #selector(textFieldTouched), for: .touchDown)
+
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(checkAllWritten), name: UITextField.textDidChangeNotification, object: nil)
     }
@@ -40,6 +43,13 @@ class AcademySignUpViewController : UIViewController{
         
         
     }
+    
+    @objc func textFieldTouched(_ textField: UITextField) {
+        let kakaoPostCodeVC = self.storyboard?.instantiateViewController(withIdentifier: "kakaoPostCodeViewController") as!  kakaoPostCodeViewController
+        self.present(kakaoPostCodeVC, animated: true)
+    }
+
+  
     
     func setInputData(){
        
@@ -95,6 +105,11 @@ class AcademySignUpViewController : UIViewController{
     
     
     
+}
+
+extension AcademySignUpViewController: UITextFieldDelegate{
+    
+
 }
 
 

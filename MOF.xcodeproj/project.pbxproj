@@ -133,6 +133,7 @@
 		A7BD6BFF27DD9DFC00A03E18 /* detailEnrollsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD6BFE27DD9DFC00A03E18 /* detailEnrollsResponse.swift */; };
 		A7BD6C0327DDA13C00A03E18 /* detailEnrollsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BD6C0227DDA13C00A03E18 /* detailEnrollsInfo.swift */; };
 		A7BFB90227EB01ED00F6691D /* userPasswordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFB90127EB01ED00F6691D /* userPasswordResponse.swift */; };
+		A7BFB90427EB370D00F6691D /* kakaoPostCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BFB90327EB370D00F6691D /* kakaoPostCodeViewController.swift */; };
 		A7D44D542758A32B0020CB8F /* AcademyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D44D532758A32B0020CB8F /* AcademyViewController.swift */; };
 		A7D44D572758A3550020CB8F /* LikePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D44D562758A3550020CB8F /* LikePageViewController.swift */; };
 		A7D44D5B2758A4E00020CB8F /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D44D5A2758A4E00020CB8F /* ClassViewController.swift */; };
@@ -323,6 +324,7 @@
 		A7BD6BFE27DD9DFC00A03E18 /* detailEnrollsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailEnrollsResponse.swift; sourceTree = "<group>"; };
 		A7BD6C0227DDA13C00A03E18 /* detailEnrollsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailEnrollsInfo.swift; sourceTree = "<group>"; };
 		A7BFB90127EB01ED00F6691D /* userPasswordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userPasswordResponse.swift; sourceTree = "<group>"; };
+		A7BFB90327EB370D00F6691D /* kakaoPostCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kakaoPostCodeViewController.swift; sourceTree = "<group>"; };
 		A7D44D532758A32B0020CB8F /* AcademyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyViewController.swift; sourceTree = "<group>"; };
 		A7D44D562758A3550020CB8F /* LikePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikePageViewController.swift; sourceTree = "<group>"; };
 		A7D44D5A2758A4E00020CB8F /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 				A7DA21DF2796E33B004EE1D1 /* AcademySignUpViewController.swift */,
 				A7DA21E22796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift */,
 				A7DA21E52796E4CE004EE1D1 /* AcademyWelcomViewController.swift */,
+				A7BFB90327EB370D00F6691D /* kakaoPostCodeViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1312,6 +1315,7 @@
 				BD43942B252E1D160055F2E6 /* UIViewController.swift in Sources */,
 				A76DCF0B27B3983D00FB7A6D /* academyProfileResponse.swift in Sources */,
 				BD439425252E1BEE0055F2E6 /* Color.swift in Sources */,
+				A7BFB90427EB370D00F6691D /* kakaoPostCodeViewController.swift in Sources */,
 				A7F5F7DF272929F300D17FA2 /* ClothesSearchCollectionViewCell.swift in Sources */,
 				A7D44D682758E6AA0020CB8F /* MyPagePageViewController.swift in Sources */,
 				A7BFB90227EB01ED00F6691D /* userPasswordResponse.swift in Sources */,
