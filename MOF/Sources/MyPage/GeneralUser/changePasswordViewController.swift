@@ -72,6 +72,11 @@ extension ChangePasswordViewController {
     func password(result : userPasswordResponse){
         print(result)
         if result.isSuccess{
+            let userDefaults = UserDefaults.standard
+            print(userDefaults.value(forKey: "PW"))
+            if userDefaults.value(forKey: "PW") != nil{
+                userDefaults.setValue(passwordInput.newPWD, forKey: "PW")
+            }
             
             let alert = UIAlertController (title: nil, message: "비밀번호 변경이 완료 되었습니다.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler:{ (alertOKAction) in
@@ -90,7 +95,20 @@ extension ChangePasswordViewController {
     
     func academyPassword(result : passwordResponse){
         if result.isSuccess{
-            presentAlert(title: "비밀번호 변경이 완료 되었습니다.")
+            
+            let userDefaults = UserDefaults.standard
+            print(userDefaults.value(forKey: "PW"))
+            if userDefaults.value(forKey: "PW") != nil{
+                userDefaults.setValue(passwordInput.newPWD, forKey: "PW")
+            }
+            
+            let alert = UIAlertController (title: nil, message: "비밀번호 변경이 완료 되었습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler:{ (alertOKAction) in
+                self.dismiss(animated: false, completion: nil)
+                self.navigationController!.popViewController(animated: true)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
         }else{
             presentAlert(title: "\(result.message)")
         }

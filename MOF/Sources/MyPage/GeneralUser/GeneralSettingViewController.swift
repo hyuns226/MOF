@@ -21,6 +21,7 @@ class GeneralSettingViewController : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    
     }
     //MARK:- FUNCTION
     
@@ -119,7 +120,32 @@ extension GeneralSettingViewController{
     
     func status(result : statusResponse){
         if result.isSuccess{
-            presentAlert(title: "회원 탈퇴가 완료 되었습니다.")
+            KeyCenter.userIndex = -1
+            KeyCenter.LOGIN_TOKEN = ""
+            KeyCenter.userType = ""
+            
+            let userDefaults = UserDefaults.standard
+            userDefaults.removeObject(forKey: "ID")
+            userDefaults.removeObject(forKey: "PW")
+            userDefaults.removeObject(forKey: "savedID")
+             
+            print(userDefaults.value(forKey: "ID"))
+            print(userDefaults.value(forKey: "PW"))
+            
+            UserDefaults.standard.synchronize()
+            
+            changeToLikeTab(tabBarController: self.tabBarController!)
+            changeToLoginTab(tabBarController: self.tabBarController!)
+            
+            let alert = UIAlertController (title: nil, message: "회원 탈퇴가 완료 되었습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler:{ (alertOKAction) in
+                self.dismiss(animated: false, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+
+            
         }else{
             presentAlert(title: "\(result.message)")
         }
