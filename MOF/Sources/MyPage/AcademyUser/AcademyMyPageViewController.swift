@@ -38,6 +38,7 @@ class AcademyMyPageViewController : UIViewController{
         setButtonList()
         addClassButton.layer.cornerRadius = 40
         showProfileButton.layer.cornerRadius = 14
+        settingBackButton()
         
     }
     

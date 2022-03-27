@@ -43,6 +43,7 @@ class AcademyMyProfileViewController : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
         dataManager.academyProfile(academyIdx: KeyCenter.userIndex, delegate: self)
         setButtonLayout()
     }

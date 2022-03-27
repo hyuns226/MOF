@@ -169,6 +169,13 @@ extension UIViewController {
         return formatter.string(from: date)
     }
     
+    func settingBackButton(){
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        backButton.tintColor = .label
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
   
 
 }
