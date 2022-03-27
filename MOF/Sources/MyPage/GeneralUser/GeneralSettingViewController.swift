@@ -18,11 +18,14 @@ class GeneralSettingViewController : UIViewController{
     @IBOutlet weak var WithdrawButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     
     }
+    
     //MARK:- FUNCTION
     
     @IBAction func AlertAction(_ sender: Any) {

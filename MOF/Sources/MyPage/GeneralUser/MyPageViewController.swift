@@ -54,6 +54,8 @@ class MyPageViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        settingBackButton()
+        
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.barTintColor = .white
         

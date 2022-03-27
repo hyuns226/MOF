@@ -31,13 +31,16 @@ class DetailEnrolledClassViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
         
         dataManager.enrolledInfo(userIdx: KeyCenter.userIndex, enrollIdx: enrollInfo.enrollIdx, delegate: self)
     }
     
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        
+    }
+
 }
 
 //MARK:- API

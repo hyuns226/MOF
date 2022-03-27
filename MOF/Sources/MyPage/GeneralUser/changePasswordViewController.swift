@@ -22,6 +22,8 @@ class ChangePasswordViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        settingBackButton()
+        
         changePasswordButton.isEnabled = false
         changePasswordButton.backgroundColor = #colorLiteral(red: 0.808078289, green: 0.8075512052, blue: 0.829269588, alpha: 1)
         

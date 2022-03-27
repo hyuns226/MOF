@@ -42,6 +42,12 @@ class GeneralMyProfileViewController : UIViewController{
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    //MARK:-FUNCTION
     func  settingInput(){
         
        

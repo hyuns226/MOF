@@ -22,9 +22,6 @@ class AcademySettingViewController : UIViewController{
     @IBOutlet weak var WithdrawButton: UIButton!
      @IBOutlet weak var logOutButton: UIButton!
      
-     override func viewDidLoad() {
-         super.viewDidLoad()
-     }
      
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -55,7 +52,7 @@ class AcademySettingViewController : UIViewController{
         let passVC = self.storyboard?.instantiateViewController(withIdentifier: "ChangePasswordViewController") as! ChangePasswordViewController
             
          self.navigationController?.pushViewController(passVC, animated: true)
-        settingBackButton()
+        
      }
      
      @IBAction func withdrawAction(_ sender: Any) {
