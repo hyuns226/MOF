@@ -8,7 +8,7 @@
 import Foundation
 struct modifyClassRequest : Encodable{
     
-  
+   
     var className : String
     var classType : String
     var classPrice : Int

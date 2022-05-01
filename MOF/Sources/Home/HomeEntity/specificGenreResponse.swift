@@ -19,5 +19,6 @@ struct specificResults: Decodable{
     var academyName : String
     var academyBackImgUrl : String?
     var academyDetailAddress : String
+    var academyBuilding : String?
     var academyPhone : String
 }

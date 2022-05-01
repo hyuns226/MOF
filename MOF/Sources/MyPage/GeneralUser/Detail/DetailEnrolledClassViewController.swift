@@ -46,6 +46,7 @@ class DetailEnrolledClassViewController : UIViewController{
 //MARK:- API
 extension  DetailEnrolledClassViewController{
     func enrolledInfo(result : userEnrolledInfoResponse){
+        print(result)
         if result.isSuccess{
             
             if let url = URL(string: result.result?[0].classImageUrl ?? "") {
@@ -83,6 +84,8 @@ extension  DetailEnrolledClassViewController{
                 enrollSubmitLabel.text = "승인 이전"
             }else if result.result?[0].enrollSubmit == "YES"{
                 enrollSubmitLabel.text = "승인 완료"
+            }else if result.result?[0].enrollSubmit == "REJECTED"{
+                enrollSubmitLabel.text = "신청 거절됨"
             }
             
             

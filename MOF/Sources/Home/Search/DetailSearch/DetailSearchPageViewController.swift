@@ -14,15 +14,21 @@ class DetailSearchPageViewController: UIPageViewController {
         let viewList : [UIViewController] = {
             
             let storyBoard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
-            
             let vc0 = storyBoard.instantiateViewController(identifier: "AllSearchViewController")
-            let vc1 = storyBoard.instantiateViewController(identifier: "ShoesSearchViewController")
-            let vc2 = storyBoard.instantiateViewController(identifier: "ClothesSearchViewController")
-            let vc3 = storyBoard.instantiateViewController(identifier: "LeatherSearchViewController")
-            let vc4 = storyBoard.instantiateViewController(identifier: "UpcyclingSearchViewController")
+            let vc1 = storyBoard.instantiateViewController(identifier: "KpopSearchViewController")
+            let vc2 = storyBoard.instantiateViewController(identifier: "CoreoSearchViewController")
+            let vc3 = storyBoard.instantiateViewController(identifier: "HiphopSearchViewController")
+            let vc4 = storyBoard.instantiateViewController(identifier: "GirlsHiphopSearchViewController")
+          
+            let vc5 = storyBoard.instantiateViewController(identifier: "WaakingSearchViewController")
+            let vc6 = storyBoard.instantiateViewController(identifier: "PopinSearchViewController")
+            let vc7 = storyBoard.instantiateViewController(identifier: "RockingSearchViewController")
+            let vc8 = storyBoard.instantiateViewController(identifier: "CrumpSearchViewController")
+            let vc9 = storyBoard.instantiateViewController(identifier: "VoguingSearchViewController")
+            let vc10 = storyBoard.instantiateViewController(identifier: "HouseSearchViewController")
           
             
-            return [vc0, vc1, vc2, vc3, vc4]
+            return [vc0, vc1, vc2, vc3, vc4, vc5, vc6, vc7, vc8, vc9, vc10]
             
         } ()
         
@@ -46,7 +52,8 @@ class DetailSearchPageViewController: UIPageViewController {
         // 버튼으로 화면 전환
         func setViewcontrollersFromIndex(index : Int){
                  if index < 0 && index >= viewList.count {return }
-               self.setViewControllers([viewList[index]], direction: .forward, animated: true, completion: nil)
+            self.setViewControllers([viewList[index]], direction: .forward, animated: true, completion: nil)
+            print(currentIndex)
                completeHandler?(currentIndex)
         }
         
@@ -88,3 +95,4 @@ class DetailSearchPageViewController: UIPageViewController {
         
         
     }
+

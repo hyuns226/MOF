@@ -9,11 +9,11 @@
 import Alamofire
 
 struct KeyCenter {
-    static var LOGIN_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2FkZW15SWR4IjoxMCwiaWF0IjoxNjQ3MTQ3MDQyLCJleHAiOjE2Nzg2ODMwNDIsInN1YiI6ImFjYWRlbXlJbmZvIn0.xEOAjwM9ZCNJpIuboFJTvFlDln40BU1qbjnXgmmRBq8"
+    static var LOGIN_TOKEN = ""
 
-    static let header: HTTPHeaders = ["X-ACCESS-TOKEN": "\(KeyCenter.LOGIN_TOKEN)"]
+    static var header: HTTPHeaders = ["X-ACCESS-TOKEN": "\(KeyCenter.LOGIN_TOKEN)"]
     
-    static var userIndex = 10
-    static var userType = "academy" //1.general, 2.academy
+    static var userIndex = -1
+    static var userType = "" //1.general, 2.academy
     
 }

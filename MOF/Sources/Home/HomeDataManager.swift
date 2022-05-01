@@ -12,7 +12,9 @@ class HomeDataManager{
     
     //특정장르, 특정위치, 특정 검색어 조회
     func getSpecificAcademy( address : String, genre : String, name : String, delegate: specificAcademyProtocol) {
+        print(name)
         let url = "\(Constant.BASE_URL)acd/sorts?address=\(address)&gernre=\(genre)&name=\(name)"
+        print(url)
         let encodedString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let urlResult = URL(string: encodedString)!
         AF.request(urlResult, method: .get, parameters: nil, encoding: JSONEncoding.default)
@@ -23,11 +25,12 @@ class HomeDataManager{
                     delegate.specificAcademy(result: response)
                 case .failure(let error):
                     print(error.localizedDescription)
-                    //delegate.failedToRequest()
+                    delegate.failedToRequest()
                 print("연결실패")
                 }
             }
     }
+    
     
     //학원 좋아요
     func likesForAcademy(userIdx : Int, academyIdx : Int, delegate: AcademyDetaliViewController ) {

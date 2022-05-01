@@ -87,7 +87,7 @@ extension AcademyOnedayClassViewController : UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailClassViewController")as!DetailClassViewController
         classDetailVC.classIdx = onedayClassResultList[indexPath.section].classIdx
-        classDetailVC.classType = "oneday"
+        classDetailVC.classType = "OneDay"
         self.navigationController?.pushViewController(classDetailVC, animated: true)
     }
 

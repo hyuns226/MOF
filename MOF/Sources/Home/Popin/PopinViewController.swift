@@ -55,7 +55,7 @@ extension PopinViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
         cell.AcademyName.text = popinResultList[indexPath.section].academyName
-        cell.addressLabel.text = popinResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = popinResultList[indexPath.section].academyDetailAddress + " " + (popinResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = popinResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
@@ -63,7 +63,7 @@ extension PopinViewController : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: popinResultList[indexPath.section].academyIdx, academyImage: popinResultList[indexPath.section].academyBackImgUrl, academyName: popinResultList[indexPath.section].academyName, academyPhoneNum: popinResultList[indexPath.section].academyPhone, academyAddress: popinResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: popinResultList[indexPath.section].academyIdx, academyImage: popinResultList[indexPath.section].academyBackImgUrl, academyName: popinResultList[indexPath.section].academyName, academyPhoneNum: popinResultList[indexPath.section].academyPhone, academyAddress: popinResultList[indexPath.section].academyDetailAddress + " " + (popinResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -107,6 +107,12 @@ extension PopinViewController : specificAcademyProtocol{
         }else{
             presentAlert(title: result.message)
         }
+    }
+    
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
     }
     
     

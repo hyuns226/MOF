@@ -13,16 +13,23 @@ class ClassViewController : UIViewController{
     var classLikeList : [allClassLikesResults?] = []
     var filterdClassLikeList : [specificClassLikesResults?] = []
     
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var emptyViewLabel: UILabel!
     @IBOutlet weak var ClassCollectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         print("classwill")
-        if LikeViewController.isFitered == true{
-            dataManager.specificClassLikes(userIdx: KeyCenter.userIndex, address: LikeViewController.filterText, delegate: self)
-        }else{
-            dataManager.allClassLikes(userIdx: KeyCenter.userIndex, delegate: self)
+        if KeyCenter.userType == "general"{
+            
+            if LikeViewController.isFitered == true{
+                dataManager.specificClassLikes(userIdx: KeyCenter.userIndex, address: LikeViewController.filterText, delegate: self)
+            }else{
+                dataManager.allClassLikes(userIdx: KeyCenter.userIndex, delegate: self)
+            }
         }
+       
+        
         
     }
     override func viewDidLoad() {
@@ -37,12 +44,38 @@ class ClassViewController : UIViewController{
 
 extension ClassViewController : UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if LikeViewController.isFitered == true{
-            return filterdClassLikeList.count
+            if filterdClassLikeList.count == 0{
+                emptyViewLabel.text = "좋아요한 수업이 없습니다"
+                emptyView.isHidden = false
+                
+                return 0
+            }else{
+                emptyView.isHidden = true
+                emptyViewLabel.text = "로그인후 좋아요 목록을 확인해보세요!"
+                return filterdClassLikeList.count
+            }
+            
         }else{
-            return classLikeList.count
+            if classLikeList.count == 0 && KeyCenter.userType != ""{
+                emptyViewLabel.text = "좋아요한 수업이 없습니다"
+                emptyView.isHidden = false
+                print("5번여기")
+                return 0
+            }else if KeyCenter.userType == ""{
+                emptyView.isHidden = false
+                emptyViewLabel.text = "로그인후 좋아요 목록을 확인해보세요!"
+                return 0
+                
+            }else{
+                emptyView.isHidden = true
+                emptyViewLabel.text = "로그인후 좋아요 목록을 확인해보세요!"
+                return classLikeList.count
+            }
         }
+        
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,6 +109,27 @@ extension ClassViewController : UICollectionViewDelegate,UICollectionViewDataSou
         cell.likeButton.isSelected = true
         cell.likeButton.setImage(#imageLiteral(resourceName: "heart_fill"), for: .selected)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let homeStoryBoard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
+        let detailVC = homeStoryBoard.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
+        
+        if LikeViewController.isFitered == true{
+            detailVC.classIdx = filterdClassLikeList[indexPath.row]?.classIdx ?? 0
+            detailVC.classType = filterdClassLikeList[indexPath.row]?.classType ?? ""
+            detailVC.fromeLike = true
+           
+        }else{
+            detailVC.classIdx = classLikeList[indexPath.row]?.classLikeClassIdx ?? 0
+            detailVC.classType = classLikeList[indexPath.row]?.classType ?? ""
+            detailVC.fromeLike = true
+        
+            
+        }
+        
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
     
@@ -114,15 +168,27 @@ extension ClassViewController : UICollectionViewDelegateFlowLayout{
 //MARK:-API
 extension ClassViewController{
     func allClassLikes(result : allClassLikesResponse){
-        classLikeList = result.result
-        print(classLikeList)
-        ClassCollectionView.reloadData()
+        print(result)
+        if result.isSuccess{
+            classLikeList = result.result
+            print(classLikeList)
+            ClassCollectionView.reloadData()
+        }else{
+            presentAlert(title: result.message)
+        }
+        
     }
     
     func specificClassLikes(result : specificaClassLikesResponse){
-        filterdClassLikeList = result.result
-        print(filterdClassLikeList)
-        ClassCollectionView.reloadData()
+        print(result)
+        if result.isSuccess{
+            filterdClassLikeList = result.result
+            print(filterdClassLikeList)
+            ClassCollectionView.reloadData()
+        }else{
+            presentAlert(title: result.message)
+        }
+        
     }
     
     func failedToRequest(){

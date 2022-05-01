@@ -31,6 +31,7 @@ class ModifyTeacherPopupViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismissKeyboardWhenTappedAround()
         picker.delegate = self
       
         if let url = URL(string: teacherInfomation.image ?? "") {

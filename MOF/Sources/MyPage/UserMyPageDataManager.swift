@@ -87,24 +87,10 @@ class UserMyPageDataManager{
             }
     }
     
-    //일반 유저 로그인
-    func login(_ parameters: loginRequest, delegate: SignUpViewController) {
-        AF.request("\(Constant.BASE_URL)users/login", method: .post, parameters: parameters, encoder: JSONParameterEncoder())
-            .validate()
-            .responseDecodable(of: loginResponse.self) { response in
-                switch response.result {
-                case .success(let response):
-                   // delegate.login(result: response)
-                    print("")
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    delegate.failedToRequest(message: "서버와의 연결이 원활하지 않습니다")
-                }
-            }
-    }
     
    //일반 유저 정보 조회
     func userProfile(userIdx : Int, delegate: GeneralMyProfileViewController) {
+        
         AF.request("\(Constant.BASE_URL)users/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
             .validate()
             .responseDecodable(of: userProfileResponse.self) { response in
@@ -120,6 +106,8 @@ class UserMyPageDataManager{
     
     //일반 유저 정보 조회 - 마이페이지 메인
      func userProfileForMain(userIdx : Int, delegate: MyPageViewController) {
+         print(userIdx)
+         print(KeyCenter.header)
          AF.request("\(Constant.BASE_URL)users/\(userIdx)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: KeyCenter.header)
              .validate()
              .responseDecodable(of: userProfileResponse.self) { response in
@@ -137,35 +125,76 @@ class UserMyPageDataManager{
 
     
     //일반 유저 정보 수정
-    func modify(_ parameters: userModifyRequest, userIndex : Int, delegate: GeneralMyProfileViewController) {
-        AF.request("\(Constant.BASE_URL)users/\(userIndex)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder())
+    func modify(_ parameters: userModifyRequest, image : UIImage?, userIndex : Int, delegate: GeneralMyProfileViewController) {
+        
+        
+        let url = "\(Constant.BASE_URL)users/\(userIndex)"
+        
+        let parameters: [String : Any] = [
+            "userEmail" :parameters.userEmail,
+            "userName" : parameters.userName,
+            "userPhone" : parameters.userPhone,
+            "userAge" : parameters.userAge,
+            "userGender" : parameters.userGender,
+            "userAddress" : parameters.userAddress,
+            "userProfileImgUrl" : parameters.userProfileImgUrl
+    
+        ]
+        
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                for (key, value) in parameters {
+                                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+                }
+                if image?.size.width != 0.0{
+                                
+                    let ConvertedProfileImg = image?.jpegData(compressionQuality: 0.01)
+                    let name = Date()
+                    multipartFormData.append(ConvertedProfileImg!, withName: "image", fileName: name.fileName, mimeType: "image/jpg")
+                }
+        },to: url,method: .patch, headers: KeyCenter.header)
             .validate()
             .responseDecodable(of: userModifyResponse.self) { response in
                 switch response.result {
-                case .success(let response):
+                 case .success(let response):
                     delegate.modify(result: response)
-                   
-                case .failure(let error):
+                 case .failure(let error):
                     print(error.localizedDescription)
                     delegate.failedToRequest()
-                }
+                    }
             }
+        
     }
     
     //유저 프로필 이미지
-    func profileImg(_ parameters: userProfileImageRequest, userIndex : Int, delegate: WelcomViewController) {
-        AF.request("\(Constant.BASE_URL)users/profileImg/\(userIndex)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder())
-                .validate()
-                .responseDecodable(of: commonResponse.self) { response in
-                    switch response.result {
-                    case .success(let response):
-                        delegate.profileImg(result: response)
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                        delegate.failedToRequest()
-                    }
+    func profileImg(profileImage : UIImage?, userIndex : Int, delegate: WelcomViewController) {
+        
+        let url = "\(Constant.BASE_URL)users/profileImg/\(userIndex)"
+        
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                if profileImage?.size.width != 0.0{
+                                
+                    let ConvertedprofileImage = profileImage?.jpegData(compressionQuality: 0.01)
+                    let name = Date()
+                    multipartFormData.append(ConvertedprofileImage!, withName: "image", fileName: name.fileName, mimeType: "image/jpg")
                 }
+        },to: url,method: .patch, headers: KeyCenter.header)
+            .validate()
+            .responseDecodable(of: commonResponse.self) { response in
+                switch response.result {
+                 case .success(let response):
+                    delegate.profileImg(result: response)
+                 case .failure(let error):
+                    print(error.localizedDescription)
+                    delegate.failedToRequest()
+                    }
+            }
+        
         }
+    
+    
+    
     
     //유저 정규 수업 리스트 조회 52번
     func regularClass(userIdx : Int, delegate: MyRegularClassViewontroller) {

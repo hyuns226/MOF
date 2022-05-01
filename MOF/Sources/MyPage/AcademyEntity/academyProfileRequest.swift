@@ -6,14 +6,15 @@
 //
 
 import Foundation
+import UIKit
+
 struct academyProfileRequest : Encodable{
-    
-    var image : Data?
     var academyEmail : String
     var academyName : String
     var academyPhone : String
     var academyAddress : String
     var academyDetailAddress : String
+    var academyBuilding : String
     var academyGernre : String
     var profileImgUrl : String
 }

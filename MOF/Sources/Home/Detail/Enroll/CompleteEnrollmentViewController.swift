@@ -23,5 +23,10 @@ class CompleteEnrollmentViewController : UIViewController{
     
     @IBAction func goToClassInfoButtonAction(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+    }
+    @IBAction func goToEnrolledListVC(_ sender: Any) {
+        self.dismiss(animated: true)
+        tabBarController?.selectedIndex = 3
     }
 }

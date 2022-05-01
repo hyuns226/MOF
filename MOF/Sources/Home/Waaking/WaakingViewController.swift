@@ -56,7 +56,7 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.AcademyName.text = waakingResultList[indexPath.section].academyName
-        cell.addressLabel.text = waakingResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = waakingResultList[indexPath.section].academyDetailAddress + " " + (waakingResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = waakingResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
@@ -64,7 +64,7 @@ extension WaakingViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: waakingResultList[indexPath.section].academyIdx, academyImage: waakingResultList[indexPath.section].academyBackImgUrl, academyName: waakingResultList[indexPath.section].academyName, academyPhoneNum: waakingResultList[indexPath.section].academyPhone, academyAddress: waakingResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: waakingResultList[indexPath.section].academyIdx, academyImage: waakingResultList[indexPath.section].academyBackImgUrl, academyName: waakingResultList[indexPath.section].academyName, academyPhoneNum: waakingResultList[indexPath.section].academyPhone, academyAddress: waakingResultList[indexPath.section].academyDetailAddress + " " + (waakingResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -107,6 +107,12 @@ extension WaakingViewController : specificAcademyProtocol{
         }else{
             presentAlert(title: result.message)
         }
+    }
+    
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
     }
     
     

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 class AddTeacherPopUpViewController : UIViewController{
     
     let picker = UIImagePickerController()
@@ -20,6 +21,7 @@ class AddTeacherPopUpViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        dismissKeyboardWhenTappedAround()
       
 
     }
@@ -31,7 +33,29 @@ class AddTeacherPopUpViewController : UIViewController{
     }
     
     @IBAction func addTeacherImageButtonAction(_ sender: Any) {
-        openlibrary()
+        if #available(iOS 14, *) {
+            if PHPhotoLibrary.authorizationStatus() == .authorized || PHPhotoLibrary.authorizationStatus() == .limited {
+                //1. 허용된 상태
+                DispatchQueue.main.async {
+                    self.openlibrary()
+                }
+            }else if PHPhotoLibrary.authorizationStatus() == .denied{
+                //2. 허용안된 상태
+                DispatchQueue.main.async {
+                    self.showAuthorizationAlert()
+                }
+            } else if PHPhotoLibrary.authorizationStatus() == .notDetermined{
+                //3. notdetermined: 물어보지 않은 상태
+                //info.plist에서 설정
+                PHPhotoLibrary.requestAuthorization { status in
+                    //클로저 상태안에서 호출하면 쓰레드가 하나 생기는데 이쓰레드에서 checkPermission 호출하면 오류가 난다 그래서 dispatchqueue.main.async로 해야된다
+                  
+                }
+                
+            }
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     func openlibrary(){

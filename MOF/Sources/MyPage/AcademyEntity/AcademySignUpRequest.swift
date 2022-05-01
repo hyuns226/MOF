@@ -12,8 +12,9 @@ struct AcademySignUpRequest : Encodable{
     var academyPWD : String
     var academyName : String
     var academyPhone : String
-    var academyDetailAddress : String
-    var academyAddress : String
+    var academyDetailAddress : String //도로명주소
+    var academyAddress : String //filtering 위한 주소 ex) 서울광진구
+    var academyBuilding : String//상세주소 ex) 광진빌라 606호
     var academyGernre : String
     
 }

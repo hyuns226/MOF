@@ -121,9 +121,11 @@ extension DetailEnrollListViewController : UITableViewDelegate, UITableViewDataS
         
         presentAlert(title: "수업 승인하기", message: "해당 신청자의 수업 신청을 승인합니다.", isCancelActionIncluded: true, preferredStyle: .alert) { (UIAlertAction) in
             self.dataManager.approveClass(academyIdx: KeyCenter.userIndex, enrollIdx: sender.tag, delegate: self)
-            self.enrollListTableView.reloadData()
+            
+            
             print("승인")
         }
+        
         
     }
     
@@ -134,9 +136,11 @@ extension DetailEnrollListViewController : UITableViewDelegate, UITableViewDataS
         presentAlert(title: "수업 거절하기", message: "해당 신청자의 수업 신청을 거절합니다.", isCancelActionIncluded: true, preferredStyle: .alert) { (UIAlertAction) in
            
             self.dataManager.rejectClass(academyIdx: KeyCenter.userIndex, enrollIdx: sender.tag, delegate: self)
-            self.enrollListTableView.reloadData()
+            
+            
             print("거절")
         }
+       
         
     }
     
@@ -182,6 +186,7 @@ extension DetailEnrollListViewController{
         if result.isSuccess{
             print(result.result)
             presentAlert(title:  "신청 승인이 완료되었습니다.")
+            dataManager.classEnrolls(academyIdx: KeyCenter.userIndex, classIdx: enrollInfo.classIdx, delegate: self)
         }else{
             presentAlert(title:  result.message)
         }
@@ -191,6 +196,7 @@ extension DetailEnrollListViewController{
         if result.isSuccess{
             print(result.result)
             presentAlert(title:  "신청 거절이 완료되었습니다.")
+            dataManager.classEnrolls(academyIdx: KeyCenter.userIndex, classIdx: enrollInfo.classIdx, delegate: self)
         }else{
             presentAlert(title:  result.message)
         }

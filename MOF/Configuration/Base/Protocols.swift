@@ -11,6 +11,9 @@ import UIKit
 //장르별,위치별, 검색어 별로 조회할때 필요
 protocol specificAcademyProtocol {
     func specificAcademy(result : specificGenreResponse)
+    func failedToRequest()
+        
+       
 }
 
 
@@ -42,4 +45,6 @@ protocol addClassAlertProtocol{
     func showAlert()
 }
 
-
+protocol kakaoPostCodeProtocol{
+    func sendPostCode(forShow : String, forSend : String, addressForSearch : String)
+}

@@ -9,19 +9,48 @@ import Alamofire
 import UIKit
 class AcademyMyPageDataManager{
     //학원 회원가입
-    func academy(_ parameters: AcademySignUpRequest, delegate: AcademySignUpSelectGenreViewController) {
-        AF.request("\(Constant.BASE_URL)academy", method: .post, parameters: parameters, encoder: JSONParameterEncoder())
+    func academy(_ parameters: AcademySignUpRequest, imageInput : UIImage, delegate: AcademySignUpSelectGenreViewController) {
+        
+        let url = "\(Constant.BASE_URL)academy"
+        
+        let parameters: [String : Any] = [
+            "academyEmail": parameters.academyEmail,
+            "academyPWD": parameters.academyPWD,
+            "academyName": parameters.academyName,
+            "academyPhone": parameters.academyPhone,
+            "academyDetailAddress": parameters.academyDetailAddress,
+            "academyAddress": parameters.academyAddress,
+            "academyBuilding": parameters.academyBuilding,
+            "academyGernre": parameters.academyGernre
+        ]
+        
+        
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                for (key, value) in parameters {
+                                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+                }
+                if imageInput.size.width != 0.0{
+                                
+                    let ConvertedImg = imageInput.jpegData(compressionQuality: 0.01)
+                    let name = Date()
+                    multipartFormData.append(ConvertedImg!, withName: "image", fileName: name.fileName, mimeType: "image/jpg")
+                }
+                
+        },to: url,method: .post)
             .validate()
             .responseDecodable(of: academySignUpResponse.self) { response in
                 switch response.result {
-                case .success(let response):
+                 case .success(let response):
                     delegate.academy(result: response)
-                case .failure(let error):
+                 case .failure(let error):
                     print(error.localizedDescription)
                     delegate.failedToRequest()
-                }
+                    }
             }
-    }
+        }
+    
+
     
     //학원 마이프로필 정보 조회
     func academyProfile(academyIdx : Int, delegate: AcademyMyProfileViewController) {
@@ -39,21 +68,48 @@ class AcademyMyPageDataManager{
     }
     
     //학원 마이프로필 정보 수정
-    func academyProfileModify(_ parameters: academyProfileRequest, academyIdx : Int, delegate: AcademyMyProfileViewController) {
-        AF.request("\(Constant.BASE_URL)academy/\(academyIdx)", method: .patch, parameters: parameters, encoder: JSONParameterEncoder(), headers: KeyCenter.header)
+    func academyProfileModify(_ parameters: academyProfileRequest,imageInput : UIImage?, academyIdx : Int, delegate: AcademyMyProfileViewController)  {
+        
+        let url = "\(Constant.BASE_URL)academy/\(academyIdx)"
+        
+        let parameters: [String : Any] = [
+            "academyEmail": parameters.academyEmail,
+            "academyName": parameters.academyName,
+            "academyPhone": parameters.academyPhone,
+            "academyAddress": parameters.academyAddress,
+            "academyDetailAddress": parameters.academyDetailAddress,
+            "academyBuilding" : parameters.academyBuilding,
+            "academyGernre": parameters.academyGernre,
+            "profileImgUrl": parameters.profileImgUrl
+            
+        ]
+        
+        
+        AF.upload(
+            multipartFormData: { multipartFormData in
+                for (key, value) in parameters {
+                                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
+                }
+                if imageInput?.size.width != 0.0{
+                                
+                    let ConvertedImg = imageInput?.jpegData(compressionQuality: 0.01)
+                    let name = Date()
+                    multipartFormData.append(ConvertedImg!, withName: "image", fileName: name.fileName, mimeType: "image/jpg")
+                }
+                
+            },to: url,method: .patch, headers:KeyCenter.header)
             .validate()
             .responseDecodable(of: regularResponse.self) { response in
                 switch response.result {
-                case .success(let response):
+                 case .success(let response):
                     delegate.profileModify(result: response)
-                   
-                case .failure(let error):
+                 case .failure(let error):
                     print(error.localizedDescription)
                     delegate.failedToRequest()
-                }
+                    }
             }
-    }
-    
+        }
+
     
     //학원 회원탈퇴
     func academyWithdraw(academyIdx : Int, delegate: AcademySettingViewController) {
@@ -146,13 +202,13 @@ class AcademyMyPageDataManager{
                 }
                 if classImage?.size.width != 0.0{
                                 
-                    let ConvertedClassImg = classImage?.jpegData(compressionQuality: 0.1)
+                    let ConvertedClassImg = classImage?.jpegData(compressionQuality: 0.01)
                     let name = Date()
                     multipartFormData.append(ConvertedClassImg!, withName: "classImage", fileName: name.fileName, mimeType: "image/jpg")
                 }
                 if teacherImage?.size.width != 0.0{
                                 
-                    let ConvertedTeacherImg = teacherImage?.jpegData(compressionQuality: 0.1)
+                    let ConvertedTeacherImg = teacherImage?.jpegData(compressionQuality: 0.01)
                     let name = Date()
                     multipartFormData.append(ConvertedTeacherImg!, withName: "teacher", fileName: name.fileName, mimeType: "image/jpg")
                 }
@@ -233,8 +289,7 @@ class AcademyMyPageDataManager{
             "classEndTime1": parameters.classEndTime1,
             "classStartTime2": parameters.classStartTime2,
             "classEndTime2": parameters.classEndTime2,
-            "classImgUrl" : parameters.classImgUrl,
-            "teacherImgUrl" : parameters.teacherImgUrl
+           
         ]
         
         
@@ -246,13 +301,13 @@ class AcademyMyPageDataManager{
                 }
                 if classImage?.size.width != 0.0{
                                 
-                    let ConvertedClassImg = classImage?.jpegData(compressionQuality: 0.1)
+                    let ConvertedClassImg = classImage?.jpegData(compressionQuality: 0.01)
                     let name = Date()
                     multipartFormData.append(ConvertedClassImg!, withName: "classImage", fileName: name.fileName, mimeType: "image/jpg")
                 }
                 if teacherImage?.size.width != 0.0{
                                 
-                    let ConvertedTeacherImg = teacherImage?.jpegData(compressionQuality: 0.1)
+                    let ConvertedTeacherImg = teacherImage?.jpegData(compressionQuality: 0.01)
                     let name = Date()
                     multipartFormData.append(ConvertedTeacherImg!, withName: "teacher", fileName: name.fileName, mimeType: "image/jpg")
                 }

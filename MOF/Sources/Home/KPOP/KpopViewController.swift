@@ -67,7 +67,7 @@ extension KpopViewController : UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.AcademyName.text = kpopResultList[indexPath.section].academyName
-        cell.addressLabel.text = kpopResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = kpopResultList[indexPath.section].academyDetailAddress + " " + (kpopResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = kpopResultList[indexPath.section].academyPhone.hyphen()
         
         
@@ -76,7 +76,7 @@ extension KpopViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: kpopResultList[indexPath.section].academyIdx, academyImage: kpopResultList[indexPath.section].academyBackImgUrl, academyName: kpopResultList[indexPath.section].academyName, academyPhoneNum: kpopResultList[indexPath.section].academyPhone, academyAddress: kpopResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: kpopResultList[indexPath.section].academyIdx, academyImage: kpopResultList[indexPath.section].academyBackImgUrl, academyName: kpopResultList[indexPath.section].academyName, academyPhoneNum: kpopResultList[indexPath.section].academyPhone, academyAddress: kpopResultList[indexPath.section].academyDetailAddress + " " + (kpopResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -120,6 +120,11 @@ extension KpopViewController : specificAcademyProtocol{
         }
     }
     
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
+    }
     
 }
 

@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
+import PhotosUI
 class ModifyClassViewController : UIViewController{
     
+    var dayforSend = ""
+    var clickedGenre = ""
     var classType = ""
     var classIdx = -1
     var delegate : addClassAlertProtocol?
@@ -73,6 +76,7 @@ class ModifyClassViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonLayout()
+        dismissKeyboardWhenTappedAround()
         picker.delegate = self
         if classType == "oneday"{
             setOnedayClassInfo()
@@ -118,7 +122,7 @@ class ModifyClassViewController : UIViewController{
         }
     
        
-    
+        
         
     }
     
@@ -156,6 +160,8 @@ class ModifyClassViewController : UIViewController{
         teacherInfoForSend.name = ModifyClassViewController.onedayClassInfo.classTeacherName ?? ""
         teacherInfoForSend.intro = ModifyClassViewController.onedayClassInfo.classTeacherIntro ?? ""
         
+        clickedGenre = ModifyClassViewController.onedayClassInfo.classGernre
+        
         //setting modify input
         classInput.className = ModifyClassViewController.onedayClassInfo.className
         classInput.classType = ModifyClassViewController.onedayClassInfo.classType
@@ -165,10 +171,9 @@ class ModifyClassViewController : UIViewController{
         classInput.classIntro = ModifyClassViewController.onedayClassInfo.classIntro
         classInput.classTeacherName = ModifyClassViewController.onedayClassInfo.classTeacherName ?? ""
         classInput.classTeacherIntro = ModifyClassViewController.onedayClassInfo.classTeacherIntro ?? ""
-        classInput.classStartTime1 = ModifyClassViewController.onedayClassInfo.classStartTime1
+        
+        //classInput.classStartTime1 = stringToDateForDayandDate(ModifyClassViewController.onedayClassInfo.classStartTime1)
         classInput.classEndTime1 = ModifyClassViewController.onedayClassInfo.classEndTime1
-        classInput.classImgUrl = ModifyClassViewController.onedayClassInfo.classImageUrl ?? ""
-        classInput.teacherImgUrl = ModifyClassViewController.onedayClassInfo.teacherImgUrl ?? ""
         
     }
     
@@ -211,6 +216,8 @@ class ModifyClassViewController : UIViewController{
         teacherInfoForSend.name = ModifyClassViewController.regularClassInfo.classTeacherName ?? ""
         teacherInfoForSend.intro = ModifyClassViewController.regularClassInfo.classTeacherIntro ?? ""
         
+        clickedGenre = ModifyClassViewController.regularClassInfo.classGernre
+        
         //setting modify input
         classInput.className = ModifyClassViewController.regularClassInfo.className
         classInput.classType = ModifyClassViewController.regularClassInfo.classType
@@ -220,13 +227,57 @@ class ModifyClassViewController : UIViewController{
         classInput.classIntro = ModifyClassViewController.regularClassInfo.classIntro
         classInput.classTeacherName = ModifyClassViewController.regularClassInfo.classTeacherName ?? ""
         classInput.classTeacherIntro = ModifyClassViewController.regularClassInfo.classTeacherIntro ?? ""
-        classInput.classStartTime1 = ModifyClassViewController.regularClassInfo.classStartTime1
-        classInput.classEndTime1 = ModifyClassViewController.regularClassInfo.classEndTime1
-        classInput.classStartTime1 = ModifyClassViewController.regularClassInfo.classStartTime2 ?? ""
-        classInput.classEndTime1 = ModifyClassViewController.regularClassInfo.classEndTime2 ?? ""
-        classInput.classImgUrl = ModifyClassViewController.regularClassInfo.classImageUrl ?? ""
-        classInput.teacherImgUrl = ModifyClassViewController.regularClassInfo.teacherImgUrl ?? ""
         
+
+        classInput.classStartTime1 = changeToSendDateFormat(classTime: ModifyClassViewController.regularClassInfo.classStartTime1)
+        classInput.classEndTime1 = changeToSendDateFormat(classTime: ModifyClassViewController.regularClassInfo.classEndTime1)
+        
+        if ModifyClassViewController.regularClassInfo.classStartTime2 != nil{
+            classInput.classStartTime2 = changeToSendDateFormat(classTime: ModifyClassViewController.regularClassInfo.classStartTime2 ?? "")
+            classInput.classEndTime2 = changeToSendDateFormat(classTime: ModifyClassViewController.regularClassInfo.classEndTime2 ?? "")
+        }
+        
+        
+      
+      
+        
+        
+    }
+    
+    func changeToSendDateFormat(classTime : String) -> String{
+        //time setting
+        let dayText = dateToStringOnlyDaySend(date: stringToDateForDayandDate(dateString: classTime))
+        
+        
+        switch dayText{
+        case "월" :
+            dayforSend = Constant.DateforDays[0]
+            break
+        case "화" :
+            dayforSend = Constant.DateforDays[1]
+            break
+        case "수" :
+            dayforSend = Constant.DateforDays[2]
+            break
+        case "목" :
+            dayforSend = Constant.DateforDays[3]
+            break
+        case "금" :
+            dayforSend = Constant.DateforDays[4]
+            break
+        case "토" :
+            dayforSend = Constant.DateforDays[5]
+            break
+        case "일" :
+            dayforSend = Constant.DateforDays[6]
+            break
+        default:
+            print("")
+        }
+        
+        let timeText = dateToStringTimeSend(date: stringToDateForDayandDate(dateString: classTime))
+        
+        return dayforSend + timeText
         
     }
     
@@ -243,7 +294,7 @@ class ModifyClassViewController : UIViewController{
     
     @IBAction func regularClassButtonAction(_ sender: Any) {
         
-        
+      
         classStartTimeTwoButton.isHidden = false
         classEndTimeTwoButton.isHidden = false
         waveLabel.isHidden = false
@@ -260,10 +311,10 @@ class ModifyClassViewController : UIViewController{
         classInput.classStartTime2 = ""
         classInput.classEndTime2 = ""
         
-        classStartTimeOneButton.setTitle("시작시간", for: .normal)
-        classEndTimeOneButton.setTitle("종료시간", for: .normal)
-        classStartTimeTwoButton.setTitle("시작시간", for: .normal)
-        classEndTimeTwoButton.setTitle("종료시간", for: .normal)
+        classStartTimeOneButton.setTitle("시작 시간", for: .normal)
+        classEndTimeOneButton.setTitle("종료 시간", for: .normal)
+        classStartTimeTwoButton.setTitle("시작 시간", for: .normal)
+        classEndTimeTwoButton.setTitle("종료 시간", for: .normal)
         
     }
     
@@ -284,10 +335,10 @@ class ModifyClassViewController : UIViewController{
         classInput.classStartTime2 = ""
         classInput.classEndTime2 = ""
         
-        classStartTimeOneButton.setTitle("시작시간", for: .normal)
-        classEndTimeOneButton.setTitle("종료시간", for: .normal)
-        classStartTimeTwoButton.setTitle("시작시간", for: .normal)
-        classEndTimeTwoButton.setTitle("종료시간", for: .normal)
+        classStartTimeOneButton.setTitle("시작 시간", for: .normal)
+        classEndTimeOneButton.setTitle("종료 시간", for: .normal)
+        classStartTimeTwoButton.setTitle("시작 시간", for: .normal)
+        classEndTimeTwoButton.setTitle("종료 시간", for: .normal)
         
         
     }
@@ -332,7 +383,29 @@ class ModifyClassViewController : UIViewController{
     }
     
     @IBAction func addClassPicture(_ sender: Any) {
-        openlibrary()
+        if #available(iOS 14, *) {
+            if PHPhotoLibrary.authorizationStatus() == .authorized || PHPhotoLibrary.authorizationStatus() == .limited {
+                //1. 허용된 상태
+                DispatchQueue.main.async {
+                    self.openlibrary()
+                }
+            }else if PHPhotoLibrary.authorizationStatus() == .denied{
+                //2. 허용안된 상태
+                DispatchQueue.main.async {
+                    self.showAuthorizationAlert()
+                }
+            } else if PHPhotoLibrary.authorizationStatus() == .notDetermined{
+                //3. notdetermined: 물어보지 않은 상태
+                //info.plist에서 설정
+                PHPhotoLibrary.requestAuthorization { status in
+                    //클로저 상태안에서 호출하면 쓰레드가 하나 생기는데 이쓰레드에서 checkPermission 호출하면 오류가 난다 그래서 dispatchqueue.main.async로 해야된다
+                  
+                }
+                
+            }
+        } else {
+            // Fallback on earlier versions
+        }
         
     }
     
@@ -402,38 +475,48 @@ class ModifyClassViewController : UIViewController{
             buttonList[index]!.layer.borderColor = #colorLiteral(red: 1, green: 0, blue: 0.7033678889, alpha: 1)
             buttonList[index]!.setTitleColor(#colorLiteral(red: 1, green: 0, blue: 0.7033678889, alpha: 1), for: .selected)
             
-    classInput.classGernre = Constant.GenreList[index]
-            print(classInput.classGernre)
+       clickedGenre = Constant.GenreList[index]
+            print(clickedGenre)
             
         }
             
            
     @IBAction func addClassButtonAction(_ sender: Any) {
      
+        if classNameTextField.text != "" && classExplainTextView.text != "" && TuitionTextView.text != "" && classMemberNumTextField.text != "" &&  classStartTimeOneButton.titleLabel!.text! != "시작 시간" && classEndTimeOneButton.titleLabel!.text! != "종료 시간" && clickedGenre != "" && classType != ""{
+            
+            
+        classInput.classType = self.classType
         classInput.className = classNameTextField.text!
         classInput.classPrice = Int(TuitionTextView.text!) ?? 0
+        classInput.classGernre = clickedGenre
         classInput.classPersonnel = Int(classMemberNumTextField.text!) ?? 0
         classInput.classIntro = classExplainTextView.text!
       
-        print(teacherImageInput,
-              classImageInput)
-        print(teacherImageInput.size.width)
-        print(classImageInput.size.width)
-        print(classInput)
         
-        //새로운 이미지 선택했으면 backimage url 삭제
-        if teacherImageInput.size.width != 0.0{
-            classInput.classImgUrl = ""
-        }
         
-        if teacherImageInput.size.width != 0.0{
-            classInput.teacherImgUrl = ""
-        }
+            if classPictureImageView.image?.size.width
+                != 0.0{
+                classImageInput = classPictureImageView.image ?? UIImage()
+            }
+            
+            if teacherImageView.image?.size.width
+                != 0.0{
+                teacherImageInput = teacherImageView.image ?? UIImage()
+            }
+            
+            print(classImageInput.size, teacherImageInput.size)
+        
        
+             print(classInput)
+            print("여기선 왜..?\(classInput.classEndTime1)")
         dataManager.modifyClass(parameters: classInput, classImage: classImageInput, teacherImage: teacherImageInput, academyIdx: KeyCenter.userIndex, classIdx: self.classIdx, delegate: self)
         
-    }
+        }else{
+            presentAlert(title: "필수 정보를 모두 작성해주세요")
+        }
     
+   }
 }
 
 extension ModifyClassViewController : UIImagePickerControllerDelegate & UINavigationControllerDelegate{
@@ -498,20 +581,10 @@ extension ModifyClassViewController : selectedDateProtocol, selectedDateProtocol
 //MARK:- API
 extension ModifyClassViewController{
     
-    func addClass(result : addClassResponse){
-        print(result)
-        if result.isSuccess{
-            delegate?.showAlert()
-            self.dismiss(animated: true, completion: nil)
-            
-            
-        }else{
-            presentAlert(title: result.message)
-          
-        }
-    }
+   
     
     func modifyClass(result : modifyClassResponse){
+        print(result)
         if result.isSuccess{
             print(result)
             self.dismiss(animated: true, completion: nil)

@@ -12,6 +12,7 @@ class ClassDetailViewController : UIViewController{
     var classIdx = -1
     var classType = ""
     var academyPhoneNum = ""
+    var fromeLike = false
     
     var classTimeList : [classTime] = []
     
@@ -36,13 +37,28 @@ class ClassDetailViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //네비게이션 hidden상태에서 뒤로가기 제스쳐
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
         print("classIdx :\(classIdx)")
         
         classInfoForEnrollVC.classIdx = self.classIdx
         
-        if classType == "regular"{
+        if fromeLike{
+            AskButton.isHidden = true
+        }
+        
+        if KeyCenter.userType != "general"{
+            registerButton.isHidden = true
+        }else{
+            registerButton.isHidden = false
+        }
+        
+        
+        print(classType)
+        if classType == "Regular"{
             dataManager.getDetailRegularClasses(classIdx: classIdx, delegate: self)
-        }else if classType == "oneday"{
+        }else if classType == "OneDay"{
             dataManager.getDetailOnedayClasses(classIdx: classIdx, delegate: self)
         }
         
@@ -50,6 +66,7 @@ class ClassDetailViewController : UIViewController{
         AskButton.layer.cornerRadius = 18
         registerButton.layer.cornerRadius = 18
             
+        
         //setting Likes Button
         if KeyCenter.userType == "general"{
             dataManager.getClassLikes(userIdx: KeyCenter.userIndex, classIdx: classIdx, delegate: self)
@@ -90,13 +107,19 @@ class ClassDetailViewController : UIViewController{
             
         }
     }
+    
+    @IBAction func notifyButtonAction(_ sender: Any) {
+        presentAlert(title: "신고가 정상적으로 접수되었습니다")
+    }
+    
     @IBAction func enrollButtonAction(_ sender: Any) {
         let enrollVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassEnrollmentViewController") as! ClassEnrollmentViewController
         
         enrollVC.classInfo = self.classInfoForEnrollVC
         
         enrollVC.modalPresentationStyle = .fullScreen
-        self.present(enrollVC, animated: true, completion: nil)
+        present(enrollVC, animated: true, completion: nil)
+       
     }
     
     @IBAction func askButtonAction(_ sender: Any) {

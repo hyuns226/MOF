@@ -44,6 +44,7 @@ class AllViewController : UIViewController{
         if #available(iOS 15.0, *) {
             AllTableView.sectionHeaderTopPadding = 0
         }
+        dataManager.getSpecificAcademy(address: "", genre: "", name: "", delegate: self)
         
     }
     
@@ -79,7 +80,7 @@ extension AllViewController : UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.AcademyName.text = allResultList[indexPath.section].academyName
-        cell.addressLabel.text = allResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = allResultList[indexPath.section].academyDetailAddress + " " + (allResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = allResultList[indexPath.section].academyPhone.hyphen()
         
         
@@ -110,7 +111,7 @@ extension AllViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: allResultList[indexPath.section].academyIdx, academyImage: allResultList[indexPath.section].academyBackImgUrl, academyName: allResultList[indexPath.section].academyName, academyPhoneNum: allResultList[indexPath.section].academyPhone, academyAddress: allResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: allResultList[indexPath.section].academyIdx, academyImage: allResultList[indexPath.section].academyBackImgUrl, academyName: allResultList[indexPath.section].academyName, academyPhoneNum: allResultList[indexPath.section].academyPhone, academyAddress: allResultList[indexPath.section].academyDetailAddress + " " + (allResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }

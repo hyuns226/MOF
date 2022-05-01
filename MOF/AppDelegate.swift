@@ -46,14 +46,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ]
 
             let buttonAppearance = UIBarButtonItemAppearance()
-            buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+           // buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
             appearance.buttonAppearance = buttonAppearance
 
             UINavigationBar.appearance().standardAppearance = appearance
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
             UINavigationBar.appearance().compactAppearance = appearance
 
-            UIBarButtonItem.appearance().tintColor = UIColor.white
+            UIBarButtonItem.appearance().tintColor = UIColor.black
         } else {
             UINavigationBar.appearance().barTintColor = UIColor.white
             UINavigationBar.appearance().titleTextAttributes = [

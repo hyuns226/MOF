@@ -13,9 +13,13 @@ class kakaoPostCodeViewController : UIViewController{
     var roadAddress = ""
     var jibunAddress = ""
     var zonecode = ""
+    var sido = ""
+    var sigungu = ""
+    
+    var delegate : kakaoPostCodeProtocol?
     
     override func viewDidLoad() {
-        
+     
         let contentController = WKUserContentController()
         contentController.add(self, name: "callBackHandler")
         
@@ -34,6 +38,7 @@ class kakaoPostCodeViewController : UIViewController{
         //showIndicator()
         view.addSubview(webView)
         webView.translatesAutoresizingMaskIntoConstraints = false
+       
 
         NSLayoutConstraint.activate([
             webView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -54,20 +59,34 @@ class kakaoPostCodeViewController : UIViewController{
 extension kakaoPostCodeViewController: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         //유저가 주소를 검색하고 어떤 값을 최종적으로 선택했을 때 호출
+       
         if let data = message.body as? [String: Any] {
             print(data)
             roadAddress = data["roadAddress"] as? String ?? ""
             jibunAddress = data["jibunAddress"] as? String ?? ""
             zonecode = data["zonecode"] as? String ?? ""
-            
-            print(roadAddress,jibunAddress,zonecode)
+            sido = data["sido"] as? String ?? ""
+            sigungu = data["sigungu"] as? String ?? ""
+           
         }
-        let previousVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademySignUpViewController")as!AcademySignUpViewController
         
-//        previousVC.detailAddressTextField.text = roadAddress
+        if sido == "경기"{
+            let sigungu_list = sigungu.split(separator: " ")
+            sigungu = String(sigungu_list[0])
+        }
+        
+        if sido == "제주특별자치도"{
+            sido = "제주"
+        }
+        
+        let previousVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademySignUpViewController")as!AcademySignUpViewController
+        print(sido+sigungu)
+        delegate?.sendPostCode(forShow: roadAddress, forSend: roadAddress, addressForSearch: sido+sigungu)
         self.dismiss(animated: true, completion: nil)
 
     }
+    
+    
 }
 
 extension kakaoPostCodeViewController: WKNavigationDelegate {

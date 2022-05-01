@@ -19,4 +19,5 @@ struct specificClassLikesResults : Decodable{
     var className : String
     var classImageUrl : String?
     var classTeacherName : String
+    var classType : String
 }

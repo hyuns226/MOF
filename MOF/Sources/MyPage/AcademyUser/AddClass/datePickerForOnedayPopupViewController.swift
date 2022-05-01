@@ -184,13 +184,64 @@ extension datePickerForOnedayPopupViewController : UIPickerViewDelegate, UIPicke
         return "";
     
     }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        if pickerView == datePickerView{
+            let pickerLabel = UILabel()
+            pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+            pickerLabel.text = nowDate[row]
+            pickerLabel.textAlignment = .center
+            return pickerLabel
+            
+        }else if pickerView == startTimePickerView{
+            switch component{
+            case 0:
+                let pickerLabel = UILabel()
+                pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+                pickerLabel.text = Hour[row]
+                pickerLabel.textAlignment = .center
+                return pickerLabel
+            case 1:
+                let pickerLabel = UILabel()
+                pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+                pickerLabel.text = Time[row]
+                pickerLabel.textAlignment = .center
+                return pickerLabel
+            default:
+                print("")
+            }
+            
+        }else if pickerView == endTimePickerView{
+            switch component{
+            case 0:
+                let pickerLabel = UILabel()
+                pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+                pickerLabel.text = Hour[row]
+                pickerLabel.textAlignment = .center
+                return pickerLabel
+            case 1:
+                let pickerLabel = UILabel()
+                pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+                pickerLabel.text = Time[row]
+                pickerLabel.textAlignment = .center
+                return pickerLabel
+            default:
+                print("")
+            }
+            
+        }
+        
+        return UIView();
+            
+        }
+    
+    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         
         if pickerView == datePickerView{
             dateText = nowDate[row]
-            
+           
             dateTextForSend = String(format: "%d%02d%02d",Int(nowYear)!,Int(nowMonth)!,row+1)
 
             print(dateText,dateTextForSend)

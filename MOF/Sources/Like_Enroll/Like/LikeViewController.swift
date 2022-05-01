@@ -30,8 +30,9 @@ class LikeViewController : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-      
-        //navigationController?.setNavigationBarHidden(true, animated: animated)
+        //change status bar color to dark
+        UIApplication.shared.statusBarStyle = .darkContent
+        navigationController?.setNavigationBarHidden(false, animated: animated)
       
     }
     

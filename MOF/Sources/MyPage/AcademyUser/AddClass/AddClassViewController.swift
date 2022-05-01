@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 class AddClassViewController : UIViewController{
     
     var delegate : addClassAlertProtocol?
@@ -14,7 +15,7 @@ class AddClassViewController : UIViewController{
     var endTime = ""
     
     var clickedGenre = ""
-    
+    var classType = ""
     var classInput = addClassRequest(className: "", classType: "", classPrice: 0, classGernre: "", classPersonnel: 0, classIntro: "", classTeacherName: "", classTeacherIntro: "", classStartTime1: "", classEndTime1: "", classStartTime2: "", classEndTime2: "")
     
     var teacherImageInput = UIImage()
@@ -58,11 +59,15 @@ class AddClassViewController : UIViewController{
     @IBOutlet weak var voguingButton: UIButton!
     @IBOutlet weak var houseButton: UIButton!
     
+    @IBOutlet weak var addClassButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonLayout()
         picker.delegate = self
+        dismissKeyboardWhenTappedAround()
+        addClassButton.layer.cornerRadius = 17.5
+       
     }
     
     //MARK:- FUNCTION
@@ -120,16 +125,16 @@ class AddClassViewController : UIViewController{
         ondayClassButton.layer.borderColor = #colorLiteral(red: 0.737254902, green: 0.737254902, blue: 0.737254902, alpha: 1)
         ondayClassButton.setTitleColor(#colorLiteral(red: 0.3646711111, green: 0.3647280335, blue: 0.3646586537, alpha: 1), for: .normal)
         
-        classInput.classType = "Regular"
+        self.classType = "Regular"
         classInput.classStartTime1  = ""
         classInput.classEndTime1 = ""
         classInput.classStartTime2 = ""
         classInput.classEndTime2 = ""
         
-        classStartTimeOneButton.setTitle("시작시간", for: .normal)
-        classEndTimeOneButton.setTitle("종료시간", for: .normal)
-        classStartTimeTwoButton.setTitle("시작시간", for: .normal)
-        classEndTimeTwoButton.setTitle("종료시간", for: .normal)
+        classStartTimeOneButton.setTitle("시작 시간", for: .normal)
+        classEndTimeOneButton.setTitle("종료 시간", for: .normal)
+        classStartTimeTwoButton.setTitle("시작 시간", for: .normal)
+        classEndTimeTwoButton.setTitle("종료 시간", for: .normal)
         
     }
     
@@ -144,16 +149,16 @@ class AddClassViewController : UIViewController{
         regularClassButton.layer.borderColor = #colorLiteral(red: 0.737254902, green: 0.737254902, blue: 0.737254902, alpha: 1)
         regularClassButton.setTitleColor(#colorLiteral(red: 0.3646711111, green: 0.3647280335, blue: 0.3646586537, alpha: 1), for: .normal)
         
-        classInput.classType = "OneDay"
+        self.classType = "OneDay"
         classInput.classStartTime1  = ""
         classInput.classEndTime1 = ""
         classInput.classStartTime2 = ""
         classInput.classEndTime2 = ""
         
-        classStartTimeOneButton.setTitle("시작시간", for: .normal)
-        classEndTimeOneButton.setTitle("종료시간", for: .normal)
-        classStartTimeTwoButton.setTitle("시작시간", for: .normal)
-        classEndTimeTwoButton.setTitle("종료시간", for: .normal)
+        classStartTimeOneButton.setTitle("시작 시간", for: .normal)
+        classEndTimeOneButton.setTitle("종료 시간", for: .normal)
+        classStartTimeTwoButton.setTitle("시작 시간", for: .normal)
+        classEndTimeTwoButton.setTitle("종료 시간", for: .normal)
         
         
     }
@@ -197,7 +202,29 @@ class AddClassViewController : UIViewController{
     }
     
     @IBAction func addClassPicture(_ sender: Any) {
-        openlibrary()
+        if #available(iOS 14, *) {
+            if PHPhotoLibrary.authorizationStatus() == .authorized || PHPhotoLibrary.authorizationStatus() == .limited {
+                //1. 허용된 상태
+                DispatchQueue.main.async {
+                    self.openlibrary()
+                }
+            }else if PHPhotoLibrary.authorizationStatus() == .denied{
+                //2. 허용안된 상태
+                DispatchQueue.main.async {
+                    self.showAuthorizationAlert()
+                }
+            } else if PHPhotoLibrary.authorizationStatus() == .notDetermined{
+                //3. notdetermined: 물어보지 않은 상태
+                //info.plist에서 설정
+                PHPhotoLibrary.requestAuthorization { status in
+                    //클로저 상태안에서 호출하면 쓰레드가 하나 생기는데 이쓰레드에서 checkPermission 호출하면 오류가 난다 그래서 dispatchqueue.main.async로 해야된다
+                  
+                }
+                
+            }
+        } else {
+            // Fallback on earlier versions
+        }
         
     }
     
@@ -272,21 +299,31 @@ class AddClassViewController : UIViewController{
             
            
     @IBAction func addClassButtonAction(_ sender: Any) {
-     
-        classInput.className = classNameTextField.text!
-        classInput.classPrice = Int(TuitionTextView.text!) ?? 0
-        classInput.classGernre = clickedGenre
-        classInput.classPersonnel = Int(classMemberNumTextField.text!) ?? 0
-        classInput.classIntro = classExplainTextView.text!
-      
-        print(teacherImageInput,
-              classImageInput)
-        print(teacherImageInput.size.width)
-        print(classImageInput.size.width)
-        print(classInput)
+    
+        if classNameTextField.text != "" && classExplainTextView.text != "" && TuitionTextView.text != "" && classMemberNumTextField.text != "" &&  classStartTimeOneButton.titleLabel!.text! != "시작 시간" && classEndTimeOneButton.titleLabel!.text! != "종료 시간" && clickedGenre != "" && classType != ""{
+            
+            
+            classInput.classType = self.classType
+            classInput.className = classNameTextField.text!
+            classInput.classPrice = Int(TuitionTextView.text!) ?? 0
+            classInput.classGernre = clickedGenre
+            classInput.classPersonnel = Int(classMemberNumTextField.text!) ?? 0
+            classInput.classIntro = classExplainTextView.text!
+            
+          
+            print(teacherImageInput,
+                  classImageInput)
+         
+            print(teacherImageInput.size.width)
+            print(classImageInput.size.width)
+            print(classInput)
+           
+            dataManager.addClass(parameters: classInput, classImage: classImageInput, teacherImage: teacherImageInput,academyIdx : KeyCenter.userIndex, delegate: self)
+            
+        }else{
+            presentAlert(title: "필수 정보를 모두 작성해주세요")
+        }
        
-        dataManager.addClass(parameters: classInput, classImage: classImageInput, teacherImage: teacherImageInput,academyIdx : KeyCenter.userIndex, delegate: self)
-        
     }
     
 }

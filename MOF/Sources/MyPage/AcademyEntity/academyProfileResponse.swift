@@ -21,6 +21,7 @@ struct academyProfileResult : Decodable{
     var academyBackImgUrl : String?
     var academyAddress : String
     var academyDetailAddress : String
+    var academyBuilding : String?
     var academyGernre : String
     var academyPhone : String
 }

@@ -38,7 +38,10 @@ class MyPageViewController : UIViewController{
         //change status bar color to light
         UIApplication.shared.statusBarStyle = .lightContent
         
+        print(KeyCenter.userIndex
+        )
         dataManager.userProfileForMain(userIdx: KeyCenter.userIndex, delegate: self)
+        
        
       
     }
@@ -55,9 +58,10 @@ class MyPageViewController : UIViewController{
         super.viewDidLoad()
         
         settingBackButton()
+       
         
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .red
         
         profileImageView.layer.cornerRadius
          = 75
@@ -106,6 +110,7 @@ class MyPageViewController : UIViewController{
     }
     @IBAction func showMyProfileButtonAction(_ sender: Any) {
         let myprofileVC = self.storyboard?.instantiateViewController(withIdentifier: "GeneralMyProfileViewController")as!GeneralMyProfileViewController
+       
         self.navigationController?.pushViewController(myprofileVC, animated: true)
     }
     

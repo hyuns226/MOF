@@ -21,4 +21,5 @@ struct allClassLikesResults : Decodable{
     var classImageUrl : String?
     var classTeacherName : String
     var userName : String
+    var classType : String
 }

@@ -18,7 +18,10 @@ struct allAcademyLikesResults : Decodable{
     var userAcademyLikeIdx : Int
     var academyLikeAcademyIdx : Int
     var academyName : String
+    var academyPhone : String
     var academyBackImgUrl : String?
     var academyGernre : String
     var userName : String
+    var academyDetailAddress : String
+    var academyBuilding : String?
 }

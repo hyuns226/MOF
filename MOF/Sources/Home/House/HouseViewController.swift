@@ -56,7 +56,7 @@ extension HouseViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
         cell.AcademyName.text = houseResultList[indexPath.section].academyName
-        cell.addressLabel.text = houseResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = houseResultList[indexPath.section].academyDetailAddress + " " + (houseResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = houseResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
@@ -64,7 +64,7 @@ extension HouseViewController : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: houseResultList[indexPath.section].academyIdx, academyImage: houseResultList[indexPath.section].academyBackImgUrl, academyName: houseResultList[indexPath.section].academyName, academyPhoneNum: houseResultList[indexPath.section].academyPhone, academyAddress: houseResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: houseResultList[indexPath.section].academyIdx, academyImage: houseResultList[indexPath.section].academyBackImgUrl, academyName: houseResultList[indexPath.section].academyName, academyPhoneNum: houseResultList[indexPath.section].academyPhone, academyAddress: houseResultList[indexPath.section].academyDetailAddress + " " + (houseResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -109,6 +109,10 @@ extension HouseViewController : specificAcademyProtocol{
         }
     }
     
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
     
+    }
 }
 

@@ -61,9 +61,12 @@ class AcademyDetaliViewController : UIViewController {
         academyPhoneLabel.text = AcademyInfo.academyPhoneNum.hyphen()
         academyAddressLabel.text = AcademyInfo.academyAddress
     
-        dataManager.academyRegularClass(academyIdx: AcademyInfo.academyIdx, delegate: self)
-       
-    
+        
+        print(AcademyInfo)
+          
+        
+               self.dataManager.academyRegularClass(academyIdx: self.AcademyInfo.academyIdx, delegate: self)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +109,7 @@ class AcademyDetaliViewController : UIViewController {
         
     
     }
+  
     
     @IBAction func likeButtonAction(_ sender: Any) {
         likeButton.isSelected =  !likeButton.isSelected
@@ -120,7 +124,11 @@ class AcademyDetaliViewController : UIViewController {
         }
     }
     
-   
+    
+    @IBAction func nofityButtonAction(_ sender: Any) {
+        presentAlert(title: "신고가 정상적으로 접수되었습니다")
+    }
+    
     @IBAction func askButtonAction(_ sender: Any) {
         print(Int(AcademyInfo.academyPhoneNum))
         print(AcademyInfo.academyPhoneNum)
@@ -149,6 +157,8 @@ extension AcademyDetaliViewController : UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    
+    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell : UITableViewCell!
@@ -176,7 +186,20 @@ extension AcademyDetaliViewController : UITableViewDelegate,UITableViewDataSourc
             }else{
                 
                 regularCell.classTimeTwoLabel.isHidden = true
+                
             }
+            
+          
+                print(4)
+                
+           
+            
+                
+              
+            
+           
+           
+            
             cell = regularCell
         }else{
             let ondayCell = tableView.dequeueReusableCell(withIdentifier: "OnedayClassTableViewCell") as! OnedayClassTableViewCell
@@ -204,21 +227,18 @@ extension AcademyDetaliViewController : UITableViewDelegate,UITableViewDataSourc
         if tableView == regularClassTableView{
             let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
             classDetailVC.classIdx = regularClassResultList[indexPath.section].classIdx
-            classDetailVC.classType = "regular"
+            classDetailVC.classType = "Regular"
             classDetailVC.academyPhoneNum = AcademyInfo.academyPhoneNum
             self.navigationController?.pushViewController(classDetailVC, animated: true)
             
         }else{
             let classDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "ClassDetailViewController")as!ClassDetailViewController
             classDetailVC.classIdx = onedayClassResultList[indexPath.section].classIdx
-            classDetailVC.classType = "oneday"
+            classDetailVC.classType = "OneDay"
             classDetailVC.academyPhoneNum = AcademyInfo.academyPhoneNum
             self.navigationController?.pushViewController(classDetailVC, animated: true)
             
         }
-    
-        
-        
     }
 
     // MARK: - Table View delegate methods
@@ -312,10 +332,25 @@ extension AcademyDetaliViewController{
         if result.isSuccess{
             print(result)
             regularClassResultList = result.result ?? []
-            regularClassTableView.reloadData()
-            regularClassTableViewHeight.constant = regularClassTableView.contentSize.height
             
-            dataManager.academyOnedayClass(academyIdx: AcademyInfo.academyIdx, delegate: self)
+            print(6)
+            regularClassTableView.reloadData()
+            print(9)
+            
+           
+            
+            print(7)
+            if regularClassResultList.count == 0{
+                regularClassTableViewHeight.constant = 0
+            }
+            
+           
+           
+            self.dataManager.academyOnedayClass(academyIdx: self.AcademyInfo.academyIdx, delegate: self)
+           
+            
+            
+            
             
         }else{
             presentAlert(title:  result.message)
@@ -326,15 +361,32 @@ extension AcademyDetaliViewController{
         if result.isSuccess{
             print(result)
             onedayClassResultList = result.result ?? []
+            print(8)
             OnedayClassTableView.reloadData()
-            onedayClassTableViewHeight.constant = OnedayClassTableView.contentSize.height
-            regularClassTableViewHeight.constant = regularClassTableView.contentSize.height
             
-            viewHeight.constant = imageViewHeight.constant + stackViewHeight.constant + regularClassTableViewHeight.constant + onedayClassTableViewHeight.constant + collectionViewHeight.constant + 290
+            self.regularClassTableViewHeight.constant = self.regularClassTableView.contentSize.height +  CGFloat(regularClassResultList.count * 10)
+        
+        
+            print("regular contentsize1: \(regularClassTableView.contentSize)")
+            print("regular viewheight1: \(regularClassTableViewHeight.constant)")
             
+            
+            print(5)
+            self.onedayClassTableViewHeight.constant = self.OnedayClassTableView.contentSize.height
+
+            print(9)
+            if onedayClassResultList.count == 0{
+                onedayClassTableViewHeight.constant = 0
+            }
+            
+            
+            
+         self.viewHeight.constant = self.imageViewHeight.constant + self.stackViewHeight.constant + self.regularClassTableViewHeight.constant + CGFloat(regularClassResultList.count * 10) + self.onedayClassTableViewHeight.constant  + 170
+          
             print(imageViewHeight.constant)
             print(stackViewHeight.constant)
-            print(regularClassTableViewHeight.constant)
+            print("regular contentsize: \(regularClassTableView.contentSize)")
+            print("regular viewheight: \(regularClassTableViewHeight.constant)")
             print(onedayClassTableViewHeight.constant)
             print(collectionViewHeight.constant)
            
@@ -351,7 +403,6 @@ extension AcademyDetaliViewController{
         self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
     
     }
-    
     
     
 }

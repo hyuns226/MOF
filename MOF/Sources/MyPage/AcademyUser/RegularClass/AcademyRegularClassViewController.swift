@@ -99,7 +99,7 @@ extension AcademyRegularClassViewController : UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailClassViewController")as!DetailClassViewController
         detailVC.classIdx = regularClassResultList[indexPath.section].classIdx
-        detailVC.classType = "regular"
+        detailVC.classType = "Regular"
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 

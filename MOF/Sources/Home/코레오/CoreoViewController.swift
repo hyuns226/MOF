@@ -59,7 +59,7 @@ extension CoreoViewController : UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.AcademyName.text = choreoResultList[indexPath.section].academyName
-        cell.addressLabel.text = choreoResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = choreoResultList[indexPath.section].academyDetailAddress + " " + (choreoResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = choreoResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
@@ -67,7 +67,7 @@ extension CoreoViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: choreoResultList[indexPath.section].academyIdx, academyImage: choreoResultList[indexPath.section].academyBackImgUrl, academyName: choreoResultList[indexPath.section].academyName, academyPhoneNum: choreoResultList[indexPath.section].academyPhone, academyAddress: choreoResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: choreoResultList[indexPath.section].academyIdx, academyImage: choreoResultList[indexPath.section].academyBackImgUrl, academyName: choreoResultList[indexPath.section].academyName, academyPhoneNum: choreoResultList[indexPath.section].academyPhone, academyAddress: choreoResultList[indexPath.section].academyDetailAddress + " " + (choreoResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -109,6 +109,12 @@ extension CoreoViewController : specificAcademyProtocol{
         }else{
             presentAlert(title: result.message)
         }
+    }
+    
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
     }
     
     

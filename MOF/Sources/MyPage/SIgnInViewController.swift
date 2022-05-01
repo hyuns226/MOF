@@ -8,6 +8,7 @@
 import UIKit
 class SIgnInViewController : UIViewController{
 
+    var restoreFrameValue : CGFloat = 0.0
     
     lazy var dataManager = UserMyPageDataManager()
     var loginInput = loginRequest(userEmail: "", userPWD: "")
@@ -24,7 +25,9 @@ class SIgnInViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        restoreFrameValue = self.view.frame.origin.y
         dismissKeyboardWhenTappedAround()
+       
         
         navigationController?.navigationBar.shadowImage = UIImage()
         
@@ -37,6 +40,8 @@ class SIgnInViewController : UIViewController{
     }
     
 //MARK - FUNCTION
+    
+    
     
     func settingSavedID(){
         let userDefaults = UserDefaults.standard
@@ -202,7 +207,7 @@ class SIgnInViewController : UIViewController{
             UserDefaults.standard.synchronize()
         }
         
-        
+        print(loginInput)
         dataManager.login(loginInput, delegate: self)
         
     }
@@ -220,6 +225,8 @@ extension SIgnInViewController{
             
             KeyCenter.userIndex = result.result!.userIdx
             KeyCenter.LOGIN_TOKEN = result.result!.jwt
+            KeyCenter.header  = ["X-ACCESS-TOKEN": "\(KeyCenter.LOGIN_TOKEN)"]
+            
             
             if result.result?.유저타입 == "일반 유저"{
                 KeyCenter.userType = "general"

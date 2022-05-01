@@ -28,12 +28,9 @@ class datePickerPopUpViewController : UIViewController{
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var dayPIckerView: UIPickerView!
-    
-    @IBOutlet weak var startHourPickerView: UIPickerView!
-    @IBOutlet weak var startMinutePickerView: UIPickerView!
-    
-    @IBOutlet weak var endHourPickerView: UIPickerView!
-    @IBOutlet weak var endMinutePickerView: UIPickerView!
+    @IBOutlet weak var startTimePickerView: UIPickerView!
+   
+    @IBOutlet weak var endTimePickerView: UIPickerView!
     
     
     let day = ["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"]
@@ -44,10 +41,9 @@ class datePickerPopUpViewController : UIViewController{
     
     override func viewDidLoad() {
         dayPIckerView.delegate = self
-        startHourPickerView.delegate = self
-        startMinutePickerView.delegate = self
-        endHourPickerView.delegate = self
-        endMinutePickerView.delegate = self
+        startTimePickerView.delegate = self
+        endTimePickerView.delegate = self
+       
         
     }
     
@@ -76,105 +72,134 @@ class datePickerPopUpViewController : UIViewController{
 extension datePickerPopUpViewController : UIPickerViewDelegate, UIPickerViewDataSource{
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
-        return 1
+        if pickerView == dayPIckerView{
+            return 1
+        }else if pickerView == startTimePickerView{
+            return 2
+        }else if pickerView == endTimePickerView{
+            return 2
+        }
+        return 0;
     }
 
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        var componentNum = 0
-        
-        switch pickerView{
-        case dayPIckerView :
-            componentNum =  day.count
-            break
-        case startHourPickerView :
-            componentNum = Hour.count
-            break
-        case startMinutePickerView :
-            componentNum = Time.count
-            break
-        case endHourPickerView :
-            componentNum = Hour.count
-            break
-        case endMinutePickerView :
-            componentNum = Time.count
-            break
-        default:
-            print("")
+        if pickerView == dayPIckerView{
+            return day.count
+            
+        }else if pickerView == startTimePickerView{
+            switch component{
+            case 0:
+                return Hour.count
+            case 1:
+                return Time.count
+            default:
+                print("")
+            }
+            
+        }else if pickerView == endTimePickerView{
+            switch component{
+            case 0:
+                return Hour.count
+            case 1:
+                return Time.count
+            default:
+                print("")
+            }
+            
         }
-    
-        
-        
-        return componentNum
+        return 0;
         
        
     }
 
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        if pickerView == dayPIckerView{
+            let pickerLabel = UILabel()
+            pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+            pickerLabel.text = day[row]
+            pickerLabel.textAlignment = .center
+            return pickerLabel
+            
+        }else if pickerView == startTimePickerView{
+            switch component{
+            case 0:
+                let pickerLabel = UILabel()
+                pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+                pickerLabel.text = Hour[row]
+                pickerLabel.textAlignment = .center
+                return pickerLabel
+            case 1:
+                let pickerLabel = UILabel()
+                pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+                pickerLabel.text = Time[row]
+                pickerLabel.textAlignment = .center
+                return pickerLabel
+            default:
+                print("")
+            }
+            
+        }else if pickerView == endTimePickerView{
+            switch component{
+            case 0:
+                let pickerLabel = UILabel()
+                pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+                pickerLabel.text = Hour[row]
+                pickerLabel.textAlignment = .center
+                return pickerLabel
+            case 1:
+                let pickerLabel = UILabel()
+                pickerLabel.font = UIFont(name: "NotoSansCJKkr-Regular", size: CGFloat(14))
+                pickerLabel.text = Time[row]
+                pickerLabel.textAlignment = .center
+                return pickerLabel
+            default:
+                print("")
+            }
+            
+        }
         
-        var componet = ""
-        
-        switch pickerView{
-        case dayPIckerView :
-            componet = day[row]
-            break
-        case startHourPickerView :
-            componet = Hour[row]
-            break
-        case startMinutePickerView :
-            componet = Time[row]
-            break
-        case endHourPickerView :
-            componet =  Hour[row]
-            break
-        case endMinutePickerView :
-            componet = Time[row]
-            break
-        default:
-            print("")
+        return UIView();
+            
         }
     
-        return componet
 
-    }
-
+    
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        switch pickerView{
-        case dayPIckerView :
+        if pickerView == dayPIckerView{
             dayText = day[row]
+           
             dayTextForSend = Constant.DateforDays[row]
             print(Constant.DateforDays[row])
-            break
-        case startHourPickerView :
-            startHourText = Hour[row]
-            print(Hour[row])
-            break
-        case startMinutePickerView :
-            startMinuteText = Time[row]
-            print(Time[row])
-        case endHourPickerView :
-            endHourText = Hour[row]
-            print(Hour[row])
-            break
-        case endMinutePickerView :
-            endMinuteText = Time[row]
-            print(Time[row])
-            break
-        default:
-            print("")
+
+        }else if pickerView == startTimePickerView{
+            switch component{
+            case 0:
+                startHourText = Hour[row]
+                print(Hour[row])
+            case 1:
+                startMinuteText = Time[row]
+                print(Time[row])
+            default:
+                print("")
+            }
+
+        }else if pickerView == endTimePickerView{
+            switch component{
+            case 0:
+                endHourText = Hour[row]
+                print(Hour[row])
+            case 1:
+                endMinuteText = Time[row]
+                print(Time[row])
+            default:
+                print("")
+            }
         }
-        
+
+    
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }

@@ -4,17 +4,17 @@
 //
 //  Created by 이현서 on 2022/01/18.
 //
-
+import PhotosUI
 import UIKit
 class AcademySignUpSelectGenreViewController : UIViewController{
     
     lazy var dataManager = AcademyMyPageDataManager()
     
-    var signUpInput = AcademySignUpRequest(image: "", academyEmail: "", academyPWD: "", academyName: "", academyPhone: "", academyDetailAddress: "", academyAddress: "", academyGernre: "")
+    let picker = UIImagePickerController()
+    var imageInput = UIImage()
+    var signUpInput = AcademySignUpRequest(image: "", academyEmail: "", academyPWD: "", academyName: "", academyPhone: "", academyDetailAddress: "", academyAddress: "", academyBuilding: "", academyGernre: "")
     
     lazy var buttonList = [kpopButton,coreoButton,hiphopButton,girlsHiphopButton,waakingButton,popinButton,rockingButton,crumpButton,voguingButton,houseButton]
-    
-    var genreList = ["K-POP","코레오","힙합","걸스힙합","왁킹","팝핀","락킹","크럼프","보깅","하우스"]
     
     
     var clickedAcademyList = [Int]()
@@ -46,7 +46,12 @@ class AcademySignUpSelectGenreViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        settingBackButton()
+        nextButton.isEnabled = false
+        nextButton.backgroundColor = #colorLiteral(red: 0.808078289, green: 0.8075512052, blue: 0.829269588, alpha: 1)
         setButtonLayout()
+        picker.delegate = self
+      
     }
     
     //MARK:- FUNCTION
@@ -65,6 +70,42 @@ class AcademySignUpSelectGenreViewController : UIViewController{
         
         nextButton.layer.cornerRadius = 17.5
         
+    }
+    
+    func checkGenreSelected(){
+        if clickedAcademyList.isEmpty == false{
+            nextButton.isEnabled = true
+            nextButton.backgroundColor = .mainPink
+        }else{
+            nextButton.isEnabled = false
+            nextButton.backgroundColor = #colorLiteral(red: 0.808078289, green: 0.8075512052, blue: 0.829269588, alpha: 1)
+        }
+    }
+    
+    @IBAction func GalleryButtonAction(_ sender: Any) {
+        if #available(iOS 14, *) {
+            if PHPhotoLibrary.authorizationStatus() == .authorized || PHPhotoLibrary.authorizationStatus() == .limited {
+                //1. 허용된 상태
+                DispatchQueue.main.async {
+                    self.openlibrary()
+                }
+            }else if PHPhotoLibrary.authorizationStatus() == .denied{
+                //2. 허용안된 상태
+                DispatchQueue.main.async {
+                    self.showAuthorizationAlert()
+                }
+            } else if PHPhotoLibrary.authorizationStatus() == .notDetermined{
+                //3. notdetermined: 물어보지 않은 상태
+                //info.plist에서 설정
+                PHPhotoLibrary.requestAuthorization { status in
+                    //클로저 상태안에서 호출하면 쓰레드가 하나 생기는데 이쓰레드에서 checkPermission 호출하면 오류가 난다 그래서 dispatchqueue.main.async로 해야된다
+                  
+                }
+                
+            }
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     //강의 장르 버튼 선택 동작
@@ -116,10 +157,14 @@ class AcademySignUpSelectGenreViewController : UIViewController{
             buttonList[index]!.layer.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.7033678889, alpha: 1)
             clickedAcademyList.append(index)
             clickedAcademyList.sort()
+            checkGenreSelected()
+            print(clickedAcademyList)
             
         }else{
             buttonList[index]!.layer.backgroundColor = #colorLiteral(red: 0.9436354041, green: 0.9436575174, blue: 0.9436456561, alpha: 1)
             clickedAcademyList.removeAll(where: { $0 == index })
+            checkGenreSelected()
+            print(clickedAcademyList)
         }
         
     }
@@ -129,7 +174,7 @@ class AcademySignUpSelectGenreViewController : UIViewController{
         
         for i in 0...9{
             if clickedAcademyList.contains(i){
-                academyInput.append(genreList[i])
+                academyInput.append(Constant.GenreList[i])
             }
         
         }
@@ -150,13 +195,42 @@ class AcademySignUpSelectGenreViewController : UIViewController{
         
         print(signUpInput)
         
-        dataManager.academy(signUpInput, delegate: self)
+        dataManager.academy(signUpInput,imageInput: self.imageInput,delegate: self)
         
-        academyInput.removeAll()
+        
         
         
     }
     
+    
+    
+    
+}
+
+//MARK: -
+extension  AcademySignUpSelectGenreViewController : UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+    
+    func openlibrary(){
+        picker.sourceType = .photoLibrary
+        picker.modalPresentationStyle = .fullScreen
+        picker.allowsEditing = true
+        present(picker, animated: true)
+        
+        
+    }
+    
+    func imagePickerController(_ picker : UIImagePickerController, didFinishPickingMediaWithInfo info : [UIImagePickerController.InfoKey : Any]){
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
+            
+            AcademyImageView.image = image
+            imageInput = image
+            
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+    
+    }
     
     
     
@@ -167,17 +241,19 @@ extension AcademySignUpSelectGenreViewController{
     
     
     func academy(result : academySignUpResponse){
-        if result.isSuccess == true{
+        print(result)
+        if result.isSuccess{
             print(result)
             
-           //유저아이디
-            
-            
-            self.dismiss(animated: false, completion: nil)
+        
             
             let welcomeVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyWelcomViewController") as! AcademyWelcomViewController
+            welcomeVC.welcomeText = signUpInput.academyName + "님, 안녕하세요!"
+            welcomeVC.welcomImage = imageInput
+            self.navigationController?.pushViewController(welcomeVC, animated: true)
+            welcomeVC.presentAlert(title: "회원가입이 완료되었습니다")
             
-            self.present(welcomeVC,animated: false)
+            academyInput.removeAll()
             
             
         }else{

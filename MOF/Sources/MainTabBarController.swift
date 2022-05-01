@@ -17,6 +17,8 @@ class MainTabBarController : UITabBarController{
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.clipsToBounds = true
         self.navigationController?.navigationBar.shadowImage = UIImage()
+         
+
         
    }
     
@@ -40,6 +42,8 @@ class MainTabBarController : UITabBarController{
                 print("아이디 저장 안됨")
               }
     }
+    
+    
    
 }
 
@@ -50,6 +54,8 @@ extension MainTabBarController{
             
             KeyCenter.userIndex = result.result!.userIdx
             KeyCenter.LOGIN_TOKEN = result.result!.jwt
+            KeyCenter.header  = ["X-ACCESS-TOKEN": "\(KeyCenter.LOGIN_TOKEN)"]
+            
             
             if result.result?.유저타입 == "일반 유저"{
                 KeyCenter.userType = "general"

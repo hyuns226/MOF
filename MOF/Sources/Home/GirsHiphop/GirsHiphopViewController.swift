@@ -58,7 +58,7 @@ extension GirsHiphopViewController : UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.AcademyName.text = girlsHiphopResultList[indexPath.section].academyName
-        cell.addressLabel.text = girlsHiphopResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = girlsHiphopResultList[indexPath.section].academyDetailAddress + " " + (girlsHiphopResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = girlsHiphopResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
@@ -66,7 +66,7 @@ extension GirsHiphopViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: girlsHiphopResultList[indexPath.section].academyIdx, academyImage: girlsHiphopResultList[indexPath.section].academyBackImgUrl, academyName: girlsHiphopResultList[indexPath.section].academyName, academyPhoneNum: girlsHiphopResultList[indexPath.section].academyPhone, academyAddress: girlsHiphopResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: girlsHiphopResultList[indexPath.section].academyIdx, academyImage: girlsHiphopResultList[indexPath.section].academyBackImgUrl, academyName: girlsHiphopResultList[indexPath.section].academyName, academyPhoneNum: girlsHiphopResultList[indexPath.section].academyPhone, academyAddress: girlsHiphopResultList[indexPath.section].academyDetailAddress + " " + (girlsHiphopResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -108,6 +108,11 @@ extension GirsHiphopViewController : specificAcademyProtocol{
         }else{
             presentAlert(title: result.message)
         }
+    }
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
     }
     
     

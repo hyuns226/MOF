@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 extension UIViewController {
+   
+    
     // MARK: 빈 화면을 눌렀을 때 키보드가 내려가도록 처리
     func dismissKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer =
@@ -20,6 +22,7 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         self.view.endEditing(false)
     }
+
     
     // MARK: 취소와 확인이 뜨는 UIAlertController
     func presentAlert(title: String, message: String? = nil,
@@ -113,6 +116,8 @@ extension UIViewController {
         IndicatorView.shared.dismiss()
     }
     
+    
+    //Date관련 함수
     func stringToDate(dateString : String) -> Date{
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US")
@@ -130,9 +135,10 @@ extension UIViewController {
     
     func stringToDateForDayandDate(dateString : String) -> Date{
         let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
         formatter.dateFormat = "EEE HH:mm"
-        let date = formatter.date(from: dateString)
-        return date ?? Date()
+        let date = formatter.date(from: dateString)!
+        return date
     }
     
     func stringToDateForOneday(dateString : String) -> Date{
@@ -169,14 +175,47 @@ extension UIViewController {
         return formatter.string(from: date)
     }
     
+    func dateToStringOnlyDaySend(date : Date) -> String{
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko")
+        formatter.dateFormat = "EEE"
+        return formatter.string(from: date)
+    }
+    
+    func dateToStringTimeSend(date : Date) -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HHmm00"
+        return formatter.string(from: date)
+    }
+    
+    
+    //네비게이션 바에 back버튼 추가
     func settingBackButton(){
         let backButton = UIBarButtonItem()
         backButton.title = ""
         backButton.tintColor = .label
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
-    
-  
+    func showAuthorizationAlert() {
+            //허용안된 상태
+            //alert 띄우기
+            let alert = UIAlertController(title: "갤러리 접근 권한을 활성화해주세요.", message: nil, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "닫기", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "설정으로 가기", style: .default, handler: { action in
+                
+                //갤러리 접근 권한이 없으면 내 앱에대한 설정으로 이동 코드
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                //열릴수 있나
+                if  UIApplication.shared.canOpenURL(url){
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
 
 }
 

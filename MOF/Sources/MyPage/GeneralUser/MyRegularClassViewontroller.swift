@@ -26,6 +26,11 @@ class MyRegularClassViewontroller : UIViewController{
             regularClassTableView.sectionHeaderTopPadding = 0
                 }
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         dataManager.regularClass(userIdx: KeyCenter.userIndex, delegate: self)
     }
         
@@ -51,19 +56,19 @@ extension MyRegularClassViewontroller : UITableViewDelegate,UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "MYRegularClassTableViewCell", for: indexPath) as! MYRegularClassTableViewCell
         
         
-        cell.academyNameLabel.text = regularClasses[indexPath.row]!.className
-        cell.teacherNameLabel.text =  regularClasses[indexPath.row]!.classTeacherName + " 선생님"
+        cell.academyNameLabel.text = regularClasses[indexPath.section]!.className
+        cell.teacherNameLabel.text =  regularClasses[indexPath.section]!.classTeacherName + " 선생님"
         
         //Set class time
-        let startTime1 = dateToString(date: stringToDateForDayandDate(dateString: regularClasses[indexPath.row]!.classStartTime1))
-        let endTime1 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: regularClasses[indexPath.row]!.classEndTime1))
+        let startTime1 = dateToString(date: stringToDateForDayandDate(dateString: regularClasses[indexPath.section]!.classStartTime1))
+        let endTime1 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: regularClasses[indexPath.section]!.classEndTime1))
         
         cell.timeOneLabel.text = startTime1 + " ~ " + endTime1
         forenrollVCInfo.classTime1 = startTime1 + " ~ " + endTime1
         
-        if regularClasses[indexPath.row]!.classStartTime2 != nil{
-            let startTime2 = dateToString(date: stringToDateForDayandDate(dateString: regularClasses[indexPath.row]!.classStartTime2 ?? ""))
-            let endTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: regularClasses[indexPath.row]!.classEndTime2 ?? ""))
+        if regularClasses[indexPath.section]!.classStartTime2 != nil{
+            let startTime2 = dateToString(date: stringToDateForDayandDate(dateString: regularClasses[indexPath.section]!.classStartTime2 ?? ""))
+            let endTime2 = dateToStringOnlyTime(date: stringToDateForDayandDate(dateString: regularClasses[indexPath.section]!.classEndTime2 ?? ""))
             
             cell.timeTwoLabel.text = startTime2 + " ~ " + endTime2
             forenrollVCInfo.classTime2 = startTime2 + " ~ " + endTime2
@@ -99,11 +104,11 @@ extension MyRegularClassViewontroller : UITableViewDelegate,UITableViewDataSourc
         
         //setting info for enrollVC
         forenrollVCInfo.classType = "regular"
-        forenrollVCInfo.classIdx = regularClasses[indexPath.row]?.classIdx ?? -1
-        forenrollVCInfo.className = regularClasses[indexPath.row]?.className ?? ""
-        forenrollVCInfo.classTeacherName = regularClasses[indexPath.row]?.classTeacherName ?? ""
-        forenrollVCInfo.enrollIdx = regularClasses[indexPath.row]?.enrollIdx ?? -1
-        forenrollVCInfo.enrollSubmit = regularClasses[indexPath.row]?.enrollSubmit ?? ""
+        forenrollVCInfo.classIdx = regularClasses[indexPath.section]?.classIdx ?? -1
+        forenrollVCInfo.className = regularClasses[indexPath.section]?.className ?? ""
+        forenrollVCInfo.classTeacherName = regularClasses[indexPath.section]?.classTeacherName ?? ""
+        forenrollVCInfo.enrollIdx = regularClasses[indexPath.section]?.enrollIdx ?? -1
+        forenrollVCInfo.enrollSubmit = regularClasses[indexPath.section]?.enrollSubmit ?? ""
         
         enrolledVC.enrollInfo = self.forenrollVCInfo
         

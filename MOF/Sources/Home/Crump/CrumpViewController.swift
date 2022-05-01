@@ -55,7 +55,7 @@ extension CrumpViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
         cell.AcademyName.text = crumpResultList[indexPath.section].academyName
-        cell.addressLabel.text = crumpResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = crumpResultList[indexPath.section].academyDetailAddress + " " + (crumpResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = crumpResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
@@ -63,7 +63,7 @@ extension CrumpViewController : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: crumpResultList[indexPath.section].academyIdx, academyImage: crumpResultList[indexPath.section].academyBackImgUrl, academyName: crumpResultList[indexPath.section].academyName, academyPhoneNum: crumpResultList[indexPath.section].academyPhone, academyAddress: crumpResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: crumpResultList[indexPath.section].academyIdx, academyImage: crumpResultList[indexPath.section].academyBackImgUrl, academyName: crumpResultList[indexPath.section].academyName, academyPhoneNum: crumpResultList[indexPath.section].academyPhone, academyAddress: crumpResultList[indexPath.section].academyDetailAddress + " " + (crumpResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -109,6 +109,10 @@ extension CrumpViewController : specificAcademyProtocol{
         }
     }
     
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
     
+    }
 }
 

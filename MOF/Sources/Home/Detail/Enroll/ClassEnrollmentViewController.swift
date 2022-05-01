@@ -51,6 +51,13 @@ class ClassEnrollmentViewController : UIViewController{
         //1. 수업정보 앞에서 가져오기, 2.내정보 불러오기, 3. 등록하기 api
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+      
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.isHidden = false
+    }
+    
     func settingClassInfo(){
         if let url = URL(string: classInfo.classImageUrl) {
             classImageView.kf.setImage(with: url)
@@ -83,11 +90,17 @@ class ClassEnrollmentViewController : UIViewController{
         print("등록 가격:\(classInfo.priceOnlyNum)")
         print("등록 클래스 : \(classInfo.classIdx)")
         
-        dataManager.enrollClass(parameters: classEnrollRequest(enrollCost: classInfo.priceOnlyNum) , userIdx: KeyCenter.userIndex, classIdx: classInfo.classIdx, delegate: self)
+//        // 신청성공 뷰로 전환
+//        let completeVC = self.storyboard?.instantiateViewController(withIdentifier: "CompleteEnrollmentViewController") as! CompleteEnrollmentViewController
+//        completeVC.classImage = self.classImageView.image
+//        completeVC.modalPresentationStyle = .fullScreen
+//        self.present(completeVC, animated: false, completion: nil)
+        
+       dataManager.enrollClass(parameters: classEnrollRequest(enrollCost: classInfo.priceOnlyNum) , userIdx: KeyCenter.userIndex, classIdx: classInfo.classIdx, delegate: self)
     }
     
     @IBAction func closeButtonAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true)
     }
     
     

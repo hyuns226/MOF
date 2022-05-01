@@ -43,7 +43,8 @@ class HomeViewController : UIViewController{
         //change status bar color to light
         UIApplication.shared.statusBarStyle = .darkContent
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        
+        navigationController?.navigationBar.isHidden = false
+     
         //하단 탭바 라인 투명하게
         self.tabBarController?.tabBar.clipsToBounds = true
        
@@ -57,13 +58,19 @@ class HomeViewController : UIViewController{
          let image = #imageLiteral(resourceName: "MOF spray 1")
          imageView.image = image
          logoContainer.addSubview(imageView)
-         navigationItem.titleView = logoContainer
+        self.navigationItem.titleView = logoContainer
         }
         
     override func viewDidLoad() {
         super.viewDidLoad()
         print("homeviewdidload")
+       
         setButtonList()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
         
     }
     

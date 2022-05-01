@@ -55,7 +55,7 @@ extension RockingViewController : UITableViewDataSource, UITableViewDelegate{
         }
         
         cell.AcademyName.text = rockingResultList[indexPath.section].academyName
-        cell.addressLabel.text = rockingResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = rockingResultList[indexPath.section].academyDetailAddress + " " + (rockingResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = rockingResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
@@ -63,7 +63,7 @@ extension RockingViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: rockingResultList[indexPath.section].academyIdx, academyImage: rockingResultList[indexPath.section].academyBackImgUrl, academyName: rockingResultList[indexPath.section].academyName, academyPhoneNum: rockingResultList[indexPath.section].academyPhone, academyAddress: rockingResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: rockingResultList[indexPath.section].academyIdx, academyImage: rockingResultList[indexPath.section].academyBackImgUrl, academyName: rockingResultList[indexPath.section].academyName, academyPhoneNum: rockingResultList[indexPath.section].academyPhone, academyAddress: rockingResultList[indexPath.section].academyDetailAddress + " " + (rockingResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -107,6 +107,11 @@ extension RockingViewController : specificAcademyProtocol{
         }
     }
     
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
+    
+    }
     
 }
 

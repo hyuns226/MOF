@@ -17,27 +17,33 @@ class AcademyViewController : UIViewController {
     var academyLikeList : [allAcademyLikesResults] = []
     var filterdAcademyLikeList : [specificAcademyLikesResults] = []
     
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var emptyViewLabel: UILabel!
     @IBOutlet weak var AcademyCollectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         print("academywill")
-        
+        print(KeyCenter.userType)
         if KeyCenter.userType == "general"{
+            
             if LikeViewController.isFitered == true{
                 dataManager.specificAcademyLikes(userIdx: KeyCenter.userIndex, address: LikeViewController.filterText, delegate: self)
             }else{
+                
                 dataManager.allAcademyLikes(userIdx: KeyCenter.userIndex, delegate: self)
             }
-        }else{
-            //검색 결과 없음 이미지
         }
+       
         
         
     }
     override func viewDidLoad() {
         print("academydid")
         super.viewDidLoad()
+        emptyViewLabel.text = "로그인후 좋아요 목록을 확인해보세요!"
+        emptyView.isHidden = true
+        
         self.AcademyCollectionView.dataSource = self
         self.AcademyCollectionView.delegate = self
     }
@@ -48,9 +54,33 @@ class AcademyViewController : UIViewController {
 extension AcademyViewController : UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if LikeViewController.isFitered == true{
-            return filterdAcademyLikeList.count
+            if filterdAcademyLikeList.count == 0{
+                emptyViewLabel.text = "좋아요한 학원이 없습니다"
+                emptyView.isHidden = false
+                
+                return 0
+            }else{
+                emptyView.isHidden = true
+                emptyViewLabel.text = "로그인후 좋아요 목록을 확인해보세요!"
+                return filterdAcademyLikeList.count
+            }
+            
         }else{
-            return academyLikeList.count
+            if academyLikeList.count == 0 && KeyCenter.userType != ""{
+                emptyViewLabel.text = "좋아요한 학원이 없습니다"
+                emptyView.isHidden = false
+                print("5번여기")
+                return 0
+            }else if KeyCenter.userType == ""{
+                emptyView.isHidden = false
+                emptyViewLabel.text = "로그인후 좋아요 목록을 확인해보세요!"
+                return 0
+                
+            }else{
+                emptyView.isHidden = true
+                emptyViewLabel.text = "로그인후 좋아요 목록을 확인해보세요!"
+                return academyLikeList.count
+            }
         }
         
     }
@@ -92,14 +122,18 @@ extension AcademyViewController : UICollectionViewDelegate,UICollectionViewDataS
         return cell
     }
     
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController") as! AcademyDetaliViewController
+        let homeStoryBoard = UIStoryboard(name: "HomeStoryboard", bundle: nil)
+        let detailVC = homeStoryBoard.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
         
         if LikeViewController.isFitered == true{
-            
-            return
+            detailVC.AcademyInfo = detailAcademyInfo(academyIdx: filterdAcademyLikeList[indexPath.row].academyIdx, academyImage: filterdAcademyLikeList[indexPath.row].academyBackImgUrl, academyName: filterdAcademyLikeList[indexPath.row].academyName, academyPhoneNum: filterdAcademyLikeList[indexPath.row].academyPhone, academyAddress: filterdAcademyLikeList[indexPath.row].academyDetailAddress + " " + (filterdAcademyLikeList[indexPath.row].academyBuilding ?? ""))
         }else{
             
+            detailVC.AcademyInfo = detailAcademyInfo(academyIdx: academyLikeList[indexPath.row].academyLikeAcademyIdx, academyImage: academyLikeList[indexPath.row].academyBackImgUrl, academyName: academyLikeList[indexPath.row].academyName, academyPhoneNum: academyLikeList[indexPath.row].academyPhone, academyAddress: academyLikeList[indexPath.row].academyDetailAddress + " " + (academyLikeList[indexPath.row].academyBuilding ?? ""))
         }
         
         
@@ -136,6 +170,9 @@ extension AcademyViewController : UICollectionViewDelegateFlowLayout{
         
         return size
     }
+    
+    
+    
     
 }
 

@@ -58,7 +58,9 @@ class LikeDataManager : UIViewController{
     
     //특정위치 수업 좋아요 조회
     func specificClassLikes(userIdx : Int , address: String, delegate: ClassViewController) {
+        
         let url = "\(Constant.BASE_URL)likes/users/classes/locations/\(userIdx)?address=\(address)"
+        print(url)
         let encodedString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let urlResult = URL(string: encodedString)!
         AF.request(urlResult, method: .get, parameters: nil, encoding: JSONEncoding.default,headers: KeyCenter.header)

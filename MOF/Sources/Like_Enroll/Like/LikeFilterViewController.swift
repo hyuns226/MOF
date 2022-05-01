@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 class LikeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
     
-    weak var delegate: likeFilterDelegate?
     
     var clickList : [Int] = []
     @IBOutlet weak var regionTableView: UITableView!
@@ -62,9 +61,7 @@ class LikeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        resetButton.isEnabled = false
-        selectButton.isEnabled = false
-        
+        resetButton.setTitleColor(.mainPink, for: .normal)
         regionTableView.dataSource = self
      
         
@@ -87,12 +84,8 @@ class LikeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
     @IBAction func resetButtonAction(_ sender: Any) {
         reset()
         //reload
-        resetButton.tintColor = #colorLiteral(red: 0.6509803922, green: 0.6901960784, blue: 0.7294117647, alpha: 1)
-        resetButton.isEnabled = false
-        selectButton.backgroundColor = #colorLiteral(red: 0.6509803922, green: 0.6901960784, blue: 0.7294117647, alpha: 1)
-        selectButton.isEnabled = false
+        nowText = ""
         regionTableView.reloadData()
-        //UploadAirbnbSecondStepViewController.airbnbInput.locationId = 0
     }
     
     func setRegionList(nowTag : Int, sender : UIButton){
@@ -205,11 +198,16 @@ class LikeFilterViewController : UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func selectButtonAction(_ sender: Any) {
         
-        self.delegate?.sendregion(region: nowText)
-        //self.navigationController?.popViewController(animated : true)
-        self.dismiss(animated: true, completion: nil)
-
         print(nowText)
+        if nowText == ""{
+            LikeViewController.isFitered = false
+            LikeViewController.filterText = ""
+        }else{
+            LikeViewController.isFitered = true
+            LikeViewController.filterText = nowText
+        }
+        
+        self.dismiss(animated: true, completion: nil)
         
         
         
@@ -368,13 +366,7 @@ extension LikeFilterViewController : UITableViewDataSource,GeneralRegionCellDele
                 
                 }
                 
-                //print(UploadAirbnbSecondStepViewController.airbnbInput.locationId)
-                
-                selectButton.isEnabled = true
-                selectButton.backgroundColor = #colorLiteral(red: 0.9671199918, green: 0.2031135857, blue: 0.7404999137, alpha: 1)
-                
-                resetButton.isEnabled = true
-                resetButton.tintColor = #colorLiteral(red: 0.9671199918, green: 0.2031135857, blue: 0.7404999137, alpha: 1)
+               
                 
                 print (seoulClickedList)
                 print(busanClickedList)

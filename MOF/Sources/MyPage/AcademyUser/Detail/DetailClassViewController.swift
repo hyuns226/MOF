@@ -42,9 +42,9 @@ class DetailClassViewController : UIViewController{
         
         classInfoForEnrollVC.classIdx = self.classIdx
         
-        if classType == "regular"{
+        if classType == "Regular"{
             dataManager.getDetailRegularClasses(classIdx: classIdx, delegate: self)
-        }else if classType == "oneday"{
+        }else if classType == "OneDay"{
             dataManager.getDetailOnedayClasses(classIdx: classIdx, delegate: self)
         }
         

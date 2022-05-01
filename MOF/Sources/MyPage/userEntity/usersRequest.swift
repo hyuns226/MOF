@@ -14,6 +14,5 @@ struct usersRequest : Encodable {
     var userPhone : String
     var userAge : String
     var userGender : String
-    var userAddress : String
 
 }

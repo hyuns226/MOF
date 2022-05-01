@@ -59,10 +59,8 @@ class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate, 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        resetButton.isEnabled = false
-        selectButton.isEnabled = false
-        
+      
+        resetButton.setTitleColor(.mainPink, for: .normal)
         regionTableView.dataSource = self
      
         
@@ -85,12 +83,9 @@ class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate, 
     @IBAction func resetButtonAction(_ sender: Any) {
         reset()
         //reload
-        resetButton.tintColor = #colorLiteral(red: 0.6509803922, green: 0.6901960784, blue: 0.7294117647, alpha: 1)
-        resetButton.isEnabled = false
-        selectButton.backgroundColor = #colorLiteral(red: 0.6509803922, green: 0.6901960784, blue: 0.7294117647, alpha: 1)
-        selectButton.isEnabled = false
+        nowText = ""
         regionTableView.reloadData()
-        //UploadAirbnbSecondStepViewController.airbnbInput.locationId = 0
+       
     }
     
     func setRegionList(nowTag : Int, sender : UIButton){
@@ -206,6 +201,7 @@ class HomeFilterViewController : UIViewController, UIGestureRecognizerDelegate, 
         print(nowText)
         if nowText == ""{
             HomeViewController.isFiltered = false
+            HomeViewController.filterRegion = ""
         }else{
             HomeViewController.isFiltered = true
             HomeViewController.filterRegion = nowText
@@ -368,12 +364,6 @@ extension HomeFilterViewController : UITableViewDataSource,GeneralRegionCellDele
                 
                 }
             
-                
-                selectButton.isEnabled = true
-                selectButton.backgroundColor = #colorLiteral(red: 0.9671199918, green: 0.2031135857, blue: 0.7404999137, alpha: 1)
-                
-                resetButton.isEnabled = true
-                resetButton.tintColor = #colorLiteral(red: 0.9671199918, green: 0.2031135857, blue: 0.7404999137, alpha: 1)
                 
                 print (seoulClickedList)
                 print(busanClickedList)

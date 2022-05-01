@@ -53,7 +53,7 @@ extension VoguingViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
         cell.AcademyName.text = voguingResultList[indexPath.section].academyName
-        cell.addressLabel.text = voguingResultList[indexPath.section].academyDetailAddress
+        cell.addressLabel.text = voguingResultList[indexPath.section].academyDetailAddress + " " + (voguingResultList[indexPath.section].academyBuilding ?? "")
         cell.PhoneNumLabel.text = voguingResultList[indexPath.section].academyPhone.hyphen()
         
         return cell
@@ -61,7 +61,7 @@ extension VoguingViewController : UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "AcademyDetaliViewController")as!AcademyDetaliViewController
-        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: voguingResultList[indexPath.section].academyIdx, academyImage: voguingResultList[indexPath.section].academyBackImgUrl, academyName: voguingResultList[indexPath.section].academyName, academyPhoneNum: voguingResultList[indexPath.section].academyPhone, academyAddress: voguingResultList[indexPath.section].academyDetailAddress)
+        detailVC.AcademyInfo = detailAcademyInfo(academyIdx: voguingResultList[indexPath.section].academyIdx, academyImage: voguingResultList[indexPath.section].academyBackImgUrl, academyName: voguingResultList[indexPath.section].academyName, academyPhoneNum: voguingResultList[indexPath.section].academyPhone, academyAddress: voguingResultList[indexPath.section].academyDetailAddress + " " + (voguingResultList[indexPath.section].academyBuilding ?? ""))
         
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
@@ -107,7 +107,11 @@ extension VoguingViewController : specificAcademyProtocol{
             presentAlert(title: result.message)
         }
     }
+    func failedToRequest(){
+        
+        self.presentAlert(title: "서버와의 연결이 원활하지 않습니다")
     
+    }
     
 }
 

@@ -75,6 +75,17 @@
 		A76EEE69274399F100CA653B /* OtherAcademyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE68274399F100CA653B /* OtherAcademyCollectionViewCell.swift */; };
 		A76EEE6C27439A3500CA653B /* RegularClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE6B27439A3500CA653B /* RegularClassTableViewCell.swift */; };
 		A76EEE7027439A4A00CA653B /* OnedayClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76EEE6F27439A4A00CA653B /* OnedayClassTableViewCell.swift */; };
+		A788A06128065090006D7839 /* AllSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A06028065090006D7839 /* AllSearchViewController.swift */; };
+		A788A0632806509E006D7839 /* KpopSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A0622806509E006D7839 /* KpopSearchViewController.swift */; };
+		A788A065280650B0006D7839 /* CoreoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A064280650B0006D7839 /* CoreoSearchViewController.swift */; };
+		A788A067280650BD006D7839 /* HiphopSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A066280650BD006D7839 /* HiphopSearchViewController.swift */; };
+		A788A069280650CC006D7839 /* GirlsHiphopSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A068280650CC006D7839 /* GirlsHiphopSearchViewController.swift */; };
+		A788A06B280650D7006D7839 /* WaakingSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A06A280650D7006D7839 /* WaakingSearchViewController.swift */; };
+		A788A06D280650E6006D7839 /* PopinSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A06C280650E6006D7839 /* PopinSearchViewController.swift */; };
+		A788A06F280650F0006D7839 /* RockingSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A06E280650F0006D7839 /* RockingSearchViewController.swift */; };
+		A788A071280650FA006D7839 /* CrumpSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A070280650FA006D7839 /* CrumpSearchViewController.swift */; };
+		A788A07328065132006D7839 /* VoguingSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A07228065132006D7839 /* VoguingSearchViewController.swift */; };
+		A788A07528065142006D7839 /* HouseSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A788A07428065142006D7839 /* HouseSearchViewController.swift */; };
 		A794449B2743C2490003C72E /* ClassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794449A2743C2490003C72E /* ClassDetailViewController.swift */; };
 		A794449E2743C3360003C72E /* ClassTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A794449D2743C3360003C72E /* ClassTimeCollectionViewCell.swift */; };
 		A79444A1274CC66E0003C72E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79444A0274CC66D0003C72E /* ChatViewController.swift */; };
@@ -159,20 +170,8 @@
 		A7F5F7802727B80900D17FA2 /* GirsHiphopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F77F2727B80900D17FA2 /* GirsHiphopViewController.swift */; };
 		A7F5F7832727B81900D17FA2 /* WaakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7822727B81900D17FA2 /* WaakingViewController.swift */; };
 		A7F5F79C2727F71200D17FA2 /* KpopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F79B2727F71200D17FA2 /* KpopTableViewCell.swift */; };
-		A7F5F7B627290D6B00D17FA2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7B527290D6B00D17FA2 /* SearchViewController.swift */; };
-		A7F5F7B927291DB500D17FA2 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7B827291DB500D17FA2 /* RecommendCollectionViewCell.swift */; };
 		A7F5F7BD272925D500D17FA2 /* DetailSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7BC272925D500D17FA2 /* DetailSearchViewController.swift */; };
-		A7F5F7C02729262A00D17FA2 /* AllSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7BF2729262A00D17FA2 /* AllSearchViewController.swift */; };
-		A7F5F7C32729263D00D17FA2 /* ShoesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7C22729263D00D17FA2 /* ShoesSearchViewController.swift */; };
-		A7F5F7C62729264F00D17FA2 /* ClothesSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7C52729264F00D17FA2 /* ClothesSearchViewController.swift */; };
-		A7F5F7C92729266200D17FA2 /* LeatherSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7C82729266200D17FA2 /* LeatherSearchViewController.swift */; };
-		A7F5F7CC2729267500D17FA2 /* UpcyclingSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7CB2729267500D17FA2 /* UpcyclingSearchViewController.swift */; };
 		A7F5F7CF2729271C00D17FA2 /* DetailSearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7CE2729271C00D17FA2 /* DetailSearchPageViewController.swift */; };
-		A7F5F7D8272929D500D17FA2 /* AllSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7D7272929D500D17FA2 /* AllSearchCollectionViewCell.swift */; };
-		A7F5F7DC272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7DB272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift */; };
-		A7F5F7DF272929F300D17FA2 /* ClothesSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7DE272929F300D17FA2 /* ClothesSearchCollectionViewCell.swift */; };
-		A7F5F7E227292A0100D17FA2 /* LeatherSearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7E127292A0100D17FA2 /* LeatherSearchCollectionViewCell.swift */; };
-		A7F5F7E527292A1200D17FA2 /* UpcyclingsearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5F7E427292A1200D17FA2 /* UpcyclingsearchCollectionViewCell.swift */; };
 		BD439401252E13EF0055F2E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD439400252E13EF0055F2E6 /* AppDelegate.swift */; };
 		BD439403252E13EF0055F2E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD439402252E13EF0055F2E6 /* SceneDelegate.swift */; };
 		BD43940A252E13F30055F2E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD439409252E13F30055F2E6 /* Assets.xcassets */; };
@@ -266,6 +265,17 @@
 		A76EEE68274399F100CA653B /* OtherAcademyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherAcademyCollectionViewCell.swift; sourceTree = "<group>"; };
 		A76EEE6B27439A3500CA653B /* RegularClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularClassTableViewCell.swift; sourceTree = "<group>"; };
 		A76EEE6F27439A4A00CA653B /* OnedayClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnedayClassTableViewCell.swift; sourceTree = "<group>"; };
+		A788A06028065090006D7839 /* AllSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSearchViewController.swift; sourceTree = "<group>"; };
+		A788A0622806509E006D7839 /* KpopSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KpopSearchViewController.swift; sourceTree = "<group>"; };
+		A788A064280650B0006D7839 /* CoreoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreoSearchViewController.swift; sourceTree = "<group>"; };
+		A788A066280650BD006D7839 /* HiphopSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiphopSearchViewController.swift; sourceTree = "<group>"; };
+		A788A068280650CC006D7839 /* GirlsHiphopSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirlsHiphopSearchViewController.swift; sourceTree = "<group>"; };
+		A788A06A280650D7006D7839 /* WaakingSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaakingSearchViewController.swift; sourceTree = "<group>"; };
+		A788A06C280650E6006D7839 /* PopinSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopinSearchViewController.swift; sourceTree = "<group>"; };
+		A788A06E280650F0006D7839 /* RockingSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockingSearchViewController.swift; sourceTree = "<group>"; };
+		A788A070280650FA006D7839 /* CrumpSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrumpSearchViewController.swift; sourceTree = "<group>"; };
+		A788A07228065132006D7839 /* VoguingSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoguingSearchViewController.swift; sourceTree = "<group>"; };
+		A788A07428065142006D7839 /* HouseSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseSearchViewController.swift; sourceTree = "<group>"; };
 		A794449A2743C2490003C72E /* ClassDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewController.swift; sourceTree = "<group>"; };
 		A794449D2743C3360003C72E /* ClassTimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTimeCollectionViewCell.swift; sourceTree = "<group>"; };
 		A79444A0274CC66D0003C72E /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -350,20 +360,8 @@
 		A7F5F77F2727B80900D17FA2 /* GirsHiphopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirsHiphopViewController.swift; sourceTree = "<group>"; };
 		A7F5F7822727B81900D17FA2 /* WaakingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaakingViewController.swift; sourceTree = "<group>"; };
 		A7F5F79B2727F71200D17FA2 /* KpopTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KpopTableViewCell.swift; sourceTree = "<group>"; };
-		A7F5F7B527290D6B00D17FA2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		A7F5F7B827291DB500D17FA2 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		A7F5F7BC272925D500D17FA2 /* DetailSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchViewController.swift; sourceTree = "<group>"; };
-		A7F5F7BF2729262A00D17FA2 /* AllSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSearchViewController.swift; sourceTree = "<group>"; };
-		A7F5F7C22729263D00D17FA2 /* ShoesSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesSearchViewController.swift; sourceTree = "<group>"; };
-		A7F5F7C52729264F00D17FA2 /* ClothesSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesSearchViewController.swift; sourceTree = "<group>"; };
-		A7F5F7C82729266200D17FA2 /* LeatherSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeatherSearchViewController.swift; sourceTree = "<group>"; };
-		A7F5F7CB2729267500D17FA2 /* UpcyclingSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcyclingSearchViewController.swift; sourceTree = "<group>"; };
 		A7F5F7CE2729271C00D17FA2 /* DetailSearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSearchPageViewController.swift; sourceTree = "<group>"; };
-		A7F5F7D7272929D500D17FA2 /* AllSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSearchCollectionViewCell.swift; sourceTree = "<group>"; };
-		A7F5F7DB272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesSearchCollectionViewCell.swift; sourceTree = "<group>"; };
-		A7F5F7DE272929F300D17FA2 /* ClothesSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesSearchCollectionViewCell.swift; sourceTree = "<group>"; };
-		A7F5F7E127292A0100D17FA2 /* LeatherSearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeatherSearchCollectionViewCell.swift; sourceTree = "<group>"; };
-		A7F5F7E427292A1200D17FA2 /* UpcyclingsearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcyclingsearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		BD4393FD252E13EF0055F2E6 /* MOF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MOF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD439400252E13EF0055F2E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD439402252E13EF0055F2E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -562,6 +560,94 @@
 				A76DCFA427C61C4400FB7A6D /* Enroll */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		A788A0542806501A006D7839 /* House */ = {
+			isa = PBXGroup;
+			children = (
+				A788A07428065142006D7839 /* HouseSearchViewController.swift */,
+			);
+			path = House;
+			sourceTree = "<group>";
+		};
+		A788A0552806501C006D7839 /* Voguing */ = {
+			isa = PBXGroup;
+			children = (
+				A788A07228065132006D7839 /* VoguingSearchViewController.swift */,
+			);
+			path = Voguing;
+			sourceTree = "<group>";
+		};
+		A788A05628065021006D7839 /* Crump */ = {
+			isa = PBXGroup;
+			children = (
+				A788A070280650FA006D7839 /* CrumpSearchViewController.swift */,
+			);
+			path = Crump;
+			sourceTree = "<group>";
+		};
+		A788A05728065023006D7839 /* Rocking */ = {
+			isa = PBXGroup;
+			children = (
+				A788A06E280650F0006D7839 /* RockingSearchViewController.swift */,
+			);
+			path = Rocking;
+			sourceTree = "<group>";
+		};
+		A788A05828065025006D7839 /* Popin */ = {
+			isa = PBXGroup;
+			children = (
+				A788A06C280650E6006D7839 /* PopinSearchViewController.swift */,
+			);
+			path = Popin;
+			sourceTree = "<group>";
+		};
+		A788A05928065027006D7839 /* Waaking */ = {
+			isa = PBXGroup;
+			children = (
+				A788A06A280650D7006D7839 /* WaakingSearchViewController.swift */,
+			);
+			path = Waaking;
+			sourceTree = "<group>";
+		};
+		A788A05A28065029006D7839 /* GirlsHiphop */ = {
+			isa = PBXGroup;
+			children = (
+				A788A068280650CC006D7839 /* GirlsHiphopSearchViewController.swift */,
+			);
+			path = GirlsHiphop;
+			sourceTree = "<group>";
+		};
+		A788A05B2806502C006D7839 /* Hiphop */ = {
+			isa = PBXGroup;
+			children = (
+				A788A066280650BD006D7839 /* HiphopSearchViewController.swift */,
+			);
+			path = Hiphop;
+			sourceTree = "<group>";
+		};
+		A788A05C2806502E006D7839 /* Coreo */ = {
+			isa = PBXGroup;
+			children = (
+				A788A064280650B0006D7839 /* CoreoSearchViewController.swift */,
+			);
+			path = Coreo;
+			sourceTree = "<group>";
+		};
+		A788A05D28065030006D7839 /* KPOP */ = {
+			isa = PBXGroup;
+			children = (
+				A788A0622806509E006D7839 /* KpopSearchViewController.swift */,
+			);
+			path = KPOP;
+			sourceTree = "<group>";
+		};
+		A788A05E28065033006D7839 /* All */ = {
+			isa = PBXGroup;
+			children = (
+				A788A06028065090006D7839 /* AllSearchViewController.swift */,
+			);
+			path = All;
 			sourceTree = "<group>";
 		};
 		A79444982743C2010003C72E /* AcademyDetail */ = {
@@ -800,8 +886,6 @@
 		A7F5F7B327290D5700D17FA2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				A7F5F7B527290D6B00D17FA2 /* SearchViewController.swift */,
-				A7F5F7B827291DB500D17FA2 /* RecommendCollectionViewCell.swift */,
 				A7F5F7BB272925B700D17FA2 /* DetailSearch */,
 			);
 			path = Search;
@@ -814,58 +898,19 @@
 				A7F5F7CE2729271C00D17FA2 /* DetailSearchPageViewController.swift */,
 				A76EEE57273D0B8500CA653B /* SelectRegionViewController.swift */,
 				A76EEE5A273D0BAC00CA653B /* RegionTableViewCell.swift */,
-				A7F5F7D22729295900D17FA2 /* All */,
-				A7F5F7D32729296800D17FA2 /* Shoes */,
-				A7F5F7D42729297900D17FA2 /* Clothes */,
-				A7F5F7D52729297F00D17FA2 /* Leather */,
-				A7F5F7D62729298600D17FA2 /* Upcycling */,
+				A788A05E28065033006D7839 /* All */,
+				A788A05D28065030006D7839 /* KPOP */,
+				A788A05C2806502E006D7839 /* Coreo */,
+				A788A05B2806502C006D7839 /* Hiphop */,
+				A788A05A28065029006D7839 /* GirlsHiphop */,
+				A788A05928065027006D7839 /* Waaking */,
+				A788A05828065025006D7839 /* Popin */,
+				A788A05728065023006D7839 /* Rocking */,
+				A788A05628065021006D7839 /* Crump */,
+				A788A0552806501C006D7839 /* Voguing */,
+				A788A0542806501A006D7839 /* House */,
 			);
 			path = DetailSearch;
-			sourceTree = "<group>";
-		};
-		A7F5F7D22729295900D17FA2 /* All */ = {
-			isa = PBXGroup;
-			children = (
-				A7F5F7BF2729262A00D17FA2 /* AllSearchViewController.swift */,
-				A7F5F7D7272929D500D17FA2 /* AllSearchCollectionViewCell.swift */,
-			);
-			path = All;
-			sourceTree = "<group>";
-		};
-		A7F5F7D32729296800D17FA2 /* Shoes */ = {
-			isa = PBXGroup;
-			children = (
-				A7F5F7C22729263D00D17FA2 /* ShoesSearchViewController.swift */,
-				A7F5F7DB272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift */,
-			);
-			path = Shoes;
-			sourceTree = "<group>";
-		};
-		A7F5F7D42729297900D17FA2 /* Clothes */ = {
-			isa = PBXGroup;
-			children = (
-				A7F5F7C52729264F00D17FA2 /* ClothesSearchViewController.swift */,
-				A7F5F7DE272929F300D17FA2 /* ClothesSearchCollectionViewCell.swift */,
-			);
-			path = Clothes;
-			sourceTree = "<group>";
-		};
-		A7F5F7D52729297F00D17FA2 /* Leather */ = {
-			isa = PBXGroup;
-			children = (
-				A7F5F7C82729266200D17FA2 /* LeatherSearchViewController.swift */,
-				A7F5F7E127292A0100D17FA2 /* LeatherSearchCollectionViewCell.swift */,
-			);
-			path = Leather;
-			sourceTree = "<group>";
-		};
-		A7F5F7D62729298600D17FA2 /* Upcycling */ = {
-			isa = PBXGroup;
-			children = (
-				A7F5F7CB2729267500D17FA2 /* UpcyclingSearchViewController.swift */,
-				A7F5F7E427292A1200D17FA2 /* UpcyclingsearchCollectionViewCell.swift */,
-			);
-			path = Upcycling;
 			sourceTree = "<group>";
 		};
 		BD4393F4252E13EF0055F2E6 = {
@@ -1154,6 +1199,7 @@
 				A76DCF2027B530A500FB7A6D /* AllViewController.swift in Sources */,
 				BD439401252E13EF0055F2E6 /* AppDelegate.swift in Sources */,
 				A7D44D79277D39510020CB8F /* GeneralSelectRegionViewController.swift in Sources */,
+				A788A0632806509E006D7839 /* KpopSearchViewController.swift in Sources */,
 				A76EEE5B273D0BAC00CA653B /* RegionTableViewCell.swift in Sources */,
 				A7B8DEB127898A42006DDED9 /* usersResponse.swift in Sources */,
 				A7F5F7742727B7C800D17FA2 /* HomePageViewController.swift in Sources */,
@@ -1163,19 +1209,20 @@
 				A76DCEF127A2679300FB7A6D /* passwordRequest.swift in Sources */,
 				BD439422252E17A60055F2E6 /* String.swift in Sources */,
 				A76EEE69274399F100CA653B /* OtherAcademyCollectionViewCell.swift in Sources */,
+				A788A067280650BD006D7839 /* HiphopSearchViewController.swift in Sources */,
 				A76DCFB327C76A6600FB7A6D /* Protocols.swift in Sources */,
 				A7B8DE942786ECA7006DDED9 /* MainTabBarController.swift in Sources */,
 				A75A19F427CDB40200F22B32 /* ModifyClassViewController.swift in Sources */,
+				A788A06128065090006D7839 /* AllSearchViewController.swift in Sources */,
 				A76DCF7E27C242D900FB7A6D /* LikeDataManager.swift in Sources */,
 				A76DCF1227B3D3A900FB7A6D /* regularResponse.swift in Sources */,
 				A7B8DEA127870EAB006DDED9 /* AddTeacherPopUpViewController.swift in Sources */,
 				A7F5F7BD272925D500D17FA2 /* DetailSearchViewController.swift in Sources */,
 				A7F5F79C2727F71200D17FA2 /* KpopTableViewCell.swift in Sources */,
-				A7F5F7CC2729267500D17FA2 /* UpcyclingSearchViewController.swift in Sources */,
 				BD439403252E13EF0055F2E6 /* SceneDelegate.swift in Sources */,
+				A788A06F280650F0006D7839 /* RockingSearchViewController.swift in Sources */,
 				BD439437252E1FE40055F2E6 /* BaseViewController.swift in Sources */,
 				A7BD6BC227DC66A100A03E18 /* EnrollPageViewController.swift in Sources */,
-				A7F5F7B927291DB500D17FA2 /* RecommendCollectionViewCell.swift in Sources */,
 				A75A19E527C8C78100F22B32 /* datePickerForOnedayPopupViewController.swift in Sources */,
 				A7DA21E62796E4CE004EE1D1 /* AcademyWelcomViewController.swift in Sources */,
 				BD439431252E1F870055F2E6 /* IndicatorView.swift in Sources */,
@@ -1189,7 +1236,6 @@
 				A75A19F827CDD2C100F22B32 /* ModifyTeacherPopupViewController.swift in Sources */,
 				A7D44D712758E81D0020CB8F /* MyPageViewController.swift in Sources */,
 				A7D44D652758B5FF0020CB8F /* AcademyCollectionViewCell.swift in Sources */,
-				A7F5F7E227292A0100D17FA2 /* LeatherSearchCollectionViewCell.swift in Sources */,
 				A7B8DDC227857302006DDED9 /* CoreoTableViewCell.swift in Sources */,
 				A79444A7274D01710003C72E /* ChatRoomViewController.swift in Sources */,
 				A76DCF9F27C51CDB00FB7A6D /* classTime.swift in Sources */,
@@ -1207,6 +1253,7 @@
 				A7D44D6E2758E7CB0020CB8F /* MyOnedayViewController.swift in Sources */,
 				A76DCF7927C22DDD00FB7A6D /* getAcademyLikesResponse.swift in Sources */,
 				A7B8DDDD27858583006DDED9 /* HomeFilterViewController.swift in Sources */,
+				A788A071280650FA006D7839 /* CrumpSearchViewController.swift in Sources */,
 				A76DCF9827C37BEB00FB7A6D /* classDislikeResponse.swift in Sources */,
 				A76DCF7327B9F27C00FB7A6D /* dislikeResponse.swift in Sources */,
 				A7BD6C0327DDA13C00A03E18 /* detailEnrollsInfo.swift in Sources */,
@@ -1228,14 +1275,12 @@
 				A7B8DE9A2786F448006DDED9 /* AcademyMyPageViewController.swift in Sources */,
 				A7D44D6B2758E73F0020CB8F /* MyRegularClassViewontroller.swift in Sources */,
 				A7D44D572758A3550020CB8F /* LikePageViewController.swift in Sources */,
-				A7F5F7C92729266200D17FA2 /* LeatherSearchViewController.swift in Sources */,
 				A76EEE58273D0B8500CA653B /* SelectRegionViewController.swift in Sources */,
 				A79444A4274CDFFF0003C72E /* ChattingTableViewCell.swift in Sources */,
+				A788A06B280650D7006D7839 /* WaakingSearchViewController.swift in Sources */,
 				A76DCF8827C296BE00FB7A6D /* LikeFilterViewController.swift in Sources */,
 				A76DCF5327B9094000FB7A6D /* AcademyRegularClassViewController.swift in Sources */,
-				A7F5F7C32729263D00D17FA2 /* ShoesSearchViewController.swift in Sources */,
 				A7DA21E32796E4A6004EE1D1 /* AcademySignUpSelectGenreViewController.swift in Sources */,
-				A7F5F7C62729264F00D17FA2 /* ClothesSearchViewController.swift in Sources */,
 				A7BD6BC627DC66DC00A03E18 /* EnrollRegularClassViewController.swift in Sources */,
 				A76DCFA227C5FF9600FB7A6D /* detailOnedayClassResponse.swift in Sources */,
 				A75A19ED27CD39EA00F22B32 /* DetailClassViewController.swift in Sources */,
@@ -1264,8 +1309,8 @@
 				A7BD6BBD27DB643100A03E18 /* EnrollViewController.swift in Sources */,
 				A7BD6BE727DC6E3500A03E18 /* EnrollRegularClassTableViewCell.swift in Sources */,
 				A7B8DEB8278EB3ED006DDED9 /* GeneralRegionTableViewCell.swift in Sources */,
+				A788A07528065142006D7839 /* HouseSearchViewController.swift in Sources */,
 				A7B8DDB527855ACA006DDED9 /* CrumpViewController.swift in Sources */,
-				A7F5F7DC272929E400D17FA2 /* ShoesSearchCollectionViewCell.swift in Sources */,
 				A76DCF1527B4FBBC00FB7A6D /* AcademySettingViewController.swift in Sources */,
 				A7BD6B9B27D338C800A03E18 /* userEnrolledInfoResponse.swift in Sources */,
 				A76DCF6F27B9EBCA00FB7A6D /* likeResponse.swift in Sources */,
@@ -1274,22 +1319,21 @@
 				A75A1A0B27D227BF00F22B32 /* DetailEnrolledClassViewController.swift in Sources */,
 				A76DCF0527ABD8F000FB7A6D /* academySignUpResponse.swift in Sources */,
 				A7D44D752758ED3A0020CB8F /* MYRegularClassTableViewCell.swift in Sources */,
+				A788A07328065132006D7839 /* VoguingSearchViewController.swift in Sources */,
 				A7F5F77A2727B7E700D17FA2 /* CoreoViewController.swift in Sources */,
-				A7F5F7E527292A1200D17FA2 /* UpcyclingsearchCollectionViewCell.swift in Sources */,
 				A7BD6BF427DD893700A03E18 /* EnrollDataManager.swift in Sources */,
 				A7B8DEE627907F7C006DDED9 /* commonResponse.swift in Sources */,
 				A7DA21EF2796EFA7004EE1D1 /* AcademySignUpRequest.swift in Sources */,
-				A7F5F7B627290D6B00D17FA2 /* SearchViewController.swift in Sources */,
 				A76DCEE727A13CCA00FB7A6D /* addClassRequest.swift in Sources */,
 				A7B8DECE27900C96006DDED9 /* GeneralMyProfileViewController.swift in Sources */,
 				A79444A1274CC66E0003C72E /* ChatViewController.swift in Sources */,
 				A76DCF5D27B90EBA00FB7A6D /* AcademyRegularClassTableViewCell.swift in Sources */,
+				A788A06D280650E6006D7839 /* PopinSearchViewController.swift in Sources */,
 				A76DCF8F27C345BE00FB7A6D /* specificaClassLikesResponse.swift in Sources */,
 				A76DCF8127C2432500FB7A6D /* allAcademyLikesResponse.swift in Sources */,
+				A788A069280650CC006D7839 /* GirlsHiphopSearchViewController.swift in Sources */,
 				A7B8DDC5278579E0006DDED9 /* HiphopTableViewCell.swift in Sources */,
 				A7F5F77D2727B7F600D17FA2 /* HiphopViewController.swift in Sources */,
-				A7F5F7C02729262A00D17FA2 /* AllSearchViewController.swift in Sources */,
-				A7F5F7D8272929D500D17FA2 /* AllSearchCollectionViewCell.swift in Sources */,
 				A7B8DDB827855AD9006DDED9 /* VoguingViewController.swift in Sources */,
 				A794449E2743C3360003C72E /* ClassTimeCollectionViewCell.swift in Sources */,
 				A75A1A0427CE19A100F22B32 /* modifyClassResponse.swift in Sources */,
@@ -1314,9 +1358,9 @@
 				A7BD6BF127DC7BAE00A03E18 /* EnrollListTableViewCell.swift in Sources */,
 				BD43942B252E1D160055F2E6 /* UIViewController.swift in Sources */,
 				A76DCF0B27B3983D00FB7A6D /* academyProfileResponse.swift in Sources */,
+				A788A065280650B0006D7839 /* CoreoSearchViewController.swift in Sources */,
 				BD439425252E1BEE0055F2E6 /* Color.swift in Sources */,
 				A7BFB90427EB370D00F6691D /* kakaoPostCodeViewController.swift in Sources */,
-				A7F5F7DF272929F300D17FA2 /* ClothesSearchCollectionViewCell.swift in Sources */,
 				A7D44D682758E6AA0020CB8F /* MyPagePageViewController.swift in Sources */,
 				A7BFB90227EB01ED00F6691D /* userPasswordResponse.swift in Sources */,
 				A76EEE5F273D0BBD00CA653B /* regionData.swift in Sources */,
